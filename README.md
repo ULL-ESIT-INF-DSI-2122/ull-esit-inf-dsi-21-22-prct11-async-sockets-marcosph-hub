@@ -8,3 +8,4 @@ ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo_l created by GitHub Classroo
 > Marcos
 > Héctor
 > Andrea Calero Caro
+> pruebita hecha desde local
