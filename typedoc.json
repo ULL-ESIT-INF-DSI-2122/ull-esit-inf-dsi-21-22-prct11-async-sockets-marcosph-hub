@@ -1,0 +1,24 @@
+{
+    "entryPoints": [
+        "./src/ejercicio-1/fighter.ts",
+        "./src/ejercicio-1/pokemon.ts",
+        "./src/ejercicio-1/marvel.ts",
+        "./src/ejercicio-1/kimetsu.ts",
+        "./src/ejercicio-1/onepiece.ts",
+        "./src/ejercicio-1/combat.ts",
+        "./src/ejercicio-1/pokedex.ts",
+        "./src/ejercicio-1/pokedexprinter.ts",
+        "./src/ejercicio-2/streamable.ts",
+        "./src/ejercicio-2/basicstreamablecollection.ts",
+        "./src/ejercicio-2/series.ts",
+        "./src/ejercicio-2/peliculas.ts",
+        "./src/ejercicio-2/documentales.ts",
+        "./src/ejercicio-2/coleccionseries.ts",
+        "./src/ejercicio-2/coleccionpeliculas.ts",
+        "./src/ejercicio-2/colecciondocumentales.ts",
+        "./src/ejercicio-3/mensaje.ts",
+        "./src/ejercicio-3/clave.ts",
+        "./src/ejercicio-3/cifradocesar.ts"
+    ],
+    "out": "./docs"
+}
