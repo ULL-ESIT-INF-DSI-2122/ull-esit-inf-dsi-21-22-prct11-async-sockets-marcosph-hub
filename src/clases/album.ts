@@ -8,20 +8,28 @@ import { GenerosMusicales } from "./generosMusicales";
  * @class Album contiene las especificaciones de los
  * distintos álbumes
  * @param nombreAlbum del album
- * @param grupos array de Grupos 
- * @param artistas array de Artistas
+ * @param autores autor del album (artista o grupo)
  * @param genero array de GenerosMusicales
  * @param yearPublicacion año de publicación del album
  * @param canciones array de Cancion
  */
 export class Album {
-  	private nombreAlbum: string;
-	private grupos: Grupos[];
-	private artistas: Artistas[];
-	private genero: GenerosMusicales[]
+  private nombreAlbum: string;
+	private autores: Grupos | Artistas;
+	private genero: GenerosMusicales[];
 	private yearPublicacion: number;
 	private canciones: Cancion[];
-	constructor(){}
+	constructor(nombreAlbum: string, autores: Grupos | Artistas, genero: GenerosMusicales[],
+		yearPublicacion: number, canciones: Cancion[]){
+			this.nombreAlbum = nombreAlbum;
+			this.autores = autores;
+			this.genero = genero;
+			this.yearPublicacion = yearPublicacion;
+			this.canciones = canciones;
+			genero.forEach(element => {
+				element.setAlbumes(this);
+			});
+		}
 	/**
 	 * Getter del nombre del album
 	 * @returns nombre del album
@@ -29,29 +37,27 @@ export class Album {
 	getNombreAlbum(){
 		return this.nombreAlbum;
 	}
-
 	/**
-	 * Getter de los grupos del album
-	 * @returns nombre de los grupos
+	 * Getter de autor del album
+	 * @returns el nombre del grupo o el nombre del artista
 	 */
-	getGrupos(){
-		return this.grupos;
+	getAutores(){
+		if (this.autores instanceof Grupos){
+			return this.autores.getNombreGrupo();
+		} else {
+			return this.autores.getNombreArtista();
+		}
 	}
-
-	/**
-	 * Getter del nombre de los artistas del album
-	 * @returns nombre de los artistas
-	 */
-	getArtistas(){
-		return this.artistas;
-	}
-
 	/**
 	 * Getter de los géneros musicales del album
 	 * @returns géneros musicales del album
 	 */
 	getGenero(){
-		return this.genero;
+		let generos: string[] = [];
+		this.genero.forEach(element => {
+			generos.push(element.getNombreGenero());
+		});
+		return generos;
 	}
 
 	/**
@@ -79,27 +85,25 @@ export class Album {
 	}
 
 	/**
-	 * Setter de los grupos del album
-	 * @param grupo del album
+	 * Setter del autor del album
+	 * @param autor del album que puede ser un grupo o un artista
 	 */
-	setGrupos(grupo: Grupos){
-		this.grupos.push(grupo);
-	}
-
-	/**
-	 * Setter de los artistas del album
-	 * @param artista del album
-	 */
-	setArtistas(artista: Artistas){
-		this.artistas.push(artista);
+	setAutores(autor: Grupos | Artistas){
+		if (autor instanceof Grupos){
+			this.autores = autor;
+		} else {
+			this.autores = autor;
+		}
+		
 	}
 
 	/**
 	 * Setter de los géneros musicales del album
 	 * @param genero musicales del album
 	 */
-	setGenero(genero: GenerosMusicales){
-		this.genero.push(genero);
+	setGenero(genero: GenerosMusicales[]){
+		this.genero = [];
+    this.genero = genero;
 	}
 
 	/**
@@ -112,9 +116,11 @@ export class Album {
 
 	/**
 	 * Setter de las canciones del album
-	 * @param cancion del album
+	 * @param cancion del (album array de canciones)
 	 */
-	setCanciones(cancion: Cancion){
-		this.canciones.push(cancion);
+	setCanciones(cancion: Cancion[]){
+		cancion.forEach(element => {
+			this.canciones.push(element);
+		});
 	}
 }

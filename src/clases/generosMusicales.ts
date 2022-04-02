@@ -15,11 +15,19 @@ import { Album } from "./album";
  */
 export class GenerosMusicales {
 	private nombreGenero: string;
-	private grupos: Grupos[];
-	private artistas: Artistas[];
-	private albumes: Album[];
-	private canciones: Cancion[];
-	constructor(){}
+	private grupos: Grupos[] = [];
+	private artistas: Artistas[] = [];
+	private albumes: Album[] = [];
+	private canciones: Cancion[] = [];
+	constructor(nombreGenero: string){
+		this.nombreGenero = nombreGenero;
+	}
+	construirGenero(grupos: Grupos[], artistas: Artistas[], albumes: Album[], canciones: Cancion[]){
+		this.grupos = grupos;
+		this.artistas = artistas;
+		this.albumes = albumes;
+		this.canciones = canciones;
+	}
 
 	/**
 	 * Getter nombre del género musical

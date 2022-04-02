@@ -9,7 +9,7 @@ import { GenerosMusicales } from "./generosMusicales";
  * distintos artistas
  * @param nombreArtista nombre del artista
  * @param grupos array de Grupos 
- * @param genero array de GenerosMusicales
+ * @param generos array de GenerosMusicales
  * @param albumes array de Album
  * @param canciones array de Cancion
  * @param oyentes número de oyentes 
@@ -21,8 +21,19 @@ export class Artistas {
 	private albumes: Album[];
 	private canciones: Cancion[];
 	private oyentes: number;
-	constructor(){}
-
+	constructor(nombreArtista: string){
+		this.nombreArtista = nombreArtista;
+	}
+	construirArtista(grupos: Grupos[], generos: GenerosMusicales[], albumes: Album[], canciones: Cancion[], oyentes: number){
+		this.grupos = grupos;
+		this.generos = generos;
+		this.albumes = albumes;
+		this.canciones = canciones;
+		this.setOyentes(oyentes);
+		generos.forEach(element => {
+			element.setArtistas(this);
+		});
+	}
 	/**
 	 * Getter del nombre del artista
 	 * @returns nombre del artista
@@ -36,7 +47,11 @@ export class Artistas {
 	 * @returns grupos del artista
 	 */
 	getGrupos(){
-		return this.grupos;
+		let grupos_: string[] = [];
+        this.grupos.forEach(element => {
+            grupos_.push(element.getNombreGrupo());
+        });
+		return grupos_;
 	}
 
 	/**
@@ -44,7 +59,11 @@ export class Artistas {
 	 * @returns géneros musicales
 	 */
 	getGeneros(){
-		return this.generos;
+		let generos_: string[] = [];
+        this.generos.forEach(element => {
+            generos_.push(element.getNombreGenero());
+        });
+        return generos_;
 	}
 
 	/**
@@ -52,6 +71,10 @@ export class Artistas {
 	 * @returns albumes
 	 */
 	getAlbumes(){
+		let albumes_: string[] = [];
+    this.albumes.forEach(element => {
+      albumes_.push(element.getNombreAlbum());
+    });   
 		return this.albumes;
 	}
 
@@ -72,6 +95,14 @@ export class Artistas {
 	}
 
 	/**
+	 * Getter del numero de grupos al que pertenece el artista
+	 * @returns el tamaño del atributo grupo
+	 */
+	getGrupoSize(){
+		return this.grupos.length;
+	}
+
+	/**
 	 * Setter del nombre del artista
 	 * @param nombre del artista
 	 */
@@ -80,27 +111,32 @@ export class Artistas {
 	}
 
 	/**
-	 * Setter de los grupos del artista
+	 * Setter del nombre del grupo
 	 * @param grupo del artista
 	 */
-	setGrupos(grupo: Grupos){
-		this.grupos.push(grupo);
+	setGrupos(grupo: Grupos[]){
+		this.grupos = []
+		this.grupos = grupo;
 	}
 
+
 	/**
-	 * Setter de los géneros musicales del artista
-	 * @param genero musicales
+	 * Setter del genero del artista
+	 * @param genero del artista
 	 */
-	setGeneros(genero: GenerosMusicales){
-		this.generos.push(genero);
+	setGeneros(genero: GenerosMusicales[]){
+		this.generos = [];
+    this.generos = genero;
 	}
 
 	/**
 	 * Setter de las canciones del artista
 	 * @param cancion del artista
 	 */
-	setCanciones(cancion: Cancion){
-		this.canciones.push(cancion);
+	setCanciones(cancion: Cancion[]){
+		cancion.forEach(element => {
+			this.canciones.push(element);
+		});
 	}
 
 	/**
@@ -108,6 +144,10 @@ export class Artistas {
 	 * @param oyentes mensuales
 	 */
 	setOyentes(oyentes: number){
-		this.oyentes = oyentes;
+		let oyentesgrupales: number = 0;
+		for(let i: number = 0; i < this.getGrupoSize(); i++){
+			oyentesgrupales = oyentesgrupales + this.grupos[i].getOyentes();
+		}
+		this.oyentes = oyentes + oyentesgrupales;
 	}
 }

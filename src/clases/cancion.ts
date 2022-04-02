@@ -19,7 +19,11 @@ export class Cancion{
     private single: boolean;
     private numReproducciones: number;*/
     constructor(private nombre: string, private autor: string, private duracion: number, 
-    private genero: GenerosMusicales, private single: boolean, private numReproducciones: number){}
+    private genero: GenerosMusicales[], private single: boolean, private numReproducciones: number){
+        genero.forEach(element => {
+			element.setCanciones(this);
+		});
+    }
 
     /**
      * Getter del nombre de la canción
@@ -50,7 +54,11 @@ export class Cancion{
      * @returns géneros musicales
      */
     getGeneroMusical(){
-        return this.genero.getNombreGenero();
+        let generos: string[] = [];
+        this.genero.forEach(element => {
+            generos.push(element.getNombreGenero());
+        });
+        return generos;
     }
 
     /**
@@ -95,10 +103,11 @@ export class Cancion{
 
     /**
      * Setter de los géneros musicales
-     * @param genero musicales
+     * @param genero array de generos musicales
      */
-    setGeneroMusical(genero: string){
-        this.genero.setNombreGenero(genero);
+    setGeneroMusical(genero: GenerosMusicales[]){
+       this.genero = [];
+        this.genero = genero;
     }
 
     /**

@@ -14,13 +14,30 @@ import { GenerosMusicales } from "./generosMusicales";
  * @param oyentes número de oyentes 
  */
 export class Grupos {
-  	private nombreGrupo: string;
+  private nombreGrupo: string;
 	private artistas: Artistas[];
 	private yearGrupo: number;
 	private genero: GenerosMusicales[];
 	private albumes: Album[];
 	private oyentes: number;
-	constructor(){}
+	constructor(nombreGrupo: string){
+		this.nombreGrupo = nombreGrupo;
+	}
+
+	construirGrupo(artistas: Artistas[], yearGrupo: number, genero: GenerosMusicales[], albumes: Album[], oyentes: number){
+		this.artistas = artistas;
+		this.yearGrupo = yearGrupo;
+		this.genero = genero;
+		this.albumes = albumes;
+		this.oyentes = oyentes;
+		genero.forEach(element => {
+			element.setGrupos(this);
+		});
+		
+	}
+	dame(){
+		return this;
+	}
 
 	/**
 	 * Getter del nombre de los grupos
@@ -35,7 +52,11 @@ export class Grupos {
 	 * @returns artistas
 	 */
 	getArtistas(){
-		return this.artistas;
+		let artistas_: string[] = [];
+        this.artistas.forEach(element => {
+            artistas_.push(element.getNombreArtista());
+        });
+		return artistas_;
 	}
 
 	/**
@@ -51,7 +72,11 @@ export class Grupos {
 	 * @returns géneros
 	 */
 	getGenero(){
-		return this.genero;
+		let generos: string[] = [];
+        this.genero.forEach(element => {
+            generos.push(element.getNombreGenero());
+        });
+        return generos;
 	}
 
 	/**
@@ -82,8 +107,10 @@ export class Grupos {
 	 * Setter de los artistas
 	 * @param artista del grupo
 	 */
-	setArtistas(artista: Artistas){
-		this.artistas.push(artista);
+	
+	setArtistas(artistas: Artistas[]){
+		this.artistas = [];
+    this.artistas = artistas;
 	}
 
 	/**
@@ -98,8 +125,10 @@ export class Grupos {
 	 * Setter de los géneros del grupo
 	 * @param genero musicales
 	 */
-	setGenero(genero: GenerosMusicales){
-		this.genero.push(genero);
+	
+	setGenero(genero: GenerosMusicales[]){
+		this.genero = [];
+    this.genero = genero;
 	}
 
 	/**
