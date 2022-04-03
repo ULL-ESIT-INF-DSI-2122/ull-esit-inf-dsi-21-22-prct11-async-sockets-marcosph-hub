@@ -14,6 +14,6 @@ const artista1 = new Artistas('Michael Jackson');
 const album1 = new Album(`Thriller`, artista1, [Rock], 11982,[cancion1]);
 
   it ('Test',() => {
-    expect(album1.getGenero()).to.be.eql([ 'Rock' ])
+    expect(album1.getGenero()).to.be.eql([ 'Metal' ])
   });
 });
