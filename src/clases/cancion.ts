@@ -48,7 +48,9 @@ export class Cancion{
     getDuracionCancion(){
         return this.duracion;
     }
-
+    getGenero(){
+        return this.genero;
+    }
     /**
      * Getter de los géneros musicales
      * @returns géneros musicales

@@ -1,0 +1,67 @@
+import { Cancion } from "./cancion";
+import { GenerosMusicales } from "./generosMusicales";
+
+export class Playlist {
+	private nombrePlaylist: string;
+	private canciones: Cancion[];
+	private duracion: string;
+	private generos: GenerosMusicales[] = [];
+	constructor(nombrePlaylist: string, canciones: Cancion[]){
+		this.nombrePlaylist = nombrePlaylist;
+		this.canciones = canciones;
+		this.duracion = `100`;
+		let auxGeneroCanciones: GenerosMusicales[];
+		this.canciones.forEach(element => {
+			
+			auxGeneroCanciones = element.getGenero();
+			auxGeneroCanciones.forEach(elemento => {
+				let contador: number = 0;
+				for(let i = 0; i < this.generos.length; i++){
+					if (elemento === this.generos[i]){
+						contador++;
+					}
+				}
+				if (contador === 0){
+					this.generos.push(elemento);					
+					contador = 0;
+													contador = 0;
+				}	
+			});
+		});
+	}
+
+	getNombrePlaylist(){
+		return this.nombrePlaylist;
+	}
+	getCanciones(){
+		return this.canciones;
+	}
+	getDuracion(){
+		return this.duracion;
+	}
+	getGeneros(){
+		let nombreGenero: string[] = [];
+		this.generos.forEach(element => {
+			nombreGenero.push(element.getNombreGenero()); 
+		});
+		return nombreGenero; 
+	}
+
+	setNombrePlaylist(nombre: string){
+		this.nombrePlaylist = nombre;
+	}
+
+	setCanciones(canciones: Cancion[]){
+		this.canciones = [];
+		this.canciones = canciones;
+	}
+
+	setDuracion(duracion: string){
+		this.duracion = duracion;
+	}
+
+	setGeneros(generos: GenerosMusicales[]){
+		this.generos = generos;
+		
+	}
+}
