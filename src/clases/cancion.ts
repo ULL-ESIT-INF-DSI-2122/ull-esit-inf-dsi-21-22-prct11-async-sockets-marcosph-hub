@@ -18,7 +18,7 @@ export class Cancion{
     private genero: GenerosMusicales;
     private single: boolean;
     private numReproducciones: number;*/
-    constructor(private nombre: string, private autor: string, private duracion: number, 
+    constructor(private nombre: string, private autor: string, private duracion: string, 
     private genero: GenerosMusicales[], private single: boolean, private numReproducciones: number){
         genero.forEach(element => {
 			element.setCanciones(this);
@@ -48,7 +48,18 @@ export class Cancion{
     getDuracionCancion(){
         return this.duracion;
     }
-
+    /**
+     * Getter de la duración de la canción en segundos 
+     * @returns segundos de la duración en Number
+     */
+    getDuracionCancionSecs(){
+        let auxm: string = this.duracion.slice(0, this.duracion.search(':'));
+        let auxs: string = this.duracion.slice(this.duracion.search(":") + 1, this.duracion.length);
+        return (Number(auxs) + Number(auxm) * 60);
+    }
+    getGenero(){
+        return this.genero;
+    }
     /**
      * Getter de los géneros musicales
      * @returns géneros musicales
@@ -97,7 +108,7 @@ export class Cancion{
      * Setter de la duración de la canción
      * @param duracion de la canción
      */
-    setDuracionCancion(duracion: number){
+    setDuracionCancion(duracion: string){
         this.duracion = duracion;
     }
 
@@ -126,10 +137,3 @@ export class Cancion{
         this.numReproducciones = reproducciones;
     }
 }
-
-/**
- * let hour = Math.floor(duracion / 3600);
- * let min = Math.floor(duracion / 60);
- * let secs = duracion - min * 60;
- * duracion = duracion - hour * 3600;
- */
