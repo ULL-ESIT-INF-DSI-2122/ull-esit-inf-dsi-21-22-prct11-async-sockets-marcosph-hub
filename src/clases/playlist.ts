@@ -47,6 +47,7 @@ export class Playlist {
 		aux = aux - hour * 3600;
 		let result: string = `${hour}h ${min}min ${secs}secs`;
 		this.duracion = result;
+
 		return this.duracion;
 	}
 	getGeneros(){
