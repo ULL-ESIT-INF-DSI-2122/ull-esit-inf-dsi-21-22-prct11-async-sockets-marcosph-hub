@@ -35,9 +35,7 @@ export class Grupos {
 		});
 		
 	}
-	dame(){
-		return this;
-	}
+
 
 	/**
 	 * Getter del nombre de los grupos
@@ -135,8 +133,9 @@ export class Grupos {
 	 * Setter de los albumes del grupo
 	 * @param album del grupo
 	 */
-	setAlbumes(album: Album){
-		this.albumes.push(album);
+	setAlbumes(album: Album[]){
+		this.albumes = [];
+		this.albumes = album;
 	}
 
 	/**

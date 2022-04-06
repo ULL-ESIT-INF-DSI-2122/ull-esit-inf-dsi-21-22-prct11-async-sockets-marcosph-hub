@@ -24,6 +24,14 @@ export class Artistas {
 	constructor(nombreArtista: string){
 		this.nombreArtista = nombreArtista;
 	}
+	/**
+	 * Método para construir el artista despues de haber construido ya el objeto
+	 * @param grupos grupos del artista
+	 * @param generos generos del artista
+	 * @param albumes albumes del artista
+	 * @param canciones canciones del artista
+	 * @param oyentes oyentes del artista
+	 */
 	construirArtista(grupos: Grupos[], generos: GenerosMusicales[], albumes: Album[], canciones: Cancion[], oyentes: number){
 		this.grupos = grupos;
 		this.generos = generos;
@@ -75,7 +83,7 @@ export class Artistas {
     this.albumes.forEach(element => {
       albumes_.push(element.getNombreAlbum());
     });   
-		return this.albumes;
+		return albumes_;
 	}
 
 	/**
@@ -83,7 +91,11 @@ export class Artistas {
 	 * @returns canciones del artista
 	 */
 	getCanciones(){
-		return this.canciones;
+		let canciones_: string[] = [];
+    this.canciones.forEach(element => {
+      canciones_.push(element.getNombreCancion());
+    }); 
+		return canciones_;
 	}
 
 	/**
@@ -134,8 +146,23 @@ export class Artistas {
 	 * @param cancion del artista
 	 */
 	setCanciones(cancion: Cancion[]){
+	for(let i: number = 0; i <= this.canciones.length; i++){
+			this.canciones.pop();
+		}
 		cancion.forEach(element => {
 			this.canciones.push(element);
+		});
+	}
+	/**
+	 * Setter de los albumes del artista
+	 * @param album del artista
+	 */
+	 setAlbumes(album: Album[]){
+		this.albumes.forEach(element => {
+			this.albumes.pop();
+		});
+		album.forEach(element => {
+			this.albumes.push(element);
 		});
 	}
 
