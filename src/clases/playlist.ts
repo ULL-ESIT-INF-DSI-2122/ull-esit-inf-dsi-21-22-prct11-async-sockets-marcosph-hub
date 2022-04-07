@@ -114,7 +114,7 @@ export class Playlist {
 	 * @param generos Conjunto de generos a añadir.
 	 */
 	setGeneros(generos: GenerosMusicales[]){
+		this.generos = [];
 		this.generos = generos;
-		
 	}
 }

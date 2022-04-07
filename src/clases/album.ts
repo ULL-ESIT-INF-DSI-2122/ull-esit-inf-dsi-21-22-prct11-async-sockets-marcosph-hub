@@ -30,7 +30,7 @@ export class Album {
 				autores.autoSetAlbumes(this);
 			}
 			genero.forEach(element => {
-				element.setAlbumes(this);
+				element.autoSetAlbumes(this);
 			});
 		}
 	/**
@@ -122,8 +122,7 @@ export class Album {
 	 * @param cancion del (album array de canciones)
 	 */
 	setCanciones(cancion: Cancion[]){
-		cancion.forEach(element => {
-			this.canciones.push(element);
-		});
+		this.canciones = [];
+		this.canciones = cancion;
 	}
 }
