@@ -19,9 +19,20 @@ export class GenerosMusicales {
 	private artistas: Artistas[] = [];
 	private albumes: Album[] = [];
 	private canciones: Cancion[] = [];
+
 	constructor(nombreGenero: string){
 		this.nombreGenero = nombreGenero;
 	}
+
+	/**
+	 * 
+	 * @function construirGenero Método para inicializar las propiedades restantes de
+	 * la clase GenerosMusicales
+	 * @param grupos 
+	 * @param artistas 
+	 * @param albumes 
+	 * @param canciones 
+	 */
 	construirGenero(grupos: Grupos[], artistas: Artistas[], albumes: Album[], canciones: Cancion[]){
 		this.grupos = grupos;
 		this.artistas = artistas;
