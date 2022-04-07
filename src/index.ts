@@ -20,19 +20,19 @@ export const Soul = new GenerosMusicales(`Soul`); //7
 // 50 canciones, aprox. 5 de cada genero
 export const cancion1 = new Cancion('Pulling Teeth', 'Alan Ryker',  '4:23', [Metal], false, 2100000);
 export const cancion2 = new Cancion('Thriller', 'Michael Jackson',  '5:58', [Pop], false, 825000000);  
-export const cancion3 = new Cancion('Billie Jean', 'Michael Jackson',  '4:55', [Rock], false, 1154580120); 
-export const cancion4 = new Cancion(`Wanna Be Startin' Something`, 'Michael Jackson',  '6:06', [RyB, Soul], false, 10850000); 
-export const cancion5 = new Cancion('Baby Be Mine', 'Michael Jackson',  '4:37', [RyB, Soul], false, 4580000); 
-export const cancion6 = new Cancion('The Girl Is Mine', 'Michael Jackson',  '4:10', [RyB, Soul], false, 120000000);
-export const cancion7 = new Cancion('Beat It', 'Michael Jackson',  '4:00', [RyB, Soul], false, 1811000000);
-export const cancion8 = new Cancion('Human Nature', 'Michael Jackson',  '4:59', [RyB, Soul], false, 810959778);
-export const cancion9 = new Cancion('Pretty Young Thing', 'Michael Jackson',  '4:07', [RyB, Soul], false, 136723704);
-export const cancion10 = new Cancion('The Lady in My Life', 'Michael Jackson',  '5:02', [RyB, Soul], false, 15000000); 
-export const cancion11 = new Cancion('Malamente', 'Rosalía',  '2:49', [Flamenco, Pop], false, 156000000);
-export const cancion12 = new Cancion('Preso', 'Rosalía',  '2:48', [Pop], false, 165000000); 
-export const cancion13 = new Cancion('Di mi nombre', 'Rosalía',  '3:01', [Rap], false, 81000000); 
-export const cancion14 = new Cancion('Mother Love', 'Queen',  '4:50', [Rock], false, 3300000); 
-export const cancion15 = new Cancion('Its A Beautiful Day', 'Queen',  '3:19', [Rock, Metal], false, 3000000);
+const cancion3 = new Cancion('Billie Jean', 'Michael Jackson',  '4:55', [Rock], false, 1154580120); 
+const cancion4 = new Cancion(`Wanna Be Startin' Something`, 'Michael Jackson',  '6:06', [RyB, Soul], false, 10850000); 
+const cancion5 = new Cancion('Baby Be Mine', 'Michael Jackson',  '4:37', [RyB, Soul], false, 4580000); 
+const cancion6 = new Cancion('The Girl Is Mine', 'Michael Jackson',  '4:10', [RyB, Soul], false, 120000000);
+const cancion7 = new Cancion('Beat It', 'Michael Jackson',  '4:00', [RyB, Soul], false, 1811000000);
+const cancion8 = new Cancion('Human Nature', 'Michael Jackson',  '4:59', [RyB, Soul], false, 810959778);
+const cancion9 = new Cancion('Pretty Young Thing', 'Michael Jackson',  '4:07', [RyB, Soul], false, 136723704);
+const cancion10 = new Cancion('The Lady in My Life', 'Michael Jackson',  '5:02', [RyB, Soul], false, 15000000); 
+const cancion11 = new Cancion('Malamente', 'Rosalía',  '2:49', [Flamenco, Pop], false, 156000000);
+const cancion12 = new Cancion('Preso', 'Rosalía',  '2:48', [Pop], false, 165000000); 
+const cancion13 = new Cancion('Di mi nombre', 'Rosalía',  '3:01', [Rap], false, 81000000); 
+const cancion14 = new Cancion('Mother Love', 'Queen',  '4:50', [Rock], false, 3300000); 
+const cancion15 = new Cancion('Its A Beautiful Day', 'Queen',  '3:19', [Rock, Metal], false, 3000000);
 const cancion16 = new Cancion('I Was Born To Love You', 'Queen',  '4:56', [Rock, Metal], false, 64000000); 
 const cancion17 = new Cancion('Living on my own', 'Freddie Mercury',  '3:08', [Rock, Pop], false, 32000000); 
 const cancion18 = new Cancion('Ojalá', 'Beret',  '3:43', [Rap, Pop], false, 197000000); 
@@ -61,10 +61,10 @@ const cancion40 = new Cancion('T-Shirt', 'Migos', '4:53', [Hip_Hop], false, 3270
 const cancion41 = new Cancion('Get Right Witcha', 'Migos', '4:18', [Hip_Hop], false, 160000000); 
 
 // Singles
-export const cancion42 = new Cancion('Cóseme', 'Beret', '3:22', [Rap], true, 64000000); 
-export const cancion43 = new Cancion('Plan A', 'Paulo Londra', '3:06', [Rock], true, 63000000); 
-export const cancion44 = new Cancion('Face My Fears', 'Skrillex', '3:38', [Electronica], true, 19943008); 
-export const cancion45 = new Cancion('Tubular Bells', 'Mike Oldfield', '5:33', [Electronica], true, 116000); 
+const cancion42 = new Cancion('Cóseme', 'Beret', '3:22', [Rap], true, 64000000); 
+const cancion43 = new Cancion('Plan A', 'Paulo Londra', '3:06', [Rock], true, 63000000); 
+const cancion44 = new Cancion('Face My Fears', 'Skrillex', '3:38', [Electronica], true, 19943008); 
+const cancion45 = new Cancion('Tubular Bells', 'Mike Oldfield', '5:33', [Electronica], true, 116000); 
 const cancion46 = new Cancion('Outkast', 'BoB',  '4:25', [Hip_Hop], true, 20011803); 
 const cancion47 = new Cancion('Lose Yourself', 'Eminem',  '5:24', [Hip_Hop, Rap], true, 1200000000000); 
 const cancion48 = new Cancion('Solita', 'Ozuna', '5:50', [Electronica], false, 609000000); 
@@ -74,11 +74,11 @@ const cancion50 = new Cancion('Bad', 'Michael Jackson',  '4:20', [RyB, Hip_Hop],
 
 // Artistas construidos con el nombre solo
 export const artista1 = new Artistas('Michael Jackson');
-export const artista2 = new Artistas('Freddie Mercury');
-export const artista3 = new Artistas('Alan Ryker');
-export const artista4 = new Artistas('Rosalía');
-export const artista5 = new Artistas('Beret');
-export const artista6 = new Artistas('Peret');
+const artista2 = new Artistas('Freddie Mercury');
+const artista3 = new Artistas('Alan Ryker');
+const artista4 = new Artistas('Rosalía');
+const artista5 = new Artistas('Beret');
+const artista6 = new Artistas('Peret');
 const artista7 = new Artistas('Myke Towers');
 const artista8 = new Artistas('Paulo Londra');
 const artista9 = new Artistas('Skrillex');
@@ -89,14 +89,14 @@ const artista13 = new Artistas('Ozuna');
 const artista14 = new Artistas('Daddy Yankee');
 const artista15 = new Artistas('50Cent');
 // Metallica componentes
-export const artista16 = new Artistas('James Heltfield');
-export const artista17 = new Artistas('Cliff Burton');
-export const artista18 = new Artistas('Lars Ulrich');
-export const artista19 = new Artistas('Dave Mustaine');
-export const artista20 = new Artistas('Kirk Hammett');
-export const artista21 = new Artistas('Jason Newsted');
-export const artista22 = new Artistas('Robert Trujillo');
-export const artista23 = new Artistas('Ron McGovney');
+const artista16 = new Artistas('James Heltfield');
+const artista17 = new Artistas('Cliff Burton');
+const artista18 = new Artistas('Lars Ulrich');
+const artista19 = new Artistas('Dave Mustaine');
+const artista20 = new Artistas('Kirk Hammett');
+const artista21 = new Artistas('Jason Newsted');
+const artista22 = new Artistas('Robert Trujillo');
+const artista23 = new Artistas('Ron McGovney');
 // Queen componentes
 const artista24 = new Artistas('Brian May');
 const artista25 = new Artistas('John Deacon');
@@ -130,7 +130,7 @@ const grupo5 = new Grupos(`Cali y El Dandee`);
 const grupo6 = new Grupos(`Migos`);
 
 // Album puede construirse con todo 
-export const album1 = new Album(`Thriller`, artista1, [Rock, RyB, Soul, Pop], 11982,[cancion2, cancion3, cancion4, cancion5, cancion6, cancion7, cancion8, cancion9, cancion10]);
+export const album1 = new Album(`Thriller`, artista1, [Rock, RyB, Soul, Pop], 1982,[cancion2, cancion3, cancion4, cancion5, cancion6, cancion7, cancion8, cancion9, cancion10]);
 const album2 = new Album(`The Day Is My Enemy`, grupo4, [Electronica], 2015, [cancion27, cancion28, cancion29]);
 const album3 = new Album(`El Mal Querer`, artista4, [Flamenco, Pop, Rap], 2018, [cancion11, cancion12, cancion13]);
 const album4 = new Album(`Made in Heaven`, grupo2, [Rock, Metal], 1995, [cancion14, cancion15, cancion16]);
@@ -153,35 +153,63 @@ grupo6.construirGrupo([artista39, artista40, artista41], 2009, [Hip_Hop], [album
 //console.log(artista16.getGrupos());
 
 // rellenar artistas 
-//artista1.construirArtista( [cancion1, cancion2], 10); 
+artista1.construirArtista( [cancion2, cancion3, cancion4, cancion5, cancion6, cancion7, cancion8, cancion9, cancion10], 28125943); 
+artista2.construirArtista( [cancion14, cancion15, cancion16, cancion17], 2539164); 
+artista3.construirArtista( [cancion1], 13552); 
 artista4.construirArtista( [cancion11, cancion12, cancion13], 1000000);
-//artista2.construirArtista( [cancion17], 500000);
+artista5.construirArtista( [cancion18, cancion30, cancion31], 5439541);
+artista6.construirArtista( [cancion25, cancion26], 234051);
+artista7.construirArtista( [cancion37, cancion38], 27889188);
+artista8.construirArtista( [cancion43], 17259897);
+artista9.construirArtista( [cancion44], 20139441);
+artista10.construirArtista( [cancion45], 2068481);
+artista11.construirArtista( [cancion46], 11153307);
+artista12.construirArtista( [cancion47], 52950475);
+artista13.construirArtista( [cancion48], 35251309);
+artista14.construirArtista( [cancion49], 2068741);
+artista15.construirArtista( [cancion35, cancion36], 1585307);
+// Metallica artistas
+artista16.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista17.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista18.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista19.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista20.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista21.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista22.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista23.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+// Queen artistas
+artista24.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista25.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista26.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista27.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista28.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista29.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+// Los Chunguitos artistas
+artista30.construirArtista( [cancion22, cancion23, cancion24], 314980);
+artista31.construirArtista( [cancion22, cancion23, cancion24], 314980);
+artista32.construirArtista( [cancion22, cancion23, cancion24], 314980);
+// The Prodigy artistas
+artista33.construirArtista( [cancion27, cancion28, cancion29], 3378893);
+artista34.construirArtista( [cancion27, cancion28, cancion29], 3378893);
+artista35.construirArtista( [cancion27, cancion28, cancion29], 3378893);
+artista36.construirArtista( [cancion27, cancion28, cancion29], 3378893);
+// Cali y el Dandee artistas
+artista37.construirArtista( [cancion32, cancion33, cancion34], 8907725);
+artista38.construirArtista( [cancion32, cancion33, cancion34], 8907725);
+// Migos artistas
+artista39.construirArtista( [cancion39, cancion40, cancion41], 17644273);
+artista40.construirArtista( [cancion39, cancion40, cancion41], 17644273);
+artista41.construirArtista( [cancion39, cancion40, cancion41], 17644273);
 
 
-/**
-michael jackson 1
-freddie mercury 2
-rosalia 4
-peret 6
-beret 5
-50Cent 15
-Myke Towers 7
-Paulo Londra 8
-Skrillex 9
-Jean Michel Jarre 10
-Eminem 12
-Ozuna 13
-Daddy Yankee 14
-*/
-
-// rellenar generosmusicales NO HACE FALTA RELLENARLA AHORA MISMO, PORQUE CREEMOS QUE SE PUEDE AUTOGENERAR AÑADIENDO MÉTODOS A LA CLASE GRUPOSMUSICALES
-//Pop.construirGenero([grupo1], [artista1], [album1], [cancion1, cancion2]);
 // Playlists
-const playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, cancion49, cancion32, cancion34, cancion33]);
-
+export const playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, cancion49, cancion32, cancion34, cancion33]);
+const playlist2 = new Playlist(`Rock For Ever`, [cancion3, cancion14, cancion43]);
+const playlist3 = new Playlist(`Flamencos de corazóh`, [cancion11, cancion24, cancion26]);
 //console.log(playlist1.getGeneros());
 
-// llamadas a métodos
+
+// Llamadas a métodos
 //console.log(cancion1.getGeneroMusical());
 cancion1.setGeneroMusical([Pop]);
 //console.log(Pop.getGrupos());
@@ -189,7 +217,6 @@ cancion1.setGeneroMusical([Pop]);
 //console.log(cancion1.getGeneroMusical());
 //console.log(cancion1);
 //console.log(artista1);
-
 //console.log(grupo1.dame());
 
 console.log(cancion3.getDuracionCancionSecs());
