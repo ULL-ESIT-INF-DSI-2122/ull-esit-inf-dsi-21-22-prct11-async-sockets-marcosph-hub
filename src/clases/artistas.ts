@@ -26,16 +26,12 @@ export class Artistas {
 	}
 	/**
 	 * Método para construir el artista despues de haber construido ya el objeto
-	 * @param grupos grupos del artista
-	 * @param generos generos del artista
-	 * @param albumes albumes del artista
 	 * @param canciones canciones del artista
 	 * @param oyentes oyentes del artista
 	 */
 	construirArtista( canciones: Cancion[], oyentes: number){
 	
 		this.canciones = canciones;
-		
 		this.setOyentes(oyentes);
 	/*	canciones.forEach(element => {
 			generos.push(element.getGenero());
