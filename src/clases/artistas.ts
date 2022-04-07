@@ -35,10 +35,6 @@ export class Artistas {
 	
 		this.canciones = canciones;
 		this.setOyentes(oyentes);
-	/*	canciones.forEach(element => {
-			generos.push(element.getGenero());
-		});*/
-		//let auxCancion: Cancion;
 		let auxGeneroCanciones: GenerosMusicales[];
 		this.canciones.forEach(element => {
 			
