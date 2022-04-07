@@ -21,18 +21,20 @@ export class Artistas {
 	private albumes: Album[] = [];
 	private canciones: Cancion[] = [];
 	private oyentes: number;
+
 	constructor(nombreArtista: string){
 		this.nombreArtista = nombreArtista;
 	}
 	/**
-	 * Método para construir el artista despues de haber construido ya el objeto
+/**
+	 * @function construirArtista Método para inicializar las propiedades restantes de
+	 * la clase Artista
 	 * @param canciones canciones del artista
 	 * @param oyentes oyentes del artista
 	 */
 	construirArtista( canciones: Cancion[], oyentes: number){
 	
 		this.canciones = canciones;
-		
 		this.setOyentes(oyentes);
 		let auxGeneroCanciones: GenerosMusicales[];
 		this.canciones.forEach(element => {

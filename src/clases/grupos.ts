@@ -7,11 +7,11 @@ import { GenerosMusicales } from "./generosMusicales";
  * @class Grupos contiene las especificaciones de los
  * distintos grupos
  * @param nombreGrupo nombre del grupo
- * @param artistas array de Artistas
- * @param yearGrupo año de creación del grupo
- * @param genero array de GenerosMusicales
- * @param albumes array de Album
- * @param oyentes número de oyentes 
+	 * @param artistas Array que almacena a varios artistas
+	 * @param yearGrupo Entero que representa el año de creación del grupo
+	 * @param genero Array que almacena varios Generos Musicales distintos
+	 * @param albumes Array que almacena distintos álbumes
+	 * @param oyentes Entero que representa el número de oyentes mensuales
  */
 export class Grupos {
   private nombreGrupo: string;
@@ -20,10 +20,20 @@ export class Grupos {
 	private genero: GenerosMusicales[];
 	private albumes: Album[];
 	private oyentes: number;
+
 	constructor(nombreGrupo: string){
 		this.nombreGrupo = nombreGrupo;
 	}
 
+	/**
+	 * @function construirGrupo Método para incializar las propiedades restantes de
+	 * la clase Grupos
+	 * @param artistas Array que almacena a varios artistas
+	 * @param yearGrupo Entero que representa el año de creación del grupo
+	 * @param genero Array que almacena varios Generos Musicales distintos
+	 * @param albumes Array que almacena distintos álbumes
+	 * @param oyentes Entero que representa el número de oyentes mensuales
+	 */
 	construirGrupo(artistas: Artistas[], yearGrupo: number, genero: GenerosMusicales[], albumes: Album[], oyentes: number){
 		this.artistas = artistas;
 		this.yearGrupo = yearGrupo;
