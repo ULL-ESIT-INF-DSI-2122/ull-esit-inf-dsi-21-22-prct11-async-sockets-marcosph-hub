@@ -26,9 +26,6 @@ export class Artistas {
 	}
 	/**
 	 * Método para construir el artista despues de haber construido ya el objeto
-	 * @param grupos grupos del artista
-	 * @param generos generos del artista
-	 * @param albumes albumes del artista
 	 * @param canciones canciones del artista
 	 * @param oyentes oyentes del artista
 	 */
@@ -37,10 +34,6 @@ export class Artistas {
 		this.canciones = canciones;
 		
 		this.setOyentes(oyentes);
-	/*	canciones.forEach(element => {
-			generos.push(element.getGenero());
-		});*/
-		//let auxCancion: Cancion;
 		let auxGeneroCanciones: GenerosMusicales[];
 		this.canciones.forEach(element => {
 			
@@ -60,7 +53,7 @@ export class Artistas {
 			});
 		});
 		this.generos.forEach(element => {
-			element.setArtistas(this);
+			element.autoSetArtistas(this);
 		});
 	}
 	/**
@@ -174,12 +167,8 @@ export class Artistas {
 	 * @param cancion del artista
 	 */
 	setCanciones(cancion: Cancion[]){
-	for(let i: number = 0; i <= this.canciones.length; i++){
-			this.canciones.pop();
-		}
-		cancion.forEach(element => {
-			this.canciones.push(element);
-		});
+	this.canciones = [];
+		this.canciones = cancion;
 	}
 	/**
 	 * Setter de los albumes del artista

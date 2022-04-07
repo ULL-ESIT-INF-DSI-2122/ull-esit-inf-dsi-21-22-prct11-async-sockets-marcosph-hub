@@ -10,7 +10,7 @@ import {  cancion1, cancion2} from "../src/index";
 import { Metal, Rock, RyB, Soul, Pop} from "../src/index";
 import { artista1, grupo1} from "../src/index";
 import { album1 } from "../src/index";
-import { } from "../src/index";
+import { playlist1 } from "../src/index";
 
 describe ('Test ejercicio 7',() => {
   it ('Métodos de la clase Cancion',() => {
@@ -62,9 +62,42 @@ describe ('Test ejercicio 7',() => {
    expect(grupo1.getOyentes()).to.eql (1000);
   });
   it ('Métodos de la clase Album',() => {
-   
+    expect(album1 instanceof Album).to.eql (true);
+    album1.setNombreAlbum(`MotoMami`);
+    expect(album1.getNombreAlbum()).to.eql (`MotoMami`);
+    album1.setAutores(grupo1);
+   expect(album1.getAutores()).to.eql (`los 4`);
+   album1.setAutores(artista1);
+   expect(album1.getAutores()).to.eql ('Pepe Benavente');
+   album1.setGenero([Pop, Metal]);
+   expect(album1.getGenero()).to.eql ([`Pop`, `Metal`]);
+   album1.setYear(2020);
+   expect(album1.getYear()).to.eql (2020);
+   album1.setCanciones([cancion1,cancion2]);
+   expect(album1.getCanciones()).to.eql ([cancion1,cancion2]); 
   });
   it ('Métodos de la clase Playlist',() => {
- 
+    expect(playlist1 instanceof Playlist).to.eql (true);
+    playlist1.setNombrePlaylist(`Musiquita a full`);
+    expect(playlist1.getNombrePlaylist()).to.eql (`Musiquita a full`);
+    playlist1.setDuracion(`10:20`);
+    expect(playlist1.getDuracion()).to.eql ('0h 24min 40secs');
+    playlist1.setGeneros([Pop, Metal]);
+    expect(playlist1.getGeneros()).to.eql ([`Pop`, `Metal`]);
+    playlist1.setCanciones([cancion1,cancion2]);
+    expect(playlist1.getCanciones()).to.eql ([cancion1,cancion2]);
+  });
+  it ('Métodos de la clase GenerosMusciales',() => {
+    expect(Pop instanceof GenerosMusicales).to.eql (true);
+    Pop.setNombreGenero(`Trap`);
+    expect(Pop.getNombreGenero()).to.eql (`Trap`);
+    Pop.setGrupos([grupo1]);
+    expect(Pop.getGrupos()).to.eql ([grupo1]);
+    Pop.setArtistas([artista1]);
+    expect(Pop.getArtistas()).to.eql ([artista1]);
+    Pop.setAlbumes([album1]);
+    expect(Pop.getAlbumes()).to.eql ([album1]);
+    Pop.setCanciones([cancion1]);
+    expect(Pop.getCanciones()).to.eql ([cancion1]);
   });
 });

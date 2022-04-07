@@ -31,7 +31,7 @@ export class Grupos {
 		this.albumes = albumes;
 		this.oyentes = oyentes;
 		genero.forEach(element => {
-			element.setGrupos(this);
+			element.autoSetGrupos(this);
 		});
 		artistas.forEach(element => {
 			element.autoSetGrupos(this);

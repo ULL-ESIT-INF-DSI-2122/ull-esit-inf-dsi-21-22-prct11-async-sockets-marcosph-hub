@@ -21,7 +21,7 @@ export class Cancion{
     constructor(private nombre: string, private autor: string, private duracion: string, 
     private genero: GenerosMusicales[], private single: boolean, private numReproducciones: number){
         genero.forEach(element => {
-			element.setCanciones(this);
+			element.autoSetCanciones(this);
 		});
     }
 

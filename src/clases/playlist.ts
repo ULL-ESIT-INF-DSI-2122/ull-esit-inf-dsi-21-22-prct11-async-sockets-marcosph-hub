@@ -72,7 +72,7 @@ export class Playlist {
 	}
 
 	setGeneros(generos: GenerosMusicales[]){
+		this.generos = [];
 		this.generos = generos;
-		
 	}
 }

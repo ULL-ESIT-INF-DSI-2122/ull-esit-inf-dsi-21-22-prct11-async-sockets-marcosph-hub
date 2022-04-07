@@ -206,7 +206,7 @@ Daddy Yankee 14
 // rellenar generosmusicales NO HACE FALTA RELLENARLA AHORA MISMO, PORQUE CREEMOS QUE SE PUEDE AUTOGENERAR AÑADIENDO MÉTODOS A LA CLASE GRUPOSMUSICALES
 //Pop.construirGenero([grupo1], [artista1], [album1], [cancion1, cancion2]);
 // Playlists
-const playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, cancion49, cancion32, cancion34, cancion33]);
+export const playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, cancion49, cancion32, cancion34, cancion33]);
 const playlist2 = new Playlist(`Rock For Ever`, [cancion3, cancion14, cancion43]);
 const playlist3 = new Playlist(`Flamencos de corazóh`, [cancion11, cancion24, cancion26]);
 
