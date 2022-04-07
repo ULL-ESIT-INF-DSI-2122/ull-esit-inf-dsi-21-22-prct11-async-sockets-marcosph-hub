@@ -1,11 +1,20 @@
 import { Cancion } from "./cancion";
 import { GenerosMusicales } from "./generosMusicales";
 
+/**
+ * @class Playlist Clase que representa una Playlist de varias canciones de distintos géneros.
+ */
 export class Playlist {
 	private nombrePlaylist: string;
 	private canciones: Cancion[];
 	private duracion: string;
 	private generos: GenerosMusicales[] = [];
+	
+	/**
+	 * 
+	 * @param nombrePlaylist Nombre que se le añadirá a la Playlist
+	 * @param canciones Conjunto de canciones que serán reproducidas en la playlist
+	 */
 	constructor(nombrePlaylist: string, canciones: Cancion[]){
 		this.nombrePlaylist = nombrePlaylist;
 		this.canciones = canciones;
@@ -29,13 +38,26 @@ export class Playlist {
 			});
 		});
 	}
-
+	/**
+	 * Getter para el nombre de la Playlist
+	 * @returns string con el nombre de la playlist
+	 */
 	getNombrePlaylist(){
 		return this.nombrePlaylist;
 	}
+
+	/**
+	 * Getter para el Conjunto de canciones
+	 * @returns Array de Canciones
+	 */
 	getCanciones(){
 		return this.canciones;
 	}
+
+	/**
+	 * Getter para la duración de una Cancion
+	 * @returns String con la duración en
+	 */
 	getDuracion(){
 		let aux: number = 0;
 		this.canciones.forEach(element => {
