@@ -57,7 +57,7 @@ describe ('Test ejercicio 7',() => {
     grupo1.setGenero([Pop, Metal]);
     expect(grupo1.getGenero()).to.eql ([`Pop`, `Metal`]);
     grupo1.setAlbumes([album1]);
-    //expect(grupo1.getAlbumes()).to.eql (console.log([album1]));
+    expect(grupo1.getAlbumes()).to.eql ([album1]);
     grupo1.setOyentes(1000);
    expect(grupo1.getOyentes()).to.eql (1000);
   });

@@ -18,7 +18,6 @@ export const RyB = new GenerosMusicales(`RyB`); //8
 export const Soul = new GenerosMusicales(`Soul`); //7
 
 // 50 canciones, aprox. 5 de cada genero
-
 export const cancion1 = new Cancion('Pulling Teeth', 'Alan Ryker',  '4:23', [Metal], false, 2100000);
 export const cancion2 = new Cancion('Thriller', 'Michael Jackson',  '5:58', [Pop], false, 825000000);  
 export const cancion3 = new Cancion('Billie Jean', 'Michael Jackson',  '4:55', [Rock], false, 1154580120); 
@@ -60,7 +59,6 @@ const cancion38 = new Cancion('Rutina', 'Myke Towers', '3:38', [Regueton], false
 const cancion39 = new Cancion('Culture', 'Migos', '4:45', [Hip_Hop], false, 1300000);  
 const cancion40 = new Cancion('T-Shirt', 'Migos', '4:53', [Hip_Hop], false, 327000000); 
 const cancion41 = new Cancion('Get Right Witcha', 'Migos', '4:18', [Hip_Hop], false, 160000000); 
-
 
 // Singles
 export const cancion42 = new Cancion('Cóseme', 'Beret', '3:22', [Rap], true, 64000000); 
@@ -152,12 +150,13 @@ grupo3.construirGrupo([artista30, artista31, artista32], 1973, [Flamenco], [albu
 grupo4.construirGrupo([artista33, artista34, artista35, artista36], 1990, [Electronica], [album2], 241000);
 grupo5.construirGrupo([artista37, artista38], 2011, [Regueton], [album9], 1200000);
 grupo6.construirGrupo([artista39, artista40, artista41], 2009, [Hip_Hop], [album12], 12400000);
-
+//console.log(artista16.getGrupos());
 
 // rellenar artistas 
-artista1.construirArtista([grupo1],[Rock, Pop],[album1], [cancion1, cancion2], 10); 
-artista4.construirArtista([], [Flamenco, Pop, Rap], [album3], [cancion11, cancion12, cancion13], 1000000);
-artista2.construirArtista([grupo2], [Rock, Pop, Metal], [], [cancion17], 500000);
+//artista1.construirArtista( [cancion1, cancion2], 10); 
+artista4.construirArtista( [cancion11, cancion12, cancion13], 1000000);
+//artista2.construirArtista( [cancion17], 500000);
+
 
 /**
 michael jackson 1
@@ -176,7 +175,7 @@ Daddy Yankee 14
 */
 
 // rellenar generosmusicales NO HACE FALTA RELLENARLA AHORA MISMO, PORQUE CREEMOS QUE SE PUEDE AUTOGENERAR AÑADIENDO MÉTODOS A LA CLASE GRUPOSMUSICALES
-Pop.construirGenero([grupo1], [artista1], [album1], [cancion1, cancion2]);
+//Pop.construirGenero([grupo1], [artista1], [album1], [cancion1, cancion2]);
 // Playlists
 const playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, cancion49, cancion32, cancion34, cancion33]);
 

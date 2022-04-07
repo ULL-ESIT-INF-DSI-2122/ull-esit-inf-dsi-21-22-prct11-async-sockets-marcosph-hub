@@ -16,10 +16,10 @@ import { GenerosMusicales } from "./generosMusicales";
  */
 export class Artistas {
 	private nombreArtista: string;
-	private grupos: Grupos[];
-	private generos: GenerosMusicales[];
-	private albumes: Album[];
-	private canciones: Cancion[];
+	private grupos: Grupos[] = [];
+	private generos: GenerosMusicales[] = [];
+	private albumes: Album[] = [];
+	private canciones: Cancion[] = [];
 	private oyentes: number;
 	constructor(nombreArtista: string){
 		this.nombreArtista = nombreArtista;
@@ -32,13 +32,34 @@ export class Artistas {
 	 * @param canciones canciones del artista
 	 * @param oyentes oyentes del artista
 	 */
-	construirArtista(grupos: Grupos[], generos: GenerosMusicales[], albumes: Album[], canciones: Cancion[], oyentes: number){
-		this.grupos = grupos;
-		this.generos = generos;
-		this.albumes = albumes;
+	construirArtista( canciones: Cancion[], oyentes: number){
+	
 		this.canciones = canciones;
+		
 		this.setOyentes(oyentes);
-		generos.forEach(element => {
+	/*	canciones.forEach(element => {
+			generos.push(element.getGenero());
+		});*/
+		//let auxCancion: Cancion;
+		let auxGeneroCanciones: GenerosMusicales[];
+		this.canciones.forEach(element => {
+			
+			auxGeneroCanciones = element.getGenero();
+			auxGeneroCanciones.forEach(elemento => {
+				let contador: number = 0;
+				for(let i = 0; i < this.generos.length; i++){
+					if (elemento === this.generos[i]){
+						contador++;
+					}
+				}
+				if (contador === 0){
+					this.generos.push(elemento);					
+					contador = 0;
+				}	
+				contador = 0;
+			});
+		});
+		this.generos.forEach(element => {
 			element.setArtistas(this);
 		});
 	}
@@ -130,6 +151,13 @@ export class Artistas {
 		this.grupos = []
 		this.grupos = grupo;
 	}
+		/**
+	 * Setter del grupo que invoca al artista
+	 * @param grupo del artista
+	 */
+		 autoSetGrupos(grupo: Grupos){
+			this.grupos.push(grupo);
+		}
 
 
 	/**
@@ -165,6 +193,13 @@ export class Artistas {
 			this.albumes.push(element);
 		});
 	}
+		/**
+	 * Setter de los albumes del artista que rellenan a un artista en la clase album
+	 * @param album del artista
+	 */
+		 autoSetAlbumes(album: Album){
+			this.albumes.push(album);
+		}
 
 	/**
 	 * Setter de los oyentes 

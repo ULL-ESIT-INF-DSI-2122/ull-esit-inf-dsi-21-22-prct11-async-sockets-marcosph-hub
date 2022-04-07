@@ -33,6 +33,9 @@ export class Grupos {
 		genero.forEach(element => {
 			element.setGrupos(this);
 		});
+		artistas.forEach(element => {
+			element.autoSetGrupos(this);
+		});
 		
 	}
 

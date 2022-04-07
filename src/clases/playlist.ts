@@ -9,7 +9,7 @@ export class Playlist {
 	constructor(nombrePlaylist: string, canciones: Cancion[]){
 		this.nombrePlaylist = nombrePlaylist;
 		this.canciones = canciones;
-		this.duracion = `100`;
+		this.duracion = ``;
 		let auxGeneroCanciones: GenerosMusicales[];
 		this.canciones.forEach(element => {
 			
@@ -24,8 +24,8 @@ export class Playlist {
 				if (contador === 0){
 					this.generos.push(elemento);					
 					contador = 0;
-													contador = 0;
 				}	
+				contador = 0;
 			});
 		});
 	}

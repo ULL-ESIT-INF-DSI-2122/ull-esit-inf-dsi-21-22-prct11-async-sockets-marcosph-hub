@@ -26,6 +26,9 @@ export class Album {
 			this.genero = genero;
 			this.yearPublicacion = yearPublicacion;
 			this.canciones = canciones;
+			if(autores instanceof Artistas){
+				autores.autoSetAlbumes(this);
+			}
 			genero.forEach(element => {
 				element.setAlbumes(this);
 			});
