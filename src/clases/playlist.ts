@@ -56,7 +56,7 @@ export class Playlist {
 
 	/**
 	 * Getter para la duración de una Cancion
-	 * @returns String con la duración en
+	 * @returns String con la duración de la playlist en formato HH:MM:SS
 	 */
 	getDuracion(){
 		let aux: number = 0;
@@ -72,6 +72,11 @@ export class Playlist {
 
 		return this.duracion;
 	}
+
+	/**
+	 * Getter para el conjunto de Generos 
+	 * @returns Array de Generos Musicales
+	 */
 	getGeneros(){
 		let nombreGenero: string[] = [];
 		this.generos.forEach(element => {
@@ -80,19 +85,34 @@ export class Playlist {
 		return nombreGenero; 
 	}
 
+	/**
+	 * Setter para añadir el nombre de la playlist
+	 * @param nombre Nuevo nombre de la playlist 
+	 */
 	setNombrePlaylist(nombre: string){
 		this.nombrePlaylist = nombre;
 	}
 
+	/**
+	 * Setter para añadir un conjunto de Canciones de la Playlist
+	 * @param canciones Conjunto de canciones a añadir
+	 */
 	setCanciones(canciones: Cancion[]){
 		this.canciones = [];
 		this.canciones = canciones;
 	}
-
+/**
+ * Setter para añadir la duración de la playlist
+ * @param duracion Nuevo string con el valor de la duracion de la playlist
+ */
 	setDuracion(duracion: string){
 		this.duracion = duracion;
 	}
 
+	/**
+	 * Setter para añadir el conjunto de GenerosMusicales
+	 * @param generos Conjunto de generos a añadir.
+	 */
 	setGeneros(generos: GenerosMusicales[]){
 		this.generos = generos;
 		
