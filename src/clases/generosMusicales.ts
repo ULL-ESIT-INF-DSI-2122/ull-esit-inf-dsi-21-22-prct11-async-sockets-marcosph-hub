@@ -23,26 +23,6 @@ export class GenerosMusicales {
 	constructor(nombreGenero: string){
 		this.nombreGenero = nombreGenero;
 	}
-<<<<<<< HEAD
-=======
-
-	/**
-	 * 
-	 * @function construirGenero Método para inicializar las propiedades restantes de
-	 * la clase GenerosMusicales
-	 * @param grupos 
-	 * @param artistas 
-	 * @param albumes 
-	 * @param canciones 
-	 */
-	construirGenero(grupos: Grupos[], artistas: Artistas[], albumes: Album[], canciones: Cancion[]){
-		this.grupos = grupos;
-		this.artistas = artistas;
-		this.albumes = albumes;
-		this.canciones = canciones;
-	}
-
->>>>>>> 46f071a4b73a22dfc126c8023c7c7c3b407f7de6
 	/**
 	 * Getter nombre del género musical
 	 * @returns género musical
