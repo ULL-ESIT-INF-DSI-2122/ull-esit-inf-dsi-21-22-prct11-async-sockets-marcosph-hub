@@ -86,26 +86,37 @@ Después de construir el objeto, se agregarán los siguientes elementos mediente
 - **canciones** array de objetos de la clase ```Cancion()```.
 - **oyentes** number con los *oyentes mensuales* del **artista**, que es la suma de los oyentes mensuales de los grupos en lo que ha participado y su propio trabajo individual.
 
-El método ```construirArtista()``` es el siguiente:
+El método ```construirArtista()``` se ha creado con el fin de diferenciar entre los **cantantes** de un **grupo** y los **baterías**, **guitarristas**, etc. para ello  ```construirArtista()``` es para crear a los cantantes o artistas **principales**:
 
 ```typescript 
-construirArtista(grupos: Grupos[], generos: GenerosMusicales[], albumes: Album[], canciones: Cancion[], oyentes: number){
-		this.grupos = grupos;
-		this.generos = generos;
-		this.albumes = albumes;
+construirArtista( canciones: Cancion[], oyentes: number){
 		this.canciones = canciones;
 		this.setOyentes(oyentes);
-		generos.forEach(element => {
+		let auxGeneroCanciones: GenerosMusicales[];
+
+		this.canciones.forEach(element => {
+			auxGeneroCanciones = element.getGenero();
+			auxGeneroCanciones.forEach(elemento => {
+				let contador: number = 0;
+				for(let i = 0; i < this.generos.length; i++){
+					if (elemento === this.generos[i]){
+						contador++;
+					}
+				}
+				if (contador === 0){
+					this.generos.push(elemento);					
+					contador = 0;
+				}	
+				contador = 0;
+			});
+		});
+		this.generos.forEach(element => {
 			element.setArtistas(this);
 		});
 	}
 ```
 
-El bucle **forEach**, se realiza para añadir los **artistas** a los **géneros musicales**.
-Para esta clase, vamos a destacar los siguientes **getter** y **setter**:
-- getGrupos(), getGeneros() y getAlbumes(), que actúan de manera similar.
-- setGrupos(), setGeneros() y setAlbumes(), que también actúan de manera similar.
-- setOyentes().
+Finalmente añade las **canciones** y los **oyentes mensuales** del artista.
 
 ```typescript 
 getGrupos(){
