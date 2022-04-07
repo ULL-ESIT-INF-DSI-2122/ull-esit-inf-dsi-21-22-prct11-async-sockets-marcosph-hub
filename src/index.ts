@@ -130,7 +130,7 @@ const grupo5 = new Grupos(`Cali y El Dandee`);
 const grupo6 = new Grupos(`Migos`);
 
 // Album puede construirse con todo 
-export const album1 = new Album(`Thriller`, artista1, [Rock, RyB, Soul, Pop], 11982,[cancion2, cancion3, cancion4, cancion5, cancion6, cancion7, cancion8, cancion9, cancion10]);
+export const album1 = new Album(`Thriller`, artista1, [Rock, RyB, Soul, Pop], 1982,[cancion2, cancion3, cancion4, cancion5, cancion6, cancion7, cancion8, cancion9, cancion10]);
 const album2 = new Album(`The Day Is My Enemy`, grupo4, [Electronica], 2015, [cancion27, cancion28, cancion29]);
 const album3 = new Album(`El Mal Querer`, artista4, [Flamenco, Pop, Rap], 2018, [cancion11, cancion12, cancion13]);
 const album4 = new Album(`Made in Heaven`, grupo2, [Rock, Metal], 1995, [cancion14, cancion15, cancion16]);
@@ -153,9 +153,38 @@ grupo6.construirGrupo([artista39, artista40, artista41], 2009, [Hip_Hop], [album
 //console.log(artista16.getGrupos());
 
 // rellenar artistas 
-//artista1.construirArtista( [cancion1, cancion2], 10); 
+artista1.construirArtista( [cancion2, cancion3, cancion4, cancion5, cancion6, cancion7, cancion8, cancion9, cancion10], 28125943); 
+artista2.construirArtista( [cancion14, cancion15, cancion16, cancion17], 2539164); 
+artista3.construirArtista( [cancion1], 13552); 
 artista4.construirArtista( [cancion11, cancion12, cancion13], 1000000);
-//artista2.construirArtista( [cancion17], 500000);
+artista5.construirArtista( [cancion18, cancion30, cancion31], 5439541);
+artista6.construirArtista( [cancion25, cancion26], 234051);
+artista7.construirArtista( [cancion37, cancion38], 27889188);
+artista8.construirArtista( [cancion43], 17259897);
+artista9.construirArtista( [cancion44], 20139441);
+artista10.construirArtista( [cancion45], 2068481);
+artista11.construirArtista( [cancion46], 11153307);
+artista12.construirArtista( [cancion47], 52950475);
+artista13.construirArtista( [cancion48], 35251309);
+artista14.construirArtista( [cancion49], 2068741);
+artista15.construirArtista( [cancion35, cancion36], 1585307);
+// Metallica artistas
+artista16.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista17.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista18.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista19.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista20.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista21.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista22.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+artista23.construirArtista( [cancion19, cancion20, cancion21], 17965468);
+// Queen artistas
+artista24.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista25.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista26.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista27.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista28.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+artista29.construirArtista( [cancion14, cancion15, cancion16], 1585307);
+// 
 
 
 /**
@@ -178,6 +207,8 @@ Daddy Yankee 14
 //Pop.construirGenero([grupo1], [artista1], [album1], [cancion1, cancion2]);
 // Playlists
 const playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, cancion49, cancion32, cancion34, cancion33]);
+const playlist2 = new Playlist(`Rock For Ever`, [cancion3, cancion14, cancion43]);
+const playlist3 = new Playlist(`Flamencos de corazóh`, [cancion11, cancion24, cancion26]);
 
 //console.log(playlist1.getGeneros());
 
