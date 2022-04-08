@@ -4,23 +4,25 @@ Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts*
 ### Explicación 
 En **index.ts** se crean los objetos de las clases, es decir, es el que contiene los **import** de todas las clases.
 
+Para la creación de las clases se van a ir actualizando en función se vayan creando objetos. Por ejemplo: una vez añadida una canción, se añade la canción al genero musical que la incluye.
+
 ### Clases
 Cada clase está situada en el directorio **src/clases/**:
 
-- Géneros Musicales
-- Canción
-- Artistas
-- Grupos 
+- [x] Géneros Musicales
+- [x] Canción
+- [x] Artistas
+- [x] Grupos 
 - Álbum 
 - Playlist
 
 #### Clase Géneros Musicales
-La clase ```GenerosMusicales()``` recibe en primera instancia el nombre del **género musical** para posteriormente autocompletarse mediante el método ```construirGenero()```. 
+La clase ```GenerosMusicales()``` recibe en primera instancia el nombre del **género musical** para posteriormente autocompletarse mediante la creación de las otros objetos. 
 
 Su **constructor** consta de:
 - **nombreGenero** de tipo *string* que recibe el *nombre* del género en cuestión.
 
-Después de construir el objeto, se agregarán los siguientes elementos mediente el método **construirGenero()**:
+En cuanto se vayan creando los objetos de las siguientes clases, se añadirán al objeto **Género Musical** lo siguiente:
 - **grupos** array de objetos de la clase ```Grupos()```.
 - **artistas** array de objetos de la clase ```Artistas()```.
 - **albumes** array de objetos de la clase ```Album()```.
@@ -77,16 +79,13 @@ Primero se vacía el **array** y se le añade nuevamente los objetos del tipo **
 Al igual que la clase ```GenerosMusicales()```, la clase ```Artistas()``` tiene un **constructor** y un método **construirArtista()**.
 
 El **constructor** consta de:
-- **nombreArtista** de tipo *string* que recibe el **nombre** del artista únicamente. Esto se hace para que se puedan crear objetos artista solo con el **nombre**, ya que hay **grupos** cuyos componentes son **artistas**, de los cuales solo se quiere conocer el **nombre**.
+- **nombreArtista** de tipo *string* que recibe el **nombre** del artista únicamente. Esto se hace para que se puedan crear objetos **artista** solo con el **nombre**, ya que hay **grupos** cuyos componentes son **artistas**, de los cuales solo se quiere conocer el **nombre**, como el caso de los guitarristas, bajistas, etc.
 
 Después de construir el objeto, se agregarán los siguientes elementos mediente el método **construirArtista()**:
-- **grupos** array de objetos de la clase ```Grupos()```.
-- **generos** array de objetos de la clase ```GenerosMusicales()```.
-- **albumes** array de objetos de la clase ```Album()```.
 - **canciones** array de objetos de la clase ```Cancion()```.
 - **oyentes** number con los *oyentes mensuales* del **artista**, que es la suma de los oyentes mensuales de los grupos en lo que ha participado y su propio trabajo individual.
 
-El método ```construirArtista()``` se ha creado con el fin de diferenciar entre los **cantantes** de un **grupo** y los **baterías**, **guitarristas**, etc. para ello  ```construirArtista()``` es para crear a los cantantes o artistas **principales**:
+El método ```construirArtista()``` se ha creado con el fin de diferenciar entre los **cantantes** de un **grupo** y los demás miembros de este. Para ello  ```construirArtista()``` se usa para crear a los cantantes o artistas **principales**:
 
 ```typescript 
 construirArtista( canciones: Cancion[], oyentes: number){
@@ -115,8 +114,7 @@ construirArtista( canciones: Cancion[], oyentes: number){
 		});
 	}
 ```
-
-Finalmente añade las **canciones** y los **oyentes mensuales** del artista.
+ Primeramente se añaden las **canciones** y los **oyentes mensuales** del **artista**. Luego, se puede observar que se le añaden al objeto de **generos musicales** los **artistas** que se vayan creando y evitando también que se repitan los valores del array.
 
 ```typescript 
 getGrupos(){
@@ -147,6 +145,67 @@ setOyentes(oyentes: number){
 }
 ```
 En este caso hace la suma de los **oyentes** mencionada anteriormente.
+
+### Clase Grupos
+
+La clase ```Grupos()``` recibe en primera instancia el nombre del **grupo** y luego se autocompleta mediante la creación de los otros objetos. Está compuesto de:
+
+- **nombreGrupo** string con el nombre del grupo.
+- **artistas** array de artistas que componen el grupo (principales y músicos).
+- **yearGrupo** number con el año en el que se fundó el grupo.
+- **generoMusical** array de generos musicales.
+- **albumes** array de albumes.
+- **oyentes** oyentes mensuales que tiene el grupo.
+
+El siguiente **método** añade el resto de los componentes de un **grupo**. 
+
+```typescript 
+construirGrupo(artistas: Artistas[], yearGrupo: number, genero: GenerosMusicales[], albumes: Album[], oyentes: number){
+		this.artistas = artistas;
+		this.yearGrupo = yearGrupo;
+		this.genero = genero;
+		this.albumes = albumes;
+		this.oyentes = oyentes;
+		genero.forEach(element => {
+			element.autoSetGrupos(this);
+		});
+		artistas.forEach(element => {
+			element.autoSetGrupos(this);
+		});
+		
+	}
+```
+**Nota:**
+También hay que mencionar que ```autoSetGrupos()``` añade **grupos** a los objetos **género musical** y **artista**. Dicho método se encuentra en las clases nombradas. 
+
+```typescript 
+// Caso autoSetGrupos() de la clase artistas y géneros musicales
+autoSetGrupos(grupo: Grupos){
+	this.grupos.push(grupo);
+}
+```
+Tanto ```getArtistas()``` y ```getGenero()``` son muy parecidos, ambos devuelven array de strings con los nombres de los artistas que pertenecen al grupo y el género musical del genero respectivamente.
+
+```typescript 
+getArtistas(){
+	let artistas_: string[] = [];
+		this.artistas.forEach(element => {
+			artistas_.push(element.getNombreArtista());
+		});
+	return artistas_;
+}
+```
+
+Al igual que el ```setGrupos()```, ```setGeneros()``` y ```setAlbumes()``` de la clase **artista**, se han realizado de manera similar para esta clase. Se crea un *array* de *strings* vacío, que devuelve el nombre de los **grupos** o **generos** o **albumes**.
+
+```typescript
+setAlbumes(album: Album[]){
+	this.albumes = [];
+	this.albumes = album;
+}
+```
+
+El resto de **setters** y **getters** son relativamente sencillos, por lo que no se han tenido en cuenta a la hora de nombrarlos, pero se han realizado y analizado.
 
 ### Anotaciones y conclusiones
 
