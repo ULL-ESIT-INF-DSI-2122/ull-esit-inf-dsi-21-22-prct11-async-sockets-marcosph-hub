@@ -358,7 +358,7 @@ menuPrincipal();
         break;
       case CommandsClases.Grupo:
         //addGrupo();
-        console.log(`añadiendo una grupo`);
+        console.log(`añadiendo un grupo`);
         break;
     }
 

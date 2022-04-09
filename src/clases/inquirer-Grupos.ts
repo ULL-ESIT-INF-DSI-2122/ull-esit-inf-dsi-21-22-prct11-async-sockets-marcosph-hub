@@ -22,7 +22,6 @@ export async function addGrupo() {
   let artistasArray: Artistas[] = []
   await addGrupoArtista(artistasArray);
   
-
 }
 
 export async function addGrupoArtista(artistas: Artistas[]) {
@@ -41,7 +40,7 @@ export async function addGrupoArtista(artistas: Artistas[]) {
     }
   }
   if(numeroArtistas === -1){
-    console.log(`No existe una cancion con ese nombre`);
+    console.log(`No existe un Artista con ese nombre`);
    //InquirerFile.menuPrincipal();
 
   } else {
