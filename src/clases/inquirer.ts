@@ -43,7 +43,187 @@ enum CommandsGenerosCanciones {
   RyB = `RyB`,
   Soul = `Soul`
 }
-  
+enum CommandsPartesCancion {
+  Nombre = `Nombre`,
+  Autor = `Autor`,
+  GeneroMusical = `Género musical`,
+  Duracion = `Duracion`,
+  Single = `Single`,
+  Reproducciones = `Número de reproducciones`
+}
+async function addCancionGenero(genero: GenerosMusicales[])  {
+  //let genero: GenerosMusicales[] = [];
+  const generoCancion = await inquirer.prompt( {
+    type: "list",
+    name: "generoCancion",
+    message: "Introduce el/los generos musicales: ",
+    choices: Object.values(CommandsGenerosCanciones)
+  });
+  switch(generoCancion["generoCancion"]) {
+    case CommandsGenerosCanciones.Electronica:
+      genero.push(index.Electronica);
+      const generoCancion1 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion1["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.Pop:
+      genero.push(index.Pop);
+      const generoCancion2 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion2["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.Metal:
+      genero.push(index.Metal);
+      const generoCancion3 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion3["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.Flamenco:
+      genero.push(index.Flamenco);
+      const generoCancion4 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion4["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.Rap:
+      genero.push(index.Rap);
+      const generoCancion5 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion5["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.Regueton:
+      genero.push(index.Regueton);
+      const generoCancion6 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion6["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.Hip_Hop:
+      genero.push(index.Hip_Hop);
+      const generoCancion7 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion7["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.RyB:
+      genero.push(index.RyB);
+      const generoCancion8 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion8["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.Rock:
+      genero.push(index.Rock);
+      const generoCancion9 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion9["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+    case CommandsGenerosCanciones.Soul:
+      genero.push(index.Soul);
+      const generoCancion10 = await inquirer.prompt( {
+        type: "list",
+        name: "generoCanciones",
+        message: "La canción tiene más generos?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(generoCancion10["generoCanciones"]) {
+        case CommandsSingle.Si:
+          await addCancionGenero(genero)
+          break;
+        case CommandsSingle.No:
+          break;
+      }
+      break;
+  }
+    //console.log(`dentro`, genero);
+    return genero;
+  }
 /**
  * @function addcancion encar
  */
@@ -66,7 +246,11 @@ const duracionCancion = await inquirer.prompt( {
     message: `Introduce la duracion en el formato "min:seg" : `
 });
 let genero_: GenerosMusicales[] = [];
-const generoCancion = await inquirer.prompt( {
+//genero_= await addCancionGenero();
+await addCancionGenero(genero_);
+console.log(genero_);
+//console.log(`fuera`, genero_);
+/*const generoCancion = await inquirer.prompt( {
   type: "list",
   name: "generoCancion",
   message: "Introduce el/los generos musicales: ",
@@ -103,8 +287,9 @@ switch(generoCancion["generoCancion"]) {
   case CommandsGenerosCanciones.Soul:
     genero_.push(index.Soul);
     break;
-}
+}*/
 
+let single_: boolean = false;
 const singleCancion = await inquirer.prompt( {
     type: "list",
     name: "singleCancion",
@@ -113,8 +298,10 @@ const singleCancion = await inquirer.prompt( {
 });
 switch(singleCancion["singleCancion"]) {
   case CommandsSingle.Si:
+    single_ = true;
     break;
   case CommandsSingle.No:
+    single_ = false;
     break;
 }
 const numReproducciones = await inquirer.prompt( {
@@ -125,12 +312,19 @@ const numReproducciones = await inquirer.prompt( {
 
 let nombre_: string = nombreCancion["nombreCancion"];
 let autor_: string = nombreAutor["nombreAutor"];
+let duracion_: string = duracionCancion["duracionCancion"];
+let reprod_: number = numReproducciones["numReproducciones"];
+let cancion: Cancion = new Cancion(nombre_,autor_, duracion_, genero_, single_, reprod_);
+ 
+console.clear();
+menuPrincipal();
+//let generoMusical
 /*let genero_ : string = generoCancion["generoCancion"];
  if ()
 
 );*/
 
-    menuPrincipal();
+   // menuPrincipal();
   }
 
 /**
@@ -146,22 +340,25 @@ async function menuAdd(){
     switch(respuestaAdd["command"]) {
       case CommandsClases.Cancion:
         addCancion();
-       console.log(`añadiendo una cancion`);
         break;
       case CommandsClases.GeneroMusical:
+        //addGeneroMusical();
         console.log(`añadiendo una genero musical`);
         break;
       case CommandsClases.Album:
+        //addAlbum();
         console.log(`añadiendo una album`);
         break;
       case CommandsClases.Artista:
+        //addArtista();
         console.log(`añadiendo una artista`);
         break;
       case CommandsClases.Grupo:
+        //addGrupo();
         console.log(`añadiendo una grupo`);
         break;
     }
-    menuPrincipal();
+
 }
 
 /**
@@ -176,24 +373,53 @@ async function menuDel(){
     })
     switch(respuestaDel["command"]) {
       case CommandsClases.Cancion:
+        //delCancion();
        console.log(`eliminndo una cancion`);
         break;
       case CommandsClases.GeneroMusical:
+        //delGeneroMusical();
         console.log(`eliminndo una genero musical`);
         break;
       case CommandsClases.Album:
+        //delAlbum();
         console.log(`eliminndo una album`);
         break;
       case CommandsClases.Artista:
+        //delArtista();
         console.log(`eliminndo una artista`);
         break;
       case CommandsClases.Grupo:
+        //delGrupo();
         console.log(`eliminndo una grupo`);
         break;
     }
-    menuPrincipal();
+    
 }
-
+async function modCancion(){
+  const cancionModificar = await inquirer.prompt({
+    type: 'list',
+    name: `modificar`,
+    message: `¿Qué quieres modificar de la cancion?`,
+    choices: Object.values(CommandsPartesCancion)
+  })
+}
+async function menuModCancion(){
+  const cancionModificada = await inquirer.prompt({
+    type: 'input',
+    name: `modificar`,
+    message: `Introduce el nombre de la canción que quieres modificar`,
+  })
+  let nombreCancionModificar: string = cancionModificada["modificar"];
+  let numeroCancion: number = 0;
+  for(let i: number = 0; i < index.canciones.length; i++){
+    if(index.canciones[i].getNombreCancion() === nombreCancionModificar){
+      numeroCancion = i;
+      break;
+    }
+  }
+  //modCancion(numeroCancion);
+  console.log(`nombre de la cancion numero ${numeroCancion + 1}`);
+}
 /**
  * @function menuMod menu para modificar cancion, género, álbum, artista o grupo
  */
@@ -206,22 +432,27 @@ async function menuMod(){
     })
     switch(respuestaMod["command"]) {
       case CommandsClases.Cancion:
+        menuModCancion();
        console.log(`modificando una cancion`);
         break;
       case CommandsClases.GeneroMusical:
+        //modGeneroMusical();
         console.log(`modificando una genero musical`);
         break;
       case CommandsClases.Album:
+        //modAlbum();
         console.log(`modificando una album`);
         break;
       case CommandsClases.Artista:
         console.log(`modificando una artista`);
+        //modArtista();
         break;
       case CommandsClases.Grupo:
         console.log(`modificando una grupo`);
+        //modGrupo();
         break;
     }
-    menuPrincipal();
+    
 }
 
 /**
