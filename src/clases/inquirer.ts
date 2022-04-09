@@ -41,7 +41,8 @@ enum CommandsGenerosCanciones {
   Metal = `Metal`,
   Flamenco = `Flamenco`,
   RyB = `RyB`,
-  Soul = `Soul`
+  Soul = `Soul`,
+  Salir = `Salir`
 }
 enum CommandsPartesCancion {
   Nombre = `Nombre`,
@@ -49,7 +50,8 @@ enum CommandsPartesCancion {
   GeneroMusical = `Género musical`,
   Duracion = `Duracion`,
   Single = `Single`,
-  Reproducciones = `Número de reproducciones`
+  Reproducciones = `Número de reproducciones`,
+  Salir = `Salir al menú principal`
 }
 async function addCancionGenero(genero: GenerosMusicales[])  {
   //let genero: GenerosMusicales[] = [];
@@ -248,7 +250,8 @@ const duracionCancion = await inquirer.prompt( {
 let genero_: GenerosMusicales[] = [];
 //genero_= await addCancionGenero();
 await addCancionGenero(genero_);
-console.log(genero_);
+
+
 //console.log(`fuera`, genero_);
 /*const generoCancion = await inquirer.prompt( {
   type: "list",
@@ -395,13 +398,86 @@ async function menuDel(){
     }
     
 }
-async function modCancion(){
+async function modCancion(numero: number){
   const cancionModificar = await inquirer.prompt({
     type: 'list',
     name: `modificar`,
     message: `¿Qué quieres modificar de la cancion?`,
     choices: Object.values(CommandsPartesCancion)
   })
+
+  switch(cancionModificar["modificar"]){
+    case CommandsPartesCancion.Nombre:
+      const nombreCancion = await inquirer.prompt( {
+        type: "input",
+        name: "nombreCancion",
+        message: "Introduce el nombre de la cancion: "
+      })
+      let nombreCancion_ = nombreCancion["nombreCancion"];
+      index.canciones[numero].setNombreCancion(nombreCancion_);
+      await modCancion(numero);
+      break;
+    case CommandsPartesCancion.Autor:
+      const nombreAutor = await inquirer.prompt( {
+        type: "input",
+        name: "nombreAutor",
+        message: "Introduce el nombre del autor: "
+      });
+      let nombreAutor_ = nombreAutor["nombreAutor"];
+      index.canciones[numero].setAutorCancion(nombreAutor_);
+      await modCancion(numero);
+      break;
+    case CommandsPartesCancion.Duracion:
+      const duracionCancion = await inquirer.prompt( {
+        type: "input",
+        name: "duracionCancion",
+        message: `Introduce la duracion en el formato "min:seg" : `
+      });
+      let duracion_ = duracionCancion["duracionCancion"];
+      index.canciones[numero].setDuracionCancion(duracion_);
+      await modCancion(numero);
+      break;
+    case CommandsPartesCancion.GeneroMusical:
+      let genero_: GenerosMusicales[] = [];
+      await addCancionGenero(genero_);
+      index.canciones[numero].setGeneroMusical(genero_);
+      await modCancion(numero);
+      break;
+    case CommandsPartesCancion.Single:
+      let single_: boolean = false;
+      const singleCancion = await inquirer.prompt( {
+        type: "list",
+        name: "singleCancion",
+        message: "¿Es un single?: ",
+        choices: Object.values(CommandsSingle)
+      });
+      switch(singleCancion["singleCancion"]) {
+        case CommandsSingle.Si:
+          single_ = true;
+         
+        break;
+        case CommandsSingle.No:
+          single_ = false;
+         
+         break;
+        }
+      index.canciones[numero].setSingle(single_);
+      await modCancion(numero);
+      break;
+    case CommandsPartesCancion.Reproducciones:
+      const numReproducciones = await inquirer.prompt( {
+        type: "number",
+        name: "numReproducciones",
+        message: "Introduce el numero de reproducciones: "
+      });
+      let reprod_: number = numReproducciones["numReproducciones"];
+      index.canciones[numero].setNumReproducciones(reprod_);
+      await modCancion(numero);
+      break;
+  }
+  console.clear();
+   menuPrincipal();
+
 }
 async function menuModCancion(){
   const cancionModificada = await inquirer.prompt({
@@ -410,15 +486,21 @@ async function menuModCancion(){
     message: `Introduce el nombre de la canción que quieres modificar`,
   })
   let nombreCancionModificar: string = cancionModificada["modificar"];
-  let numeroCancion: number = 0;
+  let numeroCancion: number = -1;
   for(let i: number = 0; i < index.canciones.length; i++){
     if(index.canciones[i].getNombreCancion() === nombreCancionModificar){
       numeroCancion = i;
       break;
     }
   }
-  //modCancion(numeroCancion);
-  console.log(`nombre de la cancion numero ${numeroCancion + 1}`);
+  if(numeroCancion === -1){
+    console.log(`No existe una cancion con ese nombre`);
+    menuPrincipal();
+  } else {
+    modCancion(numeroCancion);
+  }
+ 
+  //console.log(`nombre de la cancion numero ${numeroCancion + 1}`);
 }
 /**
  * @function menuMod menu para modificar cancion, género, álbum, artista o grupo
@@ -433,7 +515,7 @@ async function menuMod(){
     switch(respuestaMod["command"]) {
       case CommandsClases.Cancion:
         menuModCancion();
-       console.log(`modificando una cancion`);
+      
         break;
       case CommandsClases.GeneroMusical:
         //modGeneroMusical();
