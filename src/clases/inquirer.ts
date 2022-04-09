@@ -27,24 +27,64 @@ enum CommandsClases {
     Artista = `Artista`,
     Grupo = `Grupo`,
 }
+enum CommandsSingle {
+  Si = `Si`,
+  No = `No`,
+}
   
 /**
- * @function add encar
+ * @function addcancion encar
  */
-/*
-async function add(){
-    console.clear();
-    const respuestaadd = await inquirer.prompt({
-      type: 'input',
-      name: `add`,
-      message: `que quieres añadir?`
-    })
-    if (respuestaadd['add'] !== ``) {
-      console.clear();
-      console.log(cancion1.getAutorCancion());
-    }
+
+async function addcancion(){
+  //console.log(`Introduce le nombre de la cancion: `);
+  const nombreCancion = await inquirer.prompt( {
+    type: "input",
+    name: "nombreCancion",
+    message: "Introduce el nombre de la cancion: "
+});
+const nombreAutor = await inquirer.prompt( {
+    type: "input",
+    name: "nombreAutor",
+    message: "Introduce el nombre del autor: "
+});
+const duracionCancion = await inquirer.prompt( {
+    type: "input",
+    name: "duracionCancion",
+    message: `Introduce la duracion en el formato "min:seg" : `
+});
+const generoCancion = await inquirer.prompt( {
+    type: "input",
+    name: "generoCancion",
+    message: "Introduce el/los generos musicales: "
+});
+const singleCancion = await inquirer.prompt( {
+    type: "list",
+    name: "singleCancion",
+    message: "¿Es un single?: ",
+    choices: Object.values(CommandsSingle)
+});
+switch(singleCancion["singleCancion"]) {
+  case CommandsSingle.Si:
+    break;
+  case CommandsSingle.No:
+    break;
+}
+const numReproducciones = await inquirer.prompt( {
+    type: "number",
+    name: "numReproducciones",
+    message: "Introduce el numero de reproducciones: "
+});
+
+let nombre_: string = nombreCancion["nombreCancion"];
+let autor_: string = nombreAutor["nombreAutor"];
+let genero_ : string = generoCancion["generoCancion"];
+
+
+);
+
     menuPrincipal();
-  }*/
+  }
 
 /**
  * @function menuAdd menu para añadir cancion, género, álbum, artista o grupo
@@ -58,6 +98,7 @@ async function menuAdd(){
     })
     switch(respuestaAdd["command"]) {
       case CommandsClases.Cancion:
+        addCancion();
        console.log(`añadiendo una cancion`);
         break;
       case CommandsClases.GeneroMusical:
@@ -160,10 +201,9 @@ async function menuPrincipal(){
         menuMod();
         break;
       case Commands.Salir:
-       //process.exit();:;
         return;
     }
     //console.log(respuesta);
 }
-  
+
 menuPrincipal();
