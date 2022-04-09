@@ -7,20 +7,32 @@ import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 
+/**
+ * @enum Commands con los comandos de añadir, borrar, modificar y salir
+ */
 enum Commands {
     Add = `Añadir`,
     Borrar = `Borrar`,
     Modificar = `Modificar`,
     Salir = `Salir`
-  }
-  enum CommandsClases {
+}
+  
+/**
+ * @enum CommandsClases con la clase que se quiere añadir, borrar o modificar
+ */
+enum CommandsClases {
     Cancion = `Canción`,
     GeneroMusical = `Género musical`,
+    Album = `Album`,
     Artista = `Artista`,
     Grupo = `Grupo`,
-    Album = `Album`
-  }
-  async function add(){
+}
+  
+/**
+ * @function add encar
+ */
+/*
+async function add(){
     console.clear();
     const respuestaadd = await inquirer.prompt({
       type: 'input',
@@ -32,8 +44,12 @@ enum Commands {
       console.log(cancion1.getAutorCancion());
     }
     menuPrincipal();
-  }
-  async function menuAdd(){
+  }*/
+
+/**
+ * @function menuAdd menu para añadir cancion, género, álbum, artista o grupo
+ */
+async function menuAdd(){
     const respuestaAdd = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -58,8 +74,12 @@ enum Commands {
         break;
     }
     menuPrincipal();
-  }
-  async function menuDel(){
+}
+
+/**
+ * @function menuDel menu para borrar cancion, género, álbum, artista o grupo
+ */
+async function menuDel(){
     const respuestaDel = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -84,8 +104,12 @@ enum Commands {
         break;
     }
     menuPrincipal();
-  }
-  async function menuMod(){
+}
+
+/**
+ * @function menuMod menu para modificar cancion, género, álbum, artista o grupo
+ */
+async function menuMod(){
     const respuestaMod = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -110,8 +134,13 @@ enum Commands {
         break;
     }
     menuPrincipal();
-  }
-  async function menuPrincipal(){
+}
+
+/**
+ * @function menuPrincipal menu principal donde se manejan los submenus y los comandos
+ * @returns 
+ */
+async function menuPrincipal(){
     //console.clear();
     //print();
     const respuesta = await inquirer.prompt({
@@ -135,5 +164,6 @@ enum Commands {
         return;
     }
     //console.log(respuesta);
-  }
-  menuPrincipal();
+}
+  
+menuPrincipal();
