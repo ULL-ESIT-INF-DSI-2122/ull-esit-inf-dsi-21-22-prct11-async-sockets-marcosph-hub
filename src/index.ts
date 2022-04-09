@@ -219,10 +219,10 @@ const playlist3 = new Playlist(`Flamencos de corazóh`, [cancion11, cancion24, c
 //console.log(artista1);
 //console.log(grupo1.dame());
 function print(){
-cancion1.setGeneroMusical([Pop]);
+//cancion1.setGeneroMusical([Pop]);
 
-console.log(cancion3.getDuracionCancionSecs());
-console.log(playlist1.getDuracion());
+//console.log(cancion3.getDuracionCancionSecs());
+//console.log(playlist1.getDuracion());
 }
 enum Commands {
   Add = `Añadir`,
@@ -237,7 +237,7 @@ enum CommandsClases {
   Grupo = `Grupo`,
   Album = `Album`
 }
-async function add(){
+/*async function add(){
   console.clear();
   const respuestaadd = await inquirer.prompt({
     type: 'input',
@@ -327,7 +327,7 @@ async function menuMod(){
       break;
   }
   menuPrincipal();
-}
+}*/
 async function menuPrincipal(){
   //console.clear();
   //print();
@@ -337,7 +337,7 @@ async function menuPrincipal(){
     message: `Elige opción`,
     choices: Object.values(Commands)
   })
-  switch(respuesta["command"]) {
+  /*switch(respuesta["command"]) {
     case Commands.Add:
       menuAdd();
       break;
@@ -350,7 +350,7 @@ async function menuPrincipal(){
     case Commands.Salir:
      //process.exit();:;
       return;
-  }
+  }*/
   //console.log(respuesta);
 }
 menuPrincipal();

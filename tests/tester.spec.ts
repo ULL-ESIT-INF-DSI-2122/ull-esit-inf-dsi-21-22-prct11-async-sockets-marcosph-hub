@@ -82,10 +82,10 @@ describe ('Test ejercicio 7',() => {
     expect(playlist1.getNombrePlaylist()).to.eql (`Musiquita a full`);
     playlist1.setDuracion(`10:20`);
     expect(playlist1.getDuracion()).to.eql ('0h 24min 40secs');
-    playlist1.setGeneros([Pop, Metal]);
-    expect(playlist1.getGeneros()).to.eql ([`Pop`, `Metal`]);
     playlist1.setCanciones([cancion1,cancion2]);
     expect(playlist1.getCanciones()).to.eql ([cancion1,cancion2]);
+    playlist1.setGeneros([Pop, Metal]);
+    expect(playlist1.getGeneros()).to.eql ([`Pop`, `Metal`]);
   });
   it ('Métodos de la clase GenerosMusciales',() => {
     expect(Pop instanceof GenerosMusicales).to.eql (true);
