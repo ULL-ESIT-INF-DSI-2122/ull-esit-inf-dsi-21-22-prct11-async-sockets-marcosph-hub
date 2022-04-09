@@ -10,7 +10,7 @@ import * as index from "../index";
 /**
  * @enum Commands con los comandos de añadir, borrar, modificar y salir
  */
-enum Commands {
+export enum Commands {
     Add = `Añadir`,
     Borrar = `Borrar`,
     Modificar = `Modificar`,
@@ -20,18 +20,18 @@ enum Commands {
 /**
  * @enum CommandsClases con la clase que se quiere añadir, borrar o modificar
  */
-enum CommandsClases {
+export enum CommandsClases {
     Cancion = `Canción`,
     GeneroMusical = `Género musical`,
     Album = `Album`,
     Artista = `Artista`,
     Grupo = `Grupo`
 }
-enum CommandsSingle {
+export enum CommandsSingle {
   Si = `Si`,
   No = `No`
 }
-enum CommandsGenerosCanciones {
+export enum CommandsGenerosCanciones {
   Rock = `Rock`,
   Pop = `Pop`,
   Rap = `Rap`,
@@ -44,7 +44,7 @@ enum CommandsGenerosCanciones {
   Soul = `Soul`,
   Salir = `Salir`
 }
-enum CommandsPartesCancion {
+export enum CommandsPartesCancion {
   Nombre = `Nombre`,
   Autor = `Autor`,
   GeneroMusical = `Género musical`,
@@ -53,7 +53,7 @@ enum CommandsPartesCancion {
   Reproducciones = `Número de reproducciones`,
   Salir = `Salir al menú principal`
 }
-async function addCancionGenero(genero: GenerosMusicales[])  {
+export async function addCancionGenero(genero: GenerosMusicales[])  {
   //let genero: GenerosMusicales[] = [];
   const generoCancion = await inquirer.prompt( {
     type: "list",
@@ -230,7 +230,7 @@ async function addCancionGenero(genero: GenerosMusicales[])  {
  * @function addcancion encar
  */
 
-async function addCancion(){
+ export async function addCancion(){
   //console.log(`Introduce le nombre de la cancion: `);
   const nombreCancion = await inquirer.prompt( {
     type: "input",
@@ -333,7 +333,7 @@ menuPrincipal();
 /**
  * @function menuAdd menu para añadir cancion, género, álbum, artista o grupo
  */
-async function menuAdd(){
+ export async function menuAdd(){
     const respuestaAdd = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -367,7 +367,7 @@ async function menuAdd(){
 /**
  * @function menuDel menu para borrar cancion, género, álbum, artista o grupo
  */
-async function menuDel(){
+ export async function menuDel(){
     const respuestaDel = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -398,7 +398,7 @@ async function menuDel(){
     }
     
 }
-async function modCancion(numero: number){
+export async function modCancion(numero: number){
   const cancionModificar = await inquirer.prompt({
     type: 'list',
     name: `modificar`,
@@ -479,7 +479,7 @@ async function modCancion(numero: number){
    menuPrincipal();
 
 }
-async function menuModCancion(){
+export async function menuModCancion(){
   const cancionModificada = await inquirer.prompt({
     type: 'input',
     name: `modificar`,
@@ -505,7 +505,7 @@ async function menuModCancion(){
 /**
  * @function menuMod menu para modificar cancion, género, álbum, artista o grupo
  */
-async function menuMod(){
+ export async function menuMod(){
     const respuestaMod = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -541,7 +541,7 @@ async function menuMod(){
  * @function menuPrincipal menu principal donde se manejan los submenus y los comandos
  * @returns 
  */
-async function menuPrincipal(){
+ export async function menuPrincipal(){
     //console.clear();
     //print();
     const respuesta = await inquirer.prompt({
