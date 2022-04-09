@@ -42,15 +42,25 @@ async function addGrupoArtista(artistas: Artistas[]) {
   if(numeroArtistas === -1){
     console.log(`No existe una cancion con ese nombre`);
    //InquirerFile.menuPrincipal();
+
   } else {
     //addGrupo(numeroCancion);
     artistas.push(index.artistas[numeroArtistas]);
     let booolean: boolean = true;
-    const finalArtista = await.inquirer.prompt({
+    const finalArtista = await inquirer.prompt({
       type: "list",
       name: "finalArtista",
       message: "¿Desea añadir otro artista?",
-      choices: Object.values(CommandsSingle)
+      choices: Object.values(InquirerFile.CommandsSingle)
     })
+    switch(finalArtista["finalArtista"]) {
+      case CommandsSingle.Si:
+        await addGrupoArtista(artistas)
+        break;
+      case CommandsSingle.No:
+        break;
+    }
+   
   }
+  addGrupo();
 }
