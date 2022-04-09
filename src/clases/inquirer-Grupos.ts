@@ -8,12 +8,12 @@ import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as InquirerFile from "./inquirer";
 
-enum CommandsSingle {
+export enum CommandsSingle {
   Si = `Si`,
   No = `No`
 }
 
-async function addGrupo() {
+export async function addGrupo() {
   const nombreGrupo = await inquirer.prompt({
     type: "input",
     name: "nombreGrupo",
@@ -22,9 +22,10 @@ async function addGrupo() {
   let artistasArray: Artistas[] = []
   await addGrupoArtista(artistasArray);
   
+
 }
 
-async function addGrupoArtista(artistas: Artistas[]) {
+export async function addGrupoArtista(artistas: Artistas[]) {
   const artistasArray = await inquirer.prompt({
     type: "input",
     name: "artistasArray",
