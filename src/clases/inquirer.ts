@@ -25,24 +25,36 @@ enum CommandsClases {
     GeneroMusical = `Género musical`,
     Album = `Album`,
     Artista = `Artista`,
-    Grupo = `Grupo`,
+    Grupo = `Grupo`
 }
 enum CommandsSingle {
   Si = `Si`,
-  No = `No`,
+  No = `No`
+}
+enum CommandsGenerosCanciones {
+  Rock = `Rock`,
+  Pop = `Pop`,
+  Rap = `Rap`,
+  Electronica = `Electronica`,
+  Regueton = `Regueton`,
+  Hip_Hop = `Hip_Hop`,
+  Metal = `Metal`,
+  Flamenco = `Flamenco`,
+  RyB = `RyB`,
+  Soul = `Soul`
 }
   
 /**
  * @function addcancion encar
  */
 
-async function addcancion(){
+async function addCancion(){
   //console.log(`Introduce le nombre de la cancion: `);
   const nombreCancion = await inquirer.prompt( {
     type: "input",
     name: "nombreCancion",
     message: "Introduce el nombre de la cancion: "
-});
+})
 const nombreAutor = await inquirer.prompt( {
     type: "input",
     name: "nombreAutor",
@@ -53,11 +65,46 @@ const duracionCancion = await inquirer.prompt( {
     name: "duracionCancion",
     message: `Introduce la duracion en el formato "min:seg" : `
 });
+let genero_: GenerosMusicales[] = [];
 const generoCancion = await inquirer.prompt( {
-    type: "input",
-    name: "generoCancion",
-    message: "Introduce el/los generos musicales: "
+  type: "list",
+  name: "generoCancion",
+  message: "Introduce el/los generos musicales: ",
+  choices: Object.values(CommandsGenerosCanciones)
 });
+switch(generoCancion["generoCancion"]) {
+  case CommandsGenerosCanciones.Electronica:
+    genero_.push(index.Electronica);
+    break;
+  case CommandsGenerosCanciones.Pop:
+    genero_.push(index.Pop);
+    break;
+  case CommandsGenerosCanciones.Metal:
+    genero_.push(index.Metal);
+    break;
+  case CommandsGenerosCanciones.Flamenco:
+    genero_.push(index.Flamenco);
+    break;
+  case CommandsGenerosCanciones.Rap:
+    genero_.push(index.Rap);
+    break;
+  case CommandsGenerosCanciones.Regueton:
+    genero_.push(index.Regueton);
+    break;
+  case CommandsGenerosCanciones.Hip_Hop:
+    genero_.push(index.Hip_Hop);
+    break;
+  case CommandsGenerosCanciones.RyB:
+    genero_.push(index.RyB);
+    break;
+  case CommandsGenerosCanciones.Rock:
+    genero_.push(index.Rock);
+    break;
+  case CommandsGenerosCanciones.Soul:
+    genero_.push(index.Soul);
+    break;
+}
+
 const singleCancion = await inquirer.prompt( {
     type: "list",
     name: "singleCancion",
@@ -78,10 +125,10 @@ const numReproducciones = await inquirer.prompt( {
 
 let nombre_: string = nombreCancion["nombreCancion"];
 let autor_: string = nombreAutor["nombreAutor"];
-let genero_ : string = generoCancion["generoCancion"];
+/*let genero_ : string = generoCancion["generoCancion"];
+ if ()
 
-
-);
+);*/
 
     menuPrincipal();
   }
