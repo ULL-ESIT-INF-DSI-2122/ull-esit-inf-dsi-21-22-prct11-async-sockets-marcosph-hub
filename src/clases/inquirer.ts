@@ -6,6 +6,7 @@ import { GenerosMusicales } from "../clases/generosMusicales";
 import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
+import * as inGrupos from "../clases/inquirer-Grupos";
 
 /**
  * @enum Commands con los comandos de añadir, borrar, modificar y salir
@@ -345,8 +346,9 @@ menuPrincipal();
         addCancion();
         break;
       case CommandsClases.GeneroMusical:
-        //addGeneroMusical();
-        console.log(`añadiendo una genero musical`);
+        
+        //7addGeneroMusical();
+       // console.log(`añadiendo una genero musical`);
         break;
       case CommandsClases.Album:
         //addAlbum();
@@ -358,7 +360,8 @@ menuPrincipal();
         break;
       case CommandsClases.Grupo:
         //addGrupo();
-        console.log(`añadiendo una grupo`);
+        inGrupos.addGrupo();
+        //console.log(`añadiendo una grupo`);
         break;
     }
 
