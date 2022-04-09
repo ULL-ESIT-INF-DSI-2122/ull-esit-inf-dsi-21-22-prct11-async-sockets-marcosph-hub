@@ -203,8 +203,10 @@ artista38.construirArtista( [cancion32, cancion33, cancion34], 8907725);
 artista39.construirArtista( [cancion39, cancion40, cancion41], 17644273);
 artista40.construirArtista( [cancion39, cancion40, cancion41], 17644273);
 artista41.construirArtista( [cancion39, cancion40, cancion41], 17644273);
-
-
+/*
+export let artistas: Artistas[] = [artista1, artista2, artista3, artista4, artista5, artista6, artista7, artista8, artista9, artista10, artista11, artista12, artista13, artista14, artista15, artista16, artista17, artista18, artista19, artista20, artista21, artista22, artista23, artista24, artista25, artista26, artista27, artista28, artista29, artista30, artista31, artista32, artista33, artista34, artista35, artista36, artista37, artista38, artista39, artista40, artista41];
+export let grupos: Grupos[] = [grupo1, grupo2, grupo3, grupo4, grupo5, grupo6];
+*/
 // Playlists
 export let playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, cancion49, cancion32, cancion34, cancion33]);
 let playlist2 = new Playlist(`Rock For Ever`, [cancion3, cancion14, cancion43]);
@@ -221,3 +223,4 @@ export let playlists: Playlist[] = [playlist1, playlist2, playlist3]
 //console.log(cancion1);
 //console.log(artista1);
 //console.log(grupo1.dame());
+console.log(artistas[3].getCanciones())
