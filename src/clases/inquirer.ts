@@ -7,6 +7,7 @@ import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
+import * as inArtista from "../clases/inquirer_artista";
 
 /**
  * @enum Commands con los comandos de añadir, borrar, modificar y salir
@@ -355,8 +356,7 @@ menuPrincipal();
         console.log(`añadiendo una album`);
         break;
       case CommandsClases.Artista:
-        //addArtista();
-        console.log(`añadiendo una artista`);
+        inArtista.addArtista();
         break;
       case CommandsClases.Grupo:
         //addGrupo();
