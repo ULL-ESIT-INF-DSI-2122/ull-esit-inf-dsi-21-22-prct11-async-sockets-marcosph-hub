@@ -626,37 +626,37 @@ export async function menuOpcionesAvanzadas2() {
   })
   switch(respuestaOpAvanzadas["command"]) {
     case CommandsGestionAvanzada.AlfTitCancionAsc:
-      AlfTitCancionAsc();
+      //AlfTitCancionAsc();
       break;
     case CommandsGestionAvanzada.AlfTitCancionDesc:
-      AlfTitCancionDesc();
+      //AlfTitCancionDesc();
       break;
     case CommandsGestionAvanzada.AlfNombAlbumAsc:
-      AlfNombAlbumAsc();
+      //AlfNombAlbumAsc();
       break;
     case CommandsGestionAvanzada.AlfNombAlbumDesc:
-      AlfNombAlbumDesc();
+      //AlfNombAlbumDesc();
       break;
     case CommandsGestionAvanzada.AlfNombPlaylistAsc:
-      AlfNombPlaylistAsc();
+      //AlfNombPlaylistAsc();
       break;
     case CommandsGestionAvanzada.AlfNombPlaylistDesc:
-      AlfNombPlaylistDesc();
+      //AlfNombPlaylistDesc();
       break;
     case CommandsGestionAvanzada.AnioLanzAlbumAsc:
-      AnioLanzAlbumAsc();
+      //AnioLanzAlbumAsc();
       break;
     case CommandsGestionAvanzada.AnioLanzAlbumDesc:
-      AnioLanzAlbumDesc();
+      //AnioLanzAlbumDesc();
       break;
     case CommandsGestionAvanzada.NumRepTotalAsc:
-      NumRepTotalAsc();
+      //NumRepTotalAsc();
       break;
     case CommandsGestionAvanzada.NumRepTotalDesc:
-      NumRepTotalDesc();
+      //NumRepTotalDesc();
       break;
     case CommandsGestionAvanzada.MostrarSingles:
-      MostrarSingles();
+      //MostrarSingles();
       break;
   }
 }
