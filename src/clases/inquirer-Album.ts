@@ -49,12 +49,12 @@ export async function addAlbum() {
   }
   const generoAlbum = await inquirer.prompt( {
     type: "list",
-    name: "generoCancion",
+    name: "generoAlbum",
     message: "Introduce el/los generos musicales del album: ",
     choices: Object.values(CommandsGenerosCanciones)
   });
-  let genero_: GenerosMusicales[] = [];
-  InquirerFile.addCancionGenero(genero_);
+  let genero1_: GenerosMusicales[] = [];
+  InquirerFile.addCancionGenero(genero1_);
 
   const anioPublicacion = await inquirer.prompt( {
     type: "number",
@@ -69,6 +69,16 @@ export async function addAlbum() {
   });
   // Esto sirve?
   InquirerFile.addCancion();
+
+  let nombre_: string = nombreAlbum["nombreAlbum"];
+  let autores_: Grupos|Artistas = nombreGrupoArtista["nombreGrupoArtista"];
+  let genero_: GenerosMusicales [] = generoAlbum["generoAlbum"];
+  let yearsPublicacion_: number = anioPublicacion["anioPublicacion"];
+  let cancionesAlbum_: Cancion[] = cancionesAlbum["cancionesAlbum"];
+  let album: Album = new Album(nombre_, autores_, genero_, yearsPublicacion_, cancionesAlbum_);
+ 
+  console.clear();
+  InquirerFile.menuPrincipal();
 }
 
 /*  NO SE USA PERO ES PARA INTRODUCIR UN NUEVO GRUPO
