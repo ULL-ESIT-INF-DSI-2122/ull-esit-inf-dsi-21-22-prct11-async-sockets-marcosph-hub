@@ -6,12 +6,20 @@ import { GenerosMusicales } from "../clases/generosMusicales";
 import { Grupos } from "../clases/grupos";
 import * as index from "../index";
 import * as InquirerFile from "./inquirer";
-import * as inGrupos from "../clases/inquirer-Grupos";
-
 
 export enum CommandsSingle {
   Si = `Si`,
   No = `No`
+}
+
+export enum CommandsPartesArtista {
+  Nombre = `Nombre`,
+  Grupos = `Grupos`,
+  GeneroMusical = `Género musical`,
+  Albumes = `Albumes`,
+  Canciones = `Canciones`,
+  Oyentes = `Número de oyentes mensuales`,
+  Salir = `Salir al menú principal`
 }
 
 let genero: GenerosMusicales[] = [];
@@ -41,8 +49,10 @@ export async function addArtista() {
   artista.setAlbumes(album);
   await addCancionArtista(cancion);
   artista.setCanciones(cancion);
-  console.log(artista);
-  return artista;
+  //console.log(artista);
+  //return artista;
+  console.clear();
+  InquirerFile.menuPrincipal();
 }
 
 export async function addGeneroArtista(genero: GenerosMusicales[]) {
@@ -306,4 +316,114 @@ export async function addCancionArtista(cancion: Cancion[]) {
       break;
   }
   return cancion;
+}
+
+
+export async function modArtista(numero: number){
+  const artistaModificar = await inquirer.prompt({
+    type: 'list',
+    name: `modificar`,
+    message: `¿Qué quieres modificar de la artista?`,
+    choices: Object.values(CommandsPartesArtista)
+  })
+
+  switch(artistaModificar["modificar"]){
+    case CommandsPartesArtista.Nombre:
+      const nombreArtista = await inquirer.prompt( {
+        type: "input",
+        name: "nombreArtista",
+        message: "Introduce el nuevo nombre del artista: "
+      })
+      let nombreArtista_ = nombreArtista["nombreArtista"];
+      index.artistas[numero].setNombreArtista(nombreArtista_);
+      await modArtista(numero);
+      break;
+    case CommandsPartesArtista.Grupos:
+      const nombreGrupo = await inquirer.prompt( {
+        type: "input",
+        name: "nombreGrupo",
+        message: "Introduce el nuevo nombre del grupo: "
+      });
+      let nombreGrupo_ = nombreGrupo["nombreGrupo"];
+      index.grupos.forEach(element => {
+        if(nombreGrupo_ === element.getNombreGrupo()){
+          index.artistas[numero].setGrupos([element]);
+        }
+      });
+      await modArtista(numero);
+      break;
+    case CommandsPartesArtista.GeneroMusical:
+      let genero_: GenerosMusicales[] = [];
+      await addGeneroArtista(genero_);
+      index.artistas[numero].setGeneros(genero_);
+      await modArtista(numero);
+      break;
+    // No funciona
+    case CommandsPartesArtista.Albumes:
+      const albumesArtista = await inquirer.prompt( {
+        type: "input",
+        name: "albumesArtista",
+        message: `Introduce el nuevo nombre del album del artista: `
+      });
+      let albumes_ = albumesArtista["albumesArtista"];
+      index.albumes.forEach(element => {
+        if(albumes_ === element.getNombreAlbum()){
+          index.artistas[numero].setAlbumes([element]);
+        }
+      });
+      await modArtista(numero);
+      break;
+      case CommandsPartesArtista.Canciones:
+      const cancionesArtista = await inquirer.prompt( {
+        type: "input",
+        name: "cancionesArtista",
+        message: `Introduce la nueva canción del artista: `
+      });
+      let canciones_ = cancionesArtista["cancionesArtista"];
+      index.canciones.forEach(element => {
+        if(canciones_ === element.getNombreCancion()){
+          index.artistas[numero].setCanciones([element]);
+        }
+      });
+      await modArtista(numero);
+      break;
+    case CommandsPartesArtista.Oyentes:
+      const numOyentes = await inquirer.prompt( {
+        type: "number",
+        name: "numOyentes",
+        message: "Introduce el nuevo numero de oyentes mensuales del artista: "
+      });
+      let oyentes_: number = numOyentes["numOyentes"];
+      index.artistas[numero].setOyentes(oyentes_);
+      console.log(index.artistas[numero]);
+      await modArtista(numero);
+      break;
+    case CommandsPartesArtista.Salir:
+      break;
+  }
+  console.clear();
+  InquirerFile.menuPrincipal();
+
+}
+
+export async function menumodArtista(){
+  const artistaModificado = await inquirer.prompt({
+    type: 'input',
+    name: `modificar`,
+    message: `Introduce el nombre del artista que quieres modificar:`,
+  })
+  let nombreArtistaModificar: string = artistaModificado["modificar"];
+  let numeroArtista: number = -1;
+  for(let i: number = 0; i < index.artistas.length; i++){
+    if(index.artistas[i].getNombreArtista() === nombreArtistaModificar){
+      numeroArtista = i;
+      break;
+    }
+  }
+  if(numeroArtista === -1){
+    console.log(`No existe un artista con ese nombre`);
+    InquirerFile.menuPrincipal();
+  } else {
+    modArtista(numeroArtista);
+  }
 }
