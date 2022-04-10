@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-
+    "prueba3": "tsc-watch --onSuccess \"node dist/clases/inquirer-Album.js\"",
     "prueba": "tsc-watch --onSuccess \"node dist/clases/inquirer.js\"",
     "prueba2": "tsc-watch --onSuccess \"node dist/clases/inquirer-Grupos.js\"",
     "prueba3": "tsc-watch --onSuccess \"node dist/clases/inquirer_artista.js\"",
