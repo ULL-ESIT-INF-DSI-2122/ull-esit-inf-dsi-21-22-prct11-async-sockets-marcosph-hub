@@ -531,8 +531,7 @@ export async function menuModCancion(){
         console.log(`modificando una album`);
         break;
       case CommandsClases.Artista:
-        console.log(`modificando una artista`);
-        //modArtista();
+        inArtista.menumodArtista();
         break;
       case CommandsClases.Grupo:
         console.log(`modificando una grupo`);

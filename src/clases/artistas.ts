@@ -67,7 +67,7 @@ export class Artistas {
 	}
 
 	/**
-	 * Getter de los grupos del artista
+	 * Getter de los nombres grupos del artista
 	 * @returns grupos del artista
 	 */
 	getGrupos(){
@@ -77,6 +77,18 @@ export class Artistas {
         });
 		return grupos_;
 	}
+
+		/**
+	 * Getter de los grupos del artista
+	 * @returns grupos del artista
+	 */
+		 getGruposObject(){
+			let grupos_: Grupos[] = [];
+					this.grupos.forEach(element => {
+							grupos_.push(element);
+					});
+			return grupos_;
+		}
 
 	/**
 	 * Getter de los géneros musicales 
@@ -91,7 +103,7 @@ export class Artistas {
 	}
 
 	/**
-	 * Getter de los albumes del artista
+	 * Getter de los nombres de los albumes del artista
 	 * @returns albumes
 	 */
 	getAlbumes(){
@@ -103,7 +115,19 @@ export class Artistas {
 	}
 
 	/**
-	 * Getter de las canciones del artista
+	 * Getter de los albumes del artista
+	 * @returns albumes
+	 */
+	 getAlbumesObject(){
+		let albumes_: Album[] = [];
+    this.albumes.forEach(element => {
+      albumes_.push(element);
+    });   
+		return albumes_;
+	}
+
+	/**
+	 * Getter de los nombres de las canciones del artista
 	 * @returns canciones del artista
 	 */
 	getCanciones(){
@@ -111,6 +135,18 @@ export class Artistas {
     this.canciones.forEach(element => {
       canciones_.push(element.getNombreCancion());
     }); 
+		return canciones_;
+	}
+
+	/**
+	 * Getter de las canciones del artista
+	 * @returns canciones del artista
+	 */
+		getCancionesObject(){
+		let canciones_: Cancion[] = [];
+		this.canciones.forEach(element => {
+			canciones_.push(element);
+		}); 
 		return canciones_;
 	}
 
