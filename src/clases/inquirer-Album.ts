@@ -8,17 +8,28 @@ import { Playlist } from "./playlist";
 import * as index from "../index";
 import * as InquirerFile from "./inquirer";
 import { CommandsGenerosCanciones } from './inquirer';
+import { addCancion, addCancionGenero } from './inquirer-Cancion';
+import { addGrupo } from './inquirer-Grupos';
 
+/**
+ * @enum CommandsGrupoArtista si es un grupo o un artista
+ */
 export enum CommandsGrupoArtista {
   Grupo = `Grupo`,
   Artista = `Artista`
 }
 
+/**
+ * @enum CommandsSingle si es un sí o no
+ */
 export enum CommandsSingle {
   Si = `Si`,
   No = `No`
 }
 
+/**
+ * @function addAlbum para añadir un nuevo album
+ */
 export async function addAlbum() {
   const nombreAlbum = await inquirer.prompt( {
     type: "input",
@@ -54,7 +65,7 @@ export async function addAlbum() {
     choices: Object.values(CommandsGenerosCanciones)
   });
   let genero1_: GenerosMusicales[] = [];
-  InquirerFile.addCancionGenero(genero1_);
+  addCancionGenero(genero1_);
 
   const anioPublicacion = await inquirer.prompt( {
     type: "number",
@@ -67,8 +78,8 @@ export async function addAlbum() {
     name: "cancionesAlbum",
     message: "Introduce las canciones del álbum: "
   });
-  // Esto sirve?
-  InquirerFile.addCancion();
+
+  addCancion();
 
   let nombre_: string = nombreAlbum["nombreAlbum"];
   let autores_: Grupos|Artistas = nombreGrupoArtista["nombreGrupoArtista"];
@@ -81,41 +92,11 @@ export async function addAlbum() {
   InquirerFile.menuPrincipal();
 }
 
-/*  NO SE USA PERO ES PARA INTRODUCIR UN NUEVO GRUPO
-export async function addGrupo(grupos: Grupos[]) {
-  const gruposArray = await inquirer.prompt({
-    type: "input",
-    name: "gruposArray",
-    message: "Introduce el nombre del nuevo Grupo: ",
-  })
-  
-  let nombreGrupo: string = gruposArray["gruposArray"]; 
-  let numeroGrupos: number = -1;
-  for(let i: number = 0; i < index.grupos.length; i++){
-    if(index.grupos[i].getNombreGrupo() === nombreGrupo){
-      numeroGrupos = i;
-      break;
-    } else {
-      index.grupos[i].setNombreGrupo(nombreGrupo);
-      break
-    }
-  }
-  const finalArtista = await inquirer.prompt({
-    type: "list",
-    name: "finalArtista",
-    message: "¿Desea añadir otro grupo?",
-    choices: Object.values(InquirerFile.CommandsSingle)
-  });
-  switch(finalArtista["finalArtista"]) {
-    case CommandsSingle.Si:
-      await addGrupo(grupos)
-      break;
-    case CommandsSingle.No:
-      break;
-  }
-}*/
 
-// Sí funciona
+/**
+ * @function addGrupoArtista para añadir los artistas del grupo
+ * @param artistas del grupo
+ */
 export async function addGrupoArtista(artistas: Artistas[]) {
   const artistasArray = await inquirer.prompt({
     type: "input",
@@ -133,14 +114,14 @@ export async function addGrupoArtista(artistas: Artistas[]) {
       index.artistas[i].setNombreArtista(nombreArtistas);
       break
     }
-  }/*
+  }
   if(numeroArtistas === -1){
     console.log(`No hay una artista con ese nombre`);
-   //InquirerFile.menuPrincipal();
+    InquirerFile.menuPrincipal();
 
   } else {
-    //addGrupo(numeroCancion);
-    artistas.push(index.artistas[numeroArtistas]);*/
+    //addGrupo(numeroArtistas); //pProblema con los argumentos
+    artistas.push(index.artistas[numeroArtistas]);
     const finalArtista = await inquirer.prompt({
       type: "list",
       name: "finalArtista",
@@ -154,5 +135,5 @@ export async function addGrupoArtista(artistas: Artistas[]) {
       case CommandsSingle.No:
         break;
     }
-  //}
+  }
 }
