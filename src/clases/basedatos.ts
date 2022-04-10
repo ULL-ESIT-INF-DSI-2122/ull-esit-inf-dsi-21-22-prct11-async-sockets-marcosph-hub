@@ -9,8 +9,8 @@ import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
 import * as inArtista from "../clases/inquirer_artista";
 import { addAlbum } from '../clases/inquirer-Album';
-import * as lowdb from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
+import lowdb from 'lowdb';
 
 
 type dbtype = {
@@ -63,7 +63,7 @@ export class BaseDatos{
     public gruposArray: Grupos[];
 
     constructor(generosArray: GenerosMusicales[] = [], cancionesArray: Cancion[] = [], albumesArray: Album[] = [], artistasArray: Artistas[] = [], gruposArray: Grupos[] = []) {
-        this.basedatos = lowdb(new FileSync("index.json"));
+        //this.basedatos = lowdb(new FileSync("index.json"));
         this.generosArray = generosArray;
         this.cancionesArray = cancionesArray;
         this.albumesArray = albumesArray;
@@ -73,11 +73,13 @@ export class BaseDatos{
 
     // Guardar en la base de datos
     guardarBaseDatos() {
+        // Me falla
+        /*
         this.basedatos.set("generosmusicales", [...this.generosArray]).write();
         this.basedatos.set("canciones", [...this.cancionesArray]).write();
         this.basedatos.set("albumes", [...this.albumesArray]).write();
         this.basedatos.set("artistas", [...this.artistasArray]).write();
-        this.basedatos.set("grupos", [...this.gruposArray]).write();
+        this.basedatos.set("grupos", [...this.gruposArray]).write();*/
     }
 
     /**
