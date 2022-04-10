@@ -364,7 +364,6 @@ export async function modCancion(numero: number){
     }
     console.clear();
     menuPrincipal();
-  
 }
 
 /**

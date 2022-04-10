@@ -326,9 +326,7 @@ export async function menuOpcionesAvanzadas2() {
  * @function menuPrincipal menu principal donde se manejan los submenus y los comandos
  * @returns 
  */
- export async function menuPrincipal(){
-    //console.clear();
-    //print();
+export async function menuPrincipal(){
     const respuesta = await inquirer.prompt({
       type: 'list',
       name: `command`, 
