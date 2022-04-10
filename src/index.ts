@@ -212,6 +212,10 @@ export let playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, ca
 let playlist2 = new Playlist(`Rock For Ever`, [cancion3, cancion14, cancion43]);
 let playlist3 = new Playlist(`Flamencos de corazóh`, [cancion11, cancion24, cancion26]);
 export let playlists: Playlist[] = [playlist1, playlist2, playlist3]
+/*
+export function CommandsGenerosCanciones(CommandsGenerosCanciones: any): import("inquirer").AsyncDynamicQuestionProperty<readonly import("inquirer").DistinctChoice<import("inquirer").ListChoiceMap<{ generoCancion: any; }>, import("inquirer").AllChoiceMap<import("inquirer").ListChoiceMap<{ generoCancion: any; }>>>[], { ...; }> | undefined {
+    throw new Error('Function not implemented.');
+}*/
 //console.log(playlist1.getGeneros());
 
 

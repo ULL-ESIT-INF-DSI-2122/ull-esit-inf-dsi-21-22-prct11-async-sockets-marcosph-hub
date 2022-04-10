@@ -7,7 +7,7 @@ import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
-import { addAlbum } from '../clases/inquirer-Album';
+import { addAlbum, menuModAlbum } from '../clases/inquirer-Album';
 import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
 import { addArtista, menumodArtista } from '../clases/inquirer_artista';
 import { BaseDatos } from './basedatos';
@@ -183,8 +183,7 @@ export async function menuAdd(){
         console.log(`modificando una genero musical`);
         break;
       case CommandsClases.Album:
-        //modAlbum();
-        console.log(`modificando una album`);
+        menuModAlbum();
         break;
       case CommandsClases.Artista:
         menumodArtista();
@@ -304,7 +303,7 @@ export async function menuOpcionesAvanzadas2() {
 /**
  * @function menuOpcionesAvanzadas menu para visualizar de los grupos y artistas de distintas maneras
  */
- export async function menuOpcionesAvanzadas(){
+export async function menuOpcionesAvanzadas(){
   const respuestaOpAvanzadas = await inquirer.prompt({
     type: 'list',
     name: `command`, 
