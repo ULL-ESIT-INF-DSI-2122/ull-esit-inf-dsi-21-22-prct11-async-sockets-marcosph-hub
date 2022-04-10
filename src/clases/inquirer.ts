@@ -9,6 +9,7 @@ import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
 import * as inArtista from "../clases/inquirer_artista";
 import { addAlbum } from '../clases/inquirer-Album';
+import { BaseDatos } from './basedatos';
 
 
 /**
@@ -572,3 +573,7 @@ export async function menuModCancion(){
 }
 
 menuPrincipal();
+
+
+// Crear base de datos
+let db = new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos);
