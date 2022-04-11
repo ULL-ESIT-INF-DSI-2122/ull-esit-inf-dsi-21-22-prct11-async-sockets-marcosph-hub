@@ -62,8 +62,8 @@ async function getAlbumesGrupo(albumArray: Album[]) {
   })
   let albumEspecifico: string = albumesGrupo["albumesGrupo"];
   //let albumEspecifico: string = albumesGrupo["autores"];
-  let albumIndex: number = -1;
-  for (let iterator: number = 0; iterator < index.albumes.length; iterator++) {
+  let albumIndex:  = -1;
+  for (let iterator = 0; iterator < index.albumes.length; iterator++) {
     if(index.albumes[iterator].getNombreAlbum() === albumEspecifico) {
       albumIndex = iterator;
       break;
