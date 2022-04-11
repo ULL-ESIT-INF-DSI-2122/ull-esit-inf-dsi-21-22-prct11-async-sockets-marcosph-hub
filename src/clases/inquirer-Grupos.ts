@@ -23,38 +23,6 @@ export enum CommandsGrupoProperty {
   Oyentes = `Oyentes`,
   Salir = `Salir`
 }
-/*
-async function addGeneroEspecifico(generoArray: GenerosMusicales[], nombreGeneroEspecifico: string) {
-   index.generos.forEach(element => {
-     if(element.getNombreGenero() === nombreGeneroEspecifico) {
-      generoArray.push(element);
-      const generoGrupo = inquirer.prompt( { //await
-        type: "list",
-        name: "generoGrupo",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoGrupo[""]) {
-        case CommandsSingle.Si:
-          addGeneroGrupo(generoArray)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    }
-  });
-}
-
-export async function addGeneroGrupo(generoArray: GenerosMusicales[]) {
-  const generoCancion = await inquirer.prompt( {
-    type: "list",
-    name: "generoCancion",
-    message: "Introduce los generos musicales del Grupo: ",
-    choices: Object.values(InquirerFile.CommandsGenerosCanciones)
-  });
-  let nombreGeneroEspecifico: string = generoCancion["generoCancion"]
-  addGeneroEspecifico(generoArray,nombreGeneroEspecifico)
-}*/
 
 async function getAlbumesGrupo(albumArray: Album[]) {
   const albumesGrupo = await inquirer.prompt({
@@ -63,8 +31,6 @@ async function getAlbumesGrupo(albumArray: Album[]) {
     message: "Introduce el nombre del álbum lanzado por el grupo"
   })
   let albumEspecifico: string = albumesGrupo["albumesGrupo"];
-  //let albumEspecifico: string = albumesGrupo["autores"];
-
   let albumIndex: number = -1;
   for (let iterator: number = 0; iterator < index.albumes.length; iterator++) {
     if(index.albumes[iterator].getNombreAlbum() === albumEspecifico) {
@@ -79,8 +45,6 @@ async function getAlbumesGrupo(albumArray: Album[]) {
     return 0;
     
   } else {
-    //var aux: Album = new Album();
-    //aux.setNombreAlbum()
     console.log("Insertando album");
     albumArray.push(index.albumes[albumIndex]);
     const otroalbum = await inquirer.prompt({
@@ -96,7 +60,6 @@ async function getAlbumesGrupo(albumArray: Album[]) {
       case CommandsSingle.No:
         break;
     }
-    //return albumArray;
   }
 }
 
@@ -159,9 +122,7 @@ export async function addGrupoArtista(artistas: Artistas[]) {
     return 0;
     
   } else {
-    //addGrupo(numeroCancion);
     artistas.push(index.artistas[numeroArtistas]);
-    //let booolean: boolean = true;
     const finalArtista = await inquirer.prompt({
       type: "list",
       name: "finalArtista",
@@ -253,8 +214,6 @@ async function modificarGrupo(SpecificGrupoIndex:number) {
         InquirerFile.menuPrincipal();
       break;
   }
-  /*console.log("Los datos se han actualizado con Éxito")
-  console.table(index.grupos[SpecificGrupoIndex])*/
 }
 
 export async function menuModificarGrupo() {
@@ -272,7 +231,6 @@ export async function menuModificarGrupo() {
       break;
     }
   }
-
   if (GrupoIndex === -1) {
     console.log("El Grupo introducido no existe en la Base de Datos");
     InquirerFile.menuPrincipal();
@@ -280,7 +238,6 @@ export async function menuModificarGrupo() {
     modificarGrupo(GrupoIndex);
   }
 }
-
 InquirerFile.menuPrincipal
 
 
