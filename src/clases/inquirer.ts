@@ -32,7 +32,8 @@ export enum CommandsClases {
     GeneroMusical = `Género musical`,
     Album = `Album`,
     Artista = `Artista`,
-    Grupo = `Grupo`
+    Grupo = `Grupo`,
+    Salir = `Salir`
 }
 
 /**
@@ -159,8 +160,12 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         //delGrupo();
-        console.log(`eliminndo una grupo`);
+        console.log(`eliminnndo una grupo`);
         break;
+        case CommandsClases.Salir:
+          await menuPrincipal();
+          return 0;
+          break;
     } 
 }
 
@@ -168,6 +173,7 @@ export async function menuAdd(){
  * @function menuMod menu para modificar cancion, género, álbum, artista o grupo
  */
  export async function menuMod(){
+   console.clear();
     const respuestaMod = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -176,22 +182,26 @@ export async function menuAdd(){
     })
     switch(respuestaMod["command"]) {
       case CommandsClases.Cancion:
-        menuModCancion();
+         menuModCancion();
         break;
       case CommandsClases.GeneroMusical:
         //modGeneroMusical();
         console.log(`modificando una genero musical`);
         break;
       case CommandsClases.Album:
-        menuModAlbum();
+         menuModAlbum();
         break;
       case CommandsClases.Artista:
-        menumodArtista();
+         menumodArtista();
         break;
       case CommandsClases.Grupo:
         console.log(`modificando una grupo`);
         //modGrupo();
         break;
+      case CommandsClases.Salir:
+           menuPrincipal();
+      
+      break;
     }
     
 }
@@ -334,16 +344,16 @@ export async function menuPrincipal(){
     })
     switch(respuesta["command"]) {
       case Commands.Add:
-        menuAdd();
+         menuAdd();
         break;
       case Commands.Borrar:
-        menuDel();
+         menuDel();
         break;
       case Commands.Modificar:
-        menuMod();
+         menuMod();
         break;
       case Commands.OpcionesAvanzadas:
-        menuOpcionesAvanzadas();
+         menuOpcionesAvanzadas();
         break;
       case Commands.Salir:
         return;

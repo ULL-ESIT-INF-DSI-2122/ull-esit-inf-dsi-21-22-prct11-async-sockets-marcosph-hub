@@ -286,6 +286,7 @@ export async function addCancion(){
  * @param numero 
  */
 export async function modCancion(numero: number){
+  console.clear();
     const cancionModificar = await inquirer.prompt({
       type: 'list',
       name: `modificar`,
@@ -361,9 +362,12 @@ export async function modCancion(numero: number){
         index.canciones[numero].setNumReproducciones(reprod_);
         await modCancion(numero);
         break;
+        case CommandsPartesCancion.Salir:
+          return 0;
+          break;
     }
     console.clear();
-    menuPrincipal();
+     menuPrincipal();
 }
 
 /**
@@ -385,8 +389,9 @@ export async function menuModCancion(){
     }
     if(numeroCancion === -1){
       console.log(`No existe una cancion con ese nombre`);
-      menuPrincipal();
+       menuPrincipal();
+      return 0;
     } else {
-      modCancion(numeroCancion);
+      await modCancion(numeroCancion);
     }
 }

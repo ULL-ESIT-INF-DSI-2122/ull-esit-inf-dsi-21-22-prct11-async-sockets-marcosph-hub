@@ -57,7 +57,7 @@ export async function cancionesDeAlbum(cancionAlbum: Cancion[]){
     }
     if(numeroCancion === -1){
       console.clear();
-      console.log(`No existe una cancion con ese nombre. Volviendo al menu principal`);
+      console.log(`No existe una cancion con ese nombre.`);
       
       await cancionesDeAlbum(cancionAlbum);
       return 0; 
@@ -196,7 +196,7 @@ export async function modAlbum(numero: number) {
   const albumnModificar = await inquirer.prompt({
     type: 'list',
     name: `modificar`,
-    message: `¿Qué quieres modificar de la cancion?`,
+    message: `¿Qué quieres modificar del album?`,
     choices: Object.values(CommandsPartesAlbum)
   })
 
@@ -213,40 +213,47 @@ export async function modAlbum(numero: number) {
       break;
     case CommandsPartesAlbum.Autores:
       const grupoOArtista = await inquirer.prompt( {
-        type: "list",
+        type: "input",
         name: "grupoOArtista",
-        message: "¿Es un grupo o un artista?: ",
-        choices: Object.values(CommandsGrupoArtista)
+        message: "Nombre del grupo o del artista:"
       });
-      switch(grupoOArtista["grupoOArtista"]) {
-        case CommandsGrupoArtista.Grupo:
-          const nombreAutores = await inquirer.prompt( {
-            type: "input",
-            name: "nombreAutores",
-            message: "Introduce el nombre del grupo: "
-          });
-          let nombreAlbumGrupo_ = nombreAutores["nombreAutores"];
-          index.grupos[numero].setNombreGrupo(nombreAlbumGrupo_);
-          let artistasArray: Artistas[] = [];
-          addGrupoArtista(artistasArray);
-          //await modAlbum(numero);
-          break;
-        case CommandsGrupoArtista.Artista:
-          const nombreAutoresArt = await inquirer.prompt( {
-            type: "input",
-            name: "nombreAutores",
-            message: "Introduce el nombre del artista: "
-          });
-          let nombreAlbumArtista_ = nombreAutoresArt["nombreAutores"];
-          index.artistas[numero].setNombreArtista(nombreAlbumArtista_);
-          break;
+      let nombreGrupoOArtista_: string = grupoOArtista["grupoOArtista"];
+  let numeroGrupo_: number = -1;
+  let autores_: Grupos[]|Artistas[] = [];
+  for(let i: number = 0; i < index.grupos.length; i++){
+    if(index.grupos[i].getNombreGrupo() === nombreGrupoOArtista_){
+      numeroGrupo_ = i;
+      break;
+    }
+  }
+  if (numeroGrupo_ === -1){
+    for(let i: number = 0; i < index.artistas.length; i++){
+      if(index.artistas[i].getNombreArtista() === nombreGrupoOArtista_){
+        numeroGrupo_ = i;
+        break;
       }
+    }
+    if (numeroGrupo_ === -1){
+      console.clear();
+      console.log(`El nombre introducido no concuerda con ningún grupo o artista existente.`);
       await modAlbum(numero);
+      return 0;
+     
+    }
+    else {
+      autores_[0] = index.artistas[numeroGrupo_];
+    }
+  } else {
+     autores_[0] = index.grupos[numeroGrupo_];
+  }
+  index.albumes[numero].setAutores(autores_[0]);
+      await modAlbum(numero);
+      break;
 
     case CommandsPartesAlbum.GeneroMusical:
       let genero_: GenerosMusicales[] = [];
       await addCancionGenero(genero_);
-      index.canciones[numero].setGeneroMusical(genero_);
+      index.albumes[numero].setGenero(genero_);
       await modAlbum(numero);
       break;
     case CommandsPartesAlbum.YearPublicacion:
@@ -260,12 +267,17 @@ export async function modAlbum(numero: number) {
       await modAlbum(numero);
       break;
     case CommandsPartesAlbum.Canciones:
-      addCancion();
+      let cancionesAlbum_: Cancion[] = [];
+      await cancionesDeAlbum(cancionesAlbum_);
+      index.albumes[numero].setCanciones(cancionesAlbum_);
+      await modAlbum(numero);
+      break;
+      case CommandsPartesAlbum.Salir:
+      return 0;
       break;
   }
-  await modAlbum(numero);
   console.clear();
-  InquirerFile.menuPrincipal();
+   menuPrincipal();
 }
 
 /**
@@ -287,8 +299,9 @@ export async function menuModAlbum() {
   }
   if(numeroAlbum === -1){
     console.log(`No existe un álbum con ese nombre`);
-    InquirerFile.menuPrincipal();
+    menuPrincipal();
+    return 0;
   } else {
-    modAlbum(numeroAlbum);
+    await modAlbum(numeroAlbum);
   }
 }
