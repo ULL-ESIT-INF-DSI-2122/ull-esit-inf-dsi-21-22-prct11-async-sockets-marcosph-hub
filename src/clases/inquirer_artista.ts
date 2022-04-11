@@ -215,10 +215,10 @@ export async function modArtista(numero: number){
       await modArtista(numero);
       break;
     case CommandsPartesArtista.Salir:
+      console.clear();
+      InquirerFile.menuPrincipal();
       break;
   }
-  console.clear();
-  InquirerFile.menuPrincipal();
 }
 /**
  * Menu Modificar Artista
