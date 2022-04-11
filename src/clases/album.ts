@@ -19,6 +19,7 @@ export class Album {
 	private genero: GenerosMusicales[];
 	private yearPublicacion: number;
 	private canciones: Cancion[];
+
 	constructor(nombreAlbum: string, autores: Grupos | Artistas, genero: GenerosMusicales[],
 		yearPublicacion: number, canciones: Cancion[]){
 			this.nombreAlbum = nombreAlbum;
@@ -33,6 +34,9 @@ export class Album {
 				element.autoSetAlbumes(this);
 			});
 		}
+
+
+
 	/**
 	 * Getter del nombre del album
 	 * @returns nombre del album

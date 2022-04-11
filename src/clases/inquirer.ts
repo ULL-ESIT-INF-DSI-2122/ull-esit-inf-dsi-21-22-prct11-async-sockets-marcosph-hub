@@ -126,6 +126,7 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         //addGrupo();
+
         inGrupos.addGrupo();
         //console.log(`añadiendo una grupo`);
         break;

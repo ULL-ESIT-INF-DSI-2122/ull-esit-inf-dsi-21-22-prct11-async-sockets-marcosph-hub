@@ -227,4 +227,4 @@ export function CommandsGenerosCanciones(CommandsGenerosCanciones: any): import(
 //console.log(cancion1);
 //console.log(artista1);
 //console.log(grupo1.dame());
-//console.log(artistas[3].getCanciones())
+
