@@ -12,6 +12,15 @@ export enum CommandsSingle {
   Si = `Si`,
   No = `No`
 }
+
+export enum CommandsGrupoProperty {
+  Nombre = `Nombre`,
+  Artistas = `Artista`,
+  AñoFormacion = `AñoFormacion`,
+  Generos = `Generos`,
+  Albumes = `Albumes`,
+  Oyentes = `Oyentes`
+}
 /*
 async function addGeneroEspecifico(generoArray: GenerosMusicales[], nombreGeneroEspecifico: string) {
    index.generos.forEach(element => {
@@ -23,7 +32,7 @@ async function addGeneroEspecifico(generoArray: GenerosMusicales[], nombreGenero
         message: "La canción tiene más generos?: ",
         choices: Object.values(CommandsSingle)
       });
-      switch(generoGrupo["generoGrupo"]) {
+      switch(generoGrupo[""]) {
         case CommandsSingle.Si:
           addGeneroGrupo(generoArray)
           break;
@@ -46,27 +55,46 @@ export async function addGeneroGrupo(generoArray: GenerosMusicales[]) {
 }*/
 
 async function getAlbumesGrupo(albumArray: Album[]) {
-  const albumesGrupo:Album = await inquirer.prompt({
+  const albumesGrupo = await inquirer.prompt({
     type: "input",
     name: "albumesGrupo",
     message: "Introduce el nombre del álbum lanzado por el grupo"
   })
-  
-  albumArray.push(albumesGrupo)
-  const otroalbum = await inquirer.prompt({
-    type: "list",
-    name: "otroalbum",
-    message: "¿Han lanzado otro álbum?: ",
-    choices: Object.values(InquirerFile.CommandsSingle)
-  })
-  switch(otroalbum["otroalbum"]) {
-    case CommandsSingle.Si:
-      await getAlbumesGrupo(albumArray)
+  let albumEspecifico: string = albumesGrupo["albumesGrupo"];
+  //let albumEspecifico: string = albumesGrupo["autores"];
+  let albumIndex = -1;
+  for (let iterator = 0; iterator < index.albumes.length; iterator++) {
+    if(index.albumes[iterator].getNombreAlbum() === albumEspecifico) {
+      albumIndex = iterator;
       break;
-    case CommandsSingle.No:
-      break;
+
+    }
   }
-  return albumArray
+  if ( albumIndex === -1) {
+    console.log("Este álbum no se encuentra en la base de datos");
+    await getAlbumesGrupo(albumArray)
+    return 0;
+    
+  } else {
+    //var aux: Album = new Album();
+    //aux.setNombreAlbum()
+    console.log("Insertando album");
+    albumArray.push(albumesGrupo)
+    const otroalbum = await inquirer.prompt({
+      type: "list",
+      name: "otroalbum",
+      message: "¿Han lanzado otro álbum?: ",
+      choices: Object.values(InquirerFile.CommandsSingle)
+    })
+    switch(otroalbum["otroalbum"]) {
+      case CommandsSingle.Si:
+        await getAlbumesGrupo(albumArray)
+        break;
+      case CommandsSingle.No:
+        break;
+    }
+    return albumArray
+  }
 }
 
 export async function addGrupo() {
@@ -99,11 +127,12 @@ export async function addGrupo() {
   let NombreGrupo: string = nombreGrupo["nombreGrupo"]
   let AñoFormacionGrupo: number = añoGrupo["añoGrupo"]
   let OyentesGrupo: number = oyentes["oyentes"]
+
   let Grupo: Grupos = new Grupos(NombreGrupo)
   Grupo.construirGrupo(artistasArray, AñoFormacionGrupo, generoGrupo, albumesGrupo,OyentesGrupo)
   console.table(Grupo)
-  console.clear()
-  InquirerFile.menuPrincipal();
+  //console.clear()
+  //InquirerFile.menuPrincipal();
 }
 
 export async function addGrupoArtista(artistas: Artistas[]) {
@@ -125,7 +154,6 @@ export async function addGrupoArtista(artistas: Artistas[]) {
     console.log(`No existe un Artista con ese nombre`);
     await addGrupo();
     
-
   } else {
     //addGrupo(numeroCancion);
     artistas.push(index.artistas[numeroArtistas]);
@@ -143,7 +171,104 @@ export async function addGrupoArtista(artistas: Artistas[]) {
       case CommandsSingle.No:
         break;
     }
-   
+  }
+}
+
+async function modificarGrupo(SpecificGrupoIndex:number) {
+  const GrupoModificar = await inquirer.prompt ({
+    type: "list",
+    name: "GrupoModificar",
+    message: "¿Qué dato del Grupo quiere modificar?",
+    choices: Object.values(CommandsGrupoProperty)
+  })
+  
+  switch(GrupoModificar["GrupoModificar"]) {
+
+    case CommandsGrupoProperty.Nombre: {
+      const nombreGrupoModificado = await inquirer.prompt ({
+        type: "input",
+        name: "nombreGrupoModificado",
+        message: "Introduce el nuevo nombre del grupo: "
+      })
+      let nombreModificado: string = nombreGrupoModificado["nombreGrupoModificado"];
+      index.grupos[SpecificGrupoIndex].setNombreGrupo(nombreModificado);
+      await modificarGrupo(SpecificGrupoIndex);
+      break;
+    }
+
+    case CommandsGrupoProperty.Artistas: {
+      let ArtistaModificado: Artistas[] = [];
+      await addGrupoArtista(ArtistaModificado);
+      index.grupos[SpecificGrupoIndex].setArtistas(ArtistaModificado)
+      await modificarGrupo(SpecificGrupoIndex);
+      break;
+    }
+
+    case CommandsGrupoProperty.AñoFormacion: {
+      const añoFormacionModificado = await inquirer.prompt ({
+        type: "input",
+        name: "añoFormacionModificado",
+        message: "Introduce el nuevo año de formación del grupo: "
+      })
+      let añoModificado: number = añoFormacionModificado["añoFormacionModificado"]
+      index.grupos[SpecificGrupoIndex].setYearGrupo(añoModificado);
+      await modificarGrupo(SpecificGrupoIndex);
+      break;
+    }
+
+    case CommandsGrupoProperty.Generos: {
+      let GenerosModificado: GenerosMusicales[] = [];
+      await InquirerFile.addCancionGenero(GenerosModificado);
+      index.grupos[SpecificGrupoIndex].setGenero(GenerosModificado);
+      await modificarGrupo(SpecificGrupoIndex);
+      break;
+    }
+
+    case CommandsGrupoProperty.Albumes: {
+      let albumModificado: Album[] = [];
+      await getAlbumesGrupo(albumModificado);
+      index.grupos[SpecificGrupoIndex].setAlbumes(albumModificado)
+      await modificarGrupo(SpecificGrupoIndex);
+      break;
+    }
+
+    case CommandsGrupoProperty.Oyentes: {
+      const numOyentesModificado = await inquirer.prompt ({
+        type: "input",
+        name: "numOyentesModificado",
+        message: "Introduce el nuevo número de oyentes del grupo: "
+      })
+      let numOyentes: number = numOyentesModificado["numOyentesModificado"]
+      index.grupos[SpecificGrupoIndex].setOyentes(numOyentes)
+      await modificarGrupo(SpecificGrupoIndex);
+      break;
+    }
+  }
+  console.log("Los datos se han actualizado con Éxito")
+  console.table(index.grupos[SpecificGrupoIndex])
+}
+
+async function menuModificarGrupo() {
+  const modificacionGrupo = await inquirer.prompt({
+    type: "input",
+    name: "modificacionGrupo",
+    message: "Introduzca el nombre del Grupo que quiere modificar"
+  })
+  let grupoEspecifico: string = modificacionGrupo["modificacionGrupo"]
+  let GrupoIndex = 1;
+
+  for (let iterator = 0; iterator < index.grupos.length; iterator++) {
+    if (index.grupos[iterator].getNombreGrupo() === grupoEspecifico) {
+      GrupoIndex = iterator
+      break
+    }
+  }
+
+  if (GrupoIndex === 1) {
+    console.log("El Grupo introducido no existe en la Base de Datos")
+    InquirerFile.menuPrincipal()
+  } else {
+    modificarGrupo(GrupoIndex)
   }
 }
 

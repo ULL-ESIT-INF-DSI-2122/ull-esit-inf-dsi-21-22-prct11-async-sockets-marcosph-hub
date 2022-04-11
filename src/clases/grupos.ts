@@ -7,11 +7,11 @@ import { GenerosMusicales } from "./generosMusicales";
  * @class Grupos contiene las especificaciones de los
  * distintos grupos
  * @param nombreGrupo nombre del grupo
-	 * @param artistas Array que almacena a varios artistas
-	 * @param yearGrupo Entero que representa el año de creación del grupo
-	 * @param genero Array que almacena varios Generos Musicales distintos
-	 * @param albumes Array que almacena distintos álbumes
-	 * @param oyentes Entero que representa el número de oyentes mensuales
+ * @param artistas Array que almacena a varios artistas
+ * @param yearGrupo Entero que representa el año de creación del grupo
+ * @param genero Array que almacena varios Generos Musicales distintos
+ * @param albumes Array que almacena distintos álbumes
+ * @param oyentes Entero que representa el número de oyentes mensuales
  */
 export class Grupos {
   private nombreGrupo: string;
