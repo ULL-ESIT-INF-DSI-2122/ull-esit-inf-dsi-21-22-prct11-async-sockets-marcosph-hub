@@ -170,12 +170,26 @@ export async function modArtista(numero: number){
         name: "nombreGrupo",
         message: "Introduce el nuevo nombre del grupo: "
       });
-      let nombreGrupo_ = nombreGrupo["nombreGrupo"];
-      index.grupos.forEach(element => {
+      let nombreGrupo_: string = nombreGrupo["nombreGrupo"];
+      let numeroGrupo_: number = -1;
+      for(let i: number = 0; i < index.grupos.length; i++){
+        if(index.grupos[i].getNombreGrupo() === nombreGrupo_){
+          numeroGrupo_ = i;
+          break;
+        }
+      }
+      if (numeroGrupo_ === -1){
+        console.log(`El nombre introducido no concuerda con ningún grupo existente`);
+        await modArtista(numero);
+        return 0;
+        }else {
+          index.artistas[numero].setGrupos([index.grupos[numeroGrupo_]]);
+        }
+      /*index.grupos.forEach(element => {
         if(nombreGrupo_ === element.getNombreGrupo()){
           index.artistas[numero].setGrupos([element]);
         }
-      });
+      });*/
       await modArtista(numero);
       break;
     case CommandsPartesArtista.GeneroMusical:
