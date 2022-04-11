@@ -11,14 +11,9 @@ import * as inArtista from "../clases/inquirer_artista";
 import { addAlbum } from '../clases/inquirer-Album';
 import { BaseDatos } from './basedatos';
 import { menuPrincipal } from './inquirer';
+import * as InquirerFile from "./inquirer";
 
-/**
- * @enum CommandsSingle si es un sí o no
- */
-export enum CommandsSingle {
-    Si = `Si`,
-    No = `No`
-}
+
 
 /**
  * @enum CommandsGenerosCnciones con los géneros de las canciones
@@ -69,13 +64,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion1["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -85,13 +80,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion2["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -101,13 +96,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion3["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -117,13 +112,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion4["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -133,13 +128,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion5["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -149,13 +144,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion6["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -165,13 +160,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion7["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -181,13 +176,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion8["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -197,13 +192,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion9["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -213,13 +208,13 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
           type: "list",
           name: "generoCanciones",
           message: "Tiene más generos?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(generoCancion10["generoCanciones"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             await addCancionGenero(genero)
             break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             break;
         }
         break;
@@ -255,13 +250,13 @@ export async function addCancion(){
         type: "list",
         name: "singleCancion",
         message: "¿Es un single?: ",
-        choices: Object.values(CommandsSingle)
+        choices: Object.values(InquirerFile.CommandsSingle)
     });
     switch(singleCancion["singleCancion"]) {
-      case CommandsSingle.Si:
+      case InquirerFile.CommandsSingle.Si:
         single_ = true;
         break;
-      case CommandsSingle.No:
+      case InquirerFile.CommandsSingle.No:
         single_ = false;
         break;
     }
@@ -337,14 +332,14 @@ export async function modCancion(numero: number){
           type: "list",
           name: "singleCancion",
           message: "¿Es un single?: ",
-          choices: Object.values(CommandsSingle)
+          choices: Object.values(InquirerFile.CommandsSingle)
         });
         switch(singleCancion["singleCancion"]) {
-          case CommandsSingle.Si:
+          case InquirerFile.CommandsSingle.Si:
             single_ = true;
            
           break;
-          case CommandsSingle.No:
+          case InquirerFile.CommandsSingle.No:
             single_ = false;
            
            break;

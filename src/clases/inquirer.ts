@@ -7,6 +7,7 @@ import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
+import * as inGenero from "../clases/inquirer-Generos";
 import { addAlbum, menuModAlbum } from '../clases/inquirer-Album';
 import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
 import { addArtista, menumodArtista } from '../clases/inquirer_artista';
@@ -115,7 +116,7 @@ export async function menuAdd(){
         await addCancion();
         break;
       case CommandsClases.GeneroMusical:
-        
+        await inGenero.addGenero();
         break;
       case CommandsClases.Album:
         await addAlbum();
