@@ -102,6 +102,8 @@ export async function addGrupo() {
   let Grupo: Grupos = new Grupos(NombreGrupo)
   Grupo.construirGrupo(artistasArray, AñoFormacionGrupo, generoGrupo, albumesGrupo,OyentesGrupo)
   console.table(Grupo)
+  console.clear()
+  InquirerFile.menuPrincipal();
 }
 
 export async function addGrupoArtista(artistas: Artistas[]) {
