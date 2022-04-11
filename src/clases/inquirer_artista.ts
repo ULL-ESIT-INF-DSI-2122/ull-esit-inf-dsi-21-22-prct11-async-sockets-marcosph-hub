@@ -115,14 +115,6 @@ export async function addAlbumArtista(album: Album[]) {
  * @returns array de Cancion
  */
 export async function addCancionArtista(cancion: Cancion[]) {
-  const cancionArtista = await inquirer.prompt({
-    type: "list",
-    name: "cancionArtista",
-    message: "¿El artista tiene alguna canción?: ",
-    choices: Object.values(InquirerFile.CommandsSingle)
-  });
-  switch(cancionArtista["cancionArtista"]) {
-    case InquirerFile.CommandsSingle.Si:
       const cancionArtista1 = await inquirer.prompt( {
         type: "input",
         name: "cancionArtista1",
@@ -146,10 +138,6 @@ export async function addCancionArtista(cancion: Cancion[]) {
         case InquirerFile.CommandsSingle.No:
           break;
       }
-      break;
-    case InquirerFile.CommandsSingle.No:
-      break;
-  }
   return cancion;
 }
 
@@ -161,7 +149,7 @@ export async function modArtista(numero: number){
   const artistaModificar = await inquirer.prompt({
     type: 'list',
     name: `modificar`,
-    message: `¿Qué quieres modificar de la artista?`,
+    message: `¿Qué quieres modificar del artista?`,
     choices: Object.values(CommandsPartesArtista)
   })
 
@@ -211,19 +199,11 @@ export async function modArtista(numero: number){
       await modArtista(numero);
       break;
       case CommandsPartesArtista.Canciones:
-      const cancionesArtista = await inquirer.prompt( {
-        type: "input",
-        name: "cancionesArtista",
-        message: `Introduce la nueva canción del artista: `
-      });
-      let canciones_ = cancionesArtista["cancionesArtista"];
-      index.canciones.forEach(element => {
-        if(canciones_ === element.getNombreCancion()){
-          index.artistas[numero].setCanciones([element]);
-        }
-      });
+      let aux_: Cancion[] = [];
+      await addCancionArtista(aux_);
+      index.artistas[numero].setCanciones(aux_);
       await modArtista(numero);
-      break;
+      break;        
     case CommandsPartesArtista.Oyentes:
       const numOyentes = await inquirer.prompt( {
         type: "number",
@@ -232,11 +212,9 @@ export async function modArtista(numero: number){
       });
       let oyentes_: number = numOyentes["numOyentes"];
       index.artistas[numero].setOyentes(oyentes_);
-      console.log(index.artistas[numero]);
       await modArtista(numero);
       break;
     case CommandsPartesArtista.Salir:
-      InquirerFile.menuPrincipal();
       break;
   }
   console.clear();
