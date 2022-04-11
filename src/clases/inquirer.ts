@@ -7,8 +7,10 @@ import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
-import * as inArtista from "../clases/inquirer_artista";
-import { addAlbum } from '../clases/inquirer-Album';
+import * as inGenero from "../clases/inquirer-Generos";
+import { addAlbum, menuModAlbum } from '../clases/inquirer-Album';
+import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
+import { addArtista, menumodArtista } from '../clases/inquirer_artista';
 import { BaseDatos } from './basedatos';
 
 
@@ -31,12 +33,21 @@ export enum CommandsClases {
     GeneroMusical = `Género musical`,
     Album = `Album`,
     Artista = `Artista`,
-    Grupo = `Grupo`
+    Grupo = `Grupo`,
+    Salir = `Salir`
 }
+
+/**
+ * @enum CommandsSingle si es un sí o no
+ */
 export enum CommandsSingle {
   Si = `Si`,
   No = `No`
 }
+
+/**
+ * @enum CommandsGenerosCnciones con los géneros de las canciones
+ */
 export enum CommandsGenerosCanciones {
   Rock = `Rock`,
   Pop = `Pop`,
@@ -50,6 +61,10 @@ export enum CommandsGenerosCanciones {
   Soul = `Soul`,
   Salir = `Salir`
 }
+
+/**
+ * @enum CommandsPartesCancion partes de la clase Canción
+ */
 export enum CommandsPartesCancion {
   Nombre = `Nombre`,
   Autor = `Autor`,
@@ -60,10 +75,17 @@ export enum CommandsPartesCancion {
   Salir = `Salir al menú principal`
 }
 
+/**
+ * @enum CommandsGrupoArtista si es un grupo o un artista
+ */
 export enum CommandsGrupoArtista {
   Grupo = `Grupo`,
   Artista = `Artista`
 }
+/**
+ * @enum CommandsGestionAvanzada de las opciones de visualizacion
+ * de la información de los grupos o artistas
+ */
 export enum CommandsGestionAvanzada {
   AlfTitCancionAsc = `Alfabeticamente título Canción (Ascendente)`,
   AlfTitCancionDesc = `Alfabeticamente título Canción (Descendente)`,
@@ -78,287 +100,11 @@ export enum CommandsGestionAvanzada {
   MostrarSingles = `Filtrar para mostrar únicamente los singles lanzados`,
 }
 
-export async function addCancionGenero(genero: GenerosMusicales[])  {
-  //let genero: GenerosMusicales[] = [];
-  const generoCancion = await inquirer.prompt( {
-    type: "list",
-    name: "generoCancion",
-    message: "Introduce el/los generos musicales: ",
-    choices: Object.values(CommandsGenerosCanciones)
-  });
-  switch(generoCancion["generoCancion"]) {
-    case CommandsGenerosCanciones.Electronica:
-      genero.push(index.Electronica);
-      const generoCancion1 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion1["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.Pop:
-      genero.push(index.Pop);
-      const generoCancion2 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion2["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.Metal:
-      genero.push(index.Metal);
-      const generoCancion3 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion3["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.Flamenco:
-      genero.push(index.Flamenco);
-      const generoCancion4 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion4["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.Rap:
-      genero.push(index.Rap);
-      const generoCancion5 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion5["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.Regueton:
-      genero.push(index.Regueton);
-      const generoCancion6 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion6["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.Hip_Hop:
-      genero.push(index.Hip_Hop);
-      const generoCancion7 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion7["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.RyB:
-      genero.push(index.RyB);
-      const generoCancion8 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion8["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.Rock:
-      genero.push(index.Rock);
-      const generoCancion9 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion9["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-    case CommandsGenerosCanciones.Soul:
-      genero.push(index.Soul);
-      const generoCancion10 = await inquirer.prompt( {
-        type: "list",
-        name: "generoCanciones",
-        message: "La canción tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoCancion10["generoCanciones"]) {
-        case CommandsSingle.Si:
-          await addCancionGenero(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-      break;
-  }
-    //console.log(`dentro`, genero);
-    return genero;
-  }
-/**
- * @function addcancion encar
- */
-
- export async function addCancion(){
-  //console.log(`Introduce le nombre de la cancion: `);
-  const nombreCancion = await inquirer.prompt( {
-    type: "input",
-    name: "nombreCancion",
-    message: "Introduce el nombre de la cancion: "
-})
-const nombreAutor = await inquirer.prompt( {
-    type: "input",
-    name: "nombreAutor",
-    message: "Introduce el nombre del autor: "
-});
-const duracionCancion = await inquirer.prompt( {
-    type: "input",
-    name: "duracionCancion",
-    message: `Introduce la duracion en el formato "min:seg" : `
-});
-let genero_: GenerosMusicales[] = [];
-//genero_= await addCancionGenero();
-await addCancionGenero(genero_);
-
-
-//console.log(`fuera`, genero_);
-/*const generoCancion = await inquirer.prompt( {
-  type: "list",
-  name: "generoCancion",
-  message: "Introduce el/los generos musicales: ",
-  choices: Object.values(CommandsGenerosCanciones)
-});
-switch(generoCancion["generoCancion"]) {
-  case CommandsGenerosCanciones.Electronica:
-    genero_.push(index.Electronica);
-    break;
-  case CommandsGenerosCanciones.Pop:
-    genero_.push(index.Pop);
-    break;
-  case CommandsGenerosCanciones.Metal:
-    genero_.push(index.Metal);
-    break;
-  case CommandsGenerosCanciones.Flamenco:
-    genero_.push(index.Flamenco);
-    break;
-  case CommandsGenerosCanciones.Rap:
-    genero_.push(index.Rap);
-    break;
-  case CommandsGenerosCanciones.Regueton:
-    genero_.push(index.Regueton);
-    break;
-  case CommandsGenerosCanciones.Hip_Hop:
-    genero_.push(index.Hip_Hop);
-    break;
-  case CommandsGenerosCanciones.RyB:
-    genero_.push(index.RyB);
-    break;
-  case CommandsGenerosCanciones.Rock:
-    genero_.push(index.Rock);
-    break;
-  case CommandsGenerosCanciones.Soul:
-    genero_.push(index.Soul);
-    break;
-}*/
-
-let single_: boolean = false;
-const singleCancion = await inquirer.prompt( {
-    type: "list",
-    name: "singleCancion",
-    message: "¿Es un single?: ",
-    choices: Object.values(CommandsSingle)
-});
-switch(singleCancion["singleCancion"]) {
-  case CommandsSingle.Si:
-    single_ = true;
-    break;
-  case CommandsSingle.No:
-    single_ = false;
-    break;
-}
-const numReproducciones = await inquirer.prompt( {
-    type: "number",
-    name: "numReproducciones",
-    message: "Introduce el numero de reproducciones: "
-});
-
-let nombre_: string = nombreCancion["nombreCancion"];
-let autor_: string = nombreAutor["nombreAutor"];
-let duracion_: string = duracionCancion["duracionCancion"];
-let reprod_: number = numReproducciones["numReproducciones"];
-let cancion: Cancion = new Cancion(nombre_,autor_, duracion_, genero_, single_, reprod_);
- 
-console.clear();
-menuPrincipal();
-//let generoMusical
-/*let genero_ : string = generoCancion["generoCancion"];
- if ()
-
-);*/
-
-   // menuPrincipal();
-  }
-
+// Menús
 /**
  * @function menuAdd menu para añadir cancion, género, álbum, artista o grupo
  */
- export async function menuAdd(){
+export async function menuAdd(){
     const respuestaAdd = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -367,19 +113,16 @@ menuPrincipal();
     })
     switch(respuestaAdd["command"]) {
       case CommandsClases.Cancion:
-        addCancion();
+        await addCancion();
         break;
       case CommandsClases.GeneroMusical:
-        
-        //7addGeneroMusical();
-       // console.log(`añadiendo una genero musical`);
+        await inGenero.addGenero();
         break;
       case CommandsClases.Album:
-        addAlbum();
-        console.log(`añadiendo una album`);
+        await addAlbum();
         break;
       case CommandsClases.Artista:
-        inArtista.addArtista();
+        addArtista();
         break;
       case CommandsClases.Grupo:
         //addGrupo();
@@ -388,7 +131,6 @@ menuPrincipal();
         //console.log(`añadiendo una grupo`);
         break;
     }
-
 }
 
 /**
@@ -420,119 +162,20 @@ menuPrincipal();
         break;
       case CommandsClases.Grupo:
         //delGrupo();
-        console.log(`eliminndo una grupo`);
+        console.log(`eliminnndo una grupo`);
         break;
-    }
-    
+        case CommandsClases.Salir:
+          await menuPrincipal();
+          return 0;
+          break;
+    } 
 }
-export async function modCancion(numero: number){
-  const cancionModificar = await inquirer.prompt({
-    type: 'list',
-    name: `modificar`,
-    message: `¿Qué quieres modificar de la cancion?`,
-    choices: Object.values(CommandsPartesCancion)
-  })
 
-  switch(cancionModificar["modificar"]){
-    case CommandsPartesCancion.Nombre:
-      const nombreCancion = await inquirer.prompt( {
-        type: "input",
-        name: "nombreCancion",
-        message: "Introduce el nombre de la cancion: "
-      })
-      let nombreCancion_ = nombreCancion["nombreCancion"];
-      index.canciones[numero].setNombreCancion(nombreCancion_);
-      await modCancion(numero);
-      break;
-    case CommandsPartesCancion.Autor:
-      const nombreAutor = await inquirer.prompt( {
-        type: "input",
-        name: "nombreAutor",
-        message: "Introduce el nombre del autor: "
-      });
-      let nombreAutor_ = nombreAutor["nombreAutor"];
-      index.canciones[numero].setAutorCancion(nombreAutor_);
-      await modCancion(numero);
-      break;
-    case CommandsPartesCancion.Duracion:
-      const duracionCancion = await inquirer.prompt( {
-        type: "input",
-        name: "duracionCancion",
-        message: `Introduce la duracion en el formato "min:seg" : `
-      });
-      let duracion_ = duracionCancion["duracionCancion"];
-      index.canciones[numero].setDuracionCancion(duracion_);
-      await modCancion(numero);
-      break;
-    case CommandsPartesCancion.GeneroMusical:
-      let genero_: GenerosMusicales[] = [];
-      await addCancionGenero(genero_);
-      index.canciones[numero].setGeneroMusical(genero_);
-      await modCancion(numero);
-      break;
-    case CommandsPartesCancion.Single:
-      let single_: boolean = false;
-      const singleCancion = await inquirer.prompt( {
-        type: "list",
-        name: "singleCancion",
-        message: "¿Es un single?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(singleCancion["singleCancion"]) {
-        case CommandsSingle.Si:
-          single_ = true;
-         
-        break;
-        case CommandsSingle.No:
-          single_ = false;
-         
-         break;
-        }
-      index.canciones[numero].setSingle(single_);
-      await modCancion(numero);
-      break;
-    case CommandsPartesCancion.Reproducciones:
-      const numReproducciones = await inquirer.prompt( {
-        type: "number",
-        name: "numReproducciones",
-        message: "Introduce el numero de reproducciones: "
-      });
-      let reprod_: number = numReproducciones["numReproducciones"];
-      index.canciones[numero].setNumReproducciones(reprod_);
-      await modCancion(numero);
-      break;
-  }
-  console.clear();
-   menuPrincipal();
-
-}
-export async function menuModCancion(){
-  const cancionModificada = await inquirer.prompt({
-    type: 'input',
-    name: `modificar`,
-    message: `Introduce el nombre de la canción que quieres modificar`,
-  })
-  let nombreCancionModificar: string = cancionModificada["modificar"];
-  let numeroCancion: number = -1;
-  for(let i: number = 0; i < index.canciones.length; i++){
-    if(index.canciones[i].getNombreCancion() === nombreCancionModificar){
-      numeroCancion = i;
-      break;
-    }
-  }
-  if(numeroCancion === -1){
-    console.log(`No existe una cancion con ese nombre`);
-    menuPrincipal();
-  } else {
-    modCancion(numeroCancion);
-  }
- 
-  //console.log(`nombre de la cancion numero ${numeroCancion + 1}`);
-}
 /**
  * @function menuMod menu para modificar cancion, género, álbum, artista o grupo
  */
  export async function menuMod(){
+   console.clear();
     const respuestaMod = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -541,24 +184,26 @@ export async function menuModCancion(){
     })
     switch(respuestaMod["command"]) {
       case CommandsClases.Cancion:
-        menuModCancion();
-      
+         menuModCancion();
         break;
       case CommandsClases.GeneroMusical:
         //modGeneroMusical();
         console.log(`modificando una genero musical`);
         break;
       case CommandsClases.Album:
-        //modAlbum();
-        console.log(`modificando una album`);
+         menuModAlbum();
         break;
       case CommandsClases.Artista:
-        inArtista.menumodArtista();
+         menumodArtista();
         break;
       case CommandsClases.Grupo:
         console.log(`modificando una grupo`);
         //modGrupo();
         break;
+      case CommandsClases.Salir:
+           menuPrincipal();
+      
+      break;
     }
     
 }
@@ -614,6 +259,10 @@ export async function menuOpAvArtista() {
   }
 }
 
+export async function AlfTitCancionAsc() {
+  console.log('ordenar 1');
+}
+
 /**
  * @function menuOpcionesAvanzadas2 menu para visualizar de los grupos y artistas de distintas maneras 
  * (alfabeticamente por titulo de canción, años de lanzamiento, número de reproducciones, etc)
@@ -627,7 +276,7 @@ export async function menuOpcionesAvanzadas2() {
   })
   switch(respuestaOpAvanzadas["command"]) {
     case CommandsGestionAvanzada.AlfTitCancionAsc:
-      //AlfTitCancionAsc();
+      AlfTitCancionAsc();
       break;
     case CommandsGestionAvanzada.AlfTitCancionDesc:
       //AlfTitCancionDesc();
@@ -666,7 +315,7 @@ export async function menuOpcionesAvanzadas2() {
 /**
  * @function menuOpcionesAvanzadas menu para visualizar de los grupos y artistas de distintas maneras
  */
- export async function menuOpcionesAvanzadas(){
+export async function menuOpcionesAvanzadas(){
   const respuestaOpAvanzadas = await inquirer.prompt({
     type: 'list',
     name: `command`, 
@@ -688,9 +337,7 @@ export async function menuOpcionesAvanzadas2() {
  * @function menuPrincipal menu principal donde se manejan los submenus y los comandos
  * @returns 
  */
- export async function menuPrincipal(){
-    //console.clear();
-    //print();
+export async function menuPrincipal(){
     const respuesta = await inquirer.prompt({
       type: 'list',
       name: `command`, 
@@ -699,21 +346,20 @@ export async function menuOpcionesAvanzadas2() {
     })
     switch(respuesta["command"]) {
       case Commands.Add:
-        menuAdd();
+         menuAdd();
         break;
       case Commands.Borrar:
-        menuDel();
+         menuDel();
         break;
       case Commands.Modificar:
-        menuMod();
+         menuMod();
         break;
       case Commands.OpcionesAvanzadas:
-        menuOpcionesAvanzadas();
+         menuOpcionesAvanzadas();
         break;
       case Commands.Salir:
         return;
     }
-    //console.log(respuesta);
 }
 
 menuPrincipal();

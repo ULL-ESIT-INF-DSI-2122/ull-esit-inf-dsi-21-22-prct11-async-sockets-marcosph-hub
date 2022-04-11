@@ -32,7 +32,7 @@ export class Artistas {
 	 * @param canciones canciones del artista
 	 * @param oyentes oyentes del artista
 	 */
-	construirArtista( canciones: Cancion[], oyentes: number){
+	construirArtista(canciones: Cancion[], oyentes: number){
 	
 		this.canciones = canciones;
 		this.setOyentes(oyentes);
