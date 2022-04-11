@@ -185,7 +185,7 @@ export async function addGenero(){
   let autores_: Grupos[] = [];
   switch(saberGrupo["sabergrupo"]) {
     case InquirerFile.CommandsSingle.Si:
-      await addGrupoGenero(autores_)
+      await addGrupoGenero(autores_);
       break;
     case InquirerFile.CommandsSingle.No:
       break;
@@ -251,7 +251,45 @@ export async function modGenero(numero: number){
     name: `modificar`,
     message: `¿Qué quieres modificar del genero?`,
     choices: Object.values(CommandsPartesGenero)
-  })
+  });
+  switch(generoModificar["modificar"]){
+    case CommandsPartesGenero.Nombre:
+      const nombreGenero = await inquirer.prompt( {
+        type: "input",
+        name: "nombreGenero",
+        message: "Introduce el nombre del género: "
+      });
+      let nombreGenero_ = nombreGenero["nombreGenero"];
+      index.generos[numero].setNombreGenero(nombreGenero_);
+      await modGenero(numero);
+      break;
+    case CommandsPartesGenero.Grupos:
+      let grupos_: Grupos[] = [];
+      await addGrupoGenero(grupos_);
+      index.generos[numero].setGrupos(grupos_);
+      break;
+    case CommandsPartesGenero.ALbumes:
+      let album_: Album[] = [];
+      await addAlbumGenero(album_);
+      index.generos[numero].setAlbumes(album_);
+      await modGenero(numero);
+      break;
+    case CommandsPartesGenero.Artistas:
+      let artistas_: Artistas[] = [];
+      await addArtistaGenero(artistas_);
+      index.generos[numero].setArtistas(artistas_);
+      break;
+      case CommandsPartesGenero.Canciones:
+        let canciones_: Cancion[] = [];
+        await addCancionesGenero(canciones_);
+        index.generos[numero].setCanciones(canciones_);
+        break;
+      case CommandsPartesGenero.Salir:
+        console.clear();
+        menuPrincipal();
+      return 0;
+      break;
+    }
 }
 export async function menuModGenero(){
   const generoModificada = await inquirer.prompt({
@@ -268,7 +306,7 @@ export async function menuModGenero(){
     }
   }
   if(numeroGenero === -1){
-    console.log(`No existe un álbum con ese nombre`);
+    console.log(`No existe un génro con ese nombre`);
     menuPrincipal();
     return 0;
   } else {
