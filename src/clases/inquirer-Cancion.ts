@@ -68,7 +68,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion1 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion1["generoCanciones"]) {
@@ -84,7 +84,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion2 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion2["generoCanciones"]) {
@@ -100,7 +100,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion3 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion3["generoCanciones"]) {
@@ -116,7 +116,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion4 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion4["generoCanciones"]) {
@@ -132,7 +132,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion5 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion5["generoCanciones"]) {
@@ -148,7 +148,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion6 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion6["generoCanciones"]) {
@@ -164,7 +164,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion7 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion7["generoCanciones"]) {
@@ -180,7 +180,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion8 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion8["generoCanciones"]) {
@@ -196,7 +196,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion9 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion9["generoCanciones"]) {
@@ -212,7 +212,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
         const generoCancion10 = await inquirer.prompt( {
           type: "list",
           name: "generoCanciones",
-          message: "La canción tiene más generos?: ",
+          message: "Tiene más generos?: ",
           choices: Object.values(CommandsSingle)
         });
         switch(generoCancion10["generoCanciones"]) {
@@ -229,7 +229,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
   }
   
 /**
- * @function addcancion ñade la cancion correspondiente
+ * @function addcancion añade la cancion correspondiente
  */
 export async function addCancion(){
     const nombreCancion = await inquirer.prompt( {

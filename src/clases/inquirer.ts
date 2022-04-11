@@ -111,13 +111,13 @@ export async function menuAdd(){
     })
     switch(respuestaAdd["command"]) {
       case CommandsClases.Cancion:
-        addCancion();
+        await addCancion();
         break;
       case CommandsClases.GeneroMusical:
         
         break;
       case CommandsClases.Album:
-        addAlbum();
+        await addAlbum();
         break;
       case CommandsClases.Artista:
         addArtista();
