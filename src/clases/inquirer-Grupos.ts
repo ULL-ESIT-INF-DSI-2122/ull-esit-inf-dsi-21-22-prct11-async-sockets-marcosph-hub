@@ -90,10 +90,18 @@ export async function addGrupo() {
   let albumesGrupo: Album[] = [];
   await getAlbumesGrupo(albumesGrupo)
 
-  albumesGrupo.forEach(element => {
-    console.log(element)
-  });
-  
+  const oyentes = await inquirer.prompt({
+    type: "input",
+    name: "oyentes",
+    message: "Número de oyentes del grupo: "
+  })
+
+  let NombreGrupo: string = nombreGrupo["nombreGrupo"]
+  let AñoFormacionGrupo: number = añoGrupo["añoGrupo"]
+  let OyentesGrupo: number = oyentes["oyentes"]
+  let Grupo: Grupos = new Grupos(NombreGrupo)
+  Grupo.construirGrupo(artistasArray, AñoFormacionGrupo, generoGrupo, albumesGrupo,OyentesGrupo)
+  console.table(Grupo)
 }
 
 export async function addGrupoArtista(artistas: Artistas[]) {
@@ -136,4 +144,5 @@ export async function addGrupoArtista(artistas: Artistas[]) {
    
   }
 }
+
 InquirerFile.menuPrincipal

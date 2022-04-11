@@ -7,6 +7,10 @@ import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
+import * as inArtista from "../clases/inquirer_artista";
+import { addAlbum } from '../clases/inquirer-Album';
+import { BaseDatos } from './basedatos';
+
 
 /**
  * @enum Commands con los comandos de añadir, borrar, modificar y salir
@@ -15,6 +19,7 @@ export enum Commands {
     Add = `Añadir`,
     Borrar = `Borrar`,
     Modificar = `Modificar`,
+    OpcionesAvanzadas = `Opciones Avanzadas`,
     Salir = `Salir`
 }
   
@@ -54,6 +59,25 @@ export enum CommandsPartesCancion {
   Reproducciones = `Número de reproducciones`,
   Salir = `Salir al menú principal`
 }
+
+export enum CommandsGrupoArtista {
+  Grupo = `Grupo`,
+  Artista = `Artista`
+}
+export enum CommandsGestionAvanzada {
+  AlfTitCancionAsc = `Alfabeticamente título Canción (Ascendente)`,
+  AlfTitCancionDesc = `Alfabeticamente título Canción (Descendente)`,
+  AlfNombAlbumAsc = `Alfabeticamente nombre Álbum (Ascendente)`,
+  AlfNombAlbumDesc = `Alfabeticamente nombre Álbum (Descendente)`,
+  AlfNombPlaylistAsc = `Alfabeticamente nombre Playlist (Ascendente)`,
+  AlfNombPlaylistDesc = `Alfabeticamente nombre Playlist (Descendente)`,
+  AnioLanzAlbumAsc = `Año de Lanzamiento de Álbum (Ascendente)`,
+  AnioLanzAlbumDesc = `Año de Lanzamiento de Álbum (Descendente)`,
+  NumRepTotalAsc = `Número de reproducciones totales (Ascendente)`,
+  NumRepTotalDesc = `Número de reproducciones totales (Descendente)`,
+  MostrarSingles = `Filtrar para mostrar únicamente los singles lanzados`,
+}
+
 export async function addCancionGenero(genero: GenerosMusicales[])  {
   //let genero: GenerosMusicales[] = [];
   const generoCancion = await inquirer.prompt( {
@@ -351,12 +375,11 @@ menuPrincipal();
        // console.log(`añadiendo una genero musical`);
         break;
       case CommandsClases.Album:
-        //addAlbum();
+        addAlbum();
         console.log(`añadiendo una album`);
         break;
       case CommandsClases.Artista:
-        //addArtista();
-        console.log(`añadiendo una artista`);
+        inArtista.addArtista();
         break;
       case CommandsClases.Grupo:
         //addGrupo();
@@ -530,8 +553,7 @@ export async function menuModCancion(){
         console.log(`modificando una album`);
         break;
       case CommandsClases.Artista:
-        console.log(`modificando una artista`);
-        //modArtista();
+        inArtista.menumodArtista();
         break;
       case CommandsClases.Grupo:
         console.log(`modificando una grupo`);
@@ -540,6 +562,127 @@ export async function menuModCancion(){
     }
     
 }
+
+/**
+ * @function menuOpAvGrupo comprobar que el grupo existe
+ */
+export async function menuOpAvGrupo() {
+  const grupocomprobar = await inquirer.prompt({
+    type: 'input',
+    name: `comprobar`,
+    message: `Introduce el nombre del grupo que ver la información`,
+  })
+  let nombreGrupoComprobar: string = grupocomprobar["comprobar"];
+  let numeroGrupo: number = -1;
+  for(let i: number = 0; i < index.grupos.length; i++){
+    if(index.grupos[i].getNombreGrupo() === nombreGrupoComprobar){
+      numeroGrupo = i;
+      break;
+    }
+  }
+  if(numeroGrupo === -1){
+    console.log(`No existe un grupo con ese nombre`);
+    menuPrincipal();
+  } else {
+    menuOpcionesAvanzadas2()
+  }
+  
+}
+
+/**
+ * @function menuOpAvArtista comprobar si el artista existe
+ */
+export async function menuOpAvArtista() {
+  const artistacomprobar = await inquirer.prompt({
+    type: 'input',
+    name: `comprobar`,
+    message: `Introduce el nombre del artista que ver la información`,
+  })
+  let nombreArtistaComprobar: string = artistacomprobar["comprobar"];
+  let numeroArtista: number = -1;
+  for(let i: number = 0; i < index.artistas.length; i++){
+    if(index.artistas[i].getNombreArtista() === nombreArtistaComprobar){
+      numeroArtista = i;
+      break;
+    }
+  }
+  if(numeroArtista === -1){
+    console.log(`No existe un artista con ese nombre`);
+    menuPrincipal();
+  } else {
+    menuOpcionesAvanzadas2()
+  }
+}
+
+/**
+ * @function menuOpcionesAvanzadas2 menu para visualizar de los grupos y artistas de distintas maneras 
+ * (alfabeticamente por titulo de canción, años de lanzamiento, número de reproducciones, etc)
+ */
+export async function menuOpcionesAvanzadas2() {
+  const respuestaOpAvanzadas = await inquirer.prompt({
+    type: 'list',
+    name: `command`, 
+    message: `Elige cómo visualizar la información del grupo`,
+    choices: Object.values(CommandsGestionAvanzada)
+  })
+  switch(respuestaOpAvanzadas["command"]) {
+    case CommandsGestionAvanzada.AlfTitCancionAsc:
+      //AlfTitCancionAsc();
+      break;
+    case CommandsGestionAvanzada.AlfTitCancionDesc:
+      //AlfTitCancionDesc();
+      break;
+    case CommandsGestionAvanzada.AlfNombAlbumAsc:
+      //AlfNombAlbumAsc();
+      break;
+    case CommandsGestionAvanzada.AlfNombAlbumDesc:
+      //AlfNombAlbumDesc();
+      break;
+    case CommandsGestionAvanzada.AlfNombPlaylistAsc:
+      //AlfNombPlaylistAsc();
+      break;
+    case CommandsGestionAvanzada.AlfNombPlaylistDesc:
+      //AlfNombPlaylistDesc();
+      break;
+    case CommandsGestionAvanzada.AnioLanzAlbumAsc:
+      //AnioLanzAlbumAsc();
+      break;
+    case CommandsGestionAvanzada.AnioLanzAlbumDesc:
+      //AnioLanzAlbumDesc();
+      break;
+    case CommandsGestionAvanzada.NumRepTotalAsc:
+      //NumRepTotalAsc();
+      break;
+    case CommandsGestionAvanzada.NumRepTotalDesc:
+      //NumRepTotalDesc();
+      break;
+    case CommandsGestionAvanzada.MostrarSingles:
+      //MostrarSingles();
+      break;
+  }
+}
+
+
+/**
+ * @function menuOpcionesAvanzadas menu para visualizar de los grupos y artistas de distintas maneras
+ */
+ export async function menuOpcionesAvanzadas(){
+  const respuestaOpAvanzadas = await inquirer.prompt({
+    type: 'list',
+    name: `command`, 
+    message: `Elige si quieres visualizar la información de grupos y artistas`,
+    choices: Object.values(CommandsGrupoArtista)
+  })
+  switch(respuestaOpAvanzadas["command"]) {
+    case CommandsGrupoArtista.Grupo:
+      menuOpAvGrupo();
+      break;
+    case CommandsGrupoArtista.Artista:
+      menuOpAvArtista();
+      break;
+  }
+}
+
 
 /**
  * @function menuPrincipal menu principal donde se manejan los submenus y los comandos
@@ -564,6 +707,9 @@ export async function menuModCancion(){
       case Commands.Modificar:
         menuMod();
         break;
+      case Commands.OpcionesAvanzadas:
+        menuOpcionesAvanzadas();
+        break;
       case Commands.Salir:
         return;
     }
@@ -571,3 +717,7 @@ export async function menuModCancion(){
 }
 
 menuPrincipal();
+
+
+// Crear base de datos
+let db = new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos);
