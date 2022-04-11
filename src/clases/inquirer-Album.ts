@@ -12,6 +12,7 @@ import { addCancion, addCancionGenero } from './inquirer-Cancion';
 import { addGrupo } from './inquirer-Grupos';
 import { menuPrincipal } from './inquirer';
 
+
 /**
  * @enum CommandsGrupoArtista si es un grupo o un artista
  */
@@ -20,13 +21,6 @@ export enum CommandsGrupoArtista {
   Artista = `Artista`
 }
 
-/**
- * @enum CommandsSingle si es un sí o no
- */
-export enum CommandsSingle {
-  Si = `Si`,
-  No = `No`
-}
 
 /**
  * @enum CommandsPartesAlbum partes de la clase Album
@@ -70,13 +64,13 @@ export async function cancionesDeAlbum(cancionAlbum: Cancion[]){
       type: "list",
       name: "canciones",
       message: "Tiene más canciones?: ",
-      choices: Object.values(CommandsSingle)
+      choices: Object.values(InquirerFile.CommandsSingle)
     });
     switch(mascanciones["canciones"]) {
-      case CommandsSingle.Si:
+      case InquirerFile.CommandsSingle.Si:
         await cancionesDeAlbum(cancionAlbum)
         break;
-      case CommandsSingle.No:
+      case InquirerFile.CommandsSingle.No:
         break;
     }
 }
@@ -112,7 +106,7 @@ export async function addAlbum() {
     }
     if (numeroGrupo_ === -1){
       console.clear();
-      console.log(`El nombre introducido no concuerda con ningún grupo o artista existente. Volviendo al menú principal`);
+      console.log(`El nombre introducido no concuerda con ningún grupo o artista existente.`);
       await addAlbum();
       return 0;
      
@@ -140,7 +134,8 @@ export async function addAlbum() {
   
   let album: Album = new Album(nombre_, autores_[0], genero1_, yearsPublicacion_, cancionesAlbum_);
   // db despues de album
-
+  console.clear();
+    menuPrincipal();
 }
 
 
@@ -179,10 +174,10 @@ export async function addGrupoArtista(artistas: Artistas[]) {
       choices: Object.values(InquirerFile.CommandsSingle)
     });
     switch(finalArtista["finalArtista"]) {
-      case CommandsSingle.Si:
+      case InquirerFile.CommandsSingle.Si:
         await addGrupoArtista(artistas)
         break;
-      case CommandsSingle.No:
+      case InquirerFile.CommandsSingle.No:
         break;
     }
   }
