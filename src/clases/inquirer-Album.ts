@@ -10,6 +10,7 @@ import * as InquirerFile from "./inquirer";
 import { CommandsGenerosCanciones } from './inquirer';
 import { addCancion, addCancionGenero } from './inquirer-Cancion';
 import { addGrupo } from './inquirer-Grupos';
+import { menuPrincipal } from './inquirer';
 
 /**
  * @enum CommandsGrupoArtista si es un grupo o un artista
@@ -38,7 +39,47 @@ export enum CommandsSingle {
   Canciones = `Canciones`,
   Salir = `Salir al menú principal`
 }
+export async function cancionesDeAlbum(cancionAlbum: Cancion[]){
+  const cancionesNombreAlbum = await inquirer.prompt( {
+    type: "input",
+    name: "cancionesNAlbum",
+    message: "Introduce las canciones del álbum: "
+  });
+  
+  let nombreCancionModificar: string = cancionesNombreAlbum["cancionesNAlbum"];
+  
+    let numeroCancion: number = -1;
+    for(let i: number = 0; i < index.canciones.length; i++){
+      if(index.canciones[i].getNombreCancion() === nombreCancionModificar){
+        numeroCancion = i;
+        break;
+      }
+    }
+    if(numeroCancion === -1){
+      console.clear();
+      console.log(`No existe una cancion con ese nombre. Volviendo al menu principal`);
+      
+      await cancionesDeAlbum(cancionAlbum);
+      return 0; 
+      
+    } else {
+     cancionAlbum.push(index.canciones[numeroCancion]);
+    }
 
+    const mascanciones = await inquirer.prompt( {
+      type: "list",
+      name: "canciones",
+      message: "Tiene más canciones?: ",
+      choices: Object.values(CommandsSingle)
+    });
+    switch(mascanciones["canciones"]) {
+      case CommandsSingle.Si:
+        await cancionesDeAlbum(cancionAlbum)
+        break;
+      case CommandsSingle.No:
+        break;
+    }
+}
 /**
  * @function addAlbum para añadir un nuevo album
  */
@@ -53,55 +94,53 @@ export async function addAlbum() {
     name: "nombreGrupoArtista",
     message: "Introduce el nombre del grupo o artista: "
   });
-  const grupoOArtista = await inquirer.prompt( {
-    type: "list",
-    name: "grupoOArtista",
-    message: "¿Es un grupo o un artista?: ",
-    choices: Object.values(CommandsGrupoArtista)
-  });
-  let artistasArray: Artistas[] = [];
-  let gruposArray: Grupos[] = [];
-  switch(grupoOArtista["grupoOArtista"]) {
-    case CommandsGrupoArtista.Grupo:
-      //addGrupo(gruposArray);
-      addGrupoArtista(artistasArray);
+  let nombreGrupoOArtista_: string = nombreGrupoArtista["nombreGrupoArtista"];
+  let numeroGrupo_: number = -1;
+  let autores_: Grupos[]|Artistas[] = [];
+  for(let i: number = 0; i < index.grupos.length; i++){
+    if(index.grupos[i].getNombreGrupo() === nombreGrupoOArtista_){
+      numeroGrupo_ = i;
       break;
-    case CommandsGrupoArtista.Artista:
-      
-      break;
+    }
   }
-  const generoAlbum = await inquirer.prompt( {
-    type: "list",
-    name: "generoAlbum",
-    message: "Introduce el/los generos musicales del album: ",
-    choices: Object.values(CommandsGenerosCanciones)
-  });
+  if (numeroGrupo_ === -1){
+    for(let i: number = 0; i < index.artistas.length; i++){
+      if(index.artistas[i].getNombreArtista() === nombreGrupoOArtista_){
+        numeroGrupo_ = i;
+        break;
+      }
+    }
+    if (numeroGrupo_ === -1){
+      console.clear();
+      console.log(`El nombre introducido no concuerda con ningún grupo o artista existente. Volviendo al menú principal`);
+      await addAlbum();
+      return 0;
+     
+    }
+    else {
+      autores_[0] = index.artistas[numeroGrupo_];
+    }
+  } else {
+     autores_[0] = index.grupos[numeroGrupo_];
+  }
+
   let genero1_: GenerosMusicales[] = [];
-  addCancionGenero(genero1_);
+ await addCancionGenero(genero1_);
 
   const anioPublicacion = await inquirer.prompt( {
     type: "number",
     name: "anioPublicacion",
     message: "Introduce el año de publicación: "
   });
-
-  const cancionesAlbum = await inquirer.prompt( {
-    type: "number",
-    name: "cancionesAlbum",
-    message: "Introduce las canciones del álbum: "
-  });
-
-  addCancion();
+  let cancionesAlbum_: Cancion[] = [];
+  await cancionesDeAlbum(cancionesAlbum_);
 
   let nombre_: string = nombreAlbum["nombreAlbum"];
-  let autores_: Grupos|Artistas = nombreGrupoArtista["nombreGrupoArtista"];
-  let genero_: GenerosMusicales [] = generoAlbum["generoAlbum"];
   let yearsPublicacion_: number = anioPublicacion["anioPublicacion"];
-  let cancionesAlbum_: Cancion[] = cancionesAlbum["cancionesAlbum"];
-  let album: Album = new Album(nombre_, autores_, genero_, yearsPublicacion_, cancionesAlbum_);
- 
-  console.clear();
-  InquirerFile.menuPrincipal();
+  
+  let album: Album = new Album(nombre_, autores_[0], genero1_, yearsPublicacion_, cancionesAlbum_);
+  // db despues de album
+
 }
 
 
@@ -122,14 +161,13 @@ export async function addGrupoArtista(artistas: Artistas[]) {
     if(index.artistas[i].getNombreArtista() === nombreArtistas){
       numeroArtistas = i;
       break;
-    } else {
-      index.artistas[i].setNombreArtista(nombreArtistas);
-      break
     }
   }
   if(numeroArtistas === -1){
     console.log(`No hay una artista con ese nombre`);
-    InquirerFile.menuPrincipal();
+    await 
+    addGrupoArtista(artistas);
+    //InquirerFile.menuPrincipal();
 
   } else {
     //addGrupo(numeroArtistas); //pProblema con los argumentos
