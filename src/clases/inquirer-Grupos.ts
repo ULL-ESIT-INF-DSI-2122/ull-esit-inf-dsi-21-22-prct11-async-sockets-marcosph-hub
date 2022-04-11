@@ -64,6 +64,7 @@ async function getAlbumesGrupo(albumArray: Album[]) {
   })
   let albumEspecifico: string = albumesGrupo["albumesGrupo"];
   //let albumEspecifico: string = albumesGrupo["autores"];
+
   let albumIndex: number = -1;
   for (let iterator: number = 0; iterator < index.albumes.length; iterator++) {
     if(index.albumes[iterator].getNombreAlbum() === albumEspecifico) {
@@ -133,9 +134,6 @@ export async function addGrupo() {
   let Grupo: Grupos = new Grupos(NombreGrupo);
   Grupo.construirGrupo(artistasArray, AñoFormacionGrupo, generoGrupo, albumesGrupo,OyentesGrupo);
 //PONER DB AQUI
-  //console.table(Grupo)
-  //console.clear()
-  //InquirerFile.menuPrincipal();
   console.clear();
     InquirerFile.menuPrincipal();
 }
@@ -283,6 +281,6 @@ export async function menuModificarGrupo() {
   }
 }
 
-//InquirerFile.menuPrincipal
+InquirerFile.menuPrincipal
 
 
