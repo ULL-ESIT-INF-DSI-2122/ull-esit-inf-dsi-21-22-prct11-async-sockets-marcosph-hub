@@ -44,7 +44,7 @@ export async function addArtista() {
   await addAlbumArtista(album);
   artista.setAlbumes(album);
   await addCancionArtista(cancion);
-  artista.construirArtista(cancion, oyentes["oyentesArtista"]);
+  artista.construirArtista(cancion, Number(oyentes["oyentesArtista"]));
   console.clear();
   InquirerFile.menuPrincipal();
 } 
@@ -68,11 +68,22 @@ export async function addGrupoArtista(grupo: Grupos[]) {
         name: "grupoArtista1",
         message: "Nombre del Grupo del artista: "
       });
-      index.grupos.forEach(element => {
-        if(element.getNombreGrupo() === GrupoArtista1["grupoArtista1"]){
-          grupo.push(element);
+      let numGrupo: number = -1;
+      for (let i: number = 0; i < index.grupos.length; i++){
+        if(index.grupos[i].getNombreGrupo() === GrupoArtista1["grupoArtista1"]){
+          numGrupo = i;
         }
-      });
+      }
+      if(numGrupo === -1){
+        console.clear();
+        console.error("No se encuentra ese nombre del grupo");
+        await addGrupoArtista(grupo);
+        return 0;
+      }
+      else{
+        grupo.push(index.grupos[numGrupo]);
+      }
+
       break;
     case InquirerFile.CommandsSingle.No:
       break;
@@ -95,14 +106,24 @@ export async function addAlbumArtista(album: Album[]) {
     case InquirerFile.CommandsSingle.Si:
       const albumArtista1 = await inquirer.prompt( {
         type: "input",
-        name: "grupoArtista1",
+        name: "albumArtista1",
         message: "Nombre del Album del artista: "
       });
-      index.albumes.forEach(element => {
-        if(element.getNombreAlbum() === albumArtista1["grupoArtista1"]){
-          album.push(element);
+        let numAlbum: number = -1;
+        for (let i: number = 0; i < index.albumes.length; i++){
+          if(index.albumes[i].getNombreAlbum() === albumArtista1["albumArtista1"]){
+            numAlbum = i;
+          }
         }
-      });
+        if(numAlbum === -1){
+          console.clear();
+          console.error("No se encuentra ese nombre del album");
+          await addAlbumArtista(album);
+          return 0;
+        }
+        else{
+          album.push(index.albumes[numAlbum]);
+        }
       break;
     case InquirerFile.CommandsSingle.No:
       break;
