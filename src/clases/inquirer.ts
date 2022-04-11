@@ -8,7 +8,7 @@ import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
 import * as inGenero from "../clases/inquirer-Generos";
-import { addAlbum, menuModAlbum } from '../clases/inquirer-Album';
+import { addAlbum, menuModAlbum, delAlbum } from '../clases/inquirer-Album';
 import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
 import { addArtista, menumodArtista } from '../clases/inquirer_artista';
 import { BaseDatos } from './basedatos';
@@ -153,8 +153,7 @@ export async function menuAdd(){
         console.log(`eliminndo una genero musical`);
         break;
       case CommandsClases.Album:
-        //delAlbum();
-        console.log(`eliminndo una album`);
+        delAlbum();
         break;
       case CommandsClases.Artista:
         //delArtista();
@@ -231,7 +230,6 @@ export async function menuOpAvGrupo() {
   } else {
     menuOpcionesAvanzadas2()
   }
-  
 }
 
 /**
@@ -257,10 +255,20 @@ export async function menuOpAvArtista() {
   } else {
     menuOpcionesAvanzadas2()
   }
+  return nombreArtistaComprobar;
 }
 
+/**
+ * @function AlfTitCancionAsc ordena alfabéticamente por Título de Canción (Ascendente)
+ */
 export async function AlfTitCancionAsc() {
-  console.log('ordenar 1');
+  console.log('Ordenar alfabéticamente por Título de Canción (Ascendente)');
+  let nombreArtistaComprobar: Promise<string> = menuOpAvArtista();
+  for(let i: number = 0; i < index.artistas.length; i++){
+    if(index.artistas[i].getNombreArtista() === await nombreArtistaComprobar){
+      console.log(index.artistas[i].getCanciones().sort());
+    }
+  }
 }
 
 /**
@@ -274,6 +282,7 @@ export async function menuOpcionesAvanzadas2() {
     message: `Elige cómo visualizar la información del grupo`,
     choices: Object.values(CommandsGestionAvanzada)
   })
+  
   switch(respuestaOpAvanzadas["command"]) {
     case CommandsGestionAvanzada.AlfTitCancionAsc:
       AlfTitCancionAsc();
@@ -319,7 +328,7 @@ export async function menuOpcionesAvanzadas(){
   const respuestaOpAvanzadas = await inquirer.prompt({
     type: 'list',
     name: `command`, 
-    message: `Elige si quieres visualizar la información de grupos y artistas`,
+    message: `Elige si quieres visualizar la información de grupos o artistas`,
     choices: Object.values(CommandsGrupoArtista)
   })
   switch(respuestaOpAvanzadas["command"]) {
@@ -327,7 +336,7 @@ export async function menuOpcionesAvanzadas(){
       menuOpAvGrupo();
       break;
     case CommandsGrupoArtista.Artista:
-      menuOpAvArtista();
+      menuOpcionesAvanzadas2();
       break;
   }
 }
