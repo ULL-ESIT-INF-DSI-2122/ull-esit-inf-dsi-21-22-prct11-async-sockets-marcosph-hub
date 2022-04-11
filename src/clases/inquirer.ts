@@ -272,6 +272,19 @@ export async function AlfTitCancionAsc() {
 }
 
 /**
+ * @function AlfTitCancionDesc ordena alfabéticamente por Título de Canción (Descendente)
+ */
+export async function AlfTitCancionDesc() {
+  console.log('Ordenar alfabéticamente por Título de Canción (Descendente)');
+  let nombreArtistaComprobar: Promise<string> = menuOpAvArtista();
+  for(let i: number = 0; i < index.artistas.length; i++){
+    if(index.artistas[i].getNombreArtista() === await nombreArtistaComprobar){
+      console.log(index.artistas[i].getCanciones().reverse()); // funciona regular
+    }
+  }
+}
+
+/**
  * @function menuOpcionesAvanzadas2 menu para visualizar de los grupos y artistas de distintas maneras 
  * (alfabeticamente por titulo de canción, años de lanzamiento, número de reproducciones, etc)
  */
@@ -288,7 +301,7 @@ export async function menuOpcionesAvanzadas2() {
       AlfTitCancionAsc();
       break;
     case CommandsGestionAvanzada.AlfTitCancionDesc:
-      //AlfTitCancionDesc();
+      AlfTitCancionDesc();
       break;
     case CommandsGestionAvanzada.AlfNombAlbumAsc:
       //AlfNombAlbumAsc();
