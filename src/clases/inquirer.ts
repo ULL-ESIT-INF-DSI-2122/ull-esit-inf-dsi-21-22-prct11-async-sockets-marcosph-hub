@@ -197,8 +197,8 @@ export async function menuAdd(){
          menumodArtista();
         break;
       case CommandsClases.Grupo:
-        console.log(`modificando una grupo`);
-        //modGrupo();
+        //console.log(`modificando una grupo`);
+        inGrupos.menuModificarGrupo();
         break;
       case CommandsClases.Salir:
            menuPrincipal();
