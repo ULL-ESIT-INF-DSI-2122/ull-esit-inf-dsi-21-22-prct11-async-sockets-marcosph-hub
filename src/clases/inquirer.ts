@@ -126,6 +126,7 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         //addGrupo();
+
         inGrupos.addGrupo();
         //console.log(`añadiendo una grupo`);
         break;
@@ -186,7 +187,7 @@ export async function menuAdd(){
         break;
       case CommandsClases.GeneroMusical:
         //modGeneroMusical();
-        console.log(`modificando una genero musical`);
+        inGenero.menuModGenero();
         break;
       case CommandsClases.Album:
          menuModAlbum();
@@ -195,8 +196,8 @@ export async function menuAdd(){
          menumodArtista();
         break;
       case CommandsClases.Grupo:
-        console.log(`modificando una grupo`);
-        //modGrupo();
+        //console.log(`modificando una grupo`);
+        inGrupos.menuModificarGrupo();
         break;
       case CommandsClases.Salir:
            menuPrincipal();
