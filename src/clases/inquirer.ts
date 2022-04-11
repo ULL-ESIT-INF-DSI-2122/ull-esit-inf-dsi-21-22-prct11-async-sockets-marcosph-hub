@@ -187,7 +187,7 @@ export async function menuAdd(){
         break;
       case CommandsClases.GeneroMusical:
         //modGeneroMusical();
-        console.log(`modificando una genero musical`);
+        inGenero.menuModGenero();
         break;
       case CommandsClases.Album:
          menuModAlbum();

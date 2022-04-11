@@ -8,7 +8,14 @@ import { menuPrincipal } from './inquirer';
 import * as InquirerFile from "./inquirer";
 import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
 import * as index from "../index";
-
+export enum CommandsPartesGenero {
+  Nombre = `Nombre`,
+  Grupos = `Grupos`,
+  Artistas = `Artistas`,
+  Canciones = `Canciones`,
+  ALbumes = `Albumes`,
+  Salir = `Salir al menú principal`
+}
 export async function addCancionesGenero(cancion_: Cancion[]){
   const nombreCancion = await inquirer.prompt({
     type: "input",
@@ -236,4 +243,35 @@ export async function addGenero(){
   genero.setCanciones(cancion_);
   console.clear();
   menuPrincipal();
+}
+
+export async function modGenero(numero: number){
+  const generoModificar = await inquirer.prompt({
+    type: 'list',
+    name: `modificar`,
+    message: `¿Qué quieres modificar del genero?`,
+    choices: Object.values(CommandsPartesGenero)
+  })
+}
+export async function menuModGenero(){
+  const generoModificada = await inquirer.prompt({
+    type: 'input',
+    name: `modificar`,
+    message: `Introduce el nombre del genero que quieres modificar`,
+  })
+  let nombreGeneroModificar: string = generoModificada["modificar"];
+  let numeroGenero: number = -1;
+  for(let i: number = 0; i < index.generos.length; i++){
+    if(index.generos[i].getNombreGenero() === nombreGeneroModificar){
+      numeroGenero = i;
+      break;
+    }
+  }
+  if(numeroGenero === -1){
+    console.log(`No existe un álbum con ese nombre`);
+    menuPrincipal();
+    return 0;
+  } else {
+  await modGenero(numeroGenero);
+  }
 }
