@@ -303,7 +303,7 @@ export async function modCancion(numero: number){
         })
         let nombreCancion_ = nombreCancion["nombreCancion"];
         index.canciones[numero].setNombreCancion(nombreCancion_);
-        await modCancion(numero);
+         await modCancion(numero);
         break;
       case CommandsPartesCancion.Autor:
         const nombreAutor = await inquirer.prompt( {
@@ -313,7 +313,7 @@ export async function modCancion(numero: number){
         });
         let nombreAutor_ = nombreAutor["nombreAutor"];
         index.canciones[numero].setAutorCancion(nombreAutor_);
-        await modCancion(numero);
+         await modCancion(numero);
         break;
       case CommandsPartesCancion.Duracion:
         const duracionCancion = await inquirer.prompt( {
@@ -363,11 +363,11 @@ export async function modCancion(numero: number){
         await modCancion(numero);
         break;
         case CommandsPartesCancion.Salir:
+          console.clear();
+          menuPrincipal();
           return 0;
           break;
     }
-    console.clear();
-     menuPrincipal();
 }
 
 /**
@@ -392,6 +392,6 @@ export async function menuModCancion(){
        menuPrincipal();
       return 0;
     } else {
-      await modCancion(numeroCancion);
+       modCancion(numeroCancion);
     }
 }

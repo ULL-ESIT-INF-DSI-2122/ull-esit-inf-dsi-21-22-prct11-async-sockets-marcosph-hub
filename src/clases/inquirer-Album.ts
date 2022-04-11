@@ -273,11 +273,12 @@ export async function modAlbum(numero: number) {
       await modAlbum(numero);
       break;
       case CommandsPartesAlbum.Salir:
+        console.clear();
+        menuPrincipal();
       return 0;
       break;
   }
-  console.clear();
-   menuPrincipal();
+  
 }
 
 /**
