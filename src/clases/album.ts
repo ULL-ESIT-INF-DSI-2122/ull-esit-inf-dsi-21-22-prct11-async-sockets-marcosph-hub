@@ -2,6 +2,7 @@ import { Cancion } from "./cancion";
 import { Grupos } from "./grupos";
 import { Artistas } from "./artistas";
 import { GenerosMusicales } from "./generosMusicales";
+import {albumes} from "../index";
 
 /**
  * TRABAJO GRUPO L
@@ -125,4 +126,5 @@ export class Album {
 		this.canciones = [];
 		this.canciones = cancion;
 	}
+
 }
