@@ -4,14 +4,12 @@ import { Artistas } from "../clases/artistas";
 import { Cancion } from "../clases/cancion";
 import { GenerosMusicales } from "../clases/generosMusicales";
 import { Grupos } from "../clases/grupos";
+import { addCancionGenero } from './inquirer-Cancion';
 import * as index from "../index";
 import * as InquirerFile from "./inquirer";
-
-export enum CommandsSingle {
-  Si = `Si`,
-  No = `No`
-}
-
+/**
+ * Enum que contiene las partes del artista
+ */
 export enum CommandsPartesArtista {
   Nombre = `Nombre`,
   Grupos = `Grupos`,
@@ -22,11 +20,13 @@ export enum CommandsPartesArtista {
   Salir = `Salir al menú principal`
 }
 
-let genero: GenerosMusicales[] = [];
 let grupo: Grupos[] = [];
 let album: Album[] = [];
 let cancion: Cancion[] = [];
 
+/**
+ * Funcion addArtista
+ */
 export async function addArtista() {
   const nombreArtista = await inquirer.prompt({
     type: "input",
@@ -39,194 +39,21 @@ export async function addArtista() {
     message: "Introduce el número de oyentes mensuales del artista: "
   });
   let artista: Artistas = new Artistas(nombreArtista["nombreArtista"]);
-  artista.setOyentes(Number(oyentes["oyentesArtista"]));
-  await addGeneroArtista(genero);
-  artista.setGeneros(genero);
   await addGrupoArtista(grupo);
   artista.setGrupos(grupo);
-  artista.setOyentes(Number(oyentes["oyentesArtista"]));
   await addAlbumArtista(album);
   artista.setAlbumes(album);
   await addCancionArtista(cancion);
-  artista.setCanciones(cancion);
-  //console.log(artista);
-  //return artista;
+  artista.construirArtista(cancion, oyentes["oyentesArtista"]);
   console.clear();
   InquirerFile.menuPrincipal();
-}
+} 
 
-export async function addGeneroArtista(genero: GenerosMusicales[]) {
-  const generoArtista = await inquirer.prompt({
-    type: "list",
-    name: "generoArtista",
-    message: "Introduce el/los géneros del artista: ",
-    choices: Object.values(InquirerFile.CommandsGenerosCanciones)
-  });
-  switch(generoArtista["generoArtista"]){
-    case InquirerFile.CommandsGenerosCanciones.Electronica:
-      genero.push(index.Electronica);
-      const generoArtista1 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista1["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.Rock:
-      genero.push(index.Rock);
-      const generoArtista2 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista2["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.Pop:
-      genero.push(index.Pop);
-      const generoArtista3 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista3["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.Rap:
-      genero.push(index.Rap);
-      const generoArtista4 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista4["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.Regueton:
-      genero.push(index.Regueton);
-      const generoArtista5 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista5["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.Hip_Hop:
-      genero.push(index.Hip_Hop);
-      const generoArtista6 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista6["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.Metal:
-      genero.push(index.Metal);
-      const generoArtista7 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista7["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.Flamenco:
-      genero.push(index.Flamenco);
-      const generoArtista8 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista8["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.RyB:
-      genero.push(index.RyB);
-      const generoArtista9 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista9["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-    case InquirerFile.CommandsGenerosCanciones.Soul:
-      genero.push(index.Soul);
-      const generoArtista10 = await inquirer.prompt( {
-        type: "list",
-        name: "generoArtista",
-        message: "El artista tiene más generos?: ",
-        choices: Object.values(CommandsSingle)
-      });
-      switch(generoArtista10["generoArtista"]) {
-        case CommandsSingle.Si:
-          await addGeneroArtista(genero)
-          break;
-        case CommandsSingle.No:
-          break;
-      }
-    break;
-  }
-  return genero;
-}
-
+/**
+ * Funcion addGrupoArtista
+ * @param grupo array de Grupos
+ * @returns array de Grupos
+ */
 export async function addGrupoArtista(grupo: Grupos[]) {
   const grupoArtista = await inquirer.prompt({
     type: "list",
@@ -235,7 +62,7 @@ export async function addGrupoArtista(grupo: Grupos[]) {
     choices: Object.values(InquirerFile.CommandsSingle)
   });
   switch(grupoArtista["grupoArtista"]) {
-    case CommandsSingle.Si:
+    case InquirerFile.CommandsSingle.Si:
       const GrupoArtista1 = await inquirer.prompt( {
         type: "input",
         name: "grupoArtista1",
@@ -247,12 +74,16 @@ export async function addGrupoArtista(grupo: Grupos[]) {
         }
       });
       break;
-    case CommandsSingle.No:
+    case InquirerFile.CommandsSingle.No:
       break;
   }
   return grupo;
 }
-
+/**
+ * Funcion addAlbumArtista
+ * @param album array de Album
+ * @returns array de Album
+ */
 export async function addAlbumArtista(album: Album[]) {
   const albumArtista = await inquirer.prompt({
     type: "list",
@@ -261,7 +92,7 @@ export async function addAlbumArtista(album: Album[]) {
     choices: Object.values(InquirerFile.CommandsSingle)
   });
   switch(albumArtista["albumArtista"]) {
-    case CommandsSingle.Si:
+    case InquirerFile.CommandsSingle.Si:
       const albumArtista1 = await inquirer.prompt( {
         type: "input",
         name: "grupoArtista1",
@@ -273,12 +104,16 @@ export async function addAlbumArtista(album: Album[]) {
         }
       });
       break;
-    case CommandsSingle.No:
+    case InquirerFile.CommandsSingle.No:
       break;
   }
   return album;
 }
-
+/**
+ * Funcion addCancionArtista()
+ * @param cancion array de Cancion
+ * @returns array de Cancion
+ */
 export async function addCancionArtista(cancion: Cancion[]) {
   const cancionArtista = await inquirer.prompt({
     type: "list",
@@ -287,7 +122,7 @@ export async function addCancionArtista(cancion: Cancion[]) {
     choices: Object.values(InquirerFile.CommandsSingle)
   });
   switch(cancionArtista["cancionArtista"]) {
-    case CommandsSingle.Si:
+    case InquirerFile.CommandsSingle.Si:
       const cancionArtista1 = await inquirer.prompt( {
         type: "input",
         name: "cancionArtista1",
@@ -302,23 +137,26 @@ export async function addCancionArtista(cancion: Cancion[]) {
         type: "list",
         name: "cancionArtista2",
         message: "¿El artista tiene más canciones?: ",
-        choices: Object.values(CommandsSingle)
+        choices: Object.values(InquirerFile.CommandsSingle)
       });
       switch(cancionArtista2["cancionArtista2"]) {
-        case CommandsSingle.Si:
+        case InquirerFile.CommandsSingle.Si:
           await addCancionArtista(cancion);
           break;
-        case CommandsSingle.No:
+        case InquirerFile.CommandsSingle.No:
           break;
       }
       break;
-    case CommandsSingle.No:
+    case InquirerFile.CommandsSingle.No:
       break;
   }
   return cancion;
 }
 
-
+/**
+ * Funcion modArtista
+ * @param numero numero del indice del artista
+ */
 export async function modArtista(numero: number){
   const artistaModificar = await inquirer.prompt({
     type: 'list',
@@ -354,11 +192,10 @@ export async function modArtista(numero: number){
       break;
     case CommandsPartesArtista.GeneroMusical:
       let genero_: GenerosMusicales[] = [];
-      await addGeneroArtista(genero_);
+      await addCancionGenero(genero_);
       index.artistas[numero].setGeneros(genero_);
       await modArtista(numero);
       break;
-    // No funciona
     case CommandsPartesArtista.Albumes:
       const albumesArtista = await inquirer.prompt( {
         type: "input",
@@ -399,13 +236,15 @@ export async function modArtista(numero: number){
       await modArtista(numero);
       break;
     case CommandsPartesArtista.Salir:
+      InquirerFile.menuPrincipal();
       break;
   }
   console.clear();
   InquirerFile.menuPrincipal();
-
 }
-
+/**
+ * Menu Modificar Artista
+ */
 export async function menumodArtista(){
   const artistaModificado = await inquirer.prompt({
     type: 'input',
