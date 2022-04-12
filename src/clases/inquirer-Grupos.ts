@@ -116,7 +116,7 @@ export async function addGrupoArtista(artistas: Artistas[]) {
   }
   if(numeroArtistas === -1){ 
     console.log(`No existe un Artista con ese nombre`);
-    await addGrupo();
+    await addGrupoArtista(artistas);
     return 0;
     
   } else {
@@ -232,11 +232,9 @@ export async function menuModificarGrupo() {
   if (GrupoIndex === -1) {
     console.log("El Grupo introducido no existe en la Base de Datos");
     InquirerFile.menuPrincipal();
+    return 0;
     
   } else {
     modificarGrupo(GrupoIndex);
   }
 }
-InquirerFile.menuPrincipal
-
-
