@@ -70,6 +70,7 @@ let cancion47 = new Cancion('Lose Yourself', 'Eminem',  '5:24', [Hip_Hop, Rap], 
 let cancion48 = new Cancion('Solita', 'Ozuna', '5:50', [Electronica], false, 609000000); 
 let cancion49 = new Cancion('Rumbatón', 'Daddy Yankee', '4:15', [Regueton], false, 1154580120); 
 let cancion50 = new Cancion('Bad', 'Michael Jackson',  '4:20', [RyB, Hip_Hop], true, 401000000); 
+
 export let canciones: Cancion[] = [cancion1, cancion2, cancion3, cancion4, cancion5, cancion6, cancion7, cancion8, cancion9, cancion10, cancion11, cancion12, cancion13, cancion14, cancion15, cancion16, cancion17, cancion18, cancion19, cancion20, cancion21, cancion22, cancion23, cancion24, cancion25, cancion26, cancion27, cancion28, cancion29, cancion30, cancion31, cancion32, cancion33, cancion34, cancion35, cancion36, cancion37, cancion38, cancion39, cancion40, cancion41, cancion42, cancion43, cancion44, cancion45, cancion46, cancion47, cancion48, cancion49, cancion50];
 
 // Artistas construidos con el nombre solo
@@ -120,6 +121,7 @@ let artista38 = new Artistas('Mauricio Rengifo');
 let artista39 = new Artistas('Quavo');
 let artista40 = new Artistas('Offset');
 let artista41 = new Artistas('Takeoff');
+
 export let artistas: Artistas[] = [artista1, artista2, artista3, artista4, artista5, artista6, artista7, artista8, artista9, artista10, artista11, artista12, artista13, artista14, artista15, artista16, artista17, artista18, artista19, artista20, artista21, artista22, artista23, artista24, artista25, artista26, artista27, artista28, artista29, artista30, artista31, artista32, artista33, artista34, artista35, artista36, artista37, artista38, artista39, artista40, artista41];
 
 // Grupos construidos con el nombre solo
@@ -129,6 +131,7 @@ let grupo3 = new Grupos(`Los Chunguitos`);
 let grupo4 = new Grupos(`The Prodigy`);
 let grupo5 = new Grupos(`Cali y El Dandee`);
 let grupo6 = new Grupos(`Migos`);
+
 export let grupos: Grupos[] = [grupo1, grupo2, grupo3, grupo4, grupo5, grupo6];
 
 // Album puede construirse con todo 
@@ -147,7 +150,6 @@ let album12 = new Album(`Asd`, artista5, [Hip_Hop], 2017, [cancion39, cancion40,
 let album13 = new Album(`Zrt`, artista5, [Hip_Hop], 2018, [cancion39, cancion40, cancion41]);
 let album14 = new Album(`Mpn`, artista5, [Hip_Hop], 2030, [cancion39, cancion40, cancion41]);
 let album15 = new Album(`Culture`, grupo6, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
-
 
 export let albumes: Album[] = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10, album11, album12,  album13, album14, album15];
 
