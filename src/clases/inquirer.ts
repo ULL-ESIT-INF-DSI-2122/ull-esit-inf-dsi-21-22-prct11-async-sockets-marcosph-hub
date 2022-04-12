@@ -230,6 +230,7 @@ export async function menuOpAvGrupo() {
   } else {
     menuOpcionesAvanzadas2()
   }
+  return nombreGrupoComprobar;
 }
 
 /**
@@ -285,6 +286,32 @@ export async function AlfTitCancionDesc() {
 }
 
 /**
+ * @function AlfNombAlbumAsc ordena alfabéticamente por Nombre del Álbum (Ascendente)
+ */
+export async function AlfNombAlbumAsc() {
+  console.log('Ordenar alfabéticamente por Nombre del Álbum (Ascendente)');
+  let nombreGrupoComprobar: Promise<string> = menuOpAvGrupo();
+  for(let i: number = 0; i < index.grupos.length; i++){
+    if(index.grupos[i].getNombreGrupo() === await nombreGrupoComprobar){
+      console.log(index.grupos[i].getAlbumes().sort());
+    }
+  }
+}
+
+/**
+ * @function AlfNombAlbumDesc ordena alfabéticamente por Nombre del Álbum (Descendente)
+ */
+export async function AlfNombAlbumDesc() {
+  console.log('Ordenar alfabéticamente por Nombre del Álbum (Descendente)');
+  let nombreGrupoComprobar: Promise<string> = menuOpAvGrupo();
+  for(let i: number = 0; i < index.grupos.length; i++){
+    if(index.grupos[i].getNombreGrupo() === await nombreGrupoComprobar){
+      console.log(index.grupos[i].getAlbumes().reverse());
+    }
+  }
+}
+
+/**
  * @function menuOpcionesAvanzadas2 menu para visualizar de los grupos y artistas de distintas maneras 
  * (alfabeticamente por titulo de canción, años de lanzamiento, número de reproducciones, etc)
  */
@@ -304,10 +331,10 @@ export async function menuOpcionesAvanzadas2() {
       AlfTitCancionDesc();
       break;
     case CommandsGestionAvanzada.AlfNombAlbumAsc:
-      //AlfNombAlbumAsc();
+      AlfNombAlbumAsc();
       break;
     case CommandsGestionAvanzada.AlfNombAlbumDesc:
-      //AlfNombAlbumDesc();
+      AlfNombAlbumDesc();
       break;
     case CommandsGestionAvanzada.AlfNombPlaylistAsc:
       //AlfNombPlaylistAsc();
@@ -333,7 +360,6 @@ export async function menuOpcionesAvanzadas2() {
   }
 }
 
-
 /**
  * @function menuOpcionesAvanzadas menu para visualizar de los grupos y artistas de distintas maneras
  */
@@ -346,7 +372,7 @@ export async function menuOpcionesAvanzadas(){
   })
   switch(respuestaOpAvanzadas["command"]) {
     case CommandsGrupoArtista.Grupo:
-      menuOpAvGrupo();
+      menuOpcionesAvanzadas2();
       break;
     case CommandsGrupoArtista.Artista:
       menuOpcionesAvanzadas2();
