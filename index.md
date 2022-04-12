@@ -1,7 +1,70 @@
-## Informe Práctica 7: Modelo de datos de un sistema de información que permite almacenar una biblioteca musical
+# Informe Práctica 7: Modelo de datos de un sistema de información que permite almacenar una biblioteca musical
+
+## Desarrollo de Sistemas Informáticos
 Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts**, que será nuestro fichero principal. Además se ha dividido nuestro código fuente en varios fichceros, en nuestro caso se ha usado el **módulos ES**.
 
-### Explicación 
+## Componentes del grupo L
+
+- Marcos Jesús Santana Ramos ([alu0101033471@ull.edu.es](alu0101033471@ull.edu.es))
+- Héctor Abreu Acosta ([alu0101068855@ull.edu.es](alu0101068855@ull.edu.es))
+- Marcos Padilla Herrera ([alu0101045177@ull.edu.es](alu0101045177@ull.edu.es))
+- Andrea Calero Caro ([alu0101202952@ull.edu.es](alu0101202952@ull.edu.es))
+- Grupo L
+
+
+## ÍNDICE
+
+1. Herramientas para el Desarrollo de la Práctica.
+2. Explicación.
+3. Clases
+
+    3.1. Clase Géneros Musicales
+
+    3.2. Clase Canción
+
+    3.3. Clase Artistas
+
+    3.4. Clase Grupos
+
+    3.5. Clase Álbum
+
+    3.6. Clase Playlist
+
+    3.7. Fichero Inquirer
+
+    3.8. Fichero Inq
+
+4. Test
+5. Desarrollo del informe con GitHub Pages
+6. Dificultades
+7. Conclusiones
+8. Referencias
+
+
+## Herramientas para el Desarrollo de la Práctica.
+Se ha hecho uso de una series de herramientas para complementar el desarrollo de la práctica para llevar a cabo una práctica más sólida y profesional.  
+* **[Typedoc](https://typedoc.org/).**
+TypeDoc es un generador de documentación mediante los propios comentarios del código.
+![Documentacion generada con TypeDoc apartir de los comentarios](./assets/images/typedoc-example.PNG)  
+
+* **[Mocha](https://mochajs.org/)**
+Framework para las pruebas creadas para el código.  
+![Muestra de pruebas pasadas con Mocha](./assets/images/mocha-sample.PNG)
+* **[Chai](https://www.chaijs.com/)**
+Biblioteca de aserciones BDD / TDD para el nodo y el navegador que se puede combinar con cualquier marco de prueba de JavaScript.  
+![Uso de Chai para pruebas](./assets/images/chai-sample.PNG)
+* **[Instanbul](https://istanbul.js.org/)**
+Herramienta para el encubrimiento del código implementado.  
+![Muestra de salida de comando nyc de Istanbul](./assets/images/istanbul-sample.PNG)  
+* **[CoverAlls](https://coveralls.io/)**
+Herramienta de análisis de encubrimiento del código.
+![Página de Coveralls para el repositorio trabajado](./assets/images/coveralls-sample.PNG)
+* **[GitHub Actions](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo_l/actions)**
+Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediante los commits que se hagan. Se hace uso de ``SonarCloud Workflow``, ``CoverAlls Workflow`` entre otros.  
+![Muestra de distintos WorkFlows de GitHub Actions](./assets/images/GHActions-sample.PNG)
+
+
+## Explicación. 
 En **index.ts** se crean los objetos de las clases, es decir, es el que contiene los **import** de todas las clases.
 
 Para la creación de las clases se van a ir actualizando en función se vayan creando objetos. Por ejemplo: una vez añadida una canción, se añade la canción al genero musical que la incluye.
@@ -25,29 +88,7 @@ Como cabría esperar, el menú **Modificar** consta de los mismos valores a modi
 
 
 
-### Herramientas para el Desarrollo de la Práctica.
-Se ha hecho uso de una series de herramientas para complementar el desarrollo de la práctica para llevar a cabo una práctica más sólida y profesional.  
-* **[Typedoc](https://typedoc.org/).**
-TypeDoc es un generador de documentación mediante los propios comentarios del código.
-![Documentacion generada con TypeDoc apartir de los comentarios](./assets/images/typedoc-example.PNG)  
-
-* **[Mocha](https://mochajs.org/)**
-Framework para las pruebas creadas para el código.  
-![Muestra de pruebas pasadas con Mocha](./assets/images/mocha-sample.PNG)
-* **[Chai](https://www.chaijs.com/)**
-Biblioteca de aserciones BDD / TDD para el nodo y el navegador que se puede combinar con cualquier marco de prueba de JavaScript.  
-![Uso de Chai para pruebas](./assets/images/chai-sample.PNG)
-* **[Instanbul](https://istanbul.js.org/)**
-Herramienta para el encubrimiento del código implementado.  
-![Muestra de salida de comando nyc de Istanbul](./assets/images/istanbul-sample.PNG)  
-* **[CoverAlls](https://coveralls.io/)**
-Herramienta de análisis de encubrimiento del código.
-![Página de Coveralls para el repositorio trabajado](./assets/images/coveralls-sample.PNG)
-* **[GitHub Actions](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo_l/actions)**
-Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediante los commits que se hagan. Se hace uso de ``SonarCloud Workflow``, ``CoverAlls Workflow`` entre otros.  
-![Muestra de distintos WorkFlows de GitHub Actions](./assets/images/GHActions-sample.PNG)
-
-### Clases
+## Clases
 Cada clase está situada en el directorio **src/clases/**:
 
 - [x] Géneros Musicales
@@ -301,7 +342,7 @@ setAutores(autor: Grupos | Artistas){
 
 Primero se comprueba y luego se añade a su correspondiente lugar. También se cuenta con los ```setCanciones()``` y ```getGenero()``` de clases anteriores, entre otras, pero como es el mismo código, se ha optado por omitirlo para no ser redundantes. El resto de **setters** y **getters** son relativamente sencillos, por lo que no se han tenido en cuenta a la hora de nombrarlos, pero se han realizado y analizado.
 
-### Playlist
+### Clase Playlist
 
 El contenido de la ```clase Playlist()``` es el siguiente:
 
@@ -357,7 +398,361 @@ getDuracion(){
 **NOTA:**
 En caso de que solo queramos obtener las *horas y minutos*, se modificaría el string devuelto, eliminando los **segundos**. El resto de **setters** y **getters**, son idénticos a los nombrados en el resto de clases, por lo que no se nombran en esta clase, pero están implementados.
 
-### Tests
+### Fichero Inquirer
+
+El contenido del fichero __inquirer.ts__ tendrá el manejo de los menús y submenús que trabaja utilizando el módulo [Inquirer.js](https://www.npmjs.com/package/inquirer). Dichos menús permiten una visión más amigable para los usuarios por la terminal.
+
+Se tiene varios tipos de enum que serán los distintos tipos de comandos a los que llamarán los menús, son las opciones disponibles por el usuario. Siendo estos tales que:
+
+```typescript
+/**
+ * @enum Commands con los comandos de añadir, borrar, modificar y salir
+ */
+export enum Commands {
+    Add = `Añadir`,
+    Borrar = `Borrar`,
+    Modificar = `Modificar`,
+    OpcionesAvanzadas = `Opciones Avanzadas`,
+    Salir = `Salir`
+}
+  
+/**
+ * @enum CommandsClases con la clase que se quiere añadir, borrar o modificar
+ */
+export enum CommandsClases {
+    Cancion = `Canción`,
+    GeneroMusical = `Género musical`,
+    Album = `Album`,
+    Artista = `Artista`,
+    Grupo = `Grupo`,
+    Salir = `Salir`
+}
+
+/**
+ * @enum CommandsSingle si es un sí o no
+ */
+export enum CommandsSingle {
+  Si = `Si`,
+  No = `No`
+}
+
+/**
+ * @enum CommandsGenerosCnciones con los géneros de las canciones
+ */
+export enum CommandsGenerosCanciones {
+  Rock = `Rock`,
+  Pop = `Pop`,
+  Rap = `Rap`,
+  Electronica = `Electronica`,
+  Regueton = `Regueton`,
+  Hip_Hop = `Hip_Hop`,
+  Metal = `Metal`,
+  Flamenco = `Flamenco`,
+  RyB = `RyB`,
+  Soul = `Soul`,
+  Salir = `Salir`
+}
+
+/**
+ * @enum CommandsPartesCancion partes de la clase Canción
+ */
+export enum CommandsPartesCancion {
+  Nombre = `Nombre`,
+  Autor = `Autor`,
+  GeneroMusical = `Género musical`,
+  Duracion = `Duracion`,
+  Single = `Single`,
+  Reproducciones = `Número de reproducciones`,
+  Salir = `Salir al menú principal`
+}
+
+/**
+ * @enum CommandsGrupoArtista si es un grupo o un artista
+ */
+export enum CommandsGrupoArtista {
+  Grupo = `Grupo`,
+  Artista = `Artista`,
+  Salir = `Salir`
+}
+/**
+ * @enum CommandsGestionAvanzada de las opciones de visualizacion
+ * de la información de los grupos o artistas
+ */
+export enum CommandsGestionAvanzada {
+  AlfTitCancionAsc = `Canción alfabeticamente por título (Ascendente)`,
+  AlfTitCancionDesc = `Canción alfabeticamente por título  (Descendente)`,
+  AlfNombAlbumAsc = `Álbum alfabeticamente por nombre  (Ascendente)`,
+  AlfNombAlbumDesc = `Álbum alfabeticamente por nombre  (Descendente)`,
+  AlfNombPlaylistAsc = `Playlist ordenada por nombre alfabeticamente (Ascendente)`,
+  AlfNombPlaylistDesc = `Playlist ordenada por nombre alfabeticamentet (Descendente)`,
+  AnioLanzAlbumAsc = `Año de Lanzamiento de Álbum (Ascendente)`,
+  AnioLanzAlbumDesc = `Año de Lanzamiento de Álbum (Descendente)`,
+  NumRepTotalAsc = `Número de reproducciones totales (Ascendente)`,
+  NumRepTotalDesc = `Número de reproducciones totales (Descendente)`,
+  MostrarSingles = `Mostrar Singles lanzados`,
+  Salir = `Salir al menú principal`
+}
+```
+
+Y por otro lado del fichero se encuentra los distintos menús. El primer menú o **Menu Principal** contiene las funcionalidades siguientes:
+
+![Menu Principal](./assets/images/menuPrincipal.png)
+
+Una vez accedemos al menú **Añadir**, podemos observar las opciones:  
+
+![Menu Añadir](./assets/images/menuAnadir.png)
+
+De manera similar, el menú **Borrar** consta de los mismos apartados que el **Añadir**:
+
+![Menu Borrar](./assets/images/menuBorrar.png)
+
+Como cabría esperar, el menú **Modificar** consta de los mismos valores a modificar que los anteriores casos:
+
+![Menu Modificar](./assets/images/menuModificar.png)
+
+
+El código de dichos menús es:
+
+```typescript
+/**
+ * @function menuAdd menu para añadir cancion, género, álbum, artista o grupo
+ */
+export async function menuAdd(){
+    const respuestaAdd = await inquirer.prompt({
+      type: 'list',
+      name: `command`, 
+      message: `Elige que quieres añadir`,
+      choices: Object.values(CommandsClases)
+    })
+    switch(respuestaAdd["command"]) {
+      case CommandsClases.Cancion:
+        await addCancion();
+        break;
+      case CommandsClases.GeneroMusical:
+        await inGenero.addGenero();
+        break;
+      case CommandsClases.Album:
+        await addAlbum();
+        break;
+      case CommandsClases.Artista:
+        addArtista();
+        break;
+      case CommandsClases.Grupo:
+        //addGrupo();
+
+        inGrupos.addGrupo();
+        //console.log(`añadiendo una grupo`);
+        break;
+    }
+}
+
+/**
+ * @function menuDel menu para borrar cancion, género, álbum, artista o grupo
+ */
+ export async function menuDel(){
+    const respuestaDel = await inquirer.prompt({
+      type: 'list',
+      name: `command`, 
+      message: `Elige que quieres eliminar`,
+      choices: Object.values(CommandsClases)
+    })
+    switch(respuestaDel["command"]) {
+      case CommandsClases.Cancion:
+        //delCancion();
+       console.log(`eliminndo una cancion`);
+        break;
+      case CommandsClases.GeneroMusical:
+        //delGeneroMusical();
+        console.log(`eliminndo una genero musical`);
+        break;
+      case CommandsClases.Album:
+        delAlbum();
+        break;
+      case CommandsClases.Artista:
+        //delArtista();
+        console.log(`eliminndo una artista`);
+        break;
+      case CommandsClases.Grupo:
+        //delGrupo();
+        console.log(`eliminnndo una grupo`);
+        break;
+        case CommandsClases.Salir:
+          await menuPrincipal();
+          return 0;
+          break;
+    } 
+}
+
+/**
+ * @function menuMod menu para modificar cancion, género, álbum, artista o grupo
+ */
+ export async function menuMod(){
+   console.clear();
+    const respuestaMod = await inquirer.prompt({
+      type: 'list',
+      name: `command`, 
+      message: `Elige que quieres modificar`,
+      choices: Object.values(CommandsClases)
+    })
+    switch(respuestaMod["command"]) {
+      case CommandsClases.Cancion:
+         menuModCancion();
+        break;
+      case CommandsClases.GeneroMusical:
+        //modGeneroMusical();
+        inGenero.menuModGenero();
+        break;
+      case CommandsClases.Album:
+         menuModAlbum();
+        break;
+      case CommandsClases.Artista:
+         menumodArtista();
+        break;
+      case CommandsClases.Grupo:
+        //console.log(`modificando una grupo`);
+        inGrupos.menuModificarGrupo();
+        break;
+      case CommandsClases.Salir:
+           menuPrincipal();
+      
+      break;
+    }
+}
+```
+
+
+Y estos menús llaman a su vez a métodos de añadir, borrar y modificar específicos de las clases **Cancion**, **GenerosMusicales** **Album**, **Grupos** y **Artistas**. Estos métodos de añadir, borrar y modificar, siguiendo los principios SOLID se alojaron en un fichero aparte denotado por **inquirer-[Cancion | Generos | Album | Grupos | artista]** respectivamente.
+
+
+Por otro lado está el menú que maneja el apartado de __Opciones Avanzadas__ de la terminal. Este menú se encarga de recibir si se requiere visualizar la información de un grupo o de un artista. Y dependiendo de ello comprueba si el nombre del grupo o artista concuerda con alguno de los ya existentes, esto se comprueba mediante los dos menús denotados por __menuNombreGrupo()__ y __menuNombreArtista()__:
+
+```typescript
+/**
+ * @function menuNombreGrupo compruea si existe el grupo a visualizar
+ */
+export async function menuNombreGrupo() {
+  const nombreGrupo = await inquirer.prompt({
+    type: 'input',
+    name: `command`, 
+    message: `Introduce el nombre del grupo que quieres visualizar la información:`
+  })
+  let nombre: string = nombreGrupo["command"];
+  
+  let numeroGrupo: number = -1;
+  for(let i: number = 0; i < index.grupos.length; i++){
+    if(index.grupos[i].getNombreGrupo() === nombre){
+      numeroGrupo = i;
+      break;
+    }
+  }
+  if(numeroGrupo === -1){
+    console.log(`No existe un grupo con ese nombre`);
+    menuNombreGrupo();
+  } else {
+    menuOpcionesAvanzadas(index.grupos[numeroGrupo]);
+  }
+}
+
+/**
+ * @function menuNombreArtista comprueba si existe el artista a visualizar
+ */
+export async function menuNombreArtista() {
+  const nombreArtista = await inquirer.prompt({
+    type: 'input',
+    name: `command`, 
+    message: `Introduce el nombre del artista que quieres visualizar la información:`
+  })
+  let nombre: string = nombreArtista["command"];
+  
+  let numeroArtista: number = -1;
+  for(let i: number = 0; i < index.artistas.length; i++){
+    if(index.artistas[i].getNombreArtista() === nombre){
+      numeroArtista = i;
+      break;
+    }
+  }
+  if(numeroArtista === -1){
+    console.log(`No existe un artista con ese nombre`);
+    menuNombreArtista();
+  } else {
+    menuOpcionesAvanzadas(index.artistas[numeroArtista]);
+  }
+}
+```
+
+Si no existe el nombre entonces se repite la llamada al actual menú, en caso contrario es que el nombre existe y se pasa al siguiente menú __menuOpcionesAvanzadas()__ este recibe por argumento el nombre del autor, lo cual puede ser un Artista o un Grupo, y entonces este menú se encarga de realizar la visualización de la información asociado con el grupo o artista. La información que muestra es:
+
+- [x] Alfabéticamente por título de la canción, ascendente y descendente.
+- [x] Alfabéticamente por nombre del álbum, ascendente y descendente.
+- [x] Alfabéticamente por nombre de la playlist, ascendente y descendente.
+- [x] Por año de lanzamiento del álbum, ascendente y descendente.
+- [x] Por número de reproducciones totales, ascendente y descendente.
+- [x] Filtrar para mostrar únicamente los singles lanzados.
+
+Mostrándose por terminal:
+
+![Menu Opciones Avanzadas](./assets/images/menuopcionesavanzadas.png)
+
+
+El código se muestra tal que una selección de casos entre las distintas opciones de visualización de la información, donde se le pasa el nombre del autor (Artista o Grupo) y este llama a los métodos correspondientes alojados en el fichero **inquirer-filtrado.ts** que tiene como alias **InquirerFiltrado**:
+
+```typescript
+/**
+ * @function menuOpcionesAvanzadas2 menu para visualizar de los grupos y artistas de distintas maneras 
+ * (alfabeticamente por titulo de canción, años de lanzamiento, número de reproducciones, etc)
+ */
+ export async function menuOpcionesAvanzadas(autor_: Artistas | Grupos) {
+  const respuestaOpAvanzadas = await inquirer.prompt({
+    type: 'list',
+    name: `command`, 
+    message: `Elige cómo visualizar la información:`,
+    choices: Object.values(CommandsGestionAvanzada)
+  })
+  
+  switch(respuestaOpAvanzadas["command"]) {
+    case CommandsGestionAvanzada.AlfTitCancionAsc:
+      InquirerFiltrado.AlfTitCancionAsc(autor_);
+      break;
+    case CommandsGestionAvanzada.AlfTitCancionDesc:
+      InquirerFiltrado.AlfTitCancionDesc(autor_);
+      break;
+    case CommandsGestionAvanzada.AlfNombAlbumAsc:
+      InquirerFiltrado.AlfNombAlbumAsc(autor_);
+      break;
+    case CommandsGestionAvanzada.AlfNombAlbumDesc:
+      InquirerFiltrado.AlfNombAlbumDesc(autor_);
+      break;
+    case CommandsGestionAvanzada.AlfNombPlaylistAsc:
+      InquirerFiltrado.AlfNombPlaylistAsc(autor_);
+      break;
+    case CommandsGestionAvanzada.AlfNombPlaylistDesc:
+      InquirerFiltrado.AlfNombPlaylistDesc(autor_);
+      break;
+    case CommandsGestionAvanzada.AnioLanzAlbumAsc:
+      InquirerFiltrado.AnioLanzAlbumAsc(autor_);
+      break;
+    case CommandsGestionAvanzada.AnioLanzAlbumDesc:
+      InquirerFiltrado.AnioLanzAlbumDesc(autor_);
+      break;
+    case CommandsGestionAvanzada.NumRepTotalAsc:
+      InquirerFiltrado.NumRepTotalAsc(autor_);
+      break;
+    case CommandsGestionAvanzada.NumRepTotalDesc:
+      InquirerFiltrado.NumRepTotalDesc(autor_);
+      break;
+    case CommandsGestionAvanzada.MostrarSingles:
+      InquirerFiltrado.MostrarSingles(autor_);
+      break;
+    case CommandsGestionAvanzada.Salir:
+      console.clear();
+      menuPrincipal();
+      break;
+  }
+}
+```
+
+
+## Tests
 A la hora de realizar test para comprobar el correcto funcionamiento de todo el proyecto, se ha decidido realizar sobre un único archivo **tester.spec.ts** localizado en **./test/**. Se ha decidido hacerlo de esta manera, porque todas las clases dependen las unas de las otras, por lo que habría que realizar **imports**, en nuestro caso, en cada uno de los archivos de testeo de cada clase.
 
 Los tests en cuestión compueban cada clase una por una modificándolas y comprobando que sus resultados son correctos.
