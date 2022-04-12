@@ -11,10 +11,14 @@ import * as inGenero from "../clases/inquirer-Generos";
 import { addAlbum, menuModAlbum, delAlbum } from '../clases/inquirer-Album';
 import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
 import { addArtista, menumodArtista } from '../clases/inquirer_artista';
+import * as InquirerFiltrado from '../clases/inquirer-filtrado';
 import { BaseDatos } from './basedatos';
 
+
+// Crear base de datos
 export let db = new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos);
-db.guardarBaseDatos()
+//db.guardarBaseDatos();
+
 
 /**
  * @enum Commands con los comandos de añadir, borrar, modificar y salir
@@ -208,439 +212,11 @@ export async function menuAdd(){
       
       break;
     }
-    
-}
-
-
-/**
- * @function AlfTitCancionAsc ordena alfabéticamente por Título de Canción (Ascendente)
- */
-export async function AlfTitCancionAsc(autor_: Artistas | Grupos) {
-  //console.log('Ordenar alfabéticamente por Título de Canción (Ascendente)');
-  //let nombreArtistaComprobar: string = await menuOpAvArtista();
-  if (autor_ instanceof Artistas){
-  console.clear();
-  console.log(`Canciones del artista ${autor_.getNombreArtista()} ordenadas ascendentemente:`);
-  console.log(autor_.getCanciones().sort());
-   menuOpcionesAvanzadas3(autor_);
-  } else {
-    let arrayAlbum : Album[] = autor_.getAlbumes();
-    let auxCancionesGrupo: Cancion[] = [];
-    let cancionesGrupo: string[] = [];
-    for ( let i: number = 0; i < arrayAlbum.length; i++){
-      auxCancionesGrupo = arrayAlbum[i].getCanciones();
-      for(let j: number = 0; j < auxCancionesGrupo.length; j++){
-        cancionesGrupo.push(auxCancionesGrupo[j].getNombreCancion());
-      }
-
-    }
-    console.clear();
-    console.log(`Canciones del grupo ${autor_.getNombreGrupo()} ordenadas ascendentemente :`);
-    console.log(cancionesGrupo.sort());
-    menuOpcionesAvanzadas3(autor_);
-  }
-}
- 
-/**
- * @function AlfTitCancionDesc ordena alfabéticamente por Título de Canción (Descendente)
- */
-export async function AlfTitCancionDesc(autor_: Artistas | Grupos) {
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Canciones del artista ${autor_.getNombreArtista()} ordenadas descendentemente:`);
-    console.log(autor_.getCanciones().sort().reverse());
-     menuOpcionesAvanzadas3(autor_);
-    } else {
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      let auxCancionesGrupo: Cancion[] = [];
-      let cancionesGrupo: string[] = [];
-      for ( let i: number = 0; i < arrayAlbum.length; i++){
-        auxCancionesGrupo = arrayAlbum[i].getCanciones();
-        for(let j: number = 0; j < auxCancionesGrupo.length; j++){
-          cancionesGrupo.push(auxCancionesGrupo[j].getNombreCancion());
-        }
-  
-      }
-      console.clear();
-      console.log(`Canciones del grupo ${autor_.getNombreGrupo()} ordenadas descendentemente :`);
-      console.log(cancionesGrupo.sort().reverse());
-      menuOpcionesAvanzadas3(autor_);
-    }
 }
 
 /**
- * @function AlfNombAlbumAsc ordena alfabéticamente por Nombre del Álbum (Ascendente)
+ * @function menuNombreGrupo compruea si existe el grupo a visualizar
  */
-export async function AlfNombAlbumAsc(autor_: Artistas | Grupos) {
- 
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Albumes del artista ${autor_.getNombreArtista()} ordenadas ascendentemente:`);
-    console.log(autor_.getAlbumes().sort());
-     menuOpcionesAvanzadas3(autor_);
-    }
-    else {
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      let albumesGrupo: string[] = [];
-      for ( let i: number = 0; i < arrayAlbum.length; i++){
-          albumesGrupo.push(arrayAlbum[i].getNombreAlbum());
-      }
-      console.clear();
-      console.log(`Albumes del grupo ${autor_.getNombreGrupo()} ordenadas ascendentemente :`);
-      console.log(albumesGrupo.sort());
-      menuOpcionesAvanzadas3(autor_);
-    }
-}
-
-/**
- * @function AlfNombAlbumDesc ordena alfabéticamente por Nombre del Álbum (Descendente)
- */
-export async function AlfNombAlbumDesc(autor_: Artistas | Grupos) {
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Albumes del artista ${autor_.getNombreArtista()} ordenadas descendentemente:`);
-    console.log(autor_.getAlbumes().sort().reverse());
-     menuOpcionesAvanzadas3(autor_);
-    }
-    else {
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      let albumesGrupo: string[] = [];
-      for ( let i: number = 0; i < arrayAlbum.length; i++){
-          albumesGrupo.push(arrayAlbum[i].getNombreAlbum());
-      }
-      console.clear();
-      console.log(`Albumes del grupo ${autor_.getNombreGrupo()} ordenadas descendentemente:`);
-      console.log(albumesGrupo.sort().reverse());
-      menuOpcionesAvanzadas3(autor_);
-    }
-}
-
-export async function AnioLanzAlbumAsc(autor_: Artistas | Grupos) {
- 
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Albumes del artista ${autor_.getNombreArtista()} ordenadas ascendentemente por año:`);
-    let listaAlbumesArtistas: Album[] = autor_.getAlbumesObject();
-    for(let i = 0; i < listaAlbumesArtistas.length; i++) {
-			for(let j = 0; j < listaAlbumesArtistas.length - 1; j++) {
-				if(listaAlbumesArtistas[j].getYear() > listaAlbumesArtistas[j + 1].getYear()) {
-					let swap = listaAlbumesArtistas[j];
-					listaAlbumesArtistas[j] = listaAlbumesArtistas[j + 1];
-					listaAlbumesArtistas[j + 1] = swap;
-				}
-			}
-		}
-    for(let i: number = 0; i < listaAlbumesArtistas.length; i++){
-      console.log(` ${listaAlbumesArtistas[i].getNombreAlbum()} (${listaAlbumesArtistas[i].getYear()})`);
-    }
-    menuOpcionesAvanzadas3(autor_);
-    }
-    else {
-      console.clear();
-      console.log(`Albumes del grupo ${autor_.getNombreGrupo()} ordenadas ascendentemente por año :`);
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      for(let i = 0; i < arrayAlbum.length; i++) {
-        for(let j = 0; j < arrayAlbum.length - 1; j++) {
-          if(arrayAlbum[j].getYear() > arrayAlbum[j + 1].getYear()) {
-            let swap = arrayAlbum[j];
-            arrayAlbum[j] = arrayAlbum[j + 1];
-            arrayAlbum[j + 1] = swap;
-          }
-        }
-      }
-      for(let i: number = 0; i < arrayAlbum.length; i++){
-        console.log(` ${arrayAlbum[i].getNombreAlbum()} (${arrayAlbum[i].getYear()})`);
-      }
-      menuOpcionesAvanzadas3(autor_);
-    }
-}
-export async function AnioLanzAlbumDesc(autor_: Artistas | Grupos) {
- 
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Albumes del artista ${autor_.getNombreArtista()} ordenadas descendentemente por año:`);
-    let listaAlbumesArtistas: Album[] = autor_.getAlbumesObject();
-    for(let i = 0; i < listaAlbumesArtistas.length; i++) {
-			for(let j = 0; j < listaAlbumesArtistas.length - 1; j++) {
-				if(listaAlbumesArtistas[j].getYear() < listaAlbumesArtistas[j + 1].getYear()) {
-					let swap = listaAlbumesArtistas[j];
-					listaAlbumesArtistas[j] = listaAlbumesArtistas[j + 1];
-					listaAlbumesArtistas[j + 1] = swap;
-				}
-			}
-		}
-    for(let i: number = 0; i < listaAlbumesArtistas.length; i++){
-      console.log(` ${listaAlbumesArtistas[i].getNombreAlbum()} (${listaAlbumesArtistas[i].getYear()})`);
-    }
-    menuOpcionesAvanzadas3(autor_);
-    }
-    else {
-      console.clear();
-      console.log(`Albumes del grupo ${autor_.getNombreGrupo()} ordenadas descendentemente por año :`);
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      for(let i = 0; i < arrayAlbum.length; i++) {
-        for(let j = 0; j < arrayAlbum.length - 1; j++) {
-          if(arrayAlbum[j].getYear() < arrayAlbum[j + 1].getYear()) {
-            let swap = arrayAlbum[j];
-            arrayAlbum[j] = arrayAlbum[j + 1];
-            arrayAlbum[j + 1] = swap;
-          }
-        }
-      }
-      for(let i: number = 0; i < arrayAlbum.length; i++){
-        console.log(` ${arrayAlbum[i].getNombreAlbum()} (${arrayAlbum[i].getYear()})`);
-      }
-      menuOpcionesAvanzadas3(autor_);
-    }
-}
-export async function MostrarSingles(autor_: Artistas | Grupos) {
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Single del artista ${autor_.getNombreArtista()}:`);
-    let auxCanciones: Cancion[] = autor_.getCancionesObject();
-    let canciones: string[] = [];
-    let flag: boolean = false;
-    for(let i : number = 0; i < auxCanciones.length; i++){
-      flag = auxCanciones[i].getSingle();
-      if( flag === true){
-        canciones.push(auxCanciones[i].getNombreCancion());
-      }
-    }
-    console.log(canciones);
-    menuOpcionesAvanzadas3(autor_);
-    } else {
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      let auxCancionesGrupo: Cancion[] = [];
-      let cancionesGrupo_: Cancion[] = [];
-      for ( let i: number = 0; i < arrayAlbum.length; i++){
-        auxCancionesGrupo = arrayAlbum[i].getCanciones();
-        for(let j: number = 0; j < auxCancionesGrupo.length; j++){
-          cancionesGrupo_.push(auxCancionesGrupo[j]);
-        }
-      }
-      console.clear();
-      console.log(`Single del grupo ${autor_.getNombreGrupo()}:`);
-      let canciones: string[] = [];
-    let flag: boolean = false;
-    for(let i : number = 0; i < cancionesGrupo_.length; i++){
-      flag = cancionesGrupo_[i].getSingle();
-      if( flag === true){
-        canciones.push(auxCancionesGrupo[i].getNombreCancion());
-      }
-    }
-    console.log(canciones);
-    menuOpcionesAvanzadas3(autor_);
-    }
-}
-export async function NumRepTotalAsc(autor_: Artistas | Grupos) {
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Canciones de ${autor_.getNombreArtista()} ordenadas por número de reproducciones ascendentes:`);
-    let listaCanciones: Cancion[] = autor_.getCancionesObject();
-    for(let i = 0; i < listaCanciones.length; i++) {
-			for(let j = 0; j < listaCanciones.length - 1; j++) {
-				if(listaCanciones[j].getNumReproducciones() > listaCanciones[j + 1].getNumReproducciones()) {
-					let swap = listaCanciones[j];
-					listaCanciones[j] = listaCanciones[j + 1];
-					listaCanciones[j + 1] = swap;
-				}
-			}
-		}
-    for(let i: number = 0; i < listaCanciones.length; i++){
-      console.log(` ${listaCanciones[i].getNombreCancion()} (${new Intl.NumberFormat('de-DE').format(listaCanciones[i].getNumReproducciones())})`);
-    }
-    menuOpcionesAvanzadas3(autor_);
-    } else {
-      console.clear();
-      console.log(`Canciones de ${autor_.getNombreGrupo()} ordenadas por número de reproducciones ascendentes:`);
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      let auxCancionesGrupo: Cancion[] = [];
-      let cancionesGrupo_: Cancion[] = [];
-      for ( let i: number = 0; i < arrayAlbum.length; i++){
-        auxCancionesGrupo = arrayAlbum[i].getCanciones();
-        for(let j: number = 0; j < auxCancionesGrupo.length; j++){
-          cancionesGrupo_.push(auxCancionesGrupo[j]);
-        }
-      }
-      for(let i = 0; i < cancionesGrupo_.length; i++) {
-        for(let j = 0; j < cancionesGrupo_.length - 1; j++) {
-          if(cancionesGrupo_[j].getNumReproducciones() > cancionesGrupo_[j + 1].getNumReproducciones()) {
-            let swap = cancionesGrupo_[j];
-            cancionesGrupo_[j] = cancionesGrupo_[j + 1];
-            cancionesGrupo_[j + 1] = swap;
-          }
-        }
-      }
-      for(let i: number = 0; i < cancionesGrupo_.length; i++){
-        console.log(` ${cancionesGrupo_[i].getNombreCancion()} (${new Intl.NumberFormat('de-DE').format(cancionesGrupo_[i].getNumReproducciones())})`);
-      }
-    menuOpcionesAvanzadas3(autor_);
-    }
-}
-export async function NumRepTotalDesc(autor_: Artistas | Grupos) {
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Canciones de ${autor_.getNombreArtista()} ordenadas por número de reproducciones descendentes:`);
-    let listaCanciones: Cancion[] = autor_.getCancionesObject();
-    for(let i = 0; i < listaCanciones.length; i++) {
-			for(let j = 0; j < listaCanciones.length - 1; j++) {
-				if(listaCanciones[j].getNumReproducciones() < listaCanciones[j + 1].getNumReproducciones()) {
-					let swap = listaCanciones[j];
-					listaCanciones[j] = listaCanciones[j + 1];
-					listaCanciones[j + 1] = swap;
-				}
-			}
-		}
-    for(let i: number = 0; i < listaCanciones.length; i++){
-      console.log(` ${listaCanciones[i].getNombreCancion()} (${new Intl.NumberFormat('de-DE').format(listaCanciones[i].getNumReproducciones())})`);
-    }
-    menuOpcionesAvanzadas3(autor_);
-    } else {
-      console.clear();
-      console.log(`Canciones de ${autor_.getNombreGrupo()} ordenadas por número de reproducciones descendentes:`);
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      let auxCancionesGrupo: Cancion[] = [];
-      let cancionesGrupo_: Cancion[] = [];
-      for ( let i: number = 0; i < arrayAlbum.length; i++){
-        auxCancionesGrupo = arrayAlbum[i].getCanciones();
-        for(let j: number = 0; j < auxCancionesGrupo.length; j++){
-          cancionesGrupo_.push(auxCancionesGrupo[j]);
-        }
-      }
-      for(let i = 0; i < cancionesGrupo_.length; i++) {
-        for(let j = 0; j < cancionesGrupo_.length - 1; j++) {
-          if(cancionesGrupo_[j].getNumReproducciones() < cancionesGrupo_[j + 1].getNumReproducciones()) {
-            let swap = cancionesGrupo_[j];
-            cancionesGrupo_[j] = cancionesGrupo_[j + 1];
-            cancionesGrupo_[j + 1] = swap;
-          }
-        }
-      }
-      for(let i: number = 0; i < cancionesGrupo_.length; i++){
-        console.log(` ${cancionesGrupo_[i].getNombreCancion()} (${new Intl.NumberFormat('de-DE').format(cancionesGrupo_[i].getNumReproducciones())})`);
-      }
-      menuOpcionesAvanzadas3(autor_);
-    }
-}
-
-export async function AlfNombPlaylistAsc(autor_: Artistas | Grupos) {
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Playlist ordenadas ascendentemente por nombre donde participa ${autor_.getNombreArtista()} :`);
-    let listaCanciones: Cancion[] = autor_.getCancionesObject();
-    let auxPlaylist: Playlist[] = [];
-    for(let i = 0; i < listaCanciones.length; i++) {
-			for(let j = 0; j < index.playlists.length; j++) {
-        let cancionesPlaylist: Cancion[] = index.playlists[j].getCanciones();
-        for(let k: number = 0; k < cancionesPlaylist.length; k++){
-          if(listaCanciones[i].getNombreCancion() === cancionesPlaylist[k].getNombreCancion()) {
-           auxPlaylist.push(index.playlists[j]);
-           break;
-          }
-        }
-			}
-		}
-    let nombrePlaylist_: string[] = [];
-    for(let i: number = 0; i < auxPlaylist.length; i++){
-      nombrePlaylist_.push(auxPlaylist[i].getNombrePlaylist());
-    }
-    console.log(nombrePlaylist_.sort());
-    
-    menuOpcionesAvanzadas3(autor_);
-    } else {
-      console.clear();
-      console.log(`Playlist ordenadas ascendentemente por nombre donde participa ${autor_.getNombreGrupo()} :`);
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      let auxCancionesGrupo: Cancion[] = [];
-      let cancionesGrupo_: Cancion[] = [];
-      for ( let i: number = 0; i < arrayAlbum.length; i++){
-        auxCancionesGrupo = arrayAlbum[i].getCanciones();
-        for(let j: number = 0; j < auxCancionesGrupo.length; j++){
-          cancionesGrupo_.push(auxCancionesGrupo[j]);
-        }
-      }
-      let auxPlaylist: Playlist[] = [];
-    for(let i = 0; i < cancionesGrupo_.length; i++) {
-			for(let j = 0; j < index.playlists.length; j++) {
-        let cancionesPlaylist: Cancion[] = index.playlists[j].getCanciones();
-        for(let k: number = 0; k < cancionesPlaylist.length; k++){
-          if(cancionesGrupo_[i].getNombreCancion() === cancionesPlaylist[k].getNombreCancion()) {
-            if (!auxPlaylist.includes(index.playlists[j])){
-              auxPlaylist.push(index.playlists[j]);
-              break;
-            }
-          }
-        }
-			}
-		}
-    let nombrePlaylist_: string[] = [];
-    for(let i: number = 0; i < auxPlaylist.length; i++){
-      nombrePlaylist_.push(auxPlaylist[i].getNombrePlaylist());
-    }
-    console.log(nombrePlaylist_.sort());
-    
-      menuOpcionesAvanzadas3(autor_);
-    }
-}
-export async function AlfNombPlaylistDesc(autor_: Artistas | Grupos) {
-  if (autor_ instanceof Artistas){
-    console.clear();
-    console.log(`Playlist ordenadas descendentemente por nombre donde participa ${autor_.getNombreArtista()} :`);
-    let listaCanciones: Cancion[] = autor_.getCancionesObject();
-    let auxPlaylist: Playlist[] = [];
-    for(let i = 0; i < listaCanciones.length; i++) {
-			for(let j = 0; j < index.playlists.length; j++) {
-        let cancionesPlaylist: Cancion[] = index.playlists[j].getCanciones();
-        for(let k: number = 0; k < cancionesPlaylist.length; k++){
-          if(listaCanciones[i].getNombreCancion() === cancionesPlaylist[k].getNombreCancion()) {
-           auxPlaylist.push(index.playlists[j]);
-           break;
-          }
-        }
-			}
-		}
-    let nombrePlaylist_: string[] = [];
-    for(let i: number = 0; i < auxPlaylist.length; i++){
-      nombrePlaylist_.push(auxPlaylist[i].getNombrePlaylist());
-    }
-    console.log(nombrePlaylist_.sort().reverse());
-    
-    menuOpcionesAvanzadas3(autor_);
-    } else {
-      console.clear();
-      console.log(`Playlist ordenadas descendentemente por nombre donde participa ${autor_.getNombreGrupo()} :`);
-      let arrayAlbum : Album[] = autor_.getAlbumes();
-      let auxCancionesGrupo: Cancion[] = [];
-      let cancionesGrupo_: Cancion[] = [];
-      for ( let i: number = 0; i < arrayAlbum.length; i++){
-        auxCancionesGrupo = arrayAlbum[i].getCanciones();
-        for(let j: number = 0; j < auxCancionesGrupo.length; j++){
-          cancionesGrupo_.push(auxCancionesGrupo[j]);
-        }
-      }
-      let auxPlaylist: Playlist[] = [];
-    for(let i = 0; i < cancionesGrupo_.length; i++) {
-			for(let j = 0; j < index.playlists.length; j++) {
-        let cancionesPlaylist: Cancion[] = index.playlists[j].getCanciones();
-        for(let k: number = 0; k < cancionesPlaylist.length; k++){
-          if(cancionesGrupo_[i].getNombreCancion() === cancionesPlaylist[k].getNombreCancion()) {
-            if (!auxPlaylist.includes(index.playlists[j])){
-              auxPlaylist.push(index.playlists[j]);
-              break;
-            }
-          }
-        }
-			}
-		}
-    let nombrePlaylist_: string[] = [];
-    for(let i: number = 0; i < auxPlaylist.length; i++){
-      nombrePlaylist_.push(auxPlaylist[i].getNombrePlaylist());
-    }
-    console.log(nombrePlaylist_.sort().reverse());
-    menuOpcionesAvanzadas3(autor_);
-  }
-}
-
 export async function menuNombreGrupo() {
   const nombreGrupo = await inquirer.prompt({
     type: 'input',
@@ -659,13 +235,14 @@ export async function menuNombreGrupo() {
   if(numeroGrupo === -1){
     console.log(`No existe un grupo con ese nombre`);
     menuNombreGrupo();
-    //return 0;
   } else {
-    menuOpcionesAvanzadas3(index.grupos[numeroGrupo]);
+    menuOpcionesAvanzadas(index.grupos[numeroGrupo]);
   }
-  
- 
 }
+
+/**
+ * @function menuNombreArtista comprueba si existe el artista a visualizar
+ */
 export async function menuNombreArtista() {
   const nombreArtista = await inquirer.prompt({
     type: 'input',
@@ -684,18 +261,16 @@ export async function menuNombreArtista() {
   if(numeroArtista === -1){
     console.log(`No existe un artista con ese nombre`);
     menuNombreArtista();
-    //return 0;
   } else {
-    menuOpcionesAvanzadas3(index.artistas[numeroArtista]);
+    menuOpcionesAvanzadas(index.artistas[numeroArtista]);
   }
-  
- 
 }
+
 /**
  * @function menuOpcionesAvanzadas2 menu para visualizar de los grupos y artistas de distintas maneras 
  * (alfabeticamente por titulo de canción, años de lanzamiento, número de reproducciones, etc)
  */
- export async function menuOpcionesAvanzadas3(autor_: Artistas | Grupos) {
+ export async function menuOpcionesAvanzadas(autor_: Artistas | Grupos) {
   const respuestaOpAvanzadas = await inquirer.prompt({
     type: 'list',
     name: `command`, 
@@ -705,37 +280,37 @@ export async function menuNombreArtista() {
   
   switch(respuestaOpAvanzadas["command"]) {
     case CommandsGestionAvanzada.AlfTitCancionAsc:
-      AlfTitCancionAsc(autor_);
+      InquirerFiltrado.AlfTitCancionAsc(autor_);
       break;
     case CommandsGestionAvanzada.AlfTitCancionDesc:
-      AlfTitCancionDesc(autor_);
+      InquirerFiltrado.AlfTitCancionDesc(autor_);
       break;
     case CommandsGestionAvanzada.AlfNombAlbumAsc:
-      AlfNombAlbumAsc(autor_);
+      InquirerFiltrado.AlfNombAlbumAsc(autor_);
       break;
     case CommandsGestionAvanzada.AlfNombAlbumDesc:
-      AlfNombAlbumDesc(autor_);
+      InquirerFiltrado.AlfNombAlbumDesc(autor_);
       break;
     case CommandsGestionAvanzada.AlfNombPlaylistAsc:
-      AlfNombPlaylistAsc(autor_);
+      InquirerFiltrado.AlfNombPlaylistAsc(autor_);
       break;
     case CommandsGestionAvanzada.AlfNombPlaylistDesc:
-      AlfNombPlaylistDesc(autor_);
+      InquirerFiltrado.AlfNombPlaylistDesc(autor_);
       break;
     case CommandsGestionAvanzada.AnioLanzAlbumAsc:
-      AnioLanzAlbumAsc(autor_);
+      InquirerFiltrado.AnioLanzAlbumAsc(autor_);
       break;
     case CommandsGestionAvanzada.AnioLanzAlbumDesc:
-      AnioLanzAlbumDesc(autor_);
+      InquirerFiltrado.AnioLanzAlbumDesc(autor_);
       break;
     case CommandsGestionAvanzada.NumRepTotalAsc:
-      NumRepTotalAsc(autor_);
+      InquirerFiltrado.NumRepTotalAsc(autor_);
       break;
     case CommandsGestionAvanzada.NumRepTotalDesc:
-      NumRepTotalDesc(autor_);
+      InquirerFiltrado.NumRepTotalDesc(autor_);
       break;
     case CommandsGestionAvanzada.MostrarSingles:
-      MostrarSingles(autor_);
+      InquirerFiltrado.MostrarSingles(autor_);
       break;
     case CommandsGestionAvanzada.Salir:
       console.clear();
@@ -747,7 +322,7 @@ export async function menuNombreArtista() {
 /**
  * @function menuOpcionesAvanzadas menu para visualizar de los grupos y artistas de distintas maneras
  */
-export async function menuOpcionesAvanzadas(){
+export async function menuOpcionGrupoArtista(){
   const respuestaOpAvanzadas = await inquirer.prompt({
     type: 'list',
     name: `command`, 
@@ -759,7 +334,6 @@ export async function menuOpcionesAvanzadas(){
       menuNombreGrupo();
       break;
     case CommandsGrupoArtista.Artista:
-   
       menuNombreArtista();
       break;
     case CommandsGrupoArtista.Salir:
@@ -768,7 +342,6 @@ export async function menuOpcionesAvanzadas(){
         break;
   }
 }
-
 
 /**
  * @function menuPrincipal menu principal donde se manejan los submenus y los comandos
@@ -792,7 +365,7 @@ export async function menuPrincipal(){
          menuMod();
         break;
       case Commands.OpcionesAvanzadas:
-         menuOpcionesAvanzadas();
+        menuOpcionGrupoArtista();
         break;
       case Commands.Salir:
         return;
