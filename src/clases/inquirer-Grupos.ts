@@ -36,7 +36,6 @@ async function getAlbumesGrupo(albumArray: Album[]) {
     if(index.albumes[iterator].getNombreAlbum() === albumEspecifico) {
       albumIndex = iterator;
       break;
-
     }
   }
   if ( albumIndex === -1) {
@@ -45,7 +44,6 @@ async function getAlbumesGrupo(albumArray: Album[]) {
     return 0;
     
   } else {
-    console.log("Insertando album");
     albumArray.push(index.albumes[albumIndex]);
     const otroalbum = await inquirer.prompt({
       type: "list",
