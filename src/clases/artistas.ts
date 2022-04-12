@@ -213,12 +213,8 @@ export class Artistas {
 	 * @param album del artista
 	 */
 	 setAlbumes(album: Album[]){
-		this.albumes.forEach(element => {
-			this.albumes.pop();
-		});
-		album.forEach(element => {
-			this.albumes.push(element);
-		});
+		this.albumes = [];
+		this.albumes = album;
 	}
 		/**
 	 * Setter de los albumes del artista que rellenan a un artista en la clase album
