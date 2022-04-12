@@ -232,6 +232,7 @@ export async function menuModificarGrupo() {
   if (GrupoIndex === -1) {
     console.log("El Grupo introducido no existe en la Base de Datos");
     InquirerFile.menuPrincipal();
+    
   } else {
     modificarGrupo(GrupoIndex);
   }
