@@ -23,7 +23,7 @@
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.2",
-    "lowdb": "^3.0.0",
+    "lowdb": "^1.0.0",
     "tsc": "^2.0.4"
   },
   "devDependencies": {
