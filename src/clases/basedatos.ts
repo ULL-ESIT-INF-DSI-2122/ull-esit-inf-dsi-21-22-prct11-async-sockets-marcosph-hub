@@ -12,7 +12,10 @@ import { addAlbum } from '../clases/inquirer-Album';
 import FileSync from "lowdb/adapters/FileSync";
 import lowdb from 'lowdb';
 
-
+/**
+ * @type dbtype con los datos y sus tipos que se introducen en
+ * la base de datos
+ */
 type dbtype = {
     generosmusicales: {
         nombreGenero: string;
@@ -54,6 +57,9 @@ type dbtype = {
     }[];
 };
 
+/**
+ * @class BaseDatos que almacenará los valores en una base de datos de tipo lowdb
+ */
 export class BaseDatos{
     private basedatos: lowdb.LowSync<dbtype>;
     public generosArray: GenerosMusicales[];
@@ -71,7 +77,10 @@ export class BaseDatos{
         this.gruposArray = gruposArray;
     }
 
-    // Guardar en la base de datos
+    /**
+     * @method guardarBaseDatos que guarda en la base de datos los
+     * géneros musicales, canciones, álbumes, artistas y grupos de la app
+     */
     guardarBaseDatos() {
         // Me falla
         /*

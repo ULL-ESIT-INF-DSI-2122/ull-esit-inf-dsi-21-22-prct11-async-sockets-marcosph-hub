@@ -144,7 +144,9 @@ let album9 = new Album(`3a.m.`, grupo5, [Regueton], 2012, [cancion32, cancion33,
 let album10 = new Album(`Get Rich or Die Tryin'`, artista15, [Hip_Hop], 2003, [cancion35, cancion36]); 
 let album11 = new Album(`ALMAS GEMELAS`, artista7, [Hip_Hop], 2021, [cancion37, cancion38]);
 let album12 = new Album(`Culture`, grupo6, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
-export let albumes: Album[] = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10, album11, album12];
+let albumppp = new Album(`Hola`, grupo1, [Rap], 2022, [cancion1]);
+export let albumes: Album[] = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10, album11, album12, albumppp];
+
 
 // rellenar grupos
 grupo1.construirGrupo([artista16, artista17, artista18, artista19, artista20, artista21, artista22, artista23], 1983, [Metal], [album1], 8000000);
@@ -227,4 +229,4 @@ export function CommandsGenerosCanciones(CommandsGenerosCanciones: any): import(
 //console.log(cancion1);
 //console.log(artista1);
 //console.log(grupo1.dame());
-//console.log(artistas[3].getCanciones())
+

@@ -7,6 +7,12 @@
         "./src/clases/artistas.ts",
         "./src/clases/playlist.ts",
         "./src/clases/inquirer.ts",
+        "./src/clases/inquirer-Generos.ts",
+        "./src/clases/inquirer-Cancion.ts",
+        "./src/clases/inquirer-Album.ts",
+        "./src/clases/inquirer_artista.ts",
+        "./src/clases/inquirer-Grupos.ts",
+        "./src/clases/basedatos.ts",
         "./src/index.ts"
     ],
     "out": "./docs"

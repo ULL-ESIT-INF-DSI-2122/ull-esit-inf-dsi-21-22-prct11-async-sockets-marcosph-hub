@@ -301,3 +301,27 @@ export async function menuModAlbum() {
     await modAlbum(numeroAlbum);
   }
 }
+
+export async function delAlbum() {
+  const albumBorrada = await inquirer.prompt({
+    type: 'input',
+    name: `borrar`,
+    message: `Introduce el nombre del álbum que quieres borrar`,
+  })
+  let nombreAlbumBorrar: string = albumBorrada["borrar"];
+  let numeroAlbum: number = -1;
+  for(let i: number = 0; i < index.albumes.length; i++){
+    if(index.albumes[i].getNombreAlbum() === nombreAlbumBorrar){
+      numeroAlbum = i;
+      index.albumes.splice(parseInt(nombreAlbumBorrar), 1); //Dudoso
+      break;
+    }
+  }
+  if(numeroAlbum === -1){
+    console.log(`No existe un álbum con ese nombre`);
+    menuPrincipal();
+    return 0;
+  } else {
+    index.albumes.splice(parseInt(nombreAlbumBorrar), 1);
+  }
+}

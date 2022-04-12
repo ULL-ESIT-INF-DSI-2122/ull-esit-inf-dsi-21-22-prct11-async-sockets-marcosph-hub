@@ -2,6 +2,7 @@ import { Cancion } from "./cancion";
 import { Grupos } from "./grupos";
 import { Artistas } from "./artistas";
 import { GenerosMusicales } from "./generosMusicales";
+import {albumes} from "../index";
 
 /**
  * TRABAJO GRUPO L
@@ -19,6 +20,7 @@ export class Album {
 	private genero: GenerosMusicales[];
 	private yearPublicacion: number;
 	private canciones: Cancion[];
+
 	constructor(nombreAlbum: string, autores: Grupos | Artistas, genero: GenerosMusicales[],
 		yearPublicacion: number, canciones: Cancion[]){
 			this.nombreAlbum = nombreAlbum;
@@ -33,6 +35,9 @@ export class Album {
 				element.autoSetAlbumes(this);
 			});
 		}
+
+
+
 	/**
 	 * Getter del nombre del album
 	 * @returns nombre del album
@@ -125,4 +130,5 @@ export class Album {
 		this.canciones = [];
 		this.canciones = cancion;
 	}
+
 }
