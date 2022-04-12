@@ -32,7 +32,7 @@ Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts*
 
     3.7. Fichero Inquirer
 
-    3.8. Fichero Inq
+    3.8. Fichero Inquirer-filtrado
 
 4. Test
 5. Desarrollo del informe con GitHub Pages
@@ -750,6 +750,65 @@ El código se muestra tal que una selección de casos entre las distintas opcion
   }
 }
 ```
+
+### Fichero Inquirer-filtrado
+
+El contenido del fichero __inquirer-filtrado.ts__ tiene las funciones implementadas para la visualización de la información como se indicó anteriormente.
+
+- [x] Alfabéticamente por título de la canción, ascendente y descendente: Lo maneja las funciones __AlfTitCancionAsc()__ y __AlfTitCancionDesc()__ respectivamente.
+- [x] Alfabéticamente por nombre del álbum, ascendente y descendente: Lo maneja las funciones __AlfNombAlbumAsc()__ y __AlfNombAlbumDesc()__ respectivamente.
+- [x] Alfabéticamente por nombre de la playlist, ascendente y descendente: Lo maneja las funciones __AlfNombPlaylistAsc()__ y __AlfNombPlaylistDesc()__ respectivamente.
+- [x] Por año de lanzamiento del álbum, ascendente y descendente: Lo maneja las funciones __AnioLanzAlbumAsc()__ y __AnioLanzAlbumDesc()__ respectivamente.
+- [x] Por número de reproducciones totales, ascendente y descendente: Lo maneja las funciones __NumRepTotalAsc()__ y __NumRepTotalDesc()__ respectivamente.
+- [x] Filtrar para mostrar únicamente los singles lanzados: Lo maneja la función __MostrarSingles()__
+
+
+Todas ellas reciben el nombre del artista u grupo y todas luego con un guardián de tipo del estilo __if(){} else{}__ se comprueba que si es una instancia de la clase __Artistas__ o __Grupos__ entonces se realiza de manera distinta, ya que los artistas por ejemplo, sí tiene las canciones del artista pero los grupos no tienen las canciones, sino que se tiene que acceder a los álbumes y luego de ellos a las canciones de esos álbumes. Y esto sucede con muchos de estos métodos.
+
+El planteamiento general que se empleó fue:
+
+Con los métodos donde el ordenar las canciones, álbumes y playlist es de manera _ascendente_; es decir, los métodos __AlfTitCancionAsc()__ , __AlfNombAlbumAsc()__ y __AlfNombPlaylistAsc()__, se empleó la lógica del método de los objetos tipo __Array__ que es el método __sort()__ proporciona un orden ya predeterminado de manera ascendente. Mientras que por el lado contrario, el de ordenar las canciones, álbumes y playlist es de manera _descendente_; es decir, los métodos __AlfTitCancionDesc()__ , __AlfNombAlbumDesc()__ y __AlfNombPlaylistDesc()__ se empleó la lógica del método de los objetos tipo __Array__ que es el método __sort().reverse()__ lo cual permite que se ordene de manera descendente.
+
+Con los métodos __AnioLanzAlbumAsc()__ y __AnioLanzAlbumDesc()__, __NumRepTotalAsc()__ y __NumRepTotalDesc()__, que ordena un valor más bien numérico se utilizó el __Algoritmo BubbleSort__ que permite la ordenación según los criterios de [BubbleSort](https://es.wikipedia.org/wiki/Ordenamiento_de_burbuja). Esto facilita que se puedan ordenar de manera ascendente y descendente los años de lanzamiento de los álbumes y el número de reproducciones totales. La diferencia entre ascendente y descendente en ambos casos es que el símbolo cambia, donde en el caso ascendente se pide que sea el anterior mayor al siguiente valor y en el caso descendente, se quiere que el caso actual sea menor que el siguiente:
+
+__MÉTODOS ASCENDENTES__
+
+```typescript
+for(let i = 0; i < cancionesGrupo_.length; i++) {
+            for(let j = 0; j < cancionesGrupo_.length - 1; j++) {
+                if(cancionesGrupo_[j].getNumReproducciones() > cancionesGrupo_[j + 1].getNumReproducciones()) {
+                    let swap = cancionesGrupo_[j];
+                    cancionesGrupo_[j] = cancionesGrupo_[j + 1];
+                    cancionesGrupo_[j + 1] = swap;
+                }
+            }
+        }
+```
+
+__MÉTODOS DESCENDENTES__
+
+```typescript
+for(let i = 0; i < cancionesGrupo_.length; i++) {
+            for(let j = 0; j < cancionesGrupo_.length - 1; j++) {
+                if(cancionesGrupo_[j].getNumReproducciones() < cancionesGrupo_[j + 1].getNumReproducciones()) {
+                    let swap = cancionesGrupo_[j];
+                    cancionesGrupo_[j] = cancionesGrupo_[j + 1];
+                    cancionesGrupo_[j + 1] = swap;
+                }
+            }
+        }
+```
+
+Y dicha lógica se aplica a esos cuatro métodos.
+
+Finalmente, con el método de __MostrarSingles()__ la lógica que se empleó es que mediante la variable __flag__ que es tipo boolean y se iguala a false se compruebe que luego al comprobar los singles, tal que
+
+```typescript
+flag = auxCanciones[i].getSingle();
+```
+
+Entonces si es true se sabe que es un single esa canción y por tanto se añade al array auxiliar y se muestra por pantallas todas aquellas canciones del grupo o artista que son singles.
+
 
 
 ## Tests
