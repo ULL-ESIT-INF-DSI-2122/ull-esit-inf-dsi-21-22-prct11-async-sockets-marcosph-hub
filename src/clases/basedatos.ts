@@ -9,8 +9,14 @@ import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
 import * as inArtista from "../clases/inquirer_artista";
 import { addAlbum } from '../clases/inquirer-Album';
+import lowdb = require("lowdb");
+import FileSync = require("lowdb/adapters/FileSync");
+
+/*
 import FileSync from "lowdb/adapters/FileSync";
 import lowdb from 'lowdb';
+*/
+//let db = lowdb('../../database-file.json')
 
 /**
  * @type dbtype con los datos y sus tipos que se introducen en
@@ -61,7 +67,7 @@ type dbtype = {
  * @class BaseDatos que almacenará los valores en una base de datos de tipo lowdb
  */
 export class BaseDatos{
-    private basedatos: lowdb.LowSync<dbtype>;
+    //private basedatos: lowdb.LowSync<dbtype>;
     public generosArray: GenerosMusicales[];
     public cancionesArray: Cancion[];
     public albumesArray: Album[];
@@ -70,6 +76,9 @@ export class BaseDatos{
 
     constructor(generosArray: GenerosMusicales[] = [], cancionesArray: Cancion[] = [], albumesArray: Album[] = [], artistasArray: Artistas[] = [], gruposArray: Grupos[] = []) {
         //this.basedatos = lowdb(new FileSync("index.json"));
+        const dbfile = "../../database-file.json";
+        const adapter = new FileSync(dbfile);
+        //this.basedatos: Lowdb.lowdb = new lowdb(adapter);
         this.generosArray = generosArray;
         this.cancionesArray = cancionesArray;
         this.albumesArray = albumesArray;

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "database": "tsc-watch --onSuccess \"node dist/clases/bdprueba.js\"",
     "prueba3": "tsc-watch --onSuccess \"node dist/clases/inquirer-Album.js\"",
     "prueba": "tsc-watch --onSuccess \"node dist/clases/inquirer.js\"",
     "prueba2": "tsc-watch --onSuccess \"node dist/clases/inquirer-Grupos.js\"",
@@ -23,7 +25,6 @@
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.2",
-    "lowdb": "^3.0.0",
     "tsc": "^2.0.4"
   },
   "devDependencies": {
@@ -32,6 +33,7 @@
     "@types/lowdb": "^1.0.11",
     "@types/mocha": "^9.1.0",
     "chai": "^4.3.6",
+    "lowdb": "^3.0.0",
     "mocha": "^9.2.2",
     "nyc": "^15.1.0",
     "ts-node": "^10.7.0",

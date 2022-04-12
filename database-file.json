@@ -1,0 +1,68 @@
+{
+  "summary": [
+    {
+      "pais": "Venezuela",
+      "visitas": 17
+    },
+    {
+      "pais": "Ecuador",
+      "visitas": 9
+    },
+    {
+      "pais": "Costa Rica",
+      "visitas": 12
+    },
+    {
+      "pais": "España",
+      "visitas": 32
+    },
+    {
+      "pais": "El Salvador",
+      "visitas": 7
+    },
+    {
+      "pais": "Argentina",
+      "visitas": 20
+    },
+    {
+      "pais": "Estados Unidos",
+      "visitas": 6
+    },
+    {
+      "pais": "Colombia",
+      "visitas": 45
+    },
+    {
+      "pais": "Nicaragua",
+      "visitas": 2
+    },
+    {
+      "pais": "Chile",
+      "visitas": 7
+    },
+    {
+      "pais": "Honduras",
+      "visitas": 2
+    },
+    {
+      "pais": "México",
+      "visitas": 35
+    },
+    {
+      "pais": "Francia",
+      "visitas": 1
+    },
+    {
+      "pais": "Perú",
+      "visitas": 43
+    },
+    {
+      "pais": "Bolivia",
+      "visitas": 9
+    },
+    {
+      "pais": "República Dominicana",
+      "visitas": 1
+    }
+  ]
+}
