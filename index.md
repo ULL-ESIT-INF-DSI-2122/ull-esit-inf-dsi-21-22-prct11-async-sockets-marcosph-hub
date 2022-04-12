@@ -623,6 +623,10 @@ export async function menuAdd(){
 
 Y estos menús llaman a su vez a métodos de añadir, borrar y modificar específicos de las clases **Cancion**, **GenerosMusicales** **Album**, **Grupos** y **Artistas**. Estos métodos de añadir, borrar y modificar, siguiendo los principios SOLID se alojaron en un fichero aparte denotado por **inquirer-[Cancion | Generos | Album | Grupos | artista]** respectivamente.
 
+Cada fichero tendrá estos métodos de añadir, modificar y borrar.
+
+El método añadir se denotará tal que __add[Cancion | Genero | Album | Grupo | Artista] ()__, el modificar tal que __mod[Cancion | Genero | Album | Grupo | Artista] ()__ y el método borrar tal que __del[Cancion | Genero | Album | Grupo | Artista] ()__.
+
 
 Por otro lado está el menú que maneja el apartado de __Opciones Avanzadas__ de la terminal. Este menú se encarga de recibir si se requiere visualizar la información de un grupo o de un artista. Y dependiendo de ello comprueba si el nombre del grupo o artista concuerda con alguno de los ya existentes, esto se comprueba mediante los dos menús denotados por __menuNombreGrupo()__ y __menuNombreArtista()__:
 
@@ -801,7 +805,7 @@ for(let i = 0; i < cancionesGrupo_.length; i++) {
 
 Y dicha lógica se aplica a esos cuatro métodos.
 
-Finalmente, con el método de __MostrarSingles()__ la lógica que se empleó es que mediante la variable __flag__ que es tipo boolean y se iguala a false se compruebe que luego al analizar los singles, tal que
+Finalmente, con el método de __MostrarSingles()__ la lógica que se empleó es que mediante la variable __flag__ que es tipo boolean y se iguala a false se compruebe que luego al analizar los singles, tal que:
 
 ```typescript
 flag = auxCanciones[i].getSingle();
