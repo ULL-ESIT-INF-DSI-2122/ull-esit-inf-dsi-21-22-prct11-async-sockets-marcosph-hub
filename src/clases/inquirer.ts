@@ -1,4 +1,4 @@
-import inquirer from 'inquirer';
+import inquirer from "inquirer";
 import { Album } from "../clases/album";
 import { Artistas } from "../clases/artistas";
 import { Cancion } from "../clases/cancion";
@@ -13,6 +13,8 @@ import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion'
 import { addArtista, menumodArtista } from '../clases/inquirer_artista';
 import { BaseDatos } from './basedatos';
 
+export let db = new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos);
+db.guardarBaseDatos()
 
 /**
  * @enum Commands con los comandos de añadir, borrar, modificar y salir
@@ -800,4 +802,3 @@ export async function menuPrincipal(){
 menuPrincipal();
 
 // Crear base de datos
-export let db = new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos);

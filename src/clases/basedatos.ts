@@ -12,11 +12,6 @@ import { addAlbum } from '../clases/inquirer-Album';
 import lowdb = require("lowdb");
 import FileSync = require("lowdb/adapters/FileSync");
 
-/*
-import FileSync from "lowdb/adapters/FileSync";
-import lowdb from 'lowdb';
-*/
-//let db = lowdb('../../database-file.json')
 
 /**
  * @type dbtype con los datos y sus tipos que se introducen en
@@ -68,7 +63,6 @@ type dbtype = {
  */
 export class BaseDatos{
     private basedatos: lowdb.LowdbSync<dbtype>;
-
     public generosArray: GenerosMusicales[];
     public cancionesArray: Cancion[];
     public albumesArray: Album[];
