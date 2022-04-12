@@ -801,7 +801,7 @@ for(let i = 0; i < cancionesGrupo_.length; i++) {
 
 Y dicha lógica se aplica a esos cuatro métodos.
 
-Finalmente, con el método de __MostrarSingles()__ la lógica que se empleó es que mediante la variable __flag__ que es tipo boolean y se iguala a false se compruebe que luego al comprobar los singles, tal que
+Finalmente, con el método de __MostrarSingles()__ la lógica que se empleó es que mediante la variable __flag__ que es tipo boolean y se iguala a false se compruebe que luego al analizar los singles, tal que
 
 ```typescript
 flag = auxCanciones[i].getSingle();
