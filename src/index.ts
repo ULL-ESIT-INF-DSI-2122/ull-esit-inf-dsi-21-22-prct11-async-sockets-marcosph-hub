@@ -36,8 +36,8 @@ let cancion15 = new Cancion('Its A Beautiful Day', 'Queen',  '3:19', [Rock, Meta
 let cancion16 = new Cancion('I Was Born To Love You', 'Queen',  '4:56', [Rock, Metal], false, 64000000); 
 let cancion17 = new Cancion('Living on my own', 'Freddie Mercury',  '3:08', [Rock, Pop], false, 32000000); 
 let cancion18 = new Cancion('Ojalá', 'Beret',  '3:43', [Rap, Pop], false, 197000000); 
-let cancion19 = new Cancion('Master Of Puppets', 'Metallica',  '8:36', [Metal], false, 29000000);
-let cancion20 = new Cancion('Battery', 'Metallica',  '5:13', [Metal], false, 1500000); 
+let cancion19 = new Cancion('Master Of Puppets', 'Metallica',  '8:36', [Metal], true, 29000000);
+let cancion20 = new Cancion('Battery', 'Metallica',  '5:13', [Metal], true, 1500000); 
 let cancion21 = new Cancion('Disposable Heroes', 'Metallica',  '8:17', [Metal], false, 191000);
 let cancion22 = new Cancion('Rumba en el cielo', 'Los Chunguitos',  '4:33', [Flamenco], false, 684000); 
 let cancion23 = new Cancion('Yo me lo tengo que beber', 'Los Chunguitos', '3:45', [Flamenco], false, 231000); 
@@ -143,13 +143,17 @@ let album8 = new Album(`Borriquito`, artista6, [Flamenco], 1972, [cancion25, can
 let album9 = new Album(`3a.m.`, grupo5, [Regueton], 2012, [cancion32, cancion33, cancion34]);
 let album10 = new Album(`Get Rich or Die Tryin'`, artista15, [Hip_Hop], 2003, [cancion35, cancion36]); 
 let album11 = new Album(`ALMAS GEMELAS`, artista7, [Hip_Hop], 2021, [cancion37, cancion38]);
-let album12 = new Album(`Culture`, grupo6, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
-let albumppp = new Album(`Hola`, grupo1, [Rap], 2022, [cancion1]);
-export let albumes: Album[] = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10, album11, album12, albumppp];
+let album12 = new Album(`Asd`, artista5, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
+let album13 = new Album(`Zrt`, artista5, [Hip_Hop], 2018, [cancion39, cancion40, cancion41]);
+let album14 = new Album(`Mpn`, artista5, [Hip_Hop], 2030, [cancion39, cancion40, cancion41]);
+let album15 = new Album(`Culture`, grupo6, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
+
+
+export let albumes: Album[] = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10, album11, album12,  album13, album14, album15];
 
 
 // rellenar grupos
-grupo1.construirGrupo([artista16, artista17, artista18, artista19, artista20, artista21, artista22, artista23], 1983, [Metal], [album1], 8000000);
+grupo1.construirGrupo([artista16, artista17, artista18, artista19, artista20, artista21, artista22, artista23], 1983, [Metal], [album6, album3, album4, album1], 8000000);
 grupo2.construirGrupo([artista2, artista24, artista25, artista26, artista27, artista28, artista29], 1970, [Rock, Pop, Metal], [album4], 49000000);
 grupo3.construirGrupo([artista30, artista31, artista32], 1973, [Flamenco], [album7], 137000);
 grupo4.construirGrupo([artista33, artista34, artista35, artista36], 1990, [Electronica], [album2], 241000);
@@ -162,7 +166,7 @@ artista1.construirArtista( [cancion2, cancion3, cancion4, cancion5, cancion6, ca
 artista2.construirArtista( [cancion14, cancion15, cancion16, cancion17], 2539164); 
 artista3.construirArtista( [cancion1], 13552); 
 artista4.construirArtista( [cancion11, cancion12, cancion13], 1000000);
-artista5.construirArtista( [cancion18, cancion30, cancion31], 5439541);
+artista5.construirArtista( [cancion18, cancion30, cancion31, cancion42], 5439541);
 artista6.construirArtista( [cancion25, cancion26], 234051);
 artista7.construirArtista( [cancion37, cancion38], 27889188);
 artista8.construirArtista( [cancion43], 17259897);
@@ -213,7 +217,11 @@ export let grupos: Grupos[] = [grupo1, grupo2, grupo3, grupo4, grupo5, grupo6];
 export let playlist1 = new Playlist(`Regueton a Full`, [cancion37, cancion38, cancion49, cancion32, cancion34, cancion33]);
 let playlist2 = new Playlist(`Rock For Ever`, [cancion3, cancion14, cancion43]);
 let playlist3 = new Playlist(`Flamencos de corazóh`, [cancion11, cancion24, cancion26]);
-export let playlists: Playlist[] = [playlist1, playlist2, playlist3]
+let playlist4 = new Playlist(`Popurri`, [cancion20, cancion23, cancion45]);
+let playlist5 = new Playlist(`De todo un poco`, [cancion19, cancion5, cancion3]);
+let playlist6 = new Playlist(`Relax`, [cancion18, cancion23, cancion45]);
+let playlist7 = new Playlist(`Descansito`, [cancion19, cancion30, cancion3]);
+export let playlists: Playlist[] = [playlist1, playlist2, playlist3, playlist4, playlist5, playlist6, playlist7]
 /*
 export function CommandsGenerosCanciones(CommandsGenerosCanciones: any): import("inquirer").AsyncDynamicQuestionProperty<readonly import("inquirer").DistinctChoice<import("inquirer").ListChoiceMap<{ generoCancion: any; }>, import("inquirer").AllChoiceMap<import("inquirer").ListChoiceMap<{ generoCancion: any; }>>>[], { ...; }> | undefined {
     throw new Error('Function not implemented.');

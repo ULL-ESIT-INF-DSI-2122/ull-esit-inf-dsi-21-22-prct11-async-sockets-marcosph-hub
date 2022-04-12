@@ -67,7 +67,8 @@ type dbtype = {
  * @class BaseDatos que almacenará los valores en una base de datos de tipo lowdb
  */
 export class BaseDatos{
-    //private basedatos: lowdb.LowSync<dbtype>;
+    private basedatos: lowdb.LowdbSync<dbtype>;
+
     public generosArray: GenerosMusicales[];
     public cancionesArray: Cancion[];
     public albumesArray: Album[];
@@ -75,10 +76,7 @@ export class BaseDatos{
     public gruposArray: Grupos[];
 
     constructor(generosArray: GenerosMusicales[] = [], cancionesArray: Cancion[] = [], albumesArray: Album[] = [], artistasArray: Artistas[] = [], gruposArray: Grupos[] = []) {
-        //this.basedatos = lowdb(new FileSync("index.json"));
-        const dbfile = "../../database-file.json";
-        const adapter = new FileSync(dbfile);
-        //this.basedatos: Lowdb.lowdb = new lowdb(adapter);
+        this.basedatos = lowdb(new FileSync("db.json"));
         this.generosArray = generosArray;
         this.cancionesArray = cancionesArray;
         this.albumesArray = albumesArray;
@@ -91,13 +89,12 @@ export class BaseDatos{
      * géneros musicales, canciones, álbumes, artistas y grupos de la app
      */
     guardarBaseDatos() {
-        // Me falla
-        /*
+
         this.basedatos.set("generosmusicales", [...this.generosArray]).write();
         this.basedatos.set("canciones", [...this.cancionesArray]).write();
         this.basedatos.set("albumes", [...this.albumesArray]).write();
         this.basedatos.set("artistas", [...this.artistasArray]).write();
-        this.basedatos.set("grupos", [...this.gruposArray]).write();*/
+        this.basedatos.set("grupos", [...this.gruposArray]).write();
     }
 
     /**
