@@ -52,12 +52,40 @@ export enum CommandsPartesCancion {
  */
 export async function addCancionGenero(genero: GenerosMusicales[])  {
     const generoCancion = await inquirer.prompt( {
-      type: "list",
+      type: "input",
       name: "generoCancion",
-      message: "Introduce el/los generos musicales: ",
-      choices: Object.values(CommandsGenerosCanciones)
+      message: "Introduce el/los generos musicales: "
     });
-    switch(generoCancion["generoCancion"]) {
+    let nombreGenero: string = generoCancion["generoCancion"]; 
+  let numeroGenero: number = -1;
+  for(let i: number = 0; i < index.generos.length; i++){
+    if(index.generos[i].getNombreGenero() === nombreGenero){
+      numeroGenero = i;
+      break;
+    }
+  }
+  if(numeroGenero === -1){
+    console.log(`No hay un género con ese nombre`);
+    await addCancionGenero(genero);
+    //InquirerFile.menuPrincipal();
+
+  } else {
+    genero.push(index.generos[numeroGenero]);
+    const finalGenero = await inquirer.prompt({
+      type: "list",
+      name: "finalGenero",
+      message: "¿Desea añadir otro genero?",
+      choices: Object.values(InquirerFile.CommandsSingle)
+    });
+    switch(finalGenero["finalGenero"]) {
+      case InquirerFile.CommandsSingle.Si:
+        await addCancionGenero(genero);
+        break;
+      case InquirerFile.CommandsSingle.No:
+        break;
+    }
+  }
+    /*switch(generoCancion["generoCancion"]) {
       case CommandsGenerosCanciones.Electronica:
         genero.push(index.Electronica);
         const generoCancion1 = await inquirer.prompt( {
@@ -218,7 +246,7 @@ export async function addCancionGenero(genero: GenerosMusicales[])  {
             break;
         }
         break;
-    }
+    }*/
       //console.log(`dentro`, genero);
       return genero;
   }

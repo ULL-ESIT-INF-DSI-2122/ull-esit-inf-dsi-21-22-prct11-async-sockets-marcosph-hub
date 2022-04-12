@@ -87,7 +87,7 @@ export async function addAlbumGenero(album_: Album[]){
     });
     switch(masAlbum["saberAlbum"]) {
       case InquirerFile.CommandsSingle.Si:
-        await addAlbumGenero(album_)
+        await addAlbumGenero(album_);
         break;
       case InquirerFile.CommandsSingle.No:
         break;
@@ -267,6 +267,7 @@ export async function modGenero(numero: number){
       let grupos_: Grupos[] = [];
       await addGrupoGenero(grupos_);
       index.generos[numero].setGrupos(grupos_);
+      await modGenero(numero);
       break;
     case CommandsPartesGenero.ALbumes:
       let album_: Album[] = [];
@@ -278,11 +279,13 @@ export async function modGenero(numero: number){
       let artistas_: Artistas[] = [];
       await addArtistaGenero(artistas_);
       index.generos[numero].setArtistas(artistas_);
+      await modGenero(numero);
       break;
       case CommandsPartesGenero.Canciones:
         let canciones_: Cancion[] = [];
         await addCancionesGenero(canciones_);
         index.generos[numero].setCanciones(canciones_);
+        await modGenero(numero);
         break;
       case CommandsPartesGenero.Salir:
         console.clear();

@@ -6,6 +6,24 @@ En **index.ts** se crean los objetos de las clases, es decir, es el que contiene
 
 Para la creación de las clases se van a ir actualizando en función se vayan creando objetos. Por ejemplo: una vez añadida una canción, se añade la canción al genero musical que la incluye.
 
+Se ha utilizado el módulo [Inquirer.js](https://www.npmjs.com/package/inquirer) para realizar una gestión de manera interactiva de nuestra aplicación. De este modo, añadiremos, eliminaremos y modificaremos géneros, **canciones**, **álbumes**, **grupos** y **artistas**. 
+El primer menú o **Menu Principal** contiene las funcionalidades siguientes:
+
+![Menu Principal](./assets/images/menuPrincipal.png)
+
+Una vez accedemos al menú **Añadir**, podemos observar las opciones:  
+
+![Menu Añadir](./assets/images/menuAnadir.png)
+
+De manera similar, el menú **Borrar** consta de los mismos apartados que el **Añadir**:
+
+![Menu Borrar](./assets/images/menuBorrar.png)
+
+Como cabría esperar, el menú **Modificar** consta de los mismos valores a modificar que los anteriores casos:
+
+![Menu Modificar](./assets/images/menuModificar.png)
+
+
 
 ### Herramientas para el Desarrollo de la Práctica.
 Se ha hecho uso de una series de herramientas para complementar el desarrollo de la práctica para llevar a cabo una práctica más sólida y profesional.  
