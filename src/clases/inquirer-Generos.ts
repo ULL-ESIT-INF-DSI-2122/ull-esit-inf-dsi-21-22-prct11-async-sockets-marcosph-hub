@@ -235,12 +235,31 @@ export async function addGenero(){
     case InquirerFile.CommandsSingle.No:
       break;
   }
+  let nombrecanciones_: string[] = [];
+  for (let i: number = 0; i < cancion_.length; i++){
+    nombrecanciones_[i] = cancion_[i].getNombreCancion();
+  }
+  let nombregrupos_: string[] = [];
+  for (let i: number = 0; i < autores_.length; i++){
+    nombregrupos_[i] = autores_[i].getNombreGrupo();
+  }
+  let nombreartista_: string[] = [];
+  for (let i: number = 0; i < artistas_.length; i++){
+    nombreartista_[i] = artistas_[i].getNombreArtista();
+  }
+  let nombrealbum_: string[] = [];
+  for (let i: number = 0; i < album_.length; i++){
+    nombrealbum_[i] = album_[i].getNombreAlbum();
+  }
+  
   let nombre = nombreGenero["nombreGenero"];
   let genero = new GenerosMusicales(nombre);
-  genero.setAlbumes(album_);
-  genero.setArtistas(artistas_);
-  genero.setGrupos(autores_);
-  genero.setCanciones(cancion_);
+  genero.setAlbumes(nombrealbum_);
+  genero.setArtistas(nombreartista_);
+  genero.setGrupos(nombregrupos_);
+  genero.setCanciones(nombrecanciones_);
+  index.generos.push(genero);
+    InquirerFile.db.addNuevoGenero(genero);
   console.clear();
   menuPrincipal();
 }
@@ -266,25 +285,41 @@ export async function modGenero(numero: number){
     case CommandsPartesGenero.Grupos:
       let grupos_: Grupos[] = [];
       await addGrupoGenero(grupos_);
-      index.generos[numero].setGrupos(grupos_);
+      let nombregrupos_: string[] = [];
+  for (let i: number = 0; i < grupos_.length; i++){
+    nombregrupos_[i] = grupos_[i].getNombreGrupo();
+  }
+      index.generos[numero].setGrupos(nombregrupos_);
       await modGenero(numero);
       break;
     case CommandsPartesGenero.ALbumes:
       let album_: Album[] = [];
       await addAlbumGenero(album_);
-      index.generos[numero].setAlbumes(album_);
+      let nombrealbum_: string[] = [];
+      for (let i: number = 0; i < album_.length; i++){
+        nombrealbum_[i] = album_[i].getNombreAlbum();
+      }
+      index.generos[numero].setAlbumes(nombrealbum_);
       await modGenero(numero);
       break;
     case CommandsPartesGenero.Artistas:
       let artistas_: Artistas[] = [];
       await addArtistaGenero(artistas_);
-      index.generos[numero].setArtistas(artistas_);
+      let nombreartista_: string[] = [];
+      for (let i: number = 0; i < artistas_.length; i++){
+        nombreartista_[i] = artistas_[i].getNombreArtista();
+      }
+      index.generos[numero].setArtistas(nombreartista_);
       await modGenero(numero);
       break;
       case CommandsPartesGenero.Canciones:
         let canciones_: Cancion[] = [];
         await addCancionesGenero(canciones_);
-        index.generos[numero].setCanciones(canciones_);
+        let nombrecanciones_: string[] = [];
+        for (let i: number = 0; i < canciones_.length; i++){
+          nombrecanciones_[i] = canciones_[i].getNombreCancion();
+         }
+        index.generos[numero].setCanciones(nombrecanciones_);
         await modGenero(numero);
         break;
       case CommandsPartesGenero.Salir:

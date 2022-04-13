@@ -1,7 +1,7 @@
-import { Cancion } from "./cancion";
-import { Grupos } from "./grupos";
-import { Artistas } from "./artistas";
-import { Album } from "./album";
+import { Cancion, CancionInterface } from "./cancion";
+import { Grupos, GruposInterface } from "./grupos";
+import { Artistas, ArtistasInterface } from "./artistas";
+import { Album, AlbumInterface } from "./album";
 
 /**
  * TRABAJO GRUPO L
@@ -13,12 +13,19 @@ import { Album } from "./album";
  * @param albumes array de Album
  * @param canciones array de Cancion
  */
+ export interface GenerosMusicalesInterface{
+	nombreGenero: string,
+	grupos: GruposInterface[],
+	artistas: ArtistasInterface[],
+	albumes: AlbumInterface[],
+	canciones: string[]
+}
 export class GenerosMusicales {
 	private nombreGenero: string;
-	private grupos: Grupos[] = [];
-	private artistas: Artistas[] = [];
-	private albumes: Album[] = [];
-	private canciones: Cancion[] = [];
+	private grupos: string[] = [];
+	private artistas: string[] = [];
+	private albumes: string[] = [];
+	private canciones: string[] = [];
 
 	constructor(nombreGenero: string){
 		this.nombreGenero = nombreGenero;
@@ -75,7 +82,7 @@ export class GenerosMusicales {
 	 * Setter de los grupos
 	 * @param grupo asociado a los géneros
 	 */
-	 setGrupos(grupo: Grupos[]){
+	 setGrupos(grupo: string[]){
 		this.grupos = [];
 		this.grupos = grupo;
 	}
@@ -83,7 +90,7 @@ export class GenerosMusicales {
 	 * Setter de los grupos
 	 * @param grupo asociado a los géneros
 	 */
-	autoSetGrupos(grupo: Grupos){
+	autoSetGrupos(grupo: string){
 		this.grupos.push(grupo);
 	}
 
@@ -91,7 +98,7 @@ export class GenerosMusicales {
 	 * Setter de los artistas
 	 * @param artista de los géneros
 	 */
-	setArtistas(artista: Artistas[]){
+	setArtistas(artista: string[]){
 		this.artistas = [];
 		this.artistas = artista;
 	}
@@ -99,7 +106,7 @@ export class GenerosMusicales {
 	 * Setter de los artistas
 	 * @param artista de los géneros
 	 */
-	 autoSetArtistas(artista: Artistas){
+	 autoSetArtistas(artista: string){
 		this.artistas.push(artista);
 	}
 
@@ -107,7 +114,7 @@ export class GenerosMusicales {
 	 * Setter de los álbumes
 	 * @param album de los géneros
 	 */
-	setAlbumes(album: Album[]){
+	setAlbumes(album: string[]){
 		this.albumes = [];
 		this.albumes = album;
 	}
@@ -115,7 +122,7 @@ export class GenerosMusicales {
 	 * Setter de los álbumes
 	 * @param album de los géneros
 	 */
-	 autoSetAlbumes(album: Album){
+	 autoSetAlbumes(album: string){
 		this.albumes.push(album);
 	}
 
@@ -123,7 +130,7 @@ export class GenerosMusicales {
 	 * Setter de las canciones
 	 * @param cancion de los géneros
 	 */
-	setCanciones(cancion: Cancion[]){
+	setCanciones(cancion: string[]){
 		this.canciones = [];
 		this.canciones = cancion;
 	}
@@ -131,8 +138,26 @@ export class GenerosMusicales {
 	 * Setter de las canciones
 	 * @param cancion de los géneros
 	 */
-		 autoSetCanciones(cancion: Cancion){
+		 autoSetCanciones(cancion: string){
 			this.canciones.push(cancion);
-;
 		}
+		
+		/*public static deserialize(generos: GenerosMusicales[]): GenerosMusicales[]{
+			const mySongs: GenerosMusicales[] = [];
+
+	generos.forEach((genero_) => {
+		const mySong = new GenerosMusicales(genero_.nombreGenero);
+		mySong.setAlbumes(genero_.getAlbumes());
+		mySong.setArtistas(genero_.getArtistas());
+	const canciones = genero_.canciones;
+	canciones.forEach((cancion) =>{
+		mySong.autoSetCanciones(cancion);
+	})
+		mySong.setCanciones(genero_.getCanciones());
+		mySong.setGrupos(genero_.getGrupos());
+		mySongs.push(mySong);
+	});
+
+	return mySongs;
+}*/
 }

@@ -1,6 +1,6 @@
-import { Cancion } from "./cancion";
+import { Cancion, CancionInterface } from "./cancion";
 import { Grupos } from "./grupos";
-import { Artistas } from "./artistas";
+import { Artistas, ArtistasInterface } from "./artistas";
 import { GenerosMusicales } from "./generosMusicales";
 import {albumes} from "../index";
 
@@ -14,14 +14,23 @@ import {albumes} from "../index";
  * @param yearPublicacion año de publicación del album
  * @param canciones array de Cancion
  */
+
+export interface AlbumInterface {
+	nombreAlbum: string,
+	autores: string | ArtistasInterface,
+	genero: GenerosMusicales[],
+	yearPublicacion: number,
+	canciones: CancionInterface[]
+}
 export class Album {
   private nombreAlbum: string;
-	private autores: Grupos | Artistas;
+	private autores: string | Artistas;
 	private genero: GenerosMusicales[];
 	private yearPublicacion: number;
 	private canciones: Cancion[];
+	//public anioGrupo: number[] = []
 
-	constructor(nombreAlbum: string, autores: Grupos | Artistas, genero: GenerosMusicales[],
+	constructor(nombreAlbum: string, autores: string | Artistas, genero: GenerosMusicales[],
 		yearPublicacion: number, canciones: Cancion[]){
 			this.nombreAlbum = nombreAlbum;
 			this.autores = autores;
@@ -29,10 +38,10 @@ export class Album {
 			this.yearPublicacion = yearPublicacion;
 			this.canciones = canciones;
 			if(autores instanceof Artistas){
-				autores.autoSetAlbumes(this);
+				autores.autoSetAlbumes(this.nombreAlbum);
 			}
 			genero.forEach(element => {
-				element.autoSetAlbumes(this);
+				element.autoSetAlbumes(nombreAlbum);
 			});
 		}
 
@@ -50,10 +59,10 @@ export class Album {
 	 * @returns el nombre del grupo o el nombre del artista
 	 */
 	getAutores(){
-		if (this.autores instanceof Grupos){
-			return this.autores.getNombreGrupo();
-		} else {
+		if (this.autores instanceof Artistas){
 			return this.autores.getNombreArtista();
+		} else {
+			return this.autores;
 		}
 	}
 	/**
@@ -96,8 +105,8 @@ export class Album {
 	 * Setter del autor del album
 	 * @param autor del album que puede ser un grupo o un artista
 	 */
-	setAutores(autor: Grupos | Artistas){
-		if (autor instanceof Grupos){
+	setAutores(autor: string | Artistas){
+		if (autor instanceof Artistas){
 			this.autores = autor;
 		} else {
 			this.autores = autor;
@@ -130,5 +139,5 @@ export class Album {
 		this.canciones = [];
 		this.canciones = cancion;
 	}
-
+	
 }

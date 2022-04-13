@@ -1,4 +1,4 @@
-import { GenerosMusicales } from "./generosMusicales";
+import { GenerosMusicales, GenerosMusicalesInterface } from "./generosMusicales";
 
 /**
  * TRABAJO GRUPO L
@@ -11,6 +11,15 @@ import { GenerosMusicales } from "./generosMusicales";
  * @param single boolean si es single o no
  * @param numReproducciones número de reproducciones de la canción
  */
+
+export interface CancionInterface{
+    nombre: string,
+    autor: string,
+    duracion: string,
+    genero: GenerosMusicales[],
+    single: boolean,
+    numReproducciones: number
+}
 export class Cancion{
     /*private nombre: string;
     private autor: string;
@@ -21,7 +30,7 @@ export class Cancion{
     constructor(private nombre: string, private autor: string, private duracion: string, 
     private genero: GenerosMusicales[], private single: boolean, private numReproducciones: number){
         genero.forEach(element => {
-			element.autoSetCanciones(this);
+			element.autoSetCanciones(nombre);
 		});
     }
 
@@ -136,4 +145,29 @@ export class Cancion{
     setNumReproducciones(reproducciones: number){
         this.numReproducciones = reproducciones;
     }
-}
+
+    public static deserialize(cancion: Cancion[]){
+        const myCanciones: Cancion[] = [];
+    
+        cancion.forEach((element) => {
+            const myCancion = new Cancion(element.getNombreCancion(), element.getAutorCancion(), element.getDuracionCancion(),
+            element.getGenero(), element.getSingle(), element.getNumReproducciones());
+            //myCancion.setGeneroMusical([]);
+            myCanciones.push(myCancion);
+        });
+    
+        return myCanciones;
+    }
+    /*public static deserialize(canciones: Cancion[]): Cancion[]{
+        const mySongs: Cancion[] = [];
+
+    canciones.forEach((song) => {
+      const mySong = new Cancion(song.getNombreCancion(), song.getAutorCancion(), song.getDuracionCancion(), song.genero, song.single, song.numReproducciones );
+      mySong.setGeneroMusical([]);
+      mySongs.push(mySong);
+    });
+
+    return mySongs;
+  }*/
+    }
+

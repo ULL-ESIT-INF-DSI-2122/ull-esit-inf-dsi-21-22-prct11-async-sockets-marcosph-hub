@@ -249,7 +249,17 @@ export async function AnioLanzAlbumAsc(autor_: Artistas | Grupos) {
     if (autor_ instanceof Artistas){
         console.clear();
         console.log(`Albumes del artista ${autor_.getNombreArtista()} ordenadas ascendentemente por año:`);
-        let listaAlbumesArtistas: Album[] = autor_.getAlbumesObject();
+        let nombreDeAlbumes: string[] = autor_.getAlbumes();
+        let albumesartistas: Album[] = [];
+        for (let j: number = 0; j < nombreDeAlbumes.length; j++){
+            for (let i: number = 0; i < index.albumes.length; i++){
+                if(nombreDeAlbumes[j] === index.albumes[i].getNombreAlbum()){
+                    albumesartistas.push(index.albumes[i]);
+                    break;
+                }
+            }
+        }
+        let listaAlbumesArtistas: Album[] = albumesartistas;
         for(let i = 0; i < listaAlbumesArtistas.length; i++) {
             for(let j = 0; j < listaAlbumesArtistas.length - 1; j++) {
                 if(listaAlbumesArtistas[j].getYear() > listaAlbumesArtistas[j + 1].getYear()) {
@@ -292,7 +302,17 @@ export async function AnioLanzAlbumDesc(autor_: Artistas | Grupos) {
     if (autor_ instanceof Artistas){
         console.clear();
         console.log(`Albumes del artista ${autor_.getNombreArtista()} ordenadas descendentemente por año:`);
-        let listaAlbumesArtistas: Album[] = autor_.getAlbumesObject();
+        let nombreDeAlbumes: string[] = autor_.getAlbumes();
+        let albumesartistas: Album[] = [];
+        for (let j: number = 0; j < nombreDeAlbumes.length; j++){
+            for (let i: number = 0; i < index.albumes.length; i++){
+                if(nombreDeAlbumes[j] === index.albumes[i].getNombreAlbum()){
+                    albumesartistas.push(index.albumes[i]);
+                    break;
+                }
+            }
+        }
+        let listaAlbumesArtistas: Album[] = albumesartistas;
         for(let i = 0; i < listaAlbumesArtistas.length; i++) {
             for(let j = 0; j < listaAlbumesArtistas.length - 1; j++) {
                 if(listaAlbumesArtistas[j].getYear() < listaAlbumesArtistas[j + 1].getYear()) {

@@ -95,11 +95,16 @@ export async function addGrupo() {
 
   let Grupo: Grupos = new Grupos(NombreGrupo);
   Grupo.construirGrupo(artistasArray, AñoFormacionGrupo, generoGrupo, albumesGrupo,OyentesGrupo);
+<<<<<<< HEAD
   index.grupos.push(Grupo)
   console.log("se ha añadido el grupo");
   write.WriteDB("Grupo",index.grupos)
   
 //PONER DB AQUI
+=======
+  index.grupos.push(Grupo);
+  InquirerFile.db.addNuevoGrupo(Grupo);
+>>>>>>> a4c5a5e2ccba055094aebbb9d49d8541c79de09f
   console.clear();
     InquirerFile.menuPrincipal();
 }

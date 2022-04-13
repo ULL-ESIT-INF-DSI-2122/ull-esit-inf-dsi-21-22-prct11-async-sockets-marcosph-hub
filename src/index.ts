@@ -136,20 +136,20 @@ export let grupos: Grupos[] = [grupo1, grupo2, grupo3, grupo4, grupo5, grupo6];
 
 // Album puede construirse con todo 
 export let album1 = new Album(`Thriller`, artista1, [Rock, RyB, Soul, Pop], 1982,[cancion2, cancion3, cancion4, cancion5, cancion6, cancion7, cancion8, cancion9, cancion10]);
-let album2 = new Album(`The Day Is My Enemy`, grupo4, [Electronica], 2015, [cancion27, cancion28, cancion29]);
+let album2 = new Album(`The Day Is My Enemy`, `The Prodigy`, [Electronica], 2015, [cancion27, cancion28, cancion29]);
 let album3 = new Album(`El Mal Querer`, artista4, [Flamenco, Pop, Rap], 2018, [cancion11, cancion12, cancion13]);
-let album4 = new Album(`Made in Heaven`, grupo2, [Rock, Metal], 1995, [cancion14, cancion15, cancion16]);
+let album4 = new Album(`Made in Heaven`, `Queen`, [Rock, Metal], 1995, [cancion14, cancion15, cancion16]);
 let album5 = new Album(`Prisma`, artista5, [Rap, Pop], 2019, [cancion18, cancion30, cancion31]);
-let album6 = new Album(`Master Of Puppets`, grupo1, [Metal], 1986, [cancion19, cancion20, cancion21]);
-let album7 = new Album(`Morir de amor`, grupo3, [Flamenco], 2003, [cancion22, cancion23, cancion24]);
+let album6 = new Album(`Master Of Puppets`, `Metallica`, [Metal], 1986, [cancion19, cancion20, cancion21]);
+let album7 = new Album(`Morir de amor`, `Los Chunguitos`, [Flamenco], 2003, [cancion22, cancion23, cancion24]);
 let album8 = new Album(`Borriquito`, artista6, [Flamenco], 1972, [cancion25, cancion26]);
-let album9 = new Album(`3a.m.`, grupo5, [Regueton], 2012, [cancion32, cancion33, cancion34]);
+let album9 = new Album(`3a.m.`, `Cali y El Dandee`, [Regueton], 2012, [cancion32, cancion33, cancion34]);
 let album10 = new Album(`Get Rich or Die Tryin'`, artista15, [Hip_Hop], 2003, [cancion35, cancion36]); 
 let album11 = new Album(`ALMAS GEMELAS`, artista7, [Hip_Hop], 2021, [cancion37, cancion38]);
 let album12 = new Album(`Asd`, artista5, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
 let album13 = new Album(`Zrt`, artista5, [Hip_Hop], 2018, [cancion39, cancion40, cancion41]);
 let album14 = new Album(`Mpn`, artista5, [Hip_Hop], 2030, [cancion39, cancion40, cancion41]);
-let album15 = new Album(`Culture`, grupo6, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
+let album15 = new Album(`Culture`, `Migos`, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
 
 export let albumes: Album[] = [album1, album2, album3, album4, album5, album6, album7, album8, album9, album10, album11, album12,  album13, album14, album15];
 
