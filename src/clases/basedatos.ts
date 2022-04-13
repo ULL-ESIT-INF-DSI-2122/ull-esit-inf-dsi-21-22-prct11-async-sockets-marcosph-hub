@@ -172,7 +172,6 @@ export class BaseDatos{
      * géneros musicales, canciones, álbumes, artistas y grupos de la app
      */
     guardarBaseDatos() {
-       
         this.basedatos.set("generosmusicales", [this.generosArrayLista]).write();
         this.basedatos.set("canciones", [this.cancionesArrayLista]).write();
         this.basedatos.set("albumes", [this.albumesArrayLista]).write();
