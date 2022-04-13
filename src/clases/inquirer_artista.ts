@@ -50,7 +50,7 @@ export async function addArtista() {
   await addCancionArtista(cancion);
   artista.construirArtista(cancion, Number(oyentes["oyentesArtista"]));
   index.artistas.push(artista);
-    InquirerFile.db.addNuevoArtista(artista);
+  InquirerFile.db.addNuevoArtista(artista);
   console.clear();
   InquirerFile.menuPrincipal();
 } 
@@ -256,6 +256,7 @@ export async function modArtista(numero: number){
       await modArtista(numero);
       break;
     case CommandsPartesArtista.Salir:
+      InquirerFile.db.guardarBaseDatos();
       console.clear();
       InquirerFile.menuPrincipal();
       break;

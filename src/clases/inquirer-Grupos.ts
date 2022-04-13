@@ -97,7 +97,7 @@ export async function addGrupo() {
   index.grupos.push(Grupo);
   InquirerFile.db.addNuevoGrupo(Grupo);
   console.clear();
-    InquirerFile.menuPrincipal();
+  InquirerFile.menuPrincipal();
 }
 
 export async function addGrupoArtista(artistas: Artistas[]) {
@@ -209,7 +209,7 @@ async function modificarGrupo(SpecificGrupoIndex:number) {
       break;
     }
     case CommandsGrupoProperty.Salir:
-      InquirerFile.db.guardarBaseDatos()
+        InquirerFile.db.guardarBaseDatos();
         console.clear();
         InquirerFile.menuPrincipal();
       break;

@@ -134,9 +134,9 @@ export async function addAlbum() {
   
   let album: Album = new Album(nombre_, autores_[0], genero1_, yearsPublicacion_, cancionesAlbum_);
   index.albumes.push(album);
-    InquirerFile.db.addNuevoAlbum(album);
+  InquirerFile.db.addNuevoAlbum(album);
   console.clear();
-    menuPrincipal();
+  menuPrincipal();
 }
 
 
@@ -269,10 +269,10 @@ export async function modAlbum(numero: number) {
       await modAlbum(numero);
       break;
       case CommandsPartesAlbum.Salir:
+        InquirerFile.db.guardarBaseDatos();
         console.clear();
         menuPrincipal();
       return 0;
-      break;
   }
   
 }
