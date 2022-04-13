@@ -303,7 +303,7 @@ export async function menuModAlbum() {
   }
 }
 
-export async function delAlbum() {
+export async function menuDelAlbum() {
   const albumBorrada = await inquirer.prompt({
     type: 'input',
     name: `borrar`,
@@ -311,20 +311,24 @@ export async function delAlbum() {
   })
   let nombreAlbumBorrar: string = albumBorrada["borrar"];
   let numeroAlbum: number = -1;
-  for(let i: number = 0; i < index.albumes.length; i++){
-    if(index.albumes[i].getNombreAlbum() === nombreAlbumBorrar){
-      numeroAlbum = i;
-      index.albumes.splice(parseInt(nombreAlbumBorrar), 1); //Dudoso
-      break;
+    for(let i: number = 0; i < index.albumes.length; i++){
+        if(index.albumes[i].getNombreAlbum() === nombreAlbumBorrar){
+        numeroAlbum = i;
+        break;
+        }
     }
-  }
-  if(numeroAlbum === -1){
-    console.log(`No existe un álbum con ese nombre`);
-    menuPrincipal();
-    return 0;
-  } else {
-    //index.albumes.splice(parseInt(nombreAlbumBorrar), 1);
-    
-
-  }
+    if(numeroAlbum === -1){
+        console.log(`No existe un álbum con ese nombre`);
+        return 0;
+    } 
+    else {
+      InquirerFile.db.delAlbum(numeroAlbum);
+    }
+ /* 
+  else {
+    index.albumes.splice(numeroAlbum, 1);
+    InquirerFile.db.guardarBaseDatos();
+  }*/
+  console.clear();
+  menuPrincipal();
 }

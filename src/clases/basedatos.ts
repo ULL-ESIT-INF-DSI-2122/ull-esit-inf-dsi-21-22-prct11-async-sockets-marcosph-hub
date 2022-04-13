@@ -164,7 +164,7 @@ export class BaseDatos{
        this.basedatos.set("artistas", [artistas]).write();
        this.basedatos.set("albumes", [this.albumesArrayLista]).write();
        //this.basedatos.set("albumes", [...this.albumesArrayLista]).write();*/
-       //this.guardarBaseDatos();
+        //this.guardarBaseDatos();
     }
 
     /**
@@ -221,6 +221,11 @@ export class BaseDatos{
      */
     addNuevoGrupo(nuevoGrupo: Grupos) {
         this.gruposArrayLista.push(nuevoGrupo);
+        this.guardarBaseDatos();
+    }
+
+    delAlbum(numeroAlbum: number) {
+        this.albumesArrayLista.splice(numeroAlbum, 1);
         this.guardarBaseDatos();
     }
 }
