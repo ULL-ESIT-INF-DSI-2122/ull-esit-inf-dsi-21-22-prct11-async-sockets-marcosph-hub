@@ -323,6 +323,8 @@ export async function delAlbum() {
     menuPrincipal();
     return 0;
   } else {
-    index.albumes.splice(parseInt(nombreAlbumBorrar), 1);
+    //index.albumes.splice(parseInt(nombreAlbumBorrar), 1);
+    
+
   }
 }
