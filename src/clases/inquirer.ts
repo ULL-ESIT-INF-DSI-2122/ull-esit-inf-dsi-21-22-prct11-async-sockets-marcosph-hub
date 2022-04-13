@@ -9,8 +9,8 @@ import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
 import * as inGenero from "../clases/inquirer-Generos";
 import { addAlbum, menuModAlbum, menuDelAlbum } from '../clases/inquirer-Album';
-import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
-import { addArtista, menumodArtista } from '../clases/inquirer_artista';
+import { addCancion,addCancionGenero, menuModCancion, menuDelCancion } from './inquirer-Cancion';
+import { addArtista, menumodArtista, menuDelArtista } from '../clases/inquirer_artista';
 import * as InquirerFiltrado from '../clases/inquirer-filtrado';
 import { BaseDatos } from './basedatos';
 
@@ -154,8 +154,7 @@ export async function menuAdd(){
     })
     switch(respuestaDel["command"]) {
       case CommandsClases.Cancion:
-        //delCancion();
-       console.log(`eliminndo una cancion`);
+        await menuDelCancion();
         break;
       case CommandsClases.GeneroMusical:
         //delGeneroMusical();
@@ -165,8 +164,7 @@ export async function menuAdd(){
         await menuDelAlbum();
         break;
       case CommandsClases.Artista:
-        //delArtista();
-        console.log(`eliminndo una artista`);
+        await menuDelArtista();
         break;
       case CommandsClases.Grupo:
         //delGrupo();
