@@ -1,6 +1,6 @@
-import { Cancion } from "./cancion";
+import { Cancion, CancionInterface } from "./cancion";
 import { Grupos } from "./grupos";
-import { Album } from "./album";
+import { Album, AlbumInterface } from "./album";
 import { GenerosMusicales } from "./generosMusicales";
 
 /**
@@ -14,13 +14,23 @@ import { GenerosMusicales } from "./generosMusicales";
  * @param canciones array de Cancion
  * @param oyentes número de oyentes 
  */
+ export interface ArtistasInterface {
+	nombreArtista: string,
+	grupos: Grupos[],
+	generos: GenerosMusicales[],
+	albumes: AlbumInterface[],
+	canciones: CancionInterface[],
+	oyentes: number,
+	oyentegrupo: number[];
+}
 export class Artistas {
 	private nombreArtista: string;
-	private grupos: Grupos[] = [];
+	private grupos: string[] = [];
 	private generos: GenerosMusicales[] = [];
-	private albumes: Album[] = [];
+	private albumes: string[] = [];
 	private canciones: Cancion[] = [];
 	private oyentes: number;
+	public oyentegrupo: number[] = [];
 
 	constructor(nombreArtista: string){
 		this.nombreArtista = nombreArtista;
@@ -55,7 +65,7 @@ export class Artistas {
 			});
 		});
 		this.generos.forEach(element => {
-			element.autoSetArtistas(this);
+			element.autoSetArtistas(this.nombreArtista);
 		});
 	}
 	/**
@@ -71,24 +81,21 @@ export class Artistas {
 	 * @returns grupos del artista
 	 */
 	getGrupos(){
-		let grupos_: string[] = [];
-        this.grupos.forEach(element => {
-            grupos_.push(element.getNombreGrupo());
-        });
-		return grupos_;
+		
+		return this.grupos;
 	}
 
 		/**
 	 * Getter de los grupos del artista
 	 * @returns grupos del artista
 	 */
-		 getGruposObject(){
+		/* getGruposObject(){
 			let grupos_: Grupos[] = [];
 					this.grupos.forEach(element => {
 							grupos_.push(element);
 					});
 			return grupos_;
-		}
+		}*/
 
 	/**
 	 * Getter de los géneros musicales 
@@ -107,24 +114,11 @@ export class Artistas {
 	 * @returns albumes
 	 */
 	getAlbumes(){
-		let albumes_: string[] = [];
-    this.albumes.forEach(element => {
-      albumes_.push(element.getNombreAlbum());
-    });   
-		return albumes_;
+		
+		return this.albumes;
 	}
 
-	/**
-	 * Getter de los albumes del artista
-	 * @returns albumes
-	 */
-	 getAlbumesObject(){
-		let albumes_: Album[] = [];
-    this.albumes.forEach(element => {
-      albumes_.push(element);
-    });   
-		return albumes_;
-	}
+	 
 
 	/**
 	 * Getter de los nombres de las canciones del artista
@@ -178,7 +172,7 @@ export class Artistas {
 	 * Setter del nombre del grupo
 	 * @param grupo del artista
 	 */
-	setGrupos(grupo: Grupos[]){
+	setGrupos(grupo: string[]){
 		this.grupos = []
 		this.grupos = grupo;
 	}
@@ -186,8 +180,9 @@ export class Artistas {
 	 * Setter del grupo que invoca al artista
 	 * @param grupo del artista
 	 */
-		 autoSetGrupos(grupo: Grupos){
+		 autoSetGrupos(grupo: string, oyentes: number){
 			this.grupos.push(grupo);
+			this.oyentegrupo.push(oyentes);
 		}
 
 
@@ -214,13 +209,25 @@ export class Artistas {
 	 */
 	 setAlbumes(album: Album[]){
 		this.albumes = [];
+		for(let i: number = 0; i < album.length; i++){
+			this.albumes.push(album[i].getNombreAlbum());
+		}
+		
+	}
+	/**
+	 * Setter de los albumes del artista
+	 * @param album del artista
+	 */
+	 setAlbumes_(album: string[]){
+		this.albumes = [];
 		this.albumes = album;
+		
 	}
 		/**
 	 * Setter de los albumes del artista que rellenan a un artista en la clase album
 	 * @param album del artista
 	 */
-		 autoSetAlbumes(album: Album){
+		 autoSetAlbumes(album: string){
 			this.albumes.push(album);
 		}
 
@@ -231,8 +238,23 @@ export class Artistas {
 	setOyentes(oyentes: number){
 		let oyentesgrupales: number = 0;
 		for(let i: number = 0; i < this.getGrupoSize(); i++){
-			oyentesgrupales = oyentesgrupales + this.grupos[i].getOyentes();
+			oyentesgrupales = oyentesgrupales + this.oyentegrupo[i];
 		}
 		this.oyentes = oyentes + oyentesgrupales;
 	}
+/*	public static deserialize(cancion: Artistas[]){
+		const myCanciones: Artistas[] = [];
+
+		cancion.forEach((element) => {
+				const myCancion = new Artistas(element.getNombreArtista());
+				myCancion.setAlbumes_(element.getAlbumes());
+				myCancion.setGrupos(element.getGrupos());
+				myCancion.setGeneros(element.generos);
+				myCancion.setOyentes(element.oyentes);
+				myCancion.setCanciones(element.canciones);
+				myCanciones.push(myCancion);
+		});
+
+		return myCanciones;
+}*/
 }

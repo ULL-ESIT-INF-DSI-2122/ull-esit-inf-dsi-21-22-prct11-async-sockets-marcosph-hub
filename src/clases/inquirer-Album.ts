@@ -90,7 +90,7 @@ export async function addAlbum() {
   });
   let nombreGrupoOArtista_: string = nombreGrupoArtista["nombreGrupoArtista"];
   let numeroGrupo_: number = -1;
-  let autores_: Grupos[]|Artistas[] = [];
+  let autores_: string[]|Artistas[] = [];
   for(let i: number = 0; i < index.grupos.length; i++){
     if(index.grupos[i].getNombreGrupo() === nombreGrupoOArtista_){
       numeroGrupo_ = i;
@@ -115,7 +115,7 @@ export async function addAlbum() {
       autores_[0] = index.artistas[numeroGrupo_];
     }
   } else {
-     autores_[0] = index.grupos[numeroGrupo_];
+     autores_[0] = index.grupos[numeroGrupo_].getNombreGrupo();
   }
 
   let genero1_: GenerosMusicales[] = [];
@@ -133,7 +133,8 @@ export async function addAlbum() {
   let yearsPublicacion_: number = anioPublicacion["anioPublicacion"];
   
   let album: Album = new Album(nombre_, autores_[0], genero1_, yearsPublicacion_, cancionesAlbum_);
-  // db despues de album
+  index.albumes.push(album);
+    InquirerFile.db.addNuevoAlbum(album);
   console.clear();
     menuPrincipal();
 }
@@ -214,7 +215,7 @@ export async function modAlbum(numero: number) {
       });
       let nombreGrupoOArtista_: string = grupoOArtista["grupoOArtista"];
   let numeroGrupo_: number = -1;
-  let autores_: Grupos[]|Artistas[] = [];
+  let autores_: string[]|Artistas[] = [];
   for(let i: number = 0; i < index.grupos.length; i++){
     if(index.grupos[i].getNombreGrupo() === nombreGrupoOArtista_){
       numeroGrupo_ = i;
@@ -239,7 +240,7 @@ export async function modAlbum(numero: number) {
       autores_[0] = index.artistas[numeroGrupo_];
     }
   } else {
-     autores_[0] = index.grupos[numeroGrupo_];
+     autores_[0] = index.grupos[numeroGrupo_].getNombreGrupo();
   }
   index.albumes[numero].setAutores(autores_[0]);
       await modAlbum(numero);

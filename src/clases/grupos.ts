@@ -1,6 +1,6 @@
-import { Album } from "./album";
-import { Artistas } from "./artistas";
-import { GenerosMusicales } from "./generosMusicales";
+import { Album, AlbumInterface } from "./album";
+import { Artistas, ArtistasInterface } from "./artistas";
+import { GenerosMusicales, GenerosMusicalesInterface } from "./generosMusicales";
 
 /**
  * TRABAJO GRUPO L
@@ -13,6 +13,14 @@ import { GenerosMusicales } from "./generosMusicales";
  * @param albumes Array que almacena distintos álbumes
  * @param oyentes Entero que representa el número de oyentes mensuales
  */
+ export interface GruposInterface{
+	nombreGrupo: string,
+	artistas: ArtistasInterface[],
+	yearGrupo: number,
+	genero: GenerosMusicalesInterface[],
+	albumes: AlbumInterface[],
+	oyentes: number
+}
 export class Grupos {
   private nombreGrupo: string;
 	private artistas: Artistas[];
@@ -41,10 +49,10 @@ export class Grupos {
 		this.albumes = albumes;
 		this.oyentes = oyentes;
 		genero.forEach(element => {
-			element.autoSetGrupos(this);
+			element.autoSetGrupos(this.nombreGrupo);
 		});
 		artistas.forEach(element => {
-			element.autoSetGrupos(this);
+			element.autoSetGrupos(this.nombreGrupo, this.oyentes);
 		});
 		
 	}
@@ -58,16 +66,16 @@ export class Grupos {
 		return this.nombreGrupo;
 	}
 
+
+	
 	/**
 	 * Getter de los artistas
 	 * @returns artistas
 	 */
-	getArtistas(){
-		let artistas_: string[] = [];
-        this.artistas.forEach(element => {
-            artistas_.push(element.getNombreArtista());
-        });
-		return artistas_;
+	 getArtistas_(){
+		
+		return this.artistas
+		
 	}
 
 	/**
@@ -141,6 +149,7 @@ export class Grupos {
 		this.genero = [];
     this.genero = genero;
 	}
+	
 
 	/**
 	 * Setter de los albumes del grupo
@@ -158,4 +167,19 @@ export class Grupos {
 	setOyentes(oyente: number){
 		this.oyentes = oyente;
 	}
+	/*public static deserialize(cancion: Grupos[]){
+		const myCanciones: Grupos[] = [];
+
+		cancion.forEach((element) => {
+				const myCancion = new Grupos(element.getNombreGrupo());
+				myCancion.setAlbumes(element.getAlbumes());
+				myCancion.setArtistas(element.getArtistas_());
+				myCancion.setGenero(element.genero);
+				myCancion.setOyentes(element.oyentes);
+				myCancion.setYearGrupo(element.yearGrupo)
+				myCanciones.push(myCancion);
+		});
+
+		return myCanciones;
+}*/
 }

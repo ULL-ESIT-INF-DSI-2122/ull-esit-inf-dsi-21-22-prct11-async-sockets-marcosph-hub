@@ -94,7 +94,8 @@ export async function addGrupo() {
 
   let Grupo: Grupos = new Grupos(NombreGrupo);
   Grupo.construirGrupo(artistasArray, AñoFormacionGrupo, generoGrupo, albumesGrupo,OyentesGrupo);
-//PONER DB AQUI
+  index.grupos.push(Grupo);
+  InquirerFile.db.addNuevoGrupo(Grupo);
   console.clear();
     InquirerFile.menuPrincipal();
 }

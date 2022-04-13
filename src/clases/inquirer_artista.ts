@@ -40,11 +40,17 @@ export async function addArtista() {
   });
   let artista: Artistas = new Artistas(nombreArtista["nombreArtista"]);
   await addGrupoArtista(grupo);
-  artista.setGrupos(grupo);
+  let nombregrupo_: string[] = [];
+        for (let i: number = 0; i < grupo.length; i++){
+          nombregrupo_[i] = grupo[i].getNombreGrupo();
+         }
+  artista.setGrupos(nombregrupo_);
   await addAlbumArtista(album);
   artista.setAlbumes(album);
   await addCancionArtista(cancion);
   artista.construirArtista(cancion, Number(oyentes["oyentesArtista"]));
+  index.artistas.push(artista);
+    InquirerFile.db.addNuevoArtista(artista);
   console.clear();
   InquirerFile.menuPrincipal();
 } 
@@ -204,7 +210,7 @@ export async function modArtista(numero: number){
         await modArtista(numero);
         return 0;
         }else {
-          index.artistas[numero].setGrupos([index.grupos[numeroGrupo_]]);
+          index.artistas[numero].setGrupos([index.grupos[numeroGrupo_].getNombreGrupo()]);
         }
       /*index.grupos.forEach(element => {
         if(nombreGrupo_ === element.getNombreGrupo()){

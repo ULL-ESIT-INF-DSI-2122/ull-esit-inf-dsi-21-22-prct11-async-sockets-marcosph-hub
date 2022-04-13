@@ -15,7 +15,7 @@ import * as InquirerFiltrado from '../clases/inquirer-filtrado';
 import { BaseDatos } from './basedatos';
 
 // Crear base de datos
-export let db = new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos);
+export let db =  new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos);
 //db.guardarBaseDatos();
 
 /**
