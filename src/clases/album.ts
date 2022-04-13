@@ -43,7 +43,7 @@ export class Album {
 	 * @returns nombre del album
 	 */
 	getNombreAlbum(){
-		return this.nombreAlbum;
+		return this.nombreAlbum
 	}
 	/**
 	 * Getter de autor del album

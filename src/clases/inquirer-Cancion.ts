@@ -299,7 +299,7 @@ export async function addCancion(){
     let duracion_: string = duracionCancion["duracionCancion"];
     let reprod_: number = numReproducciones["numReproducciones"];
     let cancion: Cancion = new Cancion(nombre_,autor_, duracion_, genero_, single_, reprod_);
-    InquirerFile.db.addNuevaCancion(cancion);
+    //InquirerFile.db.addNuevaCancion(cancion);
     console.clear();
     menuPrincipal();
 }

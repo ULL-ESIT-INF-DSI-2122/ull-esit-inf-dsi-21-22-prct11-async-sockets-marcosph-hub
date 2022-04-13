@@ -64,26 +64,28 @@ type dbtype = {
 export class BaseDatos{
     private basedatos: lowdb.LowdbSync<dbtype>;
     public generosArrayLista: GenerosMusicales[];
-    public cancionesArrayLista: Cancion[];
+    /*public cancionesArrayLista: Cancion[];
     public albumesArrayLista: Album[];
     public artistasArrayLista: Artistas[];
-    public gruposArrayLista: Grupos[];
+    public gruposArrayLista: Grupos[];*/
 
-    constructor(generosArray: GenerosMusicales[] = [], cancionesArray: Cancion[] = [], albumesArray: Album[] = [], artistasArray: Artistas[] = [], gruposArray: Grupos[] = []) {
+    constructor(generosArray: GenerosMusicales[] = []/*, cancionesArray: Cancion[] = [], albumesArray: Album[] = [], artistasArray: Artistas[] = [], gruposArray: Grupos[] = []*/) {
         // Primera construccion
-        if(this.basedatos.has("generosmusicales").value()) {
+       /* if(this.basedatos.has("generosmusicales").value()) {
             let idb = this.basedatos.get("generosmusicales").value();
             idb.forEach(item => {
                 //let tmpi: GenerosMusicales = item;
                 //this.generosArrayLista.push(tmpi);
             })
-        }
+        }*/
         this.basedatos = lowdb(new FileSync("db.json"));
         this.generosArrayLista = generosArray;
-        this.cancionesArrayLista = cancionesArray;
+        /*this.cancionesArrayLista = cancionesArray;
         this.albumesArrayLista = albumesArray;
         this.artistasArrayLista = artistasArray;
-        this.gruposArrayLista = gruposArray;
+        this.gruposArrayLista = gruposArray;*/
+
+    
     }
 
     /**
@@ -92,11 +94,13 @@ export class BaseDatos{
      */
     guardarBaseDatos() {
 
-        this.basedatos.set("generosmusicales", [...this.generosArrayLista]).write();
-        this.basedatos.set("canciones", [...this.cancionesArrayLista]).write();
-        this.basedatos.set("albumes", [...this.albumesArrayLista]).write();
-        this.basedatos.set("artistas", [...this.artistasArrayLista]).write();
-        this.basedatos.set("grupos", [...this.gruposArrayLista]).write();
+        this.basedatos.set("generosmusicales", this.generosArrayLista).write();
+        
+        this.basedatos.set("canciones", this.cancionesArrayLista).write();
+        this.basedatos.set("albumes", this.albumesArrayLista).write();
+        this.basedatos.set("artistas", this.artistasArrayLista).write();
+        this.basedatos.set("grupos", this.gruposArrayLista).write();
+        
     }
 
     /**
@@ -112,35 +116,36 @@ export class BaseDatos{
      * Método público para añadir la nueva cancion en la base de datos
      * @param nuevaCancion a añadir
      */
-    addNuevaCancion(nuevaCancion: Cancion) {
+   /* addNuevaCancion(nuevaCancion: Cancion) {
         this.cancionesArrayLista.push(nuevaCancion);
         this.guardarBaseDatos();
-    }
+    }*/
 
     /**
      * Método público para añadir el nuevo álbum en la base de datos
      * @param nuevoAlbum a añadir
      */
-    addNuevoAlbum(nuevoAlbum: Album) {
+    /*addNuevoAlbum(nuevoAlbum: Album) {
         this.albumesArrayLista.push(nuevoAlbum);
         this.guardarBaseDatos();
-    }
+    }*/
 
     /**
      * Método público para añadir el nuevo artista en la base de datos
      * @param nuevoArtista a añadir
      */
-    addNuevoArtista(nuevoArtista: Artistas) {
+   /* addNuevoArtista(nuevoArtista: Artistas) {
         this.artistasArrayLista.push(nuevoArtista);
         this.guardarBaseDatos();
-    }
+    }*/
 
     /**
      * Método público para añadir el nuevo grupo en la base de datos
      * @param nuevoGrupo a añadir
      */
-    addNuevoGrupo(nuevoGrupo: Grupos) {
+    /*addNuevoGrupo(nuevoGrupo: Grupos) {
         this.gruposArrayLista.push(nuevoGrupo);
         this.guardarBaseDatos();
-    }
+    }*/
+    
 }

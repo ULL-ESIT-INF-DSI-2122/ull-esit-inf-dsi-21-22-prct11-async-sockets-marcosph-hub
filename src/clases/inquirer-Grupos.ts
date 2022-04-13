@@ -8,6 +8,7 @@ import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as InquirerFile from "./inquirer";
 import * as inCancion from "./inquirer-Cancion";
+import * as write from "./writeDatabase"
 
 export enum CommandsSingle {
   Si = `Si`,
@@ -94,6 +95,10 @@ export async function addGrupo() {
 
   let Grupo: Grupos = new Grupos(NombreGrupo);
   Grupo.construirGrupo(artistasArray, AñoFormacionGrupo, generoGrupo, albumesGrupo,OyentesGrupo);
+  index.grupos.push(Grupo)
+  console.log("se ha añadido el grupo");
+  write.WriteDB("Grupo",index.grupos)
+  
 //PONER DB AQUI
   console.clear();
     InquirerFile.menuPrincipal();
