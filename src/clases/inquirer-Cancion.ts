@@ -387,10 +387,10 @@ export async function modCancion(numero: number){
         await modCancion(numero);
         break;
         case CommandsPartesCancion.Salir:
+          InquirerFile.db.guardarBaseDatos();
           console.clear();
           menuPrincipal();
           return 0;
-          break;
     }
 }
 

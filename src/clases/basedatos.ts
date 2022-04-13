@@ -164,7 +164,7 @@ export class BaseDatos{
        this.basedatos.set("artistas", [artistas]).write();
        this.basedatos.set("albumes", [this.albumesArrayLista]).write();
        //this.basedatos.set("albumes", [...this.albumesArrayLista]).write();*/
-       this.guardarBaseDatos();
+       //this.guardarBaseDatos();
     }
 
     /**

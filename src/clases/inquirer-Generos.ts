@@ -259,7 +259,7 @@ export async function addGenero(){
   genero.setGrupos(nombregrupos_);
   genero.setCanciones(nombrecanciones_);
   index.generos.push(genero);
-    InquirerFile.db.addNuevoGenero(genero);
+  InquirerFile.db.addNuevoGenero(genero);
   console.clear();
   menuPrincipal();
 }
@@ -323,10 +323,10 @@ export async function modGenero(numero: number){
         await modGenero(numero);
         break;
       case CommandsPartesGenero.Salir:
+        InquirerFile.db.guardarBaseDatos();
         console.clear();
         menuPrincipal();
       return 0;
-      break;
     }
 }
 export async function menuModGenero(){
