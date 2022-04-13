@@ -351,3 +351,28 @@ export async function menuModGenero(){
   await modGenero(numeroGenero);
   }
 }
+
+export async function menuDelGenero() {
+  const generoBorrar = await inquirer.prompt({
+    type: 'input',
+    name: `borrar`,
+    message: `Introduce el nombre del Género que quieres borrar`,
+  })
+  let nombreGeneroBorrar: string = generoBorrar["borrar"];
+  let indexGenero: number = -1;
+  for(let i: number = 0; i < index.generos.length; i++){
+      if(index.generos[i].getNombreGenero() === nombreGeneroBorrar){
+      indexGenero = i;
+      break;
+      }
+  }
+  if(indexGenero === -1){
+      console.log(`No existe un álbum con ese nombre`);
+      return 0;
+  } 
+  else {
+    InquirerFile.db.delAlbum(indexGenero);
+  }
+  console.clear();
+  InquirerFile.menuPrincipal();
+}

@@ -13,6 +13,8 @@ import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion'
 import { addArtista, menumodArtista } from '../clases/inquirer_artista';
 import * as InquirerFiltrado from '../clases/inquirer-filtrado';
 import { BaseDatos } from './basedatos';
+import { menuDelGenero } from "../clases/inquirer-Generos";
+import { menuDelGrupo } from "../clases/inquirer-Grupos";
 
 
 // Crear base de datos
@@ -158,7 +160,7 @@ export async function menuAdd(){
        console.log(`eliminndo una cancion`);
         break;
       case CommandsClases.GeneroMusical:
-        //delGeneroMusical();
+        await menuDelGenero();
         console.log(`eliminndo una genero musical`);
         break;
       case CommandsClases.Album:
@@ -169,7 +171,7 @@ export async function menuAdd(){
         console.log(`eliminndo una artista`);
         break;
       case CommandsClases.Grupo:
-        //delGrupo();
+        menuDelGrupo();
         console.log(`eliminnndo una grupo`);
         break;
         case CommandsClases.Salir:
