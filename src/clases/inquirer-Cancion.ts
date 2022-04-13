@@ -299,12 +299,9 @@ export async function addCancion(){
     let duracion_: string = duracionCancion["duracionCancion"];
     let reprod_: number = numReproducciones["numReproducciones"];
     let cancion: Cancion = new Cancion(nombre_,autor_, duracion_, genero_, single_, reprod_);
-<<<<<<< HEAD
-    //InquirerFile.db.addNuevaCancion(cancion);
-=======
+
     index.canciones.push(cancion);
     InquirerFile.db.addNuevaCancion(cancion);
->>>>>>> a4c5a5e2ccba055094aebbb9d49d8541c79de09f
     console.clear();
     menuPrincipal();
 }
