@@ -8,7 +8,7 @@ import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
 import * as inGenero from "../clases/inquirer-Generos";
-import { addAlbum, menuModAlbum, delAlbum } from '../clases/inquirer-Album';
+import { addAlbum, menuModAlbum, menuDelAlbum } from '../clases/inquirer-Album';
 import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
 import { addArtista, menumodArtista } from '../clases/inquirer_artista';
 import * as InquirerFiltrado from '../clases/inquirer-filtrado';
@@ -159,7 +159,7 @@ export async function menuAdd(){
         console.log(`eliminndo una genero musical`);
         break;
       case CommandsClases.Album:
-        delAlbum();
+        await menuDelAlbum();
         break;
       case CommandsClases.Artista:
         //delArtista();
@@ -172,7 +172,6 @@ export async function menuAdd(){
         case CommandsClases.Salir:
           await menuPrincipal();
           return 0;
-          break;
     } 
 }
 
