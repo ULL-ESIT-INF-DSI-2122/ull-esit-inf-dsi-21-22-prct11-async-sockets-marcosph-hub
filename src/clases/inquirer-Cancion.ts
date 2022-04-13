@@ -420,3 +420,29 @@ export async function menuModCancion(){
        modCancion(numeroCancion);
     }
 }
+
+export async function menuDelCancion() {
+  const cancionBorrado = await inquirer.prompt({
+    type: 'input',
+    name: `borrar`,
+    message: `Introduce el nombre de la cancion que quieres borrar`,
+  })
+  let nombrecancionBorrar: string = cancionBorrado["borrar"];
+  let numerocancion: number = -1;
+    for(let i: number = 0; i < index.canciones.length; i++){
+        if(index.canciones[i].getNombreCancion() === nombrecancionBorrar){
+        numerocancion = i;
+        break;
+        }
+    }
+    if(numerocancion === -1){
+        console.log(`No existe una cancion con ese nombre`);
+        return 0;
+    } 
+    else {
+      InquirerFile.db.delCancion(numerocancion);
+    }
+
+  console.clear();
+  InquirerFile.menuPrincipal();
+}

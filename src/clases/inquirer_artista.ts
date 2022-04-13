@@ -286,3 +286,29 @@ export async function menumodArtista(){
     modArtista(numeroArtista);
   }
 }
+
+export async function menuDelArtista() {
+  const artistaBorrado = await inquirer.prompt({
+    type: 'input',
+    name: `borrar`,
+    message: `Introduce el nombre del artista que quieres borrar`,
+  })
+  let nombreArtistaBorrar: string = artistaBorrado["borrar"];
+  let numeroArtista: number = -1;
+    for(let i: number = 0; i < index.artistas.length; i++){
+        if(index.artistas[i].getNombreArtista() === nombreArtistaBorrar){
+        numeroArtista = i;
+        break;
+        }
+    }
+    if(numeroArtista === -1){
+        console.log(`No existe un artista con ese nombre`);
+        return 0;
+    } 
+    else {
+      InquirerFile.db.delArtista(numeroArtista);
+    }
+
+  console.clear();
+  InquirerFile.menuPrincipal();
+}

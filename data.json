@@ -3412,6 +3412,146 @@
         ]
       },
       {
+        "nombreAlbum": "The Day Is My Enemy",
+        "autores": "The Prodigy",
+        "genero": [
+          {
+            "grupos": [
+              "The Prodigy"
+            ],
+            "artistas": [
+              "Skrillex",
+              "Mike Oldfield",
+              "Ozuna",
+              "Keith Flint",
+              "Liam Howlett",
+              "Maxim Reality",
+              "Sharky"
+            ],
+            "albumes": [
+              "The Day Is My Enemy"
+            ],
+            "canciones": [
+              "The Prodigy",
+              "Nasty",
+              "Rebel Radio",
+              "Face My Fears",
+              "Tubular Bells",
+              "Solita"
+            ],
+            "nombreGenero": "Electronica"
+          }
+        ],
+        "yearPublicacion": 2015,
+        "canciones": [
+          {
+            "nombre": "The Prodigy",
+            "autor": "The Prodigy",
+            "duracion": "2:53",
+            "genero": [
+              {
+                "grupos": [
+                  "The Prodigy"
+                ],
+                "artistas": [
+                  "Skrillex",
+                  "Mike Oldfield",
+                  "Ozuna",
+                  "Keith Flint",
+                  "Liam Howlett",
+                  "Maxim Reality",
+                  "Sharky"
+                ],
+                "albumes": [
+                  "The Day Is My Enemy"
+                ],
+                "canciones": [
+                  "The Prodigy",
+                  "Nasty",
+                  "Rebel Radio",
+                  "Face My Fears",
+                  "Tubular Bells",
+                  "Solita"
+                ],
+                "nombreGenero": "Electronica"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 2100000
+          },
+          {
+            "nombre": "Nasty",
+            "autor": "The Prodigy",
+            "duracion": "3:42",
+            "genero": [
+              {
+                "grupos": [
+                  "The Prodigy"
+                ],
+                "artistas": [
+                  "Skrillex",
+                  "Mike Oldfield",
+                  "Ozuna",
+                  "Keith Flint",
+                  "Liam Howlett",
+                  "Maxim Reality",
+                  "Sharky"
+                ],
+                "albumes": [
+                  "The Day Is My Enemy"
+                ],
+                "canciones": [
+                  "The Prodigy",
+                  "Nasty",
+                  "Rebel Radio",
+                  "Face My Fears",
+                  "Tubular Bells",
+                  "Solita"
+                ],
+                "nombreGenero": "Electronica"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 15217880
+          },
+          {
+            "nombre": "Rebel Radio",
+            "autor": "The Prodigy",
+            "duracion": "3:53",
+            "genero": [
+              {
+                "grupos": [
+                  "The Prodigy"
+                ],
+                "artistas": [
+                  "Skrillex",
+                  "Mike Oldfield",
+                  "Ozuna",
+                  "Keith Flint",
+                  "Liam Howlett",
+                  "Maxim Reality",
+                  "Sharky"
+                ],
+                "albumes": [
+                  "The Day Is My Enemy"
+                ],
+                "canciones": [
+                  "The Prodigy",
+                  "Nasty",
+                  "Rebel Radio",
+                  "Face My Fears",
+                  "Tubular Bells",
+                  "Solita"
+                ],
+                "nombreGenero": "Electronica"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 1000000
+          }
+        ]
+      },
+      {
         "nombreAlbum": "El Mal Querer",
         "autores": {
           "grupos": [],
