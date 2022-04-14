@@ -8,7 +8,6 @@ import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
 import * as inGenero from "../clases/inquirer-Generos";
-import { addAlbum, menuModAlbum } from '../clases/inquirer-Album';
 import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
 import { addArtista, menumodArtista } from '../clases/inquirer_artista';
 import { BaseDatos } from './basedatos';
@@ -32,7 +31,7 @@ export async function AlfTitCancionAsc(autor_: Artistas | Grupos) {
         for(let j: number = 0; j < auxCancionesGrupo.length; j++){
           cancionesGrupo.push(auxCancionesGrupo[j].getNombreCancion());
         }
-  
+
       }
       console.clear();
       console.log(`Canciones del grupo ${autor_.getNombreGrupo()} ordenadas ascendentemente :`);

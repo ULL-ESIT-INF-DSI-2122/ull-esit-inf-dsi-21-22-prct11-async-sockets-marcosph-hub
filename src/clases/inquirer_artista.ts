@@ -26,7 +26,7 @@ export enum CommandsPartesArtista {
  * Funcion addArtista
  */
 export async function addArtista() {
-  let grupo: Grupos[] = [];
+let grupo: Grupos[] = [];
 let album: Album[] = [];
 let cancion: Cancion[] = [];
   const nombreArtista = await inquirer.prompt({
