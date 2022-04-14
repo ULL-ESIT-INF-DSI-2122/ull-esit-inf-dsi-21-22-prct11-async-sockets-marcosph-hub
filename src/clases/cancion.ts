@@ -1,4 +1,4 @@
-import { GenerosMusicales, GenerosMusicalesInterface } from "./generosMusicales";
+import { GenerosMusicales } from "./generosMusicales";
 
 /**
  * TRABAJO GRUPO L

@@ -1,7 +1,6 @@
-import { Cancion, CancionInterface } from "./cancion";
-import { Grupos, GruposInterface } from "./grupos";
-import { Artistas, ArtistasInterface } from "./artistas";
-import { Album, AlbumInterface } from "./album";
+import { GruposInterface } from "./grupos";
+import { ArtistasInterface } from "./artistas";
+import { AlbumInterface } from "./album";
 
 /**
  * TRABAJO GRUPO L

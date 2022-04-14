@@ -1,19 +1,9 @@
 import inquirer from 'inquirer';
-import { Album } from "../clases/album";
-import { Artistas } from "../clases/artistas";
 import { Cancion } from "../clases/cancion";
 import { GenerosMusicales } from "../clases/generosMusicales";
-import { Grupos } from "../clases/grupos";
-import { Playlist } from "../clases/playlist";
 import * as index from "../index";
-import * as inGrupos from "../clases/inquirer-Grupos";
-import * as inArtista from "../clases/inquirer_artista";
-import { addAlbum } from '../clases/inquirer-Album';
-import { BaseDatos } from './basedatos';
 import { menuPrincipal } from './inquirer';
 import * as InquirerFile from "./inquirer";
-
-
 
 /**
  * @enum CommandsGenerosCnciones con los géneros de las canciones
@@ -420,7 +410,9 @@ export async function menuModCancion(){
        modCancion(numeroCancion);
     }
 }
-
+/**
+ * Funcion menuDelCancion
+ */
 export async function menuDelCancion() {
   const cancionBorrado = await inquirer.prompt({
     type: 'input',

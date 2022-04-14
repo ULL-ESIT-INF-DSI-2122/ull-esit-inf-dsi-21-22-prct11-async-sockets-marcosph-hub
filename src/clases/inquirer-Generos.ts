@@ -6,8 +6,10 @@ import { GenerosMusicales } from "./generosMusicales";
 import { Grupos } from "./grupos";
 import { menuPrincipal } from './inquirer';
 import * as InquirerFile from "./inquirer";
-import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
 import * as index from "../index";
+/**
+ * Enum CommandsPartesGenero
+ */
 export enum CommandsPartesGenero {
   Nombre = `Nombre`,
   Grupos = `Grupos`,
@@ -16,6 +18,11 @@ export enum CommandsPartesGenero {
   ALbumes = `Albumes`,
   Salir = `Salir al menú principal`
 }
+/**
+ * Funcion addCancionesGenero
+ * @param cancion_ array de canciones
+ * @returns array modificado
+ */
 export async function addCancionesGenero(cancion_: Cancion[]){
   const nombreCancion = await inquirer.prompt({
     type: "input",
@@ -54,7 +61,11 @@ export async function addCancionesGenero(cancion_: Cancion[]){
         break;
     }
 }
-
+/**
+ * Funcion addAlbumGenero()
+ * @param album_ array de albumes
+ * @returns array modificado
+ */
 export async function addAlbumGenero(album_: Album[]){
   const nombreAlbum = await inquirer.prompt({
     type: "input",
@@ -93,6 +104,11 @@ export async function addAlbumGenero(album_: Album[]){
         break;
     }
 }
+/**
+ * Funcion addGrupoGenero
+ * @param grupos_ array de grupos
+ * @returns array de grupos modificado
+ */
 export async function addGrupoGenero(grupos_: Grupos[]){
   const nombreGrupo = await inquirer.prompt({
     type: "input",
@@ -131,6 +147,11 @@ export async function addGrupoGenero(grupos_: Grupos[]){
         break;
     }
 }
+/**
+ * Funcion addArtistaGenero
+ * @param artista_ array de artistas
+ * @returns array modificado
+ */
 export async function addArtistaGenero(artista_: Artistas[]){
   const nombreArtista = await inquirer.prompt({
     type: "input",
@@ -169,7 +190,9 @@ export async function addArtistaGenero(artista_: Artistas[]){
         break;
     }
 }
-
+/**
+ * Funcion addGenero
+ */
 export async function addGenero(){
   const nombreGenero = await inquirer.prompt( {
     type: "input",
@@ -263,7 +286,11 @@ export async function addGenero(){
   console.clear();
   menuPrincipal();
 }
-
+/**
+ * Funcion modGenero
+ * @param numero del genero a modificar
+ * @returns genero modificado
+ */
 export async function modGenero(numero: number){
   const generoModificar = await inquirer.prompt({
     type: 'list',
@@ -329,6 +356,9 @@ export async function modGenero(numero: number){
       return 0;
     }
 }
+/**
+ * Funcion menuModGenero
+ */
 export async function menuModGenero(){
   const generoModificada = await inquirer.prompt({
     type: 'input',
@@ -351,7 +381,9 @@ export async function menuModGenero(){
   await modGenero(numeroGenero);
   }
 }
-
+/**
+ * Funcion menuDelGenero
+ */
 export async function menuDelGenero() {
   const generoBorrar = await inquirer.prompt({
     type: 'input',

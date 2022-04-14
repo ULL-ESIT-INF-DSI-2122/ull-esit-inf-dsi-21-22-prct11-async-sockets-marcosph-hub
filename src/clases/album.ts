@@ -1,8 +1,6 @@
 import { Cancion, CancionInterface } from "./cancion";
-import { Grupos } from "./grupos";
 import { Artistas, ArtistasInterface } from "./artistas";
 import { GenerosMusicales } from "./generosMusicales";
-import {albumes} from "../index";
 
 /**
  * TRABAJO GRUPO L
@@ -14,7 +12,9 @@ import {albumes} from "../index";
  * @param yearPublicacion año de publicación del album
  * @param canciones array de Cancion
  */
-
+/**
+ * Interfaz AlbumInterface
+ */
 export interface AlbumInterface {
 	nombreAlbum: string,
 	autores: string | ArtistasInterface,
@@ -22,6 +22,9 @@ export interface AlbumInterface {
 	yearPublicacion: number,
 	canciones: CancionInterface[]
 }
+/**
+ * Clase Album
+ */
 export class Album {
   private nombreAlbum: string;
 	private autores: string | Artistas;
