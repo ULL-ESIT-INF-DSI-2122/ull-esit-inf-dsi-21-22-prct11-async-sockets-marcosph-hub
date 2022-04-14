@@ -17826,6 +17826,2342 @@
         "oyentes": 8000000
       },
       {
+        "nombreGrupo": "Queen",
+        "artistas": [
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "generos": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              },
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              },
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Rosalía",
+                  "Beret"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "El Mal Querer",
+                  "Prisma"
+                ],
+                "canciones": [
+                  "Thriller",
+                  "Malamente",
+                  "Preso",
+                  "Living on my own",
+                  "Ojalá",
+                  "Esencial"
+                ],
+                "nombreGenero": "Pop"
+              }
+            ],
+            "albumes": [],
+            "canciones": [
+              {
+                "nombre": "Mother Love",
+                "autor": "Queen",
+                "duracion": "4:50",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3300000
+              },
+              {
+                "nombre": "Its A Beautiful Day",
+                "autor": "Queen",
+                "duracion": "3:19",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3000000
+              },
+              {
+                "nombre": "I Was Born To Love You",
+                "autor": "Queen",
+                "duracion": "4:56",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 64000000
+              },
+              {
+                "nombre": "Living on my own",
+                "autor": "Freddie Mercury",
+                "duracion": "3:08",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Rosalía",
+                      "Beret"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "El Mal Querer",
+                      "Prisma"
+                    ],
+                    "canciones": [
+                      "Thriller",
+                      "Malamente",
+                      "Preso",
+                      "Living on my own",
+                      "Ojalá",
+                      "Esencial"
+                    ],
+                    "nombreGenero": "Pop"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 32000000
+              }
+            ],
+            "oyentegrupo": [
+              49000000
+            ],
+            "nombreArtista": "Freddie Mercury",
+            "oyentes": 51539164
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "generos": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              },
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "albumes": [],
+            "canciones": [
+              {
+                "nombre": "Mother Love",
+                "autor": "Queen",
+                "duracion": "4:50",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3300000
+              },
+              {
+                "nombre": "Its A Beautiful Day",
+                "autor": "Queen",
+                "duracion": "3:19",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3000000
+              },
+              {
+                "nombre": "I Was Born To Love You",
+                "autor": "Queen",
+                "duracion": "4:56",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 64000000
+              }
+            ],
+            "oyentegrupo": [
+              49000000
+            ],
+            "nombreArtista": "Brian May",
+            "oyentes": 50585307
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "generos": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              },
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "albumes": [],
+            "canciones": [
+              {
+                "nombre": "Mother Love",
+                "autor": "Queen",
+                "duracion": "4:50",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3300000
+              },
+              {
+                "nombre": "Its A Beautiful Day",
+                "autor": "Queen",
+                "duracion": "3:19",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3000000
+              },
+              {
+                "nombre": "I Was Born To Love You",
+                "autor": "Queen",
+                "duracion": "4:56",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 64000000
+              }
+            ],
+            "oyentegrupo": [
+              49000000
+            ],
+            "nombreArtista": "John Deacon",
+            "oyentes": 50585307
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "generos": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              },
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "albumes": [],
+            "canciones": [
+              {
+                "nombre": "Mother Love",
+                "autor": "Queen",
+                "duracion": "4:50",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3300000
+              },
+              {
+                "nombre": "Its A Beautiful Day",
+                "autor": "Queen",
+                "duracion": "3:19",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3000000
+              },
+              {
+                "nombre": "I Was Born To Love You",
+                "autor": "Queen",
+                "duracion": "4:56",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 64000000
+              }
+            ],
+            "oyentegrupo": [
+              49000000
+            ],
+            "nombreArtista": "Roger Taylor",
+            "oyentes": 50585307
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "generos": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              },
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "albumes": [],
+            "canciones": [
+              {
+                "nombre": "Mother Love",
+                "autor": "Queen",
+                "duracion": "4:50",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3300000
+              },
+              {
+                "nombre": "Its A Beautiful Day",
+                "autor": "Queen",
+                "duracion": "3:19",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3000000
+              },
+              {
+                "nombre": "I Was Born To Love You",
+                "autor": "Queen",
+                "duracion": "4:56",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 64000000
+              }
+            ],
+            "oyentegrupo": [
+              49000000
+            ],
+            "nombreArtista": "Mike Grose",
+            "oyentes": 50585307
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "generos": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              },
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "albumes": [],
+            "canciones": [
+              {
+                "nombre": "Mother Love",
+                "autor": "Queen",
+                "duracion": "4:50",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3300000
+              },
+              {
+                "nombre": "Its A Beautiful Day",
+                "autor": "Queen",
+                "duracion": "3:19",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3000000
+              },
+              {
+                "nombre": "I Was Born To Love You",
+                "autor": "Queen",
+                "duracion": "4:56",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 64000000
+              }
+            ],
+            "oyentegrupo": [
+              49000000
+            ],
+            "nombreArtista": "Doug Bogie",
+            "oyentes": 50585307
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "generos": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              },
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "albumes": [],
+            "canciones": [
+              {
+                "nombre": "Mother Love",
+                "autor": "Queen",
+                "duracion": "4:50",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3300000
+              },
+              {
+                "nombre": "Its A Beautiful Day",
+                "autor": "Queen",
+                "duracion": "3:19",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3000000
+              },
+              {
+                "nombre": "I Was Born To Love You",
+                "autor": "Queen",
+                "duracion": "4:56",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 64000000
+              }
+            ],
+            "oyentegrupo": [
+              49000000
+            ],
+            "nombreArtista": "Queen Barry Mitchell",
+            "oyentes": 50585307
+          }
+        ],
+        "yearGrupo": 1970,
+        "genero": [
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Paulo Londra",
+              "Brian May",
+              "John Deacon",
+              "Roger Taylor",
+              "Mike Grose",
+              "Doug Bogie",
+              "Queen Barry Mitchell"
+            ],
+            "albumes": [
+              "Thriller",
+              "Made in Heaven"
+            ],
+            "canciones": [
+              "Billie Jean",
+              "Mother Love",
+              "Its A Beautiful Day",
+              "I Was Born To Love You",
+              "Living on my own",
+              "Plan A"
+            ],
+            "nombreGenero": "Rock"
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Rosalía",
+              "Beret"
+            ],
+            "albumes": [
+              "Thriller",
+              "El Mal Querer",
+              "Prisma"
+            ],
+            "canciones": [
+              "Thriller",
+              "Malamente",
+              "Preso",
+              "Living on my own",
+              "Ojalá",
+              "Esencial"
+            ],
+            "nombreGenero": "Pop"
+          },
+          {
+            "grupos": [
+              "Metallica",
+              "Queen"
+            ],
+            "artistas": [
+              "Freddie Mercury",
+              "Alan Ryker",
+              "James Heltfield",
+              "Cliff Burton",
+              "Lars Ulrich",
+              "Dave Mustaine",
+              "Kirk Hammett",
+              "Jason Newsted",
+              "Robert Trujillo",
+              "Ron McGovney",
+              "Brian May",
+              "John Deacon",
+              "Roger Taylor",
+              "Mike Grose",
+              "Doug Bogie",
+              "Queen Barry Mitchell"
+            ],
+            "albumes": [
+              "Made in Heaven",
+              "Master Of Puppets"
+            ],
+            "canciones": [
+              "Pulling Teeth",
+              "Its A Beautiful Day",
+              "I Was Born To Love You",
+              "Master Of Puppets",
+              "Battery",
+              "Disposable Heroes"
+            ],
+            "nombreGenero": "Metal"
+          }
+        ],
+        "albumes": [
+          {
+            "nombreAlbum": "Made in Heaven",
+            "autores": "Queen",
+            "genero": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              },
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "yearPublicacion": 1995,
+            "canciones": [
+              {
+                "nombre": "Mother Love",
+                "autor": "Queen",
+                "duracion": "4:50",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3300000
+              },
+              {
+                "nombre": "Its A Beautiful Day",
+                "autor": "Queen",
+                "duracion": "3:19",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 3000000
+              },
+              {
+                "nombre": "I Was Born To Love You",
+                "autor": "Queen",
+                "duracion": "4:56",
+                "genero": [
+                  {
+                    "grupos": [
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Michael Jackson",
+                      "Freddie Mercury",
+                      "Paulo Londra",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Thriller",
+                      "Made in Heaven"
+                    ],
+                    "canciones": [
+                      "Billie Jean",
+                      "Mother Love",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Living on my own",
+                      "Plan A"
+                    ],
+                    "nombreGenero": "Rock"
+                  },
+                  {
+                    "grupos": [
+                      "Metallica",
+                      "Queen"
+                    ],
+                    "artistas": [
+                      "Freddie Mercury",
+                      "Alan Ryker",
+                      "James Heltfield",
+                      "Cliff Burton",
+                      "Lars Ulrich",
+                      "Dave Mustaine",
+                      "Kirk Hammett",
+                      "Jason Newsted",
+                      "Robert Trujillo",
+                      "Ron McGovney",
+                      "Brian May",
+                      "John Deacon",
+                      "Roger Taylor",
+                      "Mike Grose",
+                      "Doug Bogie",
+                      "Queen Barry Mitchell"
+                    ],
+                    "albumes": [
+                      "Made in Heaven",
+                      "Master Of Puppets"
+                    ],
+                    "canciones": [
+                      "Pulling Teeth",
+                      "Its A Beautiful Day",
+                      "I Was Born To Love You",
+                      "Master Of Puppets",
+                      "Battery",
+                      "Disposable Heroes"
+                    ],
+                    "nombreGenero": "Metal"
+                  }
+                ],
+                "single": false,
+                "numReproducciones": 64000000
+              }
+            ]
+          }
+        ],
+        "oyentes": 49000000
+      },
+      {
         "nombreGrupo": "Los Chunguitos",
         "artistas": [
           {
