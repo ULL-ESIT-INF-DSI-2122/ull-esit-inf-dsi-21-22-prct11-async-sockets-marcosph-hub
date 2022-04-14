@@ -1,14 +1,9 @@
-import inquirer from 'inquirer';
 import { Album } from "../clases/album";
 import { Artistas } from "../clases/artistas";
 import { Cancion } from "../clases/cancion";
 import { GenerosMusicales } from "../clases/generosMusicales";
 import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
-import * as index from "../index";
-import * as inGrupos from "../clases/inquirer-Grupos";
-import * as inArtista from "../clases/inquirer_artista";
-import { addAlbum } from '../clases/inquirer-Album';
 //import {parse, stringify} from 'flatted';
 
 // CJS
@@ -241,42 +236,73 @@ export class BaseDatos{
         this.gruposArrayLista.push(nuevoGrupo);
         this.guardarBaseDatos();
     }
+    /**
+     * Método para añadir nueva playlist
+     * @param nuevoPlay añade nueva playlist
+     */
     addNuevoPlay(nuevoPlay: Playlist) {
         this.playUsuarioArrayLista.push(nuevoPlay);
         this.guardarBaseDatos();
     }
-
+    /**
+     * Método para borrar álbum del array de álbumes
+     * @param numeroAlbum número del álbum a eliminar
+     */
     delAlbum(numeroAlbum: number) {
         this.albumesArrayLista.splice(numeroAlbum, 1);
         this.guardarBaseDatos();
     }
-
+    /**
+     * Método para eliminar artistas del array artistas
+     * @param numeroArtista numero del artista a eliminar
+     */
     delArtista(numeroArtista: number) {
         this.artistasArrayLista.splice(numeroArtista, 1);
         this.guardarBaseDatos();
     }
-
+    /**
+     * Método para eliminar canciones del array de canciones
+     * @param numeroCancion a eliminar
+     */
     delCancion(numeroCancion: number) {
         this.cancionesArrayLista.splice(numeroCancion, 1);
         this.guardarBaseDatos();
     }
-
+    /**
+     * Método para eliminar grupos del array grupos
+     * @param numeroGrupos a eliminar
+     */
     delGrupos(numeroGrupos: number) {
         this.gruposArrayLista.splice(numeroGrupos, 1);
         this.guardarBaseDatos();
     }
-
+    /**
+     * Método para eliminar un género del array de géneros
+     * @param numeroGenero a eliminar
+     */
     delGenero(numeroGenero: number) {
         this.generosArrayLista.splice(numeroGenero, 1);
         this.guardarBaseDatos();
     }
+    /**
+     * 
+     * @param numero 
+     */
     delPlay(numero: number) {
         this.playArrayLista.splice(numero, 1);
         this.guardarBaseDatos();
     }
+    /**
+     * Getter de playlist del usuario
+     * @returns playlist del usuario
+     */
     getPlayLista(){
         return this.playUsuarioArrayLista;
     }
+    /**
+     * Setter de playlist del usuario
+     * @param lista a modificar
+     */
     setPlayLista(lista: Playlist[]){
         this.playUsuarioArrayLista = lista;
        this.guardarBaseDatos();

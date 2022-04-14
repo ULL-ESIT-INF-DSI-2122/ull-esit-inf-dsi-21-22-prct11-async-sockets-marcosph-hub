@@ -1,18 +1,13 @@
 import inquirer from 'inquirer';
 import { Playlist } from "../clases/playlist";
-import { Album } from "./album";
-import { Artistas } from "./artistas";
 import { Cancion } from "./cancion";
-import { GenerosMusicales } from "./generosMusicales";
-import { Grupos } from "./grupos";
 import { menuPrincipal, db } from './inquirer';
 import * as InquirerFile from "./inquirer";
 import * as index from "../index";
 
-type doble = {
-  nombre: string;
-  anio: number;
-}
+/**
+ * Enum ComandsGestionPlay
+ */
 export enum CommandsGestionPlay {
   AlfTitCancionAsc = `Canciónes alfabeticamente por título (Ascendente)`,
   AlfTitCancionDesc = `Canciónes alfabeticamente por título  (Descendente)`,
@@ -28,16 +23,25 @@ export enum CommandsGestionPlay {
   NumRepTotalDesc = `Número de reproducciones totales (Descendente)`,
   Salir = `Salir al menú principal`
 }
+/**
+ * Enum CommandsCrearPlay
+ */
 export enum CommandsCrearPlay {
   New = `Crear una Playlis nueva`,
   Exist = `Crear una Playlist a partir de una existente`,
   Salir = `Salir al menú principal`
 }
+/**
+ * Enum Borrar o Añadir canciones
+ */
 export enum BoA {
  Borrar = `Borrar canciones`,
   Añadir = `Añadir canciones`,
   Salir = `Salir al menú principal`
 }
+/**
+ * Funcion PrePlaylist
+ */
 export async function PrePlaylist() {
   //console.table(index.playlists);
   index.playlists.forEach(element =>{
@@ -48,6 +52,10 @@ export async function PrePlaylist() {
   })
   InquirerFile.menuOpcionPlaylist();
 } 
+/**
+ * Funcion AlfTitCancionAsc
+ * @param play playlist object
+ */
 export async function AlfTitCancionAsc(play: Playlist) {
   console.clear();
   console.log(`Canciones de Playlist ${play.getNombrePlaylist()} ordenadas ascendentemente:`);
@@ -56,6 +64,10 @@ export async function AlfTitCancionAsc(play: Playlist) {
   menuOpcionesAvanzadasPlay(play);
 
 }
+/**
+ * Funcion AlfAutorAsc
+ * @param play playlist object
+ */
 export async function AlfAutorAsc(play: Playlist) {
   console.clear();
   console.log(`Canciones de Playlist ${play.getNombrePlaylist()} ordenadas ascendentemente:`);
@@ -73,6 +85,10 @@ export async function AlfAutorAsc(play: Playlist) {
   menuOpcionesAvanzadasPlay(play);
 
 }
+/**
+ * Funcion AlfAutorDesc
+ * @param play playlist object
+ */
 export async function AlfAutorDesc(play: Playlist) {
   console.clear();
   console.log(`Canciones de Playlist ${play.getNombrePlaylist()} ordenadas ascendentemente:`);
@@ -90,6 +106,10 @@ export async function AlfAutorDesc(play: Playlist) {
   menuOpcionesAvanzadasPlay(play);
 
 }
+/**
+ * Funcion AlfTitCancionDesc
+ * @param play playlist object
+ */
 export async function AlfTitCancionDesc(play: Playlist) {
   console.clear();
   console.log(`Canciones de Playlist ${play.getNombrePlaylist()} ordenadas descendentemente:`);
@@ -98,6 +118,10 @@ export async function AlfTitCancionDesc(play: Playlist) {
   menuOpcionesAvanzadasPlay(play);
 
 }
+/**
+ * Funcion AnioLanzDesc
+ * @param play playlist object
+ */
 export async function AnioLanzDesc(play: Playlist) {
   console.clear();
   console.log(`Canciones de Playlist ${play.getNombrePlaylist()} ordenadas por año de lanzamiento ascendete:`);
@@ -127,6 +151,10 @@ export async function AnioLanzDesc(play: Playlist) {
   //console.log(anioCancion.sort().reverse);
   menuOpcionesAvanzadasPlay(play);
 }
+/**
+ * Funcion AnioLanzAsc
+ * @param play playlist object
+ */
 export async function AnioLanzAsc(play: Playlist) {
   console.clear();
   console.log(`Canciones de Playlist ${play.getNombrePlaylist()} ordenadas por año de lanzamiento ascendete:`);
@@ -156,6 +184,10 @@ export async function AnioLanzAsc(play: Playlist) {
   //console.log(anioCancion.sort().reverse);
   menuOpcionesAvanzadasPlay(play);
 }
+/**
+ * AlfDuracionAsc
+ * @param play playlist object
+ */
 export async function AlfDuracionAsc(play: Playlist) {
   
       //console.clear();
@@ -176,6 +208,10 @@ export async function AlfDuracionAsc(play: Playlist) {
       console.log(``);
       menuOpcionesAvanzadasPlay(play);
 }
+/**
+ * Funcion AlfDuracionDesc
+ * @param play playlist object
+ */
 export async function AlfDuracionDesc(play: Playlist) {
   
   //console.clear();
@@ -196,6 +232,10 @@ export async function AlfDuracionDesc(play: Playlist) {
   console.log(``);
   menuOpcionesAvanzadasPlay(play);
 }
+/**
+ * Funcion NumRepTotalAsc
+ * @param play playlist object
+ */
 export async function NumRepTotalAsc(play: Playlist) {
   
   //console.clear();
@@ -216,6 +256,10 @@ export async function NumRepTotalAsc(play: Playlist) {
   console.log(``);
   menuOpcionesAvanzadasPlay(play);
 }
+/**
+ * Funcion AlfgeneroAsc
+ * @param play playlist object
+ */
 export async function AlfgeneroAsc(play: Playlist) {
   
   //console.clear();
@@ -257,6 +301,10 @@ export async function AlfgeneroAsc(play: Playlist) {
   console.log(``);
   menuOpcionesAvanzadasPlay(play);
 }
+/**
+ * Funcion AlfgeneroDesc
+ * @param play playlist object
+ */
 export async function AlfgeneroDesc(play: Playlist) {
   
   //console.clear();
@@ -299,6 +347,10 @@ export async function AlfgeneroDesc(play: Playlist) {
   console.log(``);
   menuOpcionesAvanzadasPlay(play);
 }
+/**
+ * Funcion NumRepTotalDesc
+ * @param play playlist object
+ */
 export async function NumRepTotalDesc(play: Playlist) {
   
   console.clear();
@@ -320,6 +372,10 @@ export async function NumRepTotalDesc(play: Playlist) {
   console.log(``);
   menuOpcionesAvanzadasPlay(play);
 }
+/**
+ * Menu Opciones Avanzadas de Playlist
+ * @param play_ playlist object
+ */
 export async function menuOpcionesAvanzadasPlay(play_: Playlist) {
   const respuestaOpAvanzadas = await inquirer.prompt({
     type: 'list',
@@ -370,6 +426,9 @@ export async function menuOpcionesAvanzadasPlay(play_: Playlist) {
       break;
   }
 }
+/**
+ * Funcion NombrePlay
+ */
 export async function NombrePlay() {
   const nombrePlay = await inquirer.prompt({
     type: 'input',
@@ -392,6 +451,11 @@ export async function NombrePlay() {
     menuOpcionesAvanzadasPlay(index.playlists[numero]);
   }
 }
+/**
+ * Funcion delCancionPlay
+ * @param cancion array de canciones
+ * @returns array modificado
+ */
 export async function delCancionPlay(cancion: Cancion[]){
   const cancionNombre = await inquirer.prompt( {
     type: "input",
@@ -416,6 +480,11 @@ export async function delCancionPlay(cancion: Cancion[]){
       cancion.splice(numeroCancion_, 1);
     }
 }
+/**
+ * Funcion addCancionPlay
+ * @param cancion array de canciones
+ * @returns array modificada
+ */
 export async function addCancionPlay(cancion: Cancion[]){
   const cancionNombre = await inquirer.prompt( {
     type: "input",
@@ -453,6 +522,9 @@ export async function addCancionPlay(cancion: Cancion[]){
         break;
     }
 }
+/**
+ * Funcion addPlay
+ */
 export async function addPlay(){
   const nombrePlay = await inquirer.prompt( {
     type: "input",
@@ -468,6 +540,9 @@ export async function addPlay(){
   console.clear();
   InquirerFile.menuPrincipal();
 }
+/**
+ * Funcion addPlayExistente
+ */
 export async function addPlayExistente(){
 
   const nombrePlayE = await inquirer.prompt( {
@@ -521,6 +596,9 @@ export async function addPlayExistente(){
   InquirerFile.menuPrincipal();
   } 
 }
+/**
+ * Funcion borrarPlay
+ */
 export async function borrarPlay() {
   const nombrePlayE = await inquirer.prompt( {
     type: "input",
@@ -552,6 +630,9 @@ export async function borrarPlay() {
     }
 
 }
+/**
+ * Funcion crearPlay
+ */
 export async function crearPlay() {
   const respuestacrear = await inquirer.prompt({
     type:  'list',
