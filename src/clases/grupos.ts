@@ -73,9 +73,7 @@ export class Grupos {
 	 * @returns artistas
 	 */
 	 getArtistas_(){
-		
 		return this.artistas
-		
 	}
 
 	/**
