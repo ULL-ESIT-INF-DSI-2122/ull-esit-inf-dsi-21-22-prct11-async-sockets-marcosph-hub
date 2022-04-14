@@ -30,21 +30,39 @@ describe ('Test ejercicio 7',() => {
     cancion1.setSingle(true);
     expect(cancion1.getSingle()).to.eql (true);
   });
-  it ('Métodos de la clase Artista',() => {
+  describe ('Métodos de la clase Artista',() => { 
     expect(artista1 instanceof Artistas).to.eql (true);
+    it ('Probando metodo setNombreArtista() y getNombreArtista()',() => { 
     artista1.setNombreArtista(`Pepe Benavente`);
     expect(artista1.getNombreArtista()).to.eql ('Pepe Benavente');
-    artista1.setGrupos(["Pepe Benavente"]);
-    expect(artista1.getGrupos()).to.eql ([`Pepe Benavente`]);
-   artista1.setCanciones([cancion1,cancion2]);
-    expect(artista1.getCanciones()).to.eql ([`El polvorete`, 'Thriller']);
-    artista1.setGeneros([Pop, Metal]);
-    expect(artista1.getGeneros()).to.eql ([`Pop`, `Metal`]);
-    artista1.setOyentes(1000000);
-    expect(artista1.getOyentes()).to.eq (1000000);
-    expect(artista1.getGrupoSize()).to.eql (1);
-    artista1.setAlbumes([album1]);
-   expect(artista1.getAlbumes()).to.eql ([`Thriller`]);
+    });
+    it ('Probando metodo setGrupos() y getGrupos()',() => {
+      artista1.setGrupos(["Pepe Benavente"]);
+      expect(artista1.getGrupos()).to.eql ([`Pepe Benavente`]);
+    });
+    it ('Probando metodo setGrupos() y getGrupos()',() => {
+      artista1.setGrupos(["Pepe Benavente"]);
+      expect(artista1.getGrupos()).to.eql ([`Pepe Benavente`]);
+    });
+    it ('Probando metodo setCanciones() y getCanciones()',() => {
+      artista1.setCanciones([cancion1,cancion2]);
+      expect(artista1.getCanciones()).to.eql ([ 'Pulling Teeth', 'Thriller' ]);
+    });
+    it ('Probando metodo setCanciones() y getCanciones()',() => {
+      artista1.setGeneros([Pop, Metal]);
+      expect(artista1.getGeneros()).to.eql ([`Pop`, `Metal`]);
+    });
+    it ('Probando metodo setOyentes() y getOyentes()',() => {
+      artista1.setOyentes(1000000);
+      expect(artista1.getOyentes()).to.eq (1000000);
+    });
+    it ('Probando metodo getGrupoSize()',() => {
+      expect(artista1.getGrupoSize()).to.eql (1);
+    });
+    it ('Probando metodo setOyentes() y getOyentes()',() => {
+      artista1.setAlbumes([album1]);
+      expect(artista1.getAlbumes()).to.eql ([`Thriller`]);
+    });
   });
   it ('Métodos de la clase Grupo',() => {
     expect(grupo1 instanceof Grupos).to.eql (true);

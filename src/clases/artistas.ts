@@ -176,15 +176,14 @@ export class Artistas {
 		this.grupos = []
 		this.grupos = grupo;
 	}
-		/**
-	 * Setter del grupo que invoca al artista
-	 * @param grupo del artista
-	 */
-		 autoSetGrupos(grupo: string, oyentes: number){
-			this.grupos.push(grupo);
-			this.oyentegrupo.push(oyentes);
-		}
-
+	/**
+ * Setter del grupo que invoca al artista
+ * @param grupo del artista
+ */
+		autoSetGrupos(grupo: string, oyentes: number){
+		this.grupos.push(grupo);
+		this.oyentegrupo.push(oyentes);
+	}
 
 	/**
 	 * Setter del genero del artista
@@ -235,12 +234,12 @@ export class Artistas {
 	 * Setter de los oyentes 
 	 * @param oyentes mensuales
 	 */
-	setOyentes(oyentes: number){
+	setOyentes(oyentes: number) {
 		let oyentesgrupales: number = 0;
-		for(let i: number = 0; i < this.getGrupoSize(); i++){
-			oyentesgrupales = oyentesgrupales + this.oyentegrupo[i];
+		for(let i: number = 0; i < this.getGrupoSize(); i++) {
+			oyentesgrupales = oyentesgrupales + Number(this.oyentegrupo[i]);
 		}
-		this.oyentes = oyentes + oyentesgrupales;
+		this.oyentes = oyentes;
 	}
 /*	public static deserialize(cancion: Artistas[]){
 		const myCanciones: Artistas[] = [];
