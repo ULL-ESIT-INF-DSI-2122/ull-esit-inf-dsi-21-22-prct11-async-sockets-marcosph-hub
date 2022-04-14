@@ -240,3 +240,28 @@ export async function menuModificarGrupo() {
     modificarGrupo(GrupoIndex);
   }
 }
+
+export async function menuDelGrupo() {
+  const grupoBorrar = await inquirer.prompt({
+    type: 'input',
+    name: `borrar`,
+    message: `Introduce el nombre del Grupo que quieres borrar`,
+  })
+  let nombreGrupoBorrar: string = grupoBorrar["borrar"];
+  let indexGenero: number = -1;
+  for(let i: number = 0; i < index.grupos.length; i++){
+      if(index.grupos[i].getNombreGrupo() === nombreGrupoBorrar){
+      indexGenero = i;
+      break;
+      }
+  }
+  if(indexGenero === -1){
+      console.log(`No existe un álbum con ese nombre`);
+      return 0;
+  } 
+  else {
+    InquirerFile.db.delGrupos(indexGenero);
+  }
+  console.clear();
+  InquirerFile.menuPrincipal();
+}

@@ -311,24 +311,19 @@ export async function menuDelAlbum() {
   })
   let nombreAlbumBorrar: string = albumBorrada["borrar"];
   let numeroAlbum: number = -1;
-    for(let i: number = 0; i < index.albumes.length; i++){
-        if(index.albumes[i].getNombreAlbum() === nombreAlbumBorrar){
-        numeroAlbum = i;
-        break;
-        }
-    }
-    if(numeroAlbum === -1){
-        console.log(`No existe un álbum con ese nombre`);
-        return 0;
-    } 
-    else {
-      InquirerFile.db.delAlbum(numeroAlbum);
-    }
- /* 
+  for(let i: number = 0; i < index.albumes.length; i++){
+      if(index.albumes[i].getNombreAlbum() === nombreAlbumBorrar){
+      numeroAlbum = i;
+      break;
+      }
+  }
+  if(numeroAlbum === -1){
+      console.log(`No existe un álbum con ese nombre`);
+      return 0;
+  } 
   else {
-    index.albumes.splice(numeroAlbum, 1);
-    InquirerFile.db.guardarBaseDatos();
-  }*/
+    InquirerFile.db.delAlbum(numeroAlbum);
+  }
   console.clear();
   menuPrincipal();
 }

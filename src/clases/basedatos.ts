@@ -238,4 +238,14 @@ export class BaseDatos{
         this.cancionesArrayLista.splice(numeroCancion, 1);
         this.guardarBaseDatos();
     }
+
+    delGrupos(numeroGrupos: number) {
+        this.gruposArrayLista.splice(numeroGrupos, 1);
+        this.guardarBaseDatos();
+    }
+
+    delGenero(numeroGenero: number) {
+        this.generosArrayLista.splice(numeroGenero, 1);
+        this.guardarBaseDatos();
+    }
 }
