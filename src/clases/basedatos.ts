@@ -66,6 +66,18 @@ type dbtype = {
 	    albumes: Album[];
 	    oyentes: number;
     }[];
+    playlist: {
+        nombrePlaylist: string;
+	    canciones: Cancion[];
+	    duracion: string;
+	    generos: GenerosMusicales[];
+    }[];
+    playlistUsuario: {
+        nombrePlaylist: string;
+	    canciones: Cancion[];
+	    duracion: string;
+	    generos: GenerosMusicales[];
+    }[];
 };
 
 /**
@@ -82,8 +94,10 @@ export class BaseDatos{
     public albumesArrayLista: Album[];
     public artistasArrayLista: Artistas[];
     public gruposArrayLista: Grupos[];
+    public playArrayLista: Playlist[];
+    public playUsuarioArrayLista: Playlist[];
 
-    constructor(generosArray: GenerosMusicales[] = [], cancionesArray: Cancion[] = [], albumesArray: Album[] = [], artistasArray: Artistas[] = [], gruposArray: Grupos[] = []) {
+    constructor(generosArray: GenerosMusicales[] = [], cancionesArray: Cancion[] = [], albumesArray: Album[] = [], artistasArray: Artistas[] = [], gruposArray: Grupos[] = [], playlistArray: Playlist[] = []) {
         // Primera construccion
         this.basedatos = lowdb(new FileSync("data.json"));
         //this.database = lowdb(new FileSync("data.json"));
@@ -149,6 +163,8 @@ export class BaseDatos{
         this.albumesArrayLista = albumesArray;
         this.artistasArrayLista = artistasArray;
         this.gruposArrayLista = gruposArray;
+        this.playArrayLista = playlistArray;
+        this.playUsuarioArrayLista = [];
        // console.log(this.cancionesArrayLista);
         //this.basedatos.set("canciones", [this.cancionesArrayLista]).write();
         //console.log(generosArray);
@@ -177,6 +193,8 @@ export class BaseDatos{
         this.basedatos.set("albumes", [this.albumesArrayLista]).write();
         this.basedatos.set("artistas", [this.artistasArrayLista]).write();
         this.basedatos.set("grupos", [this.gruposArrayLista]).write();
+        this.basedatos.set("playlist", [this.playArrayLista]).write();
+        this.basedatos.set("playlistUsuario", [this.playUsuarioArrayLista]).write();
     }
 
     /**
@@ -223,6 +241,10 @@ export class BaseDatos{
         this.gruposArrayLista.push(nuevoGrupo);
         this.guardarBaseDatos();
     }
+    addNuevoPlay(nuevoPlay: Playlist) {
+        this.playUsuarioArrayLista.push(nuevoPlay);
+        this.guardarBaseDatos();
+    }
 
     delAlbum(numeroAlbum: number) {
         this.albumesArrayLista.splice(numeroAlbum, 1);
@@ -247,5 +269,16 @@ export class BaseDatos{
     delGenero(numeroGenero: number) {
         this.generosArrayLista.splice(numeroGenero, 1);
         this.guardarBaseDatos();
+    }
+    delPlay(numero: number) {
+        this.playArrayLista.splice(numero, 1);
+        this.guardarBaseDatos();
+    }
+    getPlayLista(){
+        return this.playUsuarioArrayLista;
+    }
+    setPlayLista(lista: Playlist[]){
+        this.playUsuarioArrayLista = lista;
+       this.guardarBaseDatos();
     }
 }
