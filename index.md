@@ -15,7 +15,7 @@ Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts*
 ## ÍNDICE
 
 1. Herramientas para el Desarrollo de la Práctica.
-2. Explicación.
+2. Explicación y funcionamiento.
 3. Clases
 
     3.1. Clase Géneros Musicales
@@ -36,11 +36,13 @@ Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts*
 
     3.9. Fichero Inquirer-filtrado
 
+    3.10. Fichero Inquirer-Playlist
+
+    3.11. Fichero basedatos.ts
+
 4. Test
-5. Desarrollo del informe con GitHub Pages
-6. Dificultades
-7. Conclusiones
-8. Referencias
+5. Dificultades
+6. Referencias
 
 
 ## Herramientas para el Desarrollo de la Práctica.
@@ -66,12 +68,18 @@ Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediant
 ![Muestra de distintos WorkFlows de GitHub Actions](./assets/images/GHActions-sample.PNG)
 
 
-## Explicación. 
+## Explicación y funcionamiento. 
 En **index.ts** se crean los objetos de las clases, es decir, es el que contiene los **import** de todas las clases.
 
 Para la creación de las clases se van a ir actualizando en función se vayan creando objetos. Por ejemplo: una vez añadida una canción, se añade la canción al genero musical que la incluye.
 
 Se ha utilizado el módulo [Inquirer.js](https://www.npmjs.com/package/inquirer) para realizar una gestión de manera interactiva de nuestra aplicación. De este modo, añadiremos, eliminaremos y modificaremos géneros, **canciones**, **álbumes**, **grupos** y **artistas**. 
+
+Para ejecutar el código principal del programa que tiene los distintos menús se ejecuta el comando:
+
+> `npm run start`
+
+
 El primer menú o **Menu Principal** contiene las funcionalidades siguientes:
 
 ![Menu Principal](./assets/images/menuPrincipal.png)
@@ -518,12 +526,12 @@ Se ejecuta el comando para mostrar el menú principal del programa:
 
 Como se comprueba hay distintas opciones:
 
-- [x] Añadir -> Permite añadir canciones, géneros musicales, álbum, artista, grupo o salir(Finalizar).
-- [x] Borrar -> 
-- [x] Modificar ->
-- [x] Opciones Avanzadas
-- [x] Visualizar Playlist
-- [x] Salir -> Finaliza y sale
+- [x] Añadir -> Permite añadir canciones, géneros musicales, álbum, artista, grupo o salir(Volver Atrás).
+- [x] Borrar -> Permite borrar canciones, géneros musicales, álbum, artista, grupo o salir(Volver Atrás).
+- [x] Modificar -> Permite modificar canciones, géneros musicales, álbum, artista, grupo o salir(Volver Atrás).
+- [x] Opciones Avanzadas -> Permite la gestión avanzada de grupos y artistas, por ello primero se pide especificar entre grupo o artista, y así navegar la información asociada a estás entidades. Por lo tanto, dentro del sistema se podrá visualizar los álbumes, canciones y playlists asociados a un grupo y/o artista que se haya indicado el nombre y el cual exista. Luego comprobar la información por orden alfabético por título de canción, nombre de playlist, año de lanzamiento de álbum, etc. Y todo ello con posibilidad de ir atrás con la opción __Salir__.
+- [x] Visualizar Playlist -> Es la que permite gestionar playlist. Con la opción __Previsualizar las playlist__ muestra las playlist que contiene el sistema. Luego, con la opción __Navegar una playlist__  permite tras introducir el nombre de la playlist ver información ordenada alfabéticamente por título de la canción, por duración de la canción, etc. Y todo ello con posibilidad de ir atrás con la opción __Salir__. A continuación, la opción __Crear una playlist__ permite crear una playlist desde cero (opción __Crear una playlist nueva__) o propia a partir de una existente en el sistema (opción __Crear una playlist a partir de una existente__). Y todo ello con posibilidad de ir atrás con la opción __Salir__. Finalmente la opción __Borrar Playlist__ permite al usuario borrar una playlist, pero solo si esta ha sido creada por él, es decir, no se podrá borrar una playlist pre-cargada en el sistema. Este borrado se explica con un array copia del array original del sistema, este array copia se indica sólo para el usuario, es al que este podrá acceder para borrar y se verá más explicado en el apartado _Fichero basedatos.ts_ de este informe. 
+- [x] Salir -> Finaliza el prompt de Inquirer.
 
 Una vez accedemos al menú **Añadir**, podemos observar las opciones:  
 
@@ -542,6 +550,7 @@ Como cabría esperar, el menú **Modificar** consta de los mismos valores a modi
 El código de dichos menús es:
 
 ```typescript
+// Menús
 /**
  * @function menuAdd menu para añadir cancion, género, álbum, artista o grupo
  */
@@ -567,10 +576,12 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         //addGrupo();
-
         inGrupos.addGrupo();
         //console.log(`añadiendo una grupo`);
         break;
+      case CommandsClases.Salir:
+        await menuPrincipal();
+        return 0;
     }
 }
 
@@ -586,28 +597,25 @@ export async function menuAdd(){
     })
     switch(respuestaDel["command"]) {
       case CommandsClases.Cancion:
-        //delCancion();
-       console.log(`eliminndo una cancion`);
+        await menuDelCancion();
         break;
       case CommandsClases.GeneroMusical:
-        //delGeneroMusical();
-        console.log(`eliminndo una genero musical`);
+        await menuDelGenero();
+        
         break;
       case CommandsClases.Album:
-        delAlbum();
+        await menuDelAlbum();
         break;
       case CommandsClases.Artista:
-        //delArtista();
-        console.log(`eliminndo una artista`);
+        await menuDelArtista();
         break;
       case CommandsClases.Grupo:
-        //delGrupo();
-        console.log(`eliminnndo una grupo`);
+        menuDelGrupo();
+        
         break;
-        case CommandsClases.Salir:
-          await menuPrincipal();
-          return 0;
-          break;
+      case CommandsClases.Salir:
+        await menuPrincipal();
+        return 0;
     } 
 }
 
@@ -640,12 +648,71 @@ export async function menuAdd(){
         //console.log(`modificando una grupo`);
         inGrupos.menuModificarGrupo();
         break;
-      case CommandsClases.Salir:
-           menuPrincipal();
-      
-      break;
+        case CommandsClases.Salir:
+          await menuPrincipal();
+          return 0;
     }
 }
+
+[...]
+
+/**
+ * @function menuOpcionesAvanzadas menu para visualizar de los grupos y artistas de distintas maneras
+ */
+export async function menuOpcionGrupoArtista(){
+  const respuestaOpAvanzadas = await inquirer.prompt({
+    type: 'list',
+    name: `command`, 
+    message: `Elige si quieres visualizar la información de grupos o artistas`,
+    choices: Object.values(CommandsGrupoArtista)
+  })
+  switch(respuestaOpAvanzadas["command"]) {
+    case CommandsGrupoArtista.Grupo:
+      menuNombreGrupo();
+      break;
+    case CommandsGrupoArtista.Artista:
+      menuNombreArtista();
+      break;
+    case CommandsGrupoArtista.Salir:
+        console.clear();
+        menuPrincipal();
+        break;
+  }
+}
+
+/**
+ * @function menuPrincipal menu principal donde se manejan los submenus y los comandos
+ * @returns 
+ */
+export async function menuPrincipal(){
+    const respuesta = await inquirer.prompt({
+      type: 'list',
+      name: `command`, 
+      message: `Elige opción`,
+      choices: Object.values(Commands)
+    })
+    switch(respuesta["command"]) {
+      case Commands.Add:
+         menuAdd();
+        break;
+      case Commands.Borrar:
+         menuDel();
+        break;
+      case Commands.Modificar:
+         menuMod();
+        break;
+      case Commands.OpcionesAvanzadas:
+        menuOpcionGrupoArtista();
+        break;
+      case Commands.Playlist:
+      menuOpcionPlaylist();
+      break;
+      case Commands.Salir:
+        return;
+    }
+}
+
+menuPrincipal();
 ```
 
 
@@ -656,7 +723,12 @@ Cada fichero tendrá estos métodos de añadir, modificar y borrar.
 El método añadir se denotará tal que __add[Cancion | Genero | Album | Grupo | Artista] ()__, el modificar tal que __mod[Cancion | Genero | Album | Grupo | Artista] ()__ y el método borrar tal que __del[Cancion | Genero | Album | Grupo | Artista] ()__.
 
 
-Por otro lado está el menú que maneja el apartado de __Opciones Avanzadas__ de la terminal. Este menú se encarga de recibir si se requiere visualizar la información de un grupo o de un artista. Y dependiendo de ello comprueba si el nombre del grupo o artista concuerda con alguno de los ya existentes, esto se comprueba mediante los dos menús denotados por __menuNombreGrupo()__ y __menuNombreArtista()__:
+Por otro lado está el menú que maneja el apartado de __Opciones Avanzadas__ de la terminal. 
+
+![Menu Opciones Avanzadas](./assets/images/menuOpAv1.jpg)
+
+
+Este menú se encarga de recibir si se requiere visualizar la información de un grupo o de un artista. Y dependiendo de ello comprueba si el nombre del grupo o artista concuerda con alguno de los ya existentes, esto se comprueba mediante los dos menús denotados por __menuNombreGrupo()__ y __menuNombreArtista()__:
 
 ```typescript
 /**
@@ -723,14 +795,14 @@ Si no existe el nombre entonces se repite la llamada al actual menú, en caso co
 
 Mostrándose por terminal:
 
-![Menu Opciones Avanzadas](./assets/images/menuopcionesavanzadas.png)
+![Menu Opciones Avanzadas](./assets/images/menuopcionesavanzadas.jpg)
 
 
 El código se muestra tal que una selección de casos entre las distintas opciones de visualización de la información, donde se le pasa el nombre del autor (Artista o Grupo) y este llama a los métodos correspondientes alojados en el fichero **inquirer-filtrado.ts** que tiene como alias **InquirerFiltrado**:
 
 ```typescript
 /**
- * @function menuOpcionesAvanzadas2 menu para visualizar de los grupos y artistas de distintas maneras 
+ * @function menuOpcionesAvanzadas menu para visualizar de los grupos y artistas de distintas maneras 
  * (alfabeticamente por titulo de canción, años de lanzamiento, número de reproducciones, etc)
  */
  export async function menuOpcionesAvanzadas(autor_: Artistas | Grupos) {
@@ -782,6 +854,48 @@ El código se muestra tal que una selección de casos entre las distintas opcion
   }
 }
 ```
+
+Dichas funciones se explican en el siguiente apartado de  _Fichero Inquirerfiltrado_ de este informe.
+
+
+Finalmente, se encuentra el menú encargado de la gestión de las playlists que se denota por ```menuOpcionPlaylist```:
+
+```typescript
+export async function menuOpcionPlaylist(){
+  //console.clear();
+   const respuestaPlay = await inquirer.prompt({
+     type: 'list',
+     name: `command`, 
+     message: `Elige opción sobre Playlist `,
+     choices: Object.values(CommandsPlay)
+   })
+   switch(respuestaPlay["command"]) {
+     case CommandsPlay.Previsualizar:
+        inPlay.PrePlaylist();
+       break;
+     case CommandsPlay.Navegar:
+     inPlay.NombrePlay();
+       //inGenero.menuModGenero();
+       break;
+    case CommandsPlay.Crear:
+    inPlay.crearPlay();
+      //inGenero.menuModGenero();
+      break;
+      case CommandsPlay.Borrar:
+    inPlay.borrarPlay();
+      //inGenero.menuModGenero();
+      break;
+     case CommandsPlay.Salir:
+       console.clear();
+          menuPrincipal();
+     
+     break;
+   }
+}
+```
+
+Este menú según las opciones antes explicadas de creación, visualización de playlist, etc. Llama así al __inPlay__ que es el alias del fichero __inquirer-Playlist__ que tiene el manejo de dichas funciones y se explica en el apartado _Fichero Inquirer-Playlist_ de este informe.
+
 
 ### Fichero Inquirer-filtrado
 
@@ -842,6 +956,441 @@ flag = auxCanciones[i].getSingle();
 Entonces si es true se sabe que es un single esa canción y por tanto se añade al array auxiliar y se muestra por pantallas todas aquellas canciones del grupo o artista que son singles.
 
 
+### Fichero Inquirer-Playlist
+
+Primero se encuentra algunos enum que tiene los comandos con las opciones con las que constaría el usuario para la visualización, creación y borrado de las playlist.
+
+Este menú al seleccionar la opción __Visualizar Playlist__ del menú principal se muestra tal que:
+
+![Menu Visualizar playlist](./assets/images/menuvisualizarplaylist.jpg)
+
+Con la opción __Previsualizar las playlists__ se previsualiza todas las playlist existentes dentro del sistema.
+
+Mostrándose tal que:
+
+![Menu previsualizar las playlist](./assets/images/previsualizarplaylist.jpg)
+
+Siendo el código una muestra de las playlist tal que:
+
+```typescript
+/**
+ * Funcion PrePlaylist
+ */
+export async function PrePlaylist() {
+  //console.table(index.playlists);
+  index.playlists.forEach(element =>{
+    console.log(`Nombre de la Playlist: ${element.getNombrePlaylist()}
+    Generos musicales: ${element.getGeneros()}
+    Duración: ${element.getDuracion()} \n`);
+
+  })
+  InquirerFile.menuOpcionPlaylist();
+} 
+```
+
+La otra opción de este menú es Navegar una playlist la cual permite visualizar las canciones dentro de la playlist y decidir en qué orden desea que aparezcan con su información ordenada según lo especificado. Para ello primero se requiere el nombre de la playlist, que en caso de no existir permite volver a introducir un nombre de las playlist existentes. Mostrándose tal que:
+
+![Menu navegar playlist 1](./assets/images/menunavegarplaylist1.jpg)
+
+
+Por ejemplo al seleccionar _Canciones alfabeticamente por título ascendente_. Se muestra tal que:
+
+![Menu navegar playlist 2](./assets/images/menunavegarplaylist2.jpg)
+
+Estas funciones se implementaron con la lógica similar a la antes nombrada para la visualización de información de los grupos y artistas pero específica para playlist y con funciones specíficas. Cuyo menú de manejo de estas funciones es:
+
+```typescript
+/**
+ * Menu Opciones Avanzadas de Playlist
+ * @param play_ playlist object
+ */
+export async function menuOpcionesAvanzadasPlay(play_: Playlist) {
+  const respuestaOpAvanzadas = await inquirer.prompt({
+    type: 'list',
+    name: `command`, 
+    message: `Elige cómo visualizar la información:`,
+    choices: Object.values(CommandsGestionPlay)
+  })
+  switch(respuestaOpAvanzadas["command"]) {
+    case CommandsGestionPlay.AlfTitCancionAsc:
+      AlfTitCancionAsc(play_);
+      break;
+    case CommandsGestionPlay.AlfTitCancionDesc:
+      AlfTitCancionDesc(play_);
+      break;
+    case CommandsGestionPlay.AlfGoAAsc:
+     AlfAutorAsc(play_);
+      break;
+    case CommandsGestionPlay.AlfGoADesc:
+      AlfAutorDesc(play_);
+      break;
+    case CommandsGestionPlay.AlfduracionCanAsc:
+      AlfDuracionAsc(play_);
+      break;
+    case CommandsGestionPlay.AlfduracionCanDesc:
+      AlfDuracionDesc(play_);
+      break;
+    case CommandsGestionPlay.AlfgeneroAsc:
+     AlfgeneroAsc(play_);
+      break;
+    case CommandsGestionPlay.AlfgeneroDesc:
+      AlfgeneroDesc(play_);
+            break;
+    case CommandsGestionPlay.AnioLanzCancionAsc:
+      AnioLanzAsc(play_);
+      break;
+    case CommandsGestionPlay.AnioLanzCancionDesc:
+      AnioLanzDesc(play_);
+      break;
+    case CommandsGestionPlay.NumRepTotalAsc:
+      NumRepTotalAsc(play_);
+      break;
+      case CommandsGestionPlay.NumRepTotalDesc:
+        NumRepTotalDesc(play_);
+      break;
+    case CommandsGestionPlay.Salir:
+      console.clear();
+      menuPrincipal();
+      break;
+  }
+}
+```
+
+Y dicho menú contiene la opción de salir al menú principal.
+
+Por otro lado está la opción de __Crear una playlist__, esta como se indicó permite crear una playlist desde cero (opción __Crear una playlist nueva__) o propia a partir de una existente en el sistema (opción __Crear una playlist a partir de una existente__). Y todo ello con posibilidad de ir atrás con la opción __Salir__.
+
+![Menu Crear playlist](./assets/images/menucrearplaylist.jpg)
+
+Cuyo menú se implementó tal que:
+
+```typescript
+/**
+ * Funcion crearPlay
+ */
+export async function crearPlay() {
+  const respuestacrear = await inquirer.prompt({
+    type:  'list',
+    name: `command`, 
+    message: `Elige opción sobre Playlist `,
+    choices: Object.values(CommandsCrearPlay)
+  })
+  switch(respuestacrear["command"]) {
+    case CommandsCrearPlay.New:
+       addPlay();
+      break;
+    case CommandsCrearPlay.Exist:
+      addPlayExistente();
+      //inGenero.menuModGenero();
+      break;
+    case CommandsCrearPlay.Salir:
+      console.clear();
+         menuPrincipal();
+    
+    break;
+  }
+}
+```
+
+El método __addPlay()__ es para crear una nueva desde cero y el método __addPlayExistente()__ a partir de una existente preguntando así el nombre de dicha playlist y comprobando que esta existe.
+
+```typescript
+/**
+ * Funcion addPlayExistente
+ */
+export async function addPlayExistente(){
+
+  const nombrePlayE = await inquirer.prompt( {
+    type: "input",
+    name: "nombre",
+    message: "Introduce el nombre de la playlist: "
+  })
+  let nombre_E: string = nombrePlayE["nombre"];
+  let numeroplay_: number = -1;
+  for(let i: number = 0; i < index.playlists.length; i++){
+    if(index.playlists[i].getNombrePlaylist() === nombre_E){
+      numeroplay_ = i;
+      break;
+    }
+  }
+  if (numeroplay_ === -1){
+    console.clear();
+      console.log(`El nombre introducido no concuerda con ninguna Playtlist existente.`);
+      await addPlayExistente();
+      return 0;
+    }
+    else{
+      
+      const nombrePlay = await inquirer.prompt( {
+      type: "input",
+      name: "nombre",
+      message: "Introduce el nuevo nombre de la playlist: "
+    });
+    let nombre_: string = nombrePlay["nombre"];
+    let cancion: Cancion[] = index.playlists[numeroplay_].getCanciones();
+    const opcionPlay = await inquirer.prompt( {
+      type: "list",
+      name: "nombre",
+      message: "Opciones: ",
+      choices: Object.values(BoA)
+    });
+    switch(opcionPlay["nombre"]){
+      case BoA.Añadir:
+        await addCancionPlay(cancion);
+        break;
+      case BoA.Borrar:
+        await delCancionPlay(cancion);
+        break;
+      case BoA.Salir:
+        InquirerFile.menuOpcionPlaylist();
+        return 0;
+    }
+    let playlistNew = new Playlist(nombre_, cancion);
+    InquirerFile.db.addNuevoPlay(playlistNew);
+    console.clear();
+  InquirerFile.menuPrincipal();
+  } 
+}
+```
+ Se introduce el nuevo nombre de la playlist y luego te permite tres opciones dentro, el añadir cancion a la playlist, borrar canción o salir al menú de la playlist.
+
+El código para añadir canciones a la play existente que ahora cambió el nombre es:
+
+```typescript
+/**
+ * Funcion addCancionPlay
+ * @param cancion array de canciones
+ * @returns array modificada
+ */
+export async function addCancionPlay(cancion: Cancion[]){
+  const cancionNombre = await inquirer.prompt( {
+    type: "input",
+    name: "cancion",
+    message: "Nombre de la canción a añadir en la playlist: "
+  });
+  let nombreCancion_: string = cancionNombre["cancion"];
+  let numeroCancion_: number = -1;
+  for(let i: number = 0; i < index.canciones.length; i++){
+    if(index.canciones[i].getNombreCancion() === nombreCancion_){
+      numeroCancion_ = i;
+      break;
+    }
+  }
+  if (numeroCancion_ === -1){
+    console.clear();
+      console.log(`El nombre introducido no concuerda con ningún Cancion existente.`);
+      await addCancionPlay(cancion);
+      return 0;
+    }
+    else {
+      cancion.push(index.canciones[numeroCancion_]);
+    }
+    const masCancion = await inquirer.prompt( {
+      type: "list",
+      name: "saberCancion",
+      message: "¿Quieres incluir más Canciones?: ",
+      choices: Object.values(InquirerFile.CommandsSingle)
+    });
+    switch(masCancion["saberCancion"]) {
+      case InquirerFile.CommandsSingle.Si:
+        await addCancionPlay(cancion)
+        break;
+      case InquirerFile.CommandsSingle.No:
+        break;
+    }
+}
+```
+
+Y el código para borrar una canción de dicha playlist es:
+
+```typescript
+/**
+ * Funcion delCancionPlay
+ * @param cancion array de canciones
+ * @returns array modificado
+ */
+export async function delCancionPlay(cancion: Cancion[]){
+  const cancionNombre = await inquirer.prompt( {
+    type: "input",
+    name: "cancion",
+    message: "Nombre de la canción a borrar en la playlist: "
+  });
+  let nombreCancion_: string = cancionNombre["cancion"];
+  let numeroCancion_: number = -1;
+  for(let i: number = 0; i < index.canciones.length; i++){
+    if(index.canciones[i].getNombreCancion() === nombreCancion_){
+      numeroCancion_ = i;
+      break;
+    }
+  }
+  if (numeroCancion_ === -1){
+    console.clear();
+      console.log(`El nombre introducido no concuerda con ningún Cancion existente.`);
+      await delCancionPlay(cancion);
+      return 0;
+    }
+    else {
+      cancion.splice(numeroCancion_, 1);
+    }
+}
+```
+
+La última opción de este menú de __Visualizar Playlist__ es la opción de __Borrar una Playlist__, esta requerirá del nombre de una playlist pero debe ser del usuario ya que del sistema le impedirá borrar. Para ello el código es:
+
+```typescript
+/**
+ * Funcion borrarPlay
+ */
+export async function borrarPlay() {
+  const nombrePlayE = await inquirer.prompt( {
+    type: "input",
+    name: "nombre",
+    message: "Introduce el nombre de la playlist: "
+  })
+  let nombre_E: string = nombrePlayE["nombre"];
+  let numeroplay_: number = -1;
+  let lista: Playlist[] = [];
+   lista = db.getPlayLista();
+  for(let i: number = 0; i < index.playlists.length; i++){
+    if(lista[i].getNombrePlaylist() === nombre_E){
+      numeroplay_ = i;
+      break;
+    }
+  }
+  if (numeroplay_ === -1){
+    console.clear();
+      console.log(`El nombre introducido no concuerda con ninguna Playtlist existente.`);
+      await borrarPlay();
+      return 0;
+    }
+    else{
+      let lista: Playlist[] = db.getPlayLista();
+      lista.splice(numeroplay_,1);
+      db.setPlayLista(lista);
+      InquirerFile.menuOpcionPlaylist();
+      return 0;
+    }
+
+}
+```
+
+Como se aprecia en la parte del código:
+
+```typescript
+const nombrePlayE = await inquirer.prompt( {
+    type: "input",
+    name: "nombre",
+    message: "Introduce el nombre de la playlist: "
+  })
+  let nombre_E: string = nombrePlayE["nombre"];
+  let numeroplay_: number = -1;
+  let lista: Playlist[] = [];
+   lista = db.getPlayLista();
+  for(let i: number = 0; i < index.playlists.length; i++){
+    if(lista[i].getNombrePlaylist() === nombre_E){
+      numeroplay_ = i;
+      break;
+    }
+  }
+```
+
+Donde se comprueba que exista la playlist es en un array copia tipo __Playlist__ que se asocia con __db.getPlayLista()__ que es un getter de listas de playlist exclusivamente del usuario y que se crea en la base de datos por ello se llama a __db__ que es el objeto base de datos de nuestra class ```BaseDatos```. 
+
+Y así finaliza la explicación del fichero __inquirer-Playlist.ts__.
+
+
+### Fichero basedatos.ts
+
+Se ha utilizado el módulo [Lowdb](https://www.npmjs.com/package/lowdb) para realizar una gestión a la base de datos de nuestra aplicación.
+
+Primero este fichero contiene un type __dbtype__ con los atributos y tipos de estos que se almacenarán en la base de datos y con los que esta trabajará. 
+
+```typescript
+/**
+ * @type dbtype con los datos y sus tipos que se introducen en
+ * la base de datos
+ */
+type dbtype = {
+    canciones: {
+        nombre: string;
+        autor: string;
+        duracion: string;
+        genero: GenerosMusicales[];
+        single: boolean;
+        numReproducciones: number;
+    }[],
+    generosmusicales: {
+        nombreGenero: string;
+	    grupos: string[];
+	    artistas: string[];
+	    albumes: string[];
+	    canciones: string[];
+    }[],
+    
+    albumes: {
+        nombreAlbum: string;
+	    autores: Grupos | Artistas;
+	    genero: GenerosMusicales[];
+	    yearPublicacion: number;
+	    canciones: Cancion[];
+    }[],
+    artistas: {
+        nombreArtista: string;
+	    grupos: string[];
+        generos: GenerosMusicales[];
+        albumes: string[];
+        canciones: Cancion[];
+        oyentes: number;
+    }[],
+    grupos: {
+        nombreGrupo: string;
+	    artistas: Artistas[];
+	    yearGrupo: number;
+	    genero: GenerosMusicales[];
+	    albumes: Album[];
+	    oyentes: number;
+    }[];
+    playlist: {
+        nombrePlaylist: string;
+	    canciones: Cancion[];
+	    duracion: string;
+	    generos: GenerosMusicales[];
+    }[];
+    playlistUsuario: {
+        nombrePlaylist: string;
+	    canciones: Cancion[];
+	    duracion: string;
+	    generos: GenerosMusicales[];
+    }[];
+};
+```
+
+Este fichero contiene la clase ```BaseDatos``` la cual construirá y guardará datos en la base de datos junto con sus __setters__ y __getters__ específicos.
+
+Esta base de datos como se observa tiene dos atributos tipo __Playlist[]__ que son __playArrayLista__ y __playUsuarioArrayLista__. El usuario para crear sus nuevas playlist y borrarlas (ya que sólo puede borrar las suyas y no las del sistema) tendrá acceso solamente al atributo __playUsuarioArrayLista__, mediante el getter correspondiente.
+
+La base de datos guardará los datos respectivos que se le pasen mediante la función ```guardarBaseDatos()``` que invoca al método __write()__ de la librería de Lowdb.
+
+```typescript
+/**
+     * @method guardarBaseDatos que guarda en la base de datos los
+     * géneros musicales, canciones, álbumes, artistas y grupos de la app
+     */
+    guardarBaseDatos() {
+        this.basedatos.set("generosmusicales", [this.generosArrayLista]).write();
+        this.basedatos.set("canciones", [this.cancionesArrayLista]).write();
+        this.basedatos.set("albumes", [this.albumesArrayLista]).write();
+        this.basedatos.set("artistas", [this.artistasArrayLista]).write();
+        this.basedatos.set("grupos", [this.gruposArrayLista]).write();
+        this.basedatos.set("playlist", [this.playArrayLista]).write();
+        this.basedatos.set("playlistUsuario", [this.playUsuarioArrayLista]).write();
+    }
+```
+
+Los demás métodos que tiene son para añadir, y borrar canciones, géneros musicales, álbumes, artistas y grupos. Estos métodos serán llamados por los ficheros **inquirer-[Cancion | Generos | Album | Grupos | artista]** respectivamente que se nombraron anteriormente y así esos objetos son añadidos o borrados.
+
+En el caso de playlist y como se ha indicado sus métodos serán relativos al atributo __playUsuarioArrayLista__. Con el fin de conseguir que el usuario no borre playlist del sistema.
+
 
 ## Tests
 A la hora de realizar test para comprobar el correcto funcionamiento de todo el proyecto, se ha decidido realizar sobre un único archivo **tester.spec.ts** localizado en **./test/**. Se ha decidido hacerlo de esta manera, porque todas las clases dependen las unas de las otras, por lo que habría que realizar **imports**, en nuestro caso, en cada uno de los archivos de testeo de cada clase.
@@ -849,46 +1398,94 @@ A la hora de realizar test para comprobar el correcto funcionamiento de todo el 
 Los tests en cuestión compueban cada clase una por una modificándolas y comprobando que sus resultados son correctos.
 
 ```typescript
-describe ('Test ejercicio 7',() => {
-  it ('Métodos de la clase Cancion',() => {
+import 'mocha';
+import { expect } from 'chai';
+import { Album } from '../src/clases/album'
+import { Artistas } from "../src/clases/artistas";
+import { Cancion } from "../src/clases/cancion";
+import { GenerosMusicales } from "../src/clases/generosMusicales";
+import { Grupos } from "../src/clases/grupos";
+import { Playlist } from "../src/clases/playlist";
+import {  cancion1, cancion2} from "../src/index";
+import { Metal, Rock, RyB, Soul, Pop} from "../src/index";
+import { artista1, grupo1} from "../src/index";
+import { album1 } from "../src/index";
+import { playlist1 } from "../src/index";
+
+describe('Métodos de la Clase Cancion',() => {
+  it ('Clase Artista Operativa',() => { 
     expect(cancion1 instanceof Cancion).to.eql (true);
+  });
+  it ('Probando metodo setNombreCancion() y getNombreCancion()',() => { 
     cancion1.setNombreCancion(`El polvorete`);
     expect(cancion1.getNombreCancion()).to.eql ('El polvorete');
+  });
+  it ('Probando metodo setAutorCancion() y getAutorCancion()',() => { 
     cancion1.setAutorCancion(`Pepe Benavente`);
     expect(cancion1.getAutorCancion()).to.eql ('Pepe Benavente');
+  });
+  it ('Probando metodo setDuracionCancion() y getDuracionCancionSecs()',() => { 
     cancion1.setDuracionCancion(`2:30`);
     expect(cancion1.getDuracionCancion()).to.eql ('2:30');
     expect(cancion1.getDuracionCancionSecs()).to.eql (150);
+  });
+  it ('Probando metodo setGeneroMusical() y getGeneroMusical()',() => { 
     cancion1.setGeneroMusical([Pop, Metal]);
     expect(cancion1.getGenero()).to.eql ([Pop, Metal]);
     expect(cancion1.getGeneroMusical()).to.eql ([`Pop`, `Metal`]);
+  });
+  it ('Probando metodo setNumReproducciones() y getNumReproducciones()',() => { 
     cancion1.setNumReproducciones(10000000);
     expect(cancion1.getNumReproducciones()).to.eql (10000000);
+  });
+  it ('Probando metodo setSingle() y getSingle()',() => { 
     cancion1.setSingle(true);
     expect(cancion1.getSingle()).to.eql (true);
   });
-  it ('Métodos de la clase Artista',() => {
+});
+  describe ('Métodos de la clase Artista',() => { 
     expect(artista1 instanceof Artistas).to.eql (true);
+    it ('Clase Artista Operativa',() => { 
+      expect(artista1 instanceof Artistas).to.eql (true);
+    });
+    it ('Probando metodo setNombreArtista() y getNombreArtista()',() => { 
     artista1.setNombreArtista(`Pepe Benavente`);
     expect(artista1.getNombreArtista()).to.eql ('Pepe Benavente');
-    artista1.setGrupos([grupo1]);
-    expect(artista1.getGrupos()).to.eql ([`Metallica`]);
-   artista1.setCanciones([cancion1,cancion2]);
-    expect(artista1.getCanciones()).to.eql ([`El polvorete`, 'Thriller']);
-    artista1.setGeneros([Pop, Metal]);
-    expect(artista1.getGeneros()).to.eql ([`Pop`, `Metal`]);
-    artista1.setOyentes(1000000);
-    expect(artista1.getOyentes()).to.eql (9000000);
-    expect(artista1.getGrupoSize()).to.eql (1);
-    artista1.setAlbumes([album1]);
-   expect(artista1.getAlbumes()).to.eql ([`Thriller`]);
+    });
+    it ('Probando metodo setGrupos() y getGrupos()',() => {
+      artista1.setGrupos(["Pepe Benavente"]);
+      expect(artista1.getGrupos()).to.eql ([`Pepe Benavente`]);
+    });
+    it ('Probando metodo setGrupos() y getGrupos()',() => {
+      artista1.setGrupos(["Pepe Benavente"]);
+      expect(artista1.getGrupos()).to.eql ([`Pepe Benavente`]);
+    });
+    it ('Probando metodo setCanciones() y getCanciones()',() => {
+      artista1.setCanciones([cancion1,cancion2]);
+      expect(artista1.getCanciones()).to.eql ([ 'Pulling Teeth', 'Thriller' ]);
+    });
+    it ('Probando metodo setCanciones() y getCanciones()',() => {
+      artista1.setGeneros([Pop, Metal]);
+      expect(artista1.getGeneros()).to.eql ([`Pop`, `Metal`]);
+    });
+    it ('Probando metodo setOyentes() y getOyentes()',() => {
+      artista1.setOyentes(1000000);
+      expect(artista1.getOyentes()).to.eq (1000000);
+    });
+    it ('Probando metodo getGrupoSize()',() => {
+      expect(artista1.getGrupoSize()).to.eql (1);
+    });
+    it ('Probando metodo setOyentes() y getOyentes()',() => {
+      artista1.setAlbumes([album1]);
+      expect(artista1.getAlbumes()).to.eql ([`Thriller`]);
+    });
   });
   it ('Métodos de la clase Grupo',() => {
     expect(grupo1 instanceof Grupos).to.eql (true);
     grupo1.setNombreGrupo(`los 4`);
     expect(grupo1.getNombreGrupo()).to.eql ('los 4');
     grupo1.setArtistas([artista1]);
-    expect(grupo1.getArtistas()).to.eql ([`Pepe Benavente`]);
+    expect(grupo1.getArtistas_()).to.eql ([artista1]);
    grupo1.setYearGrupo(1999);
     expect(grupo1.getYearGrupo()).to.eql (1999);
     grupo1.setGenero([Pop, Metal]);
@@ -902,7 +1499,7 @@ describe ('Test ejercicio 7',() => {
     expect(album1 instanceof Album).to.eql (true);
     album1.setNombreAlbum(`MotoMami`);
     expect(album1.getNombreAlbum()).to.eql (`MotoMami`);
-    album1.setAutores(grupo1);
+    album1.setAutores(grupo1.getNombreGrupo());
    expect(album1.getAutores()).to.eql (`los 4`);
    album1.setAutores(artista1);
    expect(album1.getAutores()).to.eql ('Pepe Benavente');
@@ -919,27 +1516,49 @@ describe ('Test ejercicio 7',() => {
     expect(playlist1.getNombrePlaylist()).to.eql (`Musiquita a full`);
     playlist1.setDuracion(`10:20`);
     expect(playlist1.getDuracion()).to.eql ('0h 24min 40secs');
-    playlist1.setGeneros([Pop, Metal]);
-    expect(playlist1.getGeneros()).to.eql ([`Pop`, `Metal`]);
     playlist1.setCanciones([cancion1,cancion2]);
     expect(playlist1.getCanciones()).to.eql ([cancion1,cancion2]);
+    playlist1.setGeneros([Pop, Metal]);
+    expect(playlist1.getGeneros()).to.eql ([`Pop`, `Metal`]);
   });
   it ('Métodos de la clase GenerosMusciales',() => {
     expect(Pop instanceof GenerosMusicales).to.eql (true);
     Pop.setNombreGenero(`Trap`);
     expect(Pop.getNombreGenero()).to.eql (`Trap`);
-    Pop.setGrupos([grupo1]);
+    Pop.setGrupos([grupo1.getNombreGrupo()]);
     expect(Pop.getGrupos()).to.eql ([grupo1]);
-    Pop.setArtistas([artista1]);
+    Pop.setArtistas([artista1.getNombreArtista()]);
     expect(Pop.getArtistas()).to.eql ([artista1]);
-    Pop.setAlbumes([album1]);
+    Pop.setAlbumes([album1.getNombreAlbum()]);
     expect(Pop.getAlbumes()).to.eql ([album1]);
-    Pop.setCanciones([cancion1]);
+    Pop.setCanciones([cancion1.getNombreCancion()]);
     expect(Pop.getCanciones()).to.eql ([cancion1]);
   });
-});
 ```
 
-### Anotaciones y conclusiones
+## Dificultades
+
+Explicar el error
+
+
+## Referencias 
+
+* **[Typedoc](https://typedoc.org/).**
+TypeDoc es un generador de documentación mediante los propios comentarios del código.  
+
+* **[Mocha](https://mochajs.org/)**
+Framework para las pruebas creadas para el código.  
+
+* **[Chai](https://www.chaijs.com/)**
+Biblioteca de aserciones BDD / TDD para el nodo y el navegador que se puede combinar con cualquier marco de prueba de JavaScript.  
+
+* **[Instanbul](https://istanbul.js.org/)**
+Herramienta para el encubrimiento del código implementado.
+
+* **[CoverAlls](https://coveralls.io/)**
+Herramienta de análisis de encubrimiento del código.
+
+* **[GitHub Actions](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo_l/actions)**
+Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediante los commits que se hagan. Se hace uso de ``SonarCloud Workflow``, ``CoverAlls Workflow`` entre otros.  
 
 ![Imagen liveshare](./assets/images/liveshare.png)
