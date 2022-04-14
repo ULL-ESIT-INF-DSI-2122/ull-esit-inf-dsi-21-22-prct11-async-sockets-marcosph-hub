@@ -265,3 +265,7 @@ export async function menuDelGrupo() {
   console.clear();
   InquirerFile.menuPrincipal();
 }
+
+export async function crearPlay() {
+  
+}

@@ -5,9 +5,10 @@ import { Artistas } from "./artistas";
 import { Cancion } from "./cancion";
 import { GenerosMusicales } from "./generosMusicales";
 import { Grupos } from "./grupos";
-import { menuPrincipal } from './inquirer';
+import { menuPrincipal, db } from './inquirer';
 import * as InquirerFile from "./inquirer";
 import * as index from "../index";
+
 type doble = {
   nombre: string;
   anio: number;
@@ -25,6 +26,16 @@ export enum CommandsGestionPlay {
   AnioLanzCancionDesc = `Año de Lanzamiento (Descendente)`,
   NumRepTotalAsc = `Número de reproducciones totales (Ascendente)`,
   NumRepTotalDesc = `Número de reproducciones totales (Descendente)`,
+  Salir = `Salir al menú principal`
+}
+export enum CommandsCrearPlay {
+  New = `Crear una Playlis nueva`,
+  Exist = `Crear una Playlist a partir de una existente`,
+  Salir = `Salir al menú principal`
+}
+export enum BoA {
+ Borrar = `Borrar canciones`,
+  Añadir = `Añadir canciones`,
   Salir = `Salir al menú principal`
 }
 export async function PrePlaylist() {
@@ -379,5 +390,187 @@ export async function NombrePlay() {
     NombrePlay();
   } else {
     menuOpcionesAvanzadasPlay(index.playlists[numero]);
+  }
+}
+export async function delCancionPlay(cancion: Cancion[]){
+  const cancionNombre = await inquirer.prompt( {
+    type: "input",
+    name: "cancion",
+    message: "Nombre de la canción a borrar en la playlist: "
+  });
+  let nombreCancion_: string = cancionNombre["cancion"];
+  let numeroCancion_: number = -1;
+  for(let i: number = 0; i < index.canciones.length; i++){
+    if(index.canciones[i].getNombreCancion() === nombreCancion_){
+      numeroCancion_ = i;
+      break;
+    }
+  }
+  if (numeroCancion_ === -1){
+    console.clear();
+      console.log(`El nombre introducido no concuerda con ningún Cancion existente.`);
+      await delCancionPlay(cancion);
+      return 0;
+    }
+    else {
+      cancion.splice(numeroCancion_, 1);
+    }
+}
+export async function addCancionPlay(cancion: Cancion[]){
+  const cancionNombre = await inquirer.prompt( {
+    type: "input",
+    name: "cancion",
+    message: "Nombre de la canción a añadir en la playlist: "
+  });
+  let nombreCancion_: string = cancionNombre["cancion"];
+  let numeroCancion_: number = -1;
+  for(let i: number = 0; i < index.canciones.length; i++){
+    if(index.canciones[i].getNombreCancion() === nombreCancion_){
+      numeroCancion_ = i;
+      break;
+    }
+  }
+  if (numeroCancion_ === -1){
+    console.clear();
+      console.log(`El nombre introducido no concuerda con ningún Cancion existente.`);
+      await addCancionPlay(cancion);
+      return 0;
+    }
+    else {
+      cancion.push(index.canciones[numeroCancion_]);
+    }
+    const masCancion = await inquirer.prompt( {
+      type: "list",
+      name: "saberCancion",
+      message: "¿Quieres incluir más Canciones?: ",
+      choices: Object.values(InquirerFile.CommandsSingle)
+    });
+    switch(masCancion["saberCancion"]) {
+      case InquirerFile.CommandsSingle.Si:
+        await addCancionPlay(cancion)
+        break;
+      case InquirerFile.CommandsSingle.No:
+        break;
+    }
+}
+export async function addPlay(){
+  const nombrePlay = await inquirer.prompt( {
+    type: "input",
+    name: "nombre",
+    message: "Introduce el nombre de la playlist: "
+  })
+  let nombre_: string = nombrePlay["nombre"];
+  let cancion: Cancion[] = [];
+  await addCancionPlay(cancion);
+  let playlistNew = new Playlist(nombre_, cancion);
+  index.playlists.push(playlistNew);
+  InquirerFile.db.addNuevoPlay(playlistNew);
+  console.clear();
+  InquirerFile.menuPrincipal();
+}
+export async function addPlayExistente(){
+
+  const nombrePlayE = await inquirer.prompt( {
+    type: "input",
+    name: "nombre",
+    message: "Introduce el nombre de la playlist: "
+  })
+  let nombre_E: string = nombrePlayE["nombre"];
+  let numeroplay_: number = -1;
+  for(let i: number = 0; i < index.playlists.length; i++){
+    if(index.playlists[i].getNombrePlaylist() === nombre_E){
+      numeroplay_ = i;
+      break;
+    }
+  }
+  if (numeroplay_ === -1){
+    console.clear();
+      console.log(`El nombre introducido no concuerda con ninguna Playtlist existente.`);
+      await addPlayExistente();
+      return 0;
+    }
+    else{
+      
+      const nombrePlay = await inquirer.prompt( {
+      type: "input",
+      name: "nombre",
+      message: "Introduce el nuevo nombre de la playlist: "
+    });
+    let nombre_: string = nombrePlay["nombre"];
+    let cancion: Cancion[] = index.playlists[numeroplay_].getCanciones();
+    const opcionPlay = await inquirer.prompt( {
+      type: "list",
+      name: "nombre",
+      message: "Opciones: ",
+      choices: Object.values(BoA)
+    });
+    switch(opcionPlay["nombre"]){
+      case BoA.Añadir:
+        await addCancionPlay(cancion);
+        break;
+      case BoA.Borrar:
+        await delCancionPlay(cancion);
+        break;
+      case BoA.Salir:
+        InquirerFile.menuOpcionPlaylist();
+        return 0;
+    }
+    let playlistNew = new Playlist(nombre_, cancion);
+    InquirerFile.db.addNuevoPlay(playlistNew);
+    console.clear();
+  InquirerFile.menuPrincipal();
+  } 
+}
+export async function borrarPlay() {
+  const nombrePlayE = await inquirer.prompt( {
+    type: "input",
+    name: "nombre",
+    message: "Introduce el nombre de la playlist: "
+  })
+  let nombre_E: string = nombrePlayE["nombre"];
+  let numeroplay_: number = -1;
+  let lista: Playlist[] = [];
+   lista = db.getPlayLista();
+  for(let i: number = 0; i < index.playlists.length; i++){
+    if(lista[i].getNombrePlaylist() === nombre_E){
+      numeroplay_ = i;
+      break;
+    }
+  }
+  if (numeroplay_ === -1){
+    console.clear();
+      console.log(`El nombre introducido no concuerda con ninguna Playtlist existente.`);
+      await borrarPlay();
+      return 0;
+    }
+    else{
+      let lista: Playlist[] = db.getPlayLista();
+      lista.splice(numeroplay_,1);
+      db.setPlayLista(lista);
+      InquirerFile.menuOpcionPlaylist();
+      return 0;
+    }
+
+}
+export async function crearPlay() {
+  const respuestacrear = await inquirer.prompt({
+    type:  'list',
+    name: `command`, 
+    message: `Elige opción sobre Playlist `,
+    choices: Object.values(CommandsCrearPlay)
+  })
+  switch(respuestacrear["command"]) {
+    case CommandsCrearPlay.New:
+       addPlay();
+      break;
+    case CommandsCrearPlay.Exist:
+      addPlayExistente();
+      //inGenero.menuModGenero();
+      break;
+    case CommandsCrearPlay.Salir:
+      console.clear();
+         menuPrincipal();
+    
+    break;
   }
 }

@@ -17,17 +17,18 @@ export enum CommandsPartesArtista {
   Albumes = `Albumes`,
   Canciones = `Canciones`,
   Oyentes = `Número de oyentes mensuales`,
-  Salir = `Salir al menú principal`
+  Salir = `Guardar y Salir al menú principal`
 }
 
-let grupo: Grupos[] = [];
-let album: Album[] = [];
-let cancion: Cancion[] = [];
+
 
 /**
  * Funcion addArtista
  */
 export async function addArtista() {
+  let grupo: Grupos[] = [];
+let album: Album[] = [];
+let cancion: Cancion[] = [];
   const nombreArtista = await inquirer.prompt({
     type: "input",
     name: "nombreArtista",

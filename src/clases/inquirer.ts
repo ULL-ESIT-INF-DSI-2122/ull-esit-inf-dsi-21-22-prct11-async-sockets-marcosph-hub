@@ -20,7 +20,7 @@ import { menuDelGrupo } from "../clases/inquirer-Grupos";
 
 // Crear base de datos
 
-export let db =  new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos);
+export let db =  new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos, index.playlists);
 //db.guardarBaseDatos();
 
 
@@ -50,6 +50,8 @@ export enum CommandsClases {
 export enum CommandsPlay {
   Previsualizar = `Previsualizar las playlists`,
   Navegar = `Navegar una playlist`,
+  Crear = `Crear una playlist`,
+  Borrar = `Borrar una playlist`,
   Salir = `Salir`
   
 }
@@ -237,7 +239,14 @@ export async function menuOpcionPlaylist(){
      inPlay.NombrePlay();
        //inGenero.menuModGenero();
        break;
-    
+    case CommandsPlay.Crear:
+    inPlay.crearPlay();
+      //inGenero.menuModGenero();
+      break;
+      case CommandsPlay.Borrar:
+    inPlay.borrarPlay();
+      //inGenero.menuModGenero();
+      break;
      case CommandsPlay.Salir:
        console.clear();
           menuPrincipal();

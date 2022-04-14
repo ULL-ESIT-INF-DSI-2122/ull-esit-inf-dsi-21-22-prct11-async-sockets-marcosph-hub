@@ -22951,5 +22951,1616 @@
         "oyentes": 12400000
       }
     ]
+  ],
+  "playlist": [
+    [
+      {
+        "generos": [
+          {
+            "grupos": [
+              "Cali y El Dandee"
+            ],
+            "artistas": [
+              "Myke Towers",
+              "Daddy Yankee",
+              "Alejandro Rengifo",
+              "Mauricio Rengifo"
+            ],
+            "albumes": [
+              "3a.m."
+            ],
+            "canciones": [
+              "Yo te esperaré",
+              "Te doy mi corazón",
+              "La playa",
+              "Almas Gemelas",
+              "Rutina",
+              "Rumbatón"
+            ],
+            "nombreGenero": "Regueton"
+          }
+        ],
+        "nombrePlaylist": "Regueton a Full",
+        "canciones": [
+          {
+            "nombre": "Almas Gemelas",
+            "autor": "Myke Towers",
+            "duracion": "4:49",
+            "genero": [
+              {
+                "grupos": [
+                  "Cali y El Dandee"
+                ],
+                "artistas": [
+                  "Myke Towers",
+                  "Daddy Yankee",
+                  "Alejandro Rengifo",
+                  "Mauricio Rengifo"
+                ],
+                "albumes": [
+                  "3a.m."
+                ],
+                "canciones": [
+                  "Yo te esperaré",
+                  "Te doy mi corazón",
+                  "La playa",
+                  "Almas Gemelas",
+                  "Rutina",
+                  "Rumbatón"
+                ],
+                "nombreGenero": "Regueton"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 61000000
+          },
+          {
+            "nombre": "Rutina",
+            "autor": "Myke Towers",
+            "duracion": "3:38",
+            "genero": [
+              {
+                "grupos": [
+                  "Cali y El Dandee"
+                ],
+                "artistas": [
+                  "Myke Towers",
+                  "Daddy Yankee",
+                  "Alejandro Rengifo",
+                  "Mauricio Rengifo"
+                ],
+                "albumes": [
+                  "3a.m."
+                ],
+                "canciones": [
+                  "Yo te esperaré",
+                  "Te doy mi corazón",
+                  "La playa",
+                  "Almas Gemelas",
+                  "Rutina",
+                  "Rumbatón"
+                ],
+                "nombreGenero": "Regueton"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 44641453
+          },
+          {
+            "nombre": "Rumbatón",
+            "autor": "Daddy Yankee",
+            "duracion": "4:15",
+            "genero": [
+              {
+                "grupos": [
+                  "Cali y El Dandee"
+                ],
+                "artistas": [
+                  "Myke Towers",
+                  "Daddy Yankee",
+                  "Alejandro Rengifo",
+                  "Mauricio Rengifo"
+                ],
+                "albumes": [
+                  "3a.m."
+                ],
+                "canciones": [
+                  "Yo te esperaré",
+                  "Te doy mi corazón",
+                  "La playa",
+                  "Almas Gemelas",
+                  "Rutina",
+                  "Rumbatón"
+                ],
+                "nombreGenero": "Regueton"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 1154580120
+          },
+          {
+            "nombre": "Yo te esperaré",
+            "autor": "Cali y El Dandee",
+            "duracion": "4:14",
+            "genero": [
+              {
+                "grupos": [
+                  "Cali y El Dandee"
+                ],
+                "artistas": [
+                  "Myke Towers",
+                  "Daddy Yankee",
+                  "Alejandro Rengifo",
+                  "Mauricio Rengifo"
+                ],
+                "albumes": [
+                  "3a.m."
+                ],
+                "canciones": [
+                  "Yo te esperaré",
+                  "Te doy mi corazón",
+                  "La playa",
+                  "Almas Gemelas",
+                  "Rutina",
+                  "Rumbatón"
+                ],
+                "nombreGenero": "Regueton"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 469000000
+          },
+          {
+            "nombre": "La playa",
+            "autor": "Cali y El Dandee",
+            "duracion": "3:43",
+            "genero": [
+              {
+                "grupos": [
+                  "Cali y El Dandee"
+                ],
+                "artistas": [
+                  "Myke Towers",
+                  "Daddy Yankee",
+                  "Alejandro Rengifo",
+                  "Mauricio Rengifo"
+                ],
+                "albumes": [
+                  "3a.m."
+                ],
+                "canciones": [
+                  "Yo te esperaré",
+                  "Te doy mi corazón",
+                  "La playa",
+                  "Almas Gemelas",
+                  "Rutina",
+                  "Rumbatón"
+                ],
+                "nombreGenero": "Regueton"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 5600000
+          },
+          {
+            "nombre": "Te doy mi corazón",
+            "autor": "Cali y El Dandee",
+            "duracion": "4:01",
+            "genero": [
+              {
+                "grupos": [
+                  "Cali y El Dandee"
+                ],
+                "artistas": [
+                  "Myke Towers",
+                  "Daddy Yankee",
+                  "Alejandro Rengifo",
+                  "Mauricio Rengifo"
+                ],
+                "albumes": [
+                  "3a.m."
+                ],
+                "canciones": [
+                  "Yo te esperaré",
+                  "Te doy mi corazón",
+                  "La playa",
+                  "Almas Gemelas",
+                  "Rutina",
+                  "Rumbatón"
+                ],
+                "nombreGenero": "Regueton"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 4600000
+          }
+        ],
+        "duracion": "0h 24min 40secs"
+      },
+      {
+        "generos": [
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Paulo Londra",
+              "Brian May",
+              "John Deacon",
+              "Roger Taylor",
+              "Mike Grose",
+              "Doug Bogie",
+              "Queen Barry Mitchell"
+            ],
+            "albumes": [
+              "Thriller",
+              "Made in Heaven"
+            ],
+            "canciones": [
+              "Billie Jean",
+              "Mother Love",
+              "Its A Beautiful Day",
+              "I Was Born To Love You",
+              "Living on my own",
+              "Plan A"
+            ],
+            "nombreGenero": "Rock"
+          }
+        ],
+        "nombrePlaylist": "Rock For Ever",
+        "canciones": [
+          {
+            "nombre": "Billie Jean",
+            "autor": "Michael Jackson",
+            "duracion": "4:55",
+            "genero": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 1154580120
+          },
+          {
+            "nombre": "Mother Love",
+            "autor": "Queen",
+            "duracion": "4:50",
+            "genero": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 3300000
+          },
+          {
+            "nombre": "Plan A",
+            "autor": "Paulo Londra",
+            "duracion": "3:06",
+            "genero": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              }
+            ],
+            "single": true,
+            "numReproducciones": 63000000
+          }
+        ],
+        "duracion": "0h 12min 51secs"
+      },
+      {
+        "generos": [
+          {
+            "grupos": [
+              "Los Chunguitos"
+            ],
+            "artistas": [
+              "Rosalía",
+              "Peret",
+              "Enrique Salazar",
+              "Juan Salazar",
+              "José Salazar"
+            ],
+            "albumes": [
+              "El Mal Querer",
+              "Morir de amor",
+              "Borriquito"
+            ],
+            "canciones": [
+              "Malamente",
+              "Rumba en el cielo",
+              "Yo me lo tengo que beber",
+              "Tinto de verano",
+              "Borriquito",
+              "El muerto vivo"
+            ],
+            "nombreGenero": "Flamenco"
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Rosalía",
+              "Beret"
+            ],
+            "albumes": [
+              "Thriller",
+              "El Mal Querer",
+              "Prisma"
+            ],
+            "canciones": [
+              "Thriller",
+              "Malamente",
+              "Preso",
+              "Living on my own",
+              "Ojalá",
+              "Esencial"
+            ],
+            "nombreGenero": "Pop"
+          }
+        ],
+        "nombrePlaylist": "Flamencos de corazóh",
+        "canciones": [
+          {
+            "nombre": "Malamente",
+            "autor": "Rosalía",
+            "duracion": "2:49",
+            "genero": [
+              {
+                "grupos": [
+                  "Los Chunguitos"
+                ],
+                "artistas": [
+                  "Rosalía",
+                  "Peret",
+                  "Enrique Salazar",
+                  "Juan Salazar",
+                  "José Salazar"
+                ],
+                "albumes": [
+                  "El Mal Querer",
+                  "Morir de amor",
+                  "Borriquito"
+                ],
+                "canciones": [
+                  "Malamente",
+                  "Rumba en el cielo",
+                  "Yo me lo tengo que beber",
+                  "Tinto de verano",
+                  "Borriquito",
+                  "El muerto vivo"
+                ],
+                "nombreGenero": "Flamenco"
+              },
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Rosalía",
+                  "Beret"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "El Mal Querer",
+                  "Prisma"
+                ],
+                "canciones": [
+                  "Thriller",
+                  "Malamente",
+                  "Preso",
+                  "Living on my own",
+                  "Ojalá",
+                  "Esencial"
+                ],
+                "nombreGenero": "Pop"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 156000000
+          },
+          {
+            "nombre": "Tinto de verano",
+            "autor": "Los Chunguitos",
+            "duracion": "3:24",
+            "genero": [
+              {
+                "grupos": [
+                  "Los Chunguitos"
+                ],
+                "artistas": [
+                  "Rosalía",
+                  "Peret",
+                  "Enrique Salazar",
+                  "Juan Salazar",
+                  "José Salazar"
+                ],
+                "albumes": [
+                  "El Mal Querer",
+                  "Morir de amor",
+                  "Borriquito"
+                ],
+                "canciones": [
+                  "Malamente",
+                  "Rumba en el cielo",
+                  "Yo me lo tengo que beber",
+                  "Tinto de verano",
+                  "Borriquito",
+                  "El muerto vivo"
+                ],
+                "nombreGenero": "Flamenco"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 141000
+          },
+          {
+            "nombre": "El muerto vivo",
+            "autor": "Peret",
+            "duracion": "4:51",
+            "genero": [
+              {
+                "grupos": [
+                  "Los Chunguitos"
+                ],
+                "artistas": [
+                  "Rosalía",
+                  "Peret",
+                  "Enrique Salazar",
+                  "Juan Salazar",
+                  "José Salazar"
+                ],
+                "albumes": [
+                  "El Mal Querer",
+                  "Morir de amor",
+                  "Borriquito"
+                ],
+                "canciones": [
+                  "Malamente",
+                  "Rumba en el cielo",
+                  "Yo me lo tengo que beber",
+                  "Tinto de verano",
+                  "Borriquito",
+                  "El muerto vivo"
+                ],
+                "nombreGenero": "Flamenco"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 8000000
+          }
+        ],
+        "duracion": "0h 11min 4secs"
+      },
+      {
+        "generos": [
+          {
+            "grupos": [
+              "Metallica",
+              "Queen"
+            ],
+            "artistas": [
+              "Freddie Mercury",
+              "Alan Ryker",
+              "James Heltfield",
+              "Cliff Burton",
+              "Lars Ulrich",
+              "Dave Mustaine",
+              "Kirk Hammett",
+              "Jason Newsted",
+              "Robert Trujillo",
+              "Ron McGovney",
+              "Brian May",
+              "John Deacon",
+              "Roger Taylor",
+              "Mike Grose",
+              "Doug Bogie",
+              "Queen Barry Mitchell"
+            ],
+            "albumes": [
+              "Made in Heaven",
+              "Master Of Puppets"
+            ],
+            "canciones": [
+              "Pulling Teeth",
+              "Its A Beautiful Day",
+              "I Was Born To Love You",
+              "Master Of Puppets",
+              "Battery",
+              "Disposable Heroes"
+            ],
+            "nombreGenero": "Metal"
+          },
+          {
+            "grupos": [
+              "Los Chunguitos"
+            ],
+            "artistas": [
+              "Rosalía",
+              "Peret",
+              "Enrique Salazar",
+              "Juan Salazar",
+              "José Salazar"
+            ],
+            "albumes": [
+              "El Mal Querer",
+              "Morir de amor",
+              "Borriquito"
+            ],
+            "canciones": [
+              "Malamente",
+              "Rumba en el cielo",
+              "Yo me lo tengo que beber",
+              "Tinto de verano",
+              "Borriquito",
+              "El muerto vivo"
+            ],
+            "nombreGenero": "Flamenco"
+          },
+          {
+            "grupos": [
+              "The Prodigy"
+            ],
+            "artistas": [
+              "Skrillex",
+              "Mike Oldfield",
+              "Ozuna",
+              "Keith Flint",
+              "Liam Howlett",
+              "Maxim Reality",
+              "Sharky"
+            ],
+            "albumes": [
+              "The Day Is My Enemy"
+            ],
+            "canciones": [
+              "The Prodigy",
+              "Nasty",
+              "Rebel Radio",
+              "Face My Fears",
+              "Tubular Bells",
+              "Solita"
+            ],
+            "nombreGenero": "Electronica"
+          }
+        ],
+        "nombrePlaylist": "Popurri",
+        "canciones": [
+          {
+            "nombre": "Battery",
+            "autor": "Metallica",
+            "duracion": "5:13",
+            "genero": [
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "single": true,
+            "numReproducciones": 1500000
+          },
+          {
+            "nombre": "Yo me lo tengo que beber",
+            "autor": "Los Chunguitos",
+            "duracion": "3:45",
+            "genero": [
+              {
+                "grupos": [
+                  "Los Chunguitos"
+                ],
+                "artistas": [
+                  "Rosalía",
+                  "Peret",
+                  "Enrique Salazar",
+                  "Juan Salazar",
+                  "José Salazar"
+                ],
+                "albumes": [
+                  "El Mal Querer",
+                  "Morir de amor",
+                  "Borriquito"
+                ],
+                "canciones": [
+                  "Malamente",
+                  "Rumba en el cielo",
+                  "Yo me lo tengo que beber",
+                  "Tinto de verano",
+                  "Borriquito",
+                  "El muerto vivo"
+                ],
+                "nombreGenero": "Flamenco"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 231000
+          },
+          {
+            "nombre": "Tubular Bells",
+            "autor": "Mike Oldfield",
+            "duracion": "5:33",
+            "genero": [
+              {
+                "grupos": [
+                  "The Prodigy"
+                ],
+                "artistas": [
+                  "Skrillex",
+                  "Mike Oldfield",
+                  "Ozuna",
+                  "Keith Flint",
+                  "Liam Howlett",
+                  "Maxim Reality",
+                  "Sharky"
+                ],
+                "albumes": [
+                  "The Day Is My Enemy"
+                ],
+                "canciones": [
+                  "The Prodigy",
+                  "Nasty",
+                  "Rebel Radio",
+                  "Face My Fears",
+                  "Tubular Bells",
+                  "Solita"
+                ],
+                "nombreGenero": "Electronica"
+              }
+            ],
+            "single": true,
+            "numReproducciones": 116000
+          }
+        ],
+        "duracion": "0h 14min 31secs"
+      },
+      {
+        "generos": [
+          {
+            "grupos": [
+              "Metallica",
+              "Queen"
+            ],
+            "artistas": [
+              "Freddie Mercury",
+              "Alan Ryker",
+              "James Heltfield",
+              "Cliff Burton",
+              "Lars Ulrich",
+              "Dave Mustaine",
+              "Kirk Hammett",
+              "Jason Newsted",
+              "Robert Trujillo",
+              "Ron McGovney",
+              "Brian May",
+              "John Deacon",
+              "Roger Taylor",
+              "Mike Grose",
+              "Doug Bogie",
+              "Queen Barry Mitchell"
+            ],
+            "albumes": [
+              "Made in Heaven",
+              "Master Of Puppets"
+            ],
+            "canciones": [
+              "Pulling Teeth",
+              "Its A Beautiful Day",
+              "I Was Born To Love You",
+              "Master Of Puppets",
+              "Battery",
+              "Disposable Heroes"
+            ],
+            "nombreGenero": "Metal"
+          },
+          {
+            "grupos": [],
+            "artistas": [
+              "Michael Jackson"
+            ],
+            "albumes": [
+              "Thriller"
+            ],
+            "canciones": [
+              "Wanna Be Startin' Something",
+              "Baby Be Mine",
+              "The Girl Is Mine",
+              "Beat It",
+              "Human Nature",
+              "Pretty Young Thing",
+              "The Lady in My Life",
+              "Bad"
+            ],
+            "nombreGenero": "RyB"
+          },
+          {
+            "grupos": [],
+            "artistas": [
+              "Michael Jackson"
+            ],
+            "albumes": [
+              "Thriller"
+            ],
+            "canciones": [
+              "Wanna Be Startin' Something",
+              "Baby Be Mine",
+              "The Girl Is Mine",
+              "Beat It",
+              "Human Nature",
+              "Pretty Young Thing",
+              "The Lady in My Life"
+            ],
+            "nombreGenero": "Soul"
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Paulo Londra",
+              "Brian May",
+              "John Deacon",
+              "Roger Taylor",
+              "Mike Grose",
+              "Doug Bogie",
+              "Queen Barry Mitchell"
+            ],
+            "albumes": [
+              "Thriller",
+              "Made in Heaven"
+            ],
+            "canciones": [
+              "Billie Jean",
+              "Mother Love",
+              "Its A Beautiful Day",
+              "I Was Born To Love You",
+              "Living on my own",
+              "Plan A"
+            ],
+            "nombreGenero": "Rock"
+          }
+        ],
+        "nombrePlaylist": "De todo un poco",
+        "canciones": [
+          {
+            "nombre": "Master Of Puppets",
+            "autor": "Metallica",
+            "duracion": "8:36",
+            "genero": [
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "single": true,
+            "numReproducciones": 29000000
+          },
+          {
+            "nombre": "Baby Be Mine",
+            "autor": "Michael Jackson",
+            "duracion": "4:37",
+            "genero": [
+              {
+                "grupos": [],
+                "artistas": [
+                  "Michael Jackson"
+                ],
+                "albumes": [
+                  "Thriller"
+                ],
+                "canciones": [
+                  "Wanna Be Startin' Something",
+                  "Baby Be Mine",
+                  "The Girl Is Mine",
+                  "Beat It",
+                  "Human Nature",
+                  "Pretty Young Thing",
+                  "The Lady in My Life",
+                  "Bad"
+                ],
+                "nombreGenero": "RyB"
+              },
+              {
+                "grupos": [],
+                "artistas": [
+                  "Michael Jackson"
+                ],
+                "albumes": [
+                  "Thriller"
+                ],
+                "canciones": [
+                  "Wanna Be Startin' Something",
+                  "Baby Be Mine",
+                  "The Girl Is Mine",
+                  "Beat It",
+                  "Human Nature",
+                  "Pretty Young Thing",
+                  "The Lady in My Life"
+                ],
+                "nombreGenero": "Soul"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 4580000
+          },
+          {
+            "nombre": "Billie Jean",
+            "autor": "Michael Jackson",
+            "duracion": "4:55",
+            "genero": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 1154580120
+          }
+        ],
+        "duracion": "0h 18min 8secs"
+      },
+      {
+        "generos": [
+          {
+            "grupos": [],
+            "artistas": [
+              "Rosalía",
+              "Beret",
+              "Eminem"
+            ],
+            "albumes": [
+              "El Mal Querer",
+              "Prisma"
+            ],
+            "canciones": [
+              "Di mi nombre",
+              "Ojalá",
+              "Diez mil porqués",
+              "Esencial",
+              "Cóseme",
+              "Lose Yourself"
+            ],
+            "nombreGenero": "Rap"
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Rosalía",
+              "Beret"
+            ],
+            "albumes": [
+              "Thriller",
+              "El Mal Querer",
+              "Prisma"
+            ],
+            "canciones": [
+              "Thriller",
+              "Malamente",
+              "Preso",
+              "Living on my own",
+              "Ojalá",
+              "Esencial"
+            ],
+            "nombreGenero": "Pop"
+          },
+          {
+            "grupos": [
+              "Los Chunguitos"
+            ],
+            "artistas": [
+              "Rosalía",
+              "Peret",
+              "Enrique Salazar",
+              "Juan Salazar",
+              "José Salazar"
+            ],
+            "albumes": [
+              "El Mal Querer",
+              "Morir de amor",
+              "Borriquito"
+            ],
+            "canciones": [
+              "Malamente",
+              "Rumba en el cielo",
+              "Yo me lo tengo que beber",
+              "Tinto de verano",
+              "Borriquito",
+              "El muerto vivo"
+            ],
+            "nombreGenero": "Flamenco"
+          },
+          {
+            "grupos": [
+              "The Prodigy"
+            ],
+            "artistas": [
+              "Skrillex",
+              "Mike Oldfield",
+              "Ozuna",
+              "Keith Flint",
+              "Liam Howlett",
+              "Maxim Reality",
+              "Sharky"
+            ],
+            "albumes": [
+              "The Day Is My Enemy"
+            ],
+            "canciones": [
+              "The Prodigy",
+              "Nasty",
+              "Rebel Radio",
+              "Face My Fears",
+              "Tubular Bells",
+              "Solita"
+            ],
+            "nombreGenero": "Electronica"
+          }
+        ],
+        "nombrePlaylist": "Relax",
+        "canciones": [
+          {
+            "nombre": "Ojalá",
+            "autor": "Beret",
+            "duracion": "3:43",
+            "genero": [
+              {
+                "grupos": [],
+                "artistas": [
+                  "Rosalía",
+                  "Beret",
+                  "Eminem"
+                ],
+                "albumes": [
+                  "El Mal Querer",
+                  "Prisma"
+                ],
+                "canciones": [
+                  "Di mi nombre",
+                  "Ojalá",
+                  "Diez mil porqués",
+                  "Esencial",
+                  "Cóseme",
+                  "Lose Yourself"
+                ],
+                "nombreGenero": "Rap"
+              },
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Rosalía",
+                  "Beret"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "El Mal Querer",
+                  "Prisma"
+                ],
+                "canciones": [
+                  "Thriller",
+                  "Malamente",
+                  "Preso",
+                  "Living on my own",
+                  "Ojalá",
+                  "Esencial"
+                ],
+                "nombreGenero": "Pop"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 197000000
+          },
+          {
+            "nombre": "Yo me lo tengo que beber",
+            "autor": "Los Chunguitos",
+            "duracion": "3:45",
+            "genero": [
+              {
+                "grupos": [
+                  "Los Chunguitos"
+                ],
+                "artistas": [
+                  "Rosalía",
+                  "Peret",
+                  "Enrique Salazar",
+                  "Juan Salazar",
+                  "José Salazar"
+                ],
+                "albumes": [
+                  "El Mal Querer",
+                  "Morir de amor",
+                  "Borriquito"
+                ],
+                "canciones": [
+                  "Malamente",
+                  "Rumba en el cielo",
+                  "Yo me lo tengo que beber",
+                  "Tinto de verano",
+                  "Borriquito",
+                  "El muerto vivo"
+                ],
+                "nombreGenero": "Flamenco"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 231000
+          },
+          {
+            "nombre": "Tubular Bells",
+            "autor": "Mike Oldfield",
+            "duracion": "5:33",
+            "genero": [
+              {
+                "grupos": [
+                  "The Prodigy"
+                ],
+                "artistas": [
+                  "Skrillex",
+                  "Mike Oldfield",
+                  "Ozuna",
+                  "Keith Flint",
+                  "Liam Howlett",
+                  "Maxim Reality",
+                  "Sharky"
+                ],
+                "albumes": [
+                  "The Day Is My Enemy"
+                ],
+                "canciones": [
+                  "The Prodigy",
+                  "Nasty",
+                  "Rebel Radio",
+                  "Face My Fears",
+                  "Tubular Bells",
+                  "Solita"
+                ],
+                "nombreGenero": "Electronica"
+              }
+            ],
+            "single": true,
+            "numReproducciones": 116000
+          }
+        ],
+        "duracion": "0h 13min 1secs"
+      },
+      {
+        "generos": [
+          {
+            "grupos": [
+              "Metallica",
+              "Queen"
+            ],
+            "artistas": [
+              "Freddie Mercury",
+              "Alan Ryker",
+              "James Heltfield",
+              "Cliff Burton",
+              "Lars Ulrich",
+              "Dave Mustaine",
+              "Kirk Hammett",
+              "Jason Newsted",
+              "Robert Trujillo",
+              "Ron McGovney",
+              "Brian May",
+              "John Deacon",
+              "Roger Taylor",
+              "Mike Grose",
+              "Doug Bogie",
+              "Queen Barry Mitchell"
+            ],
+            "albumes": [
+              "Made in Heaven",
+              "Master Of Puppets"
+            ],
+            "canciones": [
+              "Pulling Teeth",
+              "Its A Beautiful Day",
+              "I Was Born To Love You",
+              "Master Of Puppets",
+              "Battery",
+              "Disposable Heroes"
+            ],
+            "nombreGenero": "Metal"
+          },
+          {
+            "grupos": [],
+            "artistas": [
+              "Rosalía",
+              "Beret",
+              "Eminem"
+            ],
+            "albumes": [
+              "El Mal Querer",
+              "Prisma"
+            ],
+            "canciones": [
+              "Di mi nombre",
+              "Ojalá",
+              "Diez mil porqués",
+              "Esencial",
+              "Cóseme",
+              "Lose Yourself"
+            ],
+            "nombreGenero": "Rap"
+          },
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Paulo Londra",
+              "Brian May",
+              "John Deacon",
+              "Roger Taylor",
+              "Mike Grose",
+              "Doug Bogie",
+              "Queen Barry Mitchell"
+            ],
+            "albumes": [
+              "Thriller",
+              "Made in Heaven"
+            ],
+            "canciones": [
+              "Billie Jean",
+              "Mother Love",
+              "Its A Beautiful Day",
+              "I Was Born To Love You",
+              "Living on my own",
+              "Plan A"
+            ],
+            "nombreGenero": "Rock"
+          }
+        ],
+        "nombrePlaylist": "Descansito",
+        "canciones": [
+          {
+            "nombre": "Master Of Puppets",
+            "autor": "Metallica",
+            "duracion": "8:36",
+            "genero": [
+              {
+                "grupos": [
+                  "Metallica",
+                  "Queen"
+                ],
+                "artistas": [
+                  "Freddie Mercury",
+                  "Alan Ryker",
+                  "James Heltfield",
+                  "Cliff Burton",
+                  "Lars Ulrich",
+                  "Dave Mustaine",
+                  "Kirk Hammett",
+                  "Jason Newsted",
+                  "Robert Trujillo",
+                  "Ron McGovney",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Made in Heaven",
+                  "Master Of Puppets"
+                ],
+                "canciones": [
+                  "Pulling Teeth",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Master Of Puppets",
+                  "Battery",
+                  "Disposable Heroes"
+                ],
+                "nombreGenero": "Metal"
+              }
+            ],
+            "single": true,
+            "numReproducciones": 29000000
+          },
+          {
+            "nombre": "Diez mil porqués",
+            "autor": "Beret",
+            "duracion": "3:32",
+            "genero": [
+              {
+                "grupos": [],
+                "artistas": [
+                  "Rosalía",
+                  "Beret",
+                  "Eminem"
+                ],
+                "albumes": [
+                  "El Mal Querer",
+                  "Prisma"
+                ],
+                "canciones": [
+                  "Di mi nombre",
+                  "Ojalá",
+                  "Diez mil porqués",
+                  "Esencial",
+                  "Cóseme",
+                  "Lose Yourself"
+                ],
+                "nombreGenero": "Rap"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 40000000
+          },
+          {
+            "nombre": "Billie Jean",
+            "autor": "Michael Jackson",
+            "duracion": "4:55",
+            "genero": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Paulo Londra",
+                  "Brian May",
+                  "John Deacon",
+                  "Roger Taylor",
+                  "Mike Grose",
+                  "Doug Bogie",
+                  "Queen Barry Mitchell"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "Made in Heaven"
+                ],
+                "canciones": [
+                  "Billie Jean",
+                  "Mother Love",
+                  "Its A Beautiful Day",
+                  "I Was Born To Love You",
+                  "Living on my own",
+                  "Plan A"
+                ],
+                "nombreGenero": "Rock"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 1154580120
+          }
+        ],
+        "duracion": "0h 17min 3secs"
+      },
+      {
+        "generos": [
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Rosalía",
+              "Beret"
+            ],
+            "albumes": [
+              "Thriller",
+              "El Mal Querer",
+              "Prisma"
+            ],
+            "canciones": [
+              "Thriller",
+              "Malamente",
+              "Preso",
+              "Living on my own",
+              "Ojalá",
+              "Esencial"
+            ],
+            "nombreGenero": "Pop"
+          },
+          {
+            "grupos": [],
+            "artistas": [
+              "Rosalía",
+              "Beret",
+              "Eminem"
+            ],
+            "albumes": [
+              "El Mal Querer",
+              "Prisma"
+            ],
+            "canciones": [
+              "Di mi nombre",
+              "Ojalá",
+              "Diez mil porqués",
+              "Esencial",
+              "Cóseme",
+              "Lose Yourself"
+            ],
+            "nombreGenero": "Rap"
+          }
+        ],
+        "nombrePlaylist": "Relax",
+        "canciones": [
+          {
+            "nombre": "Preso",
+            "autor": "Rosalía",
+            "duracion": "2:48",
+            "genero": [
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Rosalía",
+                  "Beret"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "El Mal Querer",
+                  "Prisma"
+                ],
+                "canciones": [
+                  "Thriller",
+                  "Malamente",
+                  "Preso",
+                  "Living on my own",
+                  "Ojalá",
+                  "Esencial"
+                ],
+                "nombreGenero": "Pop"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 165000000
+          },
+          {
+            "nombre": "Ojalá",
+            "autor": "Beret",
+            "duracion": "3:43",
+            "genero": [
+              {
+                "grupos": [],
+                "artistas": [
+                  "Rosalía",
+                  "Beret",
+                  "Eminem"
+                ],
+                "albumes": [
+                  "El Mal Querer",
+                  "Prisma"
+                ],
+                "canciones": [
+                  "Di mi nombre",
+                  "Ojalá",
+                  "Diez mil porqués",
+                  "Esencial",
+                  "Cóseme",
+                  "Lose Yourself"
+                ],
+                "nombreGenero": "Rap"
+              },
+              {
+                "grupos": [
+                  "Queen"
+                ],
+                "artistas": [
+                  "Michael Jackson",
+                  "Freddie Mercury",
+                  "Rosalía",
+                  "Beret"
+                ],
+                "albumes": [
+                  "Thriller",
+                  "El Mal Querer",
+                  "Prisma"
+                ],
+                "canciones": [
+                  "Thriller",
+                  "Malamente",
+                  "Preso",
+                  "Living on my own",
+                  "Ojalá",
+                  "Esencial"
+                ],
+                "nombreGenero": "Pop"
+              }
+            ],
+            "single": false,
+            "numReproducciones": 197000000
+          }
+        ],
+        "duracion": "0h 6min 31secs"
+      }
+    ]
+  ],
+  "playlistUsuario": [
+    []
   ]
 }
