@@ -37,10 +37,10 @@ type dbtype = {
     }[],
     generosmusicales: {
         nombreGenero: string;
-	    grupos: Grupos[];
-	    artistas: Artistas[];
-	    albumes: Album[];
-	    canciones: Cancion[];
+	    grupos: string[];
+	    artistas: string[];
+	    albumes: string[];
+	    canciones: string[];
     }[],
     
     albumes: {
@@ -52,9 +52,9 @@ type dbtype = {
     }[],
     artistas: {
         nombreArtista: string;
-	    grupos: Grupos[];
+	    grupos: string[];
         generos: GenerosMusicales[];
-        albumes: Album[];
+        albumes: string[];
         canciones: Cancion[];
         oyentes: number;
     }[],
