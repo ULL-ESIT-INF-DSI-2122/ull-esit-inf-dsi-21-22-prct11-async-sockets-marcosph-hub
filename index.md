@@ -1386,7 +1386,7 @@ La base de datos guardará los datos respectivos que se le pasen mediante la fun
     }
 ```
 
-Los demás métodos que tiene son para añadir, y borrar canciones, géneros musicales, álbumes, artistas y grupos. Estos métodos serán llamados por los ficheros **inquirer-[Cancion | Generos | Album | Grupos | artista]** respectivamente que se nombraron anteriormente y así esos objetos son añadidos o borrados.
+Los demás métodos que tiene son para añadir, y borrar canciones, géneros musicales, álbumes, artistas y grupos. Estos métodos serán llamados por los ficheros **inquirer-Cancion|Generos|Album|Grupos|artista** respectivamente que se nombraron anteriormente y así esos objetos son añadidos o borrados.
 
 En el caso de playlist y como se ha indicado sus métodos serán relativos al atributo __playUsuarioArrayLista__. Con el fin de conseguir que el usuario no borre playlist del sistema.
 
