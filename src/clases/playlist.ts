@@ -53,6 +53,17 @@ export class Playlist {
 	getCanciones(){
 		return this.canciones;
 	}
+	/**
+	 * Getter para el Conjunto de canciones
+	 * @returns Array de Canciones
+	 */
+	 getCancionesNombre(){
+		 let auxNombre:string[] = [];
+		 this.canciones.forEach(element =>{
+			 auxNombre.push(element.getNombreCancion())
+		 })
+		return auxNombre;
+	}
 
 	/**
 	 * Getter para la duración de una Cancion
@@ -83,6 +94,9 @@ export class Playlist {
 			nombreGenero.push(element.getNombreGenero()); 
 		});
 		return nombreGenero; 
+	}
+	getGenerosObject(){
+		return this.generos;
 	}
 
 	/**
