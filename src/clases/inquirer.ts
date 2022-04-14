@@ -19,7 +19,6 @@ import { menuDelGrupo } from "../clases/inquirer-Grupos";
 
 
 // Crear base de datos
-
 export let db =  new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos, index.playlists);
 //db.guardarBaseDatos();
 
@@ -147,10 +146,12 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         //addGrupo();
-
         inGrupos.addGrupo();
         //console.log(`añadiendo una grupo`);
         break;
+      case CommandsClases.Salir:
+        await menuPrincipal();
+        return 0;
     }
 }
 
@@ -182,9 +183,9 @@ export async function menuAdd(){
         menuDelGrupo();
         
         break;
-        case CommandsClases.Salir:
-          await menuPrincipal();
-          return 0;
+      case CommandsClases.Salir:
+        await menuPrincipal();
+        return 0;
     } 
 }
 
@@ -217,10 +218,9 @@ export async function menuAdd(){
         //console.log(`modificando una grupo`);
         inGrupos.menuModificarGrupo();
         break;
-      case CommandsClases.Salir:
-           menuPrincipal();
-      
-      break;
+        case CommandsClases.Salir:
+          await menuPrincipal();
+          return 0;
     }
 }
 export async function menuOpcionPlaylist(){

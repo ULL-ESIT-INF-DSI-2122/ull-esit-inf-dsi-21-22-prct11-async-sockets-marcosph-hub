@@ -30,9 +30,11 @@ Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts*
 
     3.6. Clase Playlist
 
-    3.7. Fichero Inquirer
+    3.7. Fichero index.ts
 
-    3.8. Fichero Inquirer-filtrado
+    3.8. Fichero Inquirer
+
+    3.9. Fichero Inquirer-filtrado
 
 4. Test
 5. Desarrollo del informe con GitHub Pages
@@ -99,6 +101,7 @@ Cada clase está situada en el directorio **src/clases/**:
 - [x] Playlist
 
 #### Clase Géneros Musicales
+Este fichero contiene una interfaz ```GenerosMusicalesInterface``` con los atributos de la clase y sus tipos determinados.
 La clase ```GenerosMusicales()``` recibe en primera instancia el nombre del **género musical** para posteriormente autocompletarse mediante la creación de las otros objetos. 
 
 Su **constructor** consta de:
@@ -113,6 +116,7 @@ En cuanto se vayan creando los objetos de las siguientes clases, se añadirán a
 Por último, contiene los **getter** y **setter** de cada elemento para acceder y/o modificar a los elementos del objeto cuando se cree de esta clase. 
 
 ### Clase Canción
+Este fichero contiene una interfaz ```CancionInterface``` con los atributos de la clase y sus tipos determinados.
 La clase ```Cancion()``` será nuestra **clase principal**, ya que es la que menos dependencia con respecto a las otras clases tiene. Su **constructor** consta de:
 - **nombre** de tipo *string* cuyo contenido será el nombre de la canción.
 - **autor** de tipo *string* que contiene el nombre del autor de la canción.
@@ -158,6 +162,7 @@ setGeneroMusical(genero: GenerosMusicales[]){
 Primero se vacía el **array** y se le añade nuevamente los objetos del tipo **GeneroMusical**.
 
 ### Clase Artistas
+Este fichero contiene una interfaz ```ArtistasInterface``` con los atributos de la clase y sus tipos determinados.
 Al igual que la clase ```GenerosMusicales()```, la clase ```Artistas()``` tiene un **constructor** y un método **construirArtista()**.
 
 El **constructor** consta de:
@@ -229,7 +234,7 @@ setOyentes(oyentes: number){
 En este caso hace la suma de los **oyentes** mencionada anteriormente.
 
 ### Clase Grupos
-
+Este fichero contiene una interfaz ```GruposInterface``` con los atributos de la clase y sus tipos determinados.
 La clase ```Grupos()``` recibe en primera instancia el nombre del **grupo** y luego se autocompleta mediante la creación de los otros objetos. Está compuesto de:
 
 - **nombreGrupo** string con el nombre del grupo.
@@ -289,7 +294,7 @@ setAlbumes(album: Album[]){
 El resto de **setters** y **getters** son relativamente sencillos, por lo que no se han tenido en cuenta a la hora de nombrarlos, pero se han realizado y analizado.
 
 ### Clase Álbum
-
+Este fichero contiene una interfaz ```AlbumInterface``` con los atributos de la clase y sus tipos determinados.
 La ```clase Album()``` contiene:
 - **nombreAlbum** string con el nombre del álbum.
 - **autores** que pueden ser o de la clase **Grupos** o de la clase **Artistas**.
@@ -343,7 +348,6 @@ setAutores(autor: Grupos | Artistas){
 Primero se comprueba y luego se añade a su correspondiente lugar. También se cuenta con los ```setCanciones()``` y ```getGenero()``` de clases anteriores, entre otras, pero como es el mismo código, se ha optado por omitirlo para no ser redundantes. El resto de **setters** y **getters** son relativamente sencillos, por lo que no se han tenido en cuenta a la hora de nombrarlos, pero se han realizado y analizado.
 
 ### Clase Playlist
-
 El contenido de la ```clase Playlist()``` es el siguiente:
 
 - **nombrePlaylist** string con el nombre de la playlist.
@@ -351,58 +355,68 @@ El contenido de la ```clase Playlist()``` es el siguiente:
 - **duracion** string formateado de manera que devuelva las *horas, minutos y segundos* de duración de la playlist.
 - **generos** array de **Generos Musicales** que conforman la playlist.
 
-Su constructor recibe 2 párametros únicamente:
+Su constructor recibe 2 párametros únicamente, sin embargo a su vez se encarga de recorrer todas las canciones y sumar los segundos totales de duración de cada canción de la playlist. Una vez conseguidos el total de segundos de la playlist, se formatean para devolver un string con las *horas minutos y segundos* totales de duración.:
 
 ```typescript
 constructor(nombrePlaylist: string, canciones: Cancion[]){
-	this.nombrePlaylist = nombrePlaylist;
-	this.canciones = canciones;
-	this.duracion = ``;
-	let auxGeneroCanciones: GenerosMusicales[];
-	this.canciones.forEach(element => {
-		
-		auxGeneroCanciones = element.getGenero();
-		auxGeneroCanciones.forEach(elemento => {
-			let contador: number = 0;
-			for(let i = 0; i < this.generos.length; i++){
-				if (elemento === this.generos[i]){
-					contador++;
+		this.nombrePlaylist = nombrePlaylist;
+		this.canciones = canciones;
+		//this.duracion = ``;
+		let auxGeneroCanciones: GenerosMusicales[];
+		this.canciones.forEach(element => {
+			
+			auxGeneroCanciones = element.getGenero();
+			auxGeneroCanciones.forEach(elemento => {
+				let contador: number = 0;
+				for(let i = 0; i < this.generos.length; i++){
+					if (elemento === this.generos[i]){
+						contador++;
+					}
 				}
-			}
-			if (contador === 0){
-				this.generos.push(elemento);					
+				if (contador === 0){
+					this.generos.push(elemento);					
+					contador = 0;
+				}	
 				contador = 0;
-			}	
-			contador = 0;
+			});
 		});
-	});
-}
+		let aux: number = 0;
+		this.canciones.forEach(element => {
+			aux = aux + element.getDuracionCancionSecs()
+		});
+		let hour = Math.floor(aux / 3600);
+		let min = Math.floor(aux / 60);
+		let secs = aux - min * 60;
+		aux = aux - hour * 3600;
+		let result: string = `${hour}h ${min}min ${secs}secs`;
+		this.duracion = result;
+	}
 ```
-Como se puede observar, los **géneros musicales** que forman la playlist, se generan mediante el bucle **forEach**. En cuanto a la duración, tenemos el getter ```getDuracion()``` que se encarga de recorrer todas las canciones y sumar los segundos totales de duración de cada canción de la playlist. Una vez conseguidos el total de segundos de la playlist, se formatean para devolver un string con las *horas minutos y segundos* totales de duración.
-```typescript
-getDuracion(){
-	let aux: number = 0;
-	this.canciones.forEach(element => {
-		aux = aux + element.getDuracionCancionSecs()
-	});
-	let hour = Math.floor(aux / 3600);
-	let min = Math.floor(aux / 60);
-	let secs = aux - min * 60;
-	aux = aux - hour * 3600;
-	let result: string = `${hour}h ${min}min ${secs}secs`;
-	this.duracion = result;
 
-	return this.duracion;
-}
-```
+
 **NOTA:**
 En caso de que solo queramos obtener las *horas y minutos*, se modificaría el string devuelto, eliminando los **segundos**. El resto de **setters** y **getters**, son idénticos a los nombrados en el resto de clases, por lo que no se nombran en esta clase, pero están implementados.
+
+
+### Fichero index.ts
+
+En este fichero que se aloja al mismo nivel que el directorio __/clases__ se alojan los datos de los 10 géneros musicales, entre los cuales se reparten equitativamente las 50 canciones, los 41 artistas, ya que no solo son los cantantes independientes sino también los componentes de grupos, de los cuales se tienen 6 grupos. Además se tienen 15 álbumes y 7 playlists.
+
+Finalmente se tendrá todos estos objetos guardados en arrays determinados para ellos (__generos[], canciones[], artistas[], grupos[], albumes[] y playlists[]__). Esto será necesario posteriormente para su añadido a la base de datos.
+
 
 ### Fichero Inquirer
 
 El contenido del fichero __inquirer.ts__ tendrá el manejo de los menús y submenús que trabaja utilizando el módulo [Inquirer.js](https://www.npmjs.com/package/inquirer). Dichos menús permiten una visión más amigable para los usuarios por la terminal.
 
-Se tiene varios tipos de enum que serán los distintos tipos de comandos a los que llamarán los menús, son las opciones disponibles por el usuario. Siendo estos tales que:
+De primeras se exporta la base de datos denotada por __db__ que se crea como objeto de la clase __BaseDatos__ y se construye mediante los arrays(nombrados en el apartado anterior de  _Fichero index.ts_) que se alojan en el fichero __index.ts__ que tiene todas las canciones, albumes, artistas, grupos, etc. 
+
+```typescript
+// Crear base de datos
+export let db =  new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos, index.playlists);
+```
+
+A continuación, se tienen varios tipos de enum que serán los distintos tipos de comandos a los que llamarán los menús, son las opciones disponibles por el usuario. Siendo estos tales que:
 
 ```typescript
 /**
@@ -496,11 +510,25 @@ export enum CommandsGestionAvanzada {
 
 Y por otro lado del fichero se encuentra los distintos menús. El primer menú o **Menu Principal** contiene las funcionalidades siguientes:
 
-![Menu Principal](./assets/images/menuPrincipal.png)
+Se ejecuta el comando para mostrar el menú principal del programa:
+
+> `npm run start`
+
+![Menu Principal](./assets/images/menuPrincipal.jpg)
+
+Como se comprueba hay distintas opciones:
+
+- [x] Añadir -> Permite añadir canciones, géneros musicales, álbum, artista, grupo o salir(Finalizar).
+- [x] Borrar -> 
+- [x] Modificar ->
+- [x] Opciones Avanzadas
+- [x] Visualizar Playlist
+- [x] Salir -> Finaliza y sale
 
 Una vez accedemos al menú **Añadir**, podemos observar las opciones:  
 
 ![Menu Añadir](./assets/images/menuAnadir.png)
+
 
 De manera similar, el menú **Borrar** consta de los mismos apartados que el **Añadir**:
 

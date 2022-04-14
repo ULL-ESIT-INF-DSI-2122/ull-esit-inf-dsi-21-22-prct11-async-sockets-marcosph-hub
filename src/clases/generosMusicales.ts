@@ -13,7 +13,7 @@ import { Album, AlbumInterface } from "./album";
  * @param albumes array de Album
  * @param canciones array de Cancion
  */
- export interface GenerosMusicalesInterface{
+export interface GenerosMusicalesInterface{
 	nombreGenero: string,
 	grupos: GruposInterface[],
 	artistas: ArtistasInterface[],
