@@ -147,7 +147,7 @@ let album9 = new Album(`3a.m.`, `Cali y El Dandee`, [Regueton], 2012, [cancion32
 let album10 = new Album(`Get Rich or Die Tryin'`, artista15, [Hip_Hop], 2003, [cancion35, cancion36]); 
 let album11 = new Album(`ALMAS GEMELAS`, artista7, [Hip_Hop], 2021, [cancion37, cancion38]);
 let album12 = new Album(`Asd`, artista5, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
-let album13 = new Album(`Zrt`, artista5, [Hip_Hop], 2018, [cancion39, cancion40, cancion41]);
+let album13 = new Album(`Zrt`, artista5, [Hip_Hop], 2018, [cancion39, cancion40, cancion41, cancion45]);
 let album14 = new Album(`Mpn`, artista5, [Hip_Hop], 2030, [cancion39, cancion40, cancion41]);
 let album15 = new Album(`Culture`, `Migos`, [Hip_Hop], 2017, [cancion39, cancion40, cancion41]);
 
