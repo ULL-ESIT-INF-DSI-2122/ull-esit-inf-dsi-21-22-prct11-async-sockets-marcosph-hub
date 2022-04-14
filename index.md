@@ -715,12 +715,11 @@ export async function menuPrincipal(){
 menuPrincipal();
 ```
 
-
-Y estos menús llaman a su vez a métodos de añadir, borrar y modificar específicos de las clases **Cancion**, **GenerosMusicales** **Album**, **Grupos** y **Artistas**. Estos métodos de añadir, borrar y modificar, siguiendo los principios SOLID se alojaron en un fichero aparte denotado por **inquirer-[Cancion | Generos | Album | Grupos | artista]** respectivamente.
+Y estos menús llaman a su vez a métodos de añadir, borrar y modificar específicos de las clases **Cancion**, **GenerosMusicales** **Album**, **Grupos** y **Artistas**. Estos métodos de añadir, borrar y modificar, siguiendo los principios SOLID se alojaron en un fichero aparte denotado por **inquirer-Cancion|Generos|Album|Grupos|artista** respectivamente.
 
 Cada fichero tendrá estos métodos de añadir, modificar y borrar.
 
-El método añadir se denotará tal que __add[Cancion | Genero | Album | Grupo | Artista] ()__, el modificar tal que __mod[Cancion | Genero | Album | Grupo | Artista] ()__ y el método borrar tal que __del[Cancion | Genero | Album | Grupo | Artista] ()__.
+El método añadir se denotará tal que __addCancion|Genero|Album|Grupo|Artista()__, el modificar tal que __modCancion|Genero|Album|Grupo|Artista()__ y el método borrar tal que __delCancion|Genero|Album|Grupo|Artista()__.
 
 
 Por otro lado está el menú que maneja el apartado de __Opciones Avanzadas__ de la terminal. 
