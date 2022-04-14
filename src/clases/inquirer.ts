@@ -7,6 +7,7 @@ import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
+import * as inPlay from "../clases/inquirer-Playlist";
 import * as inGenero from "../clases/inquirer-Generos";
 import { addAlbum, menuModAlbum, menuDelAlbum } from '../clases/inquirer-Album';
 import { addCancion,addCancionGenero, menuModCancion, menuDelCancion } from './inquirer-Cancion';
@@ -31,6 +32,7 @@ export enum Commands {
     Borrar = `Borrar`,
     Modificar = `Modificar`,
     OpcionesAvanzadas = `Opciones Avanzadas`,
+    Playlist = `Visualizar Playlist`,
     Salir = `Salir`
 }
   
@@ -44,6 +46,12 @@ export enum CommandsClases {
     Artista = `Artista`,
     Grupo = `Grupo`,
     Salir = `Salir`
+}
+export enum CommandsPlay {
+  Previsualizar = `Previsualizar las playlists`,
+  Navegar = `Navegar una playlist`,
+  Salir = `Salir`
+  
 }
 
 /**
@@ -160,6 +168,7 @@ export async function menuAdd(){
         break;
       case CommandsClases.GeneroMusical:
         await menuDelGenero();
+        
         break;
       case CommandsClases.Album:
         await menuDelAlbum();
@@ -169,6 +178,7 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         menuDelGrupo();
+        
         break;
         case CommandsClases.Salir:
           await menuPrincipal();
@@ -210,6 +220,30 @@ export async function menuAdd(){
       
       break;
     }
+}
+export async function menuOpcionPlaylist(){
+  //console.clear();
+   const respuestaPlay = await inquirer.prompt({
+     type: 'list',
+     name: `command`, 
+     message: `Elige opción sobre Playlist `,
+     choices: Object.values(CommandsPlay)
+   })
+   switch(respuestaPlay["command"]) {
+     case CommandsPlay.Previsualizar:
+        inPlay.PrePlaylist();
+       break;
+     case CommandsPlay.Navegar:
+     inPlay.NombrePlay();
+       //inGenero.menuModGenero();
+       break;
+    
+     case CommandsPlay.Salir:
+       console.clear();
+          menuPrincipal();
+     
+     break;
+   }
 }
 
 /**
@@ -365,6 +399,9 @@ export async function menuPrincipal(){
       case Commands.OpcionesAvanzadas:
         menuOpcionGrupoArtista();
         break;
+      case Commands.Playlist:
+      menuOpcionPlaylist();
+      break;
       case Commands.Salir:
         return;
     }
