@@ -1,28 +1,21 @@
 import inquirer from "inquirer";
-import { Album } from "../clases/album";
 import { Artistas } from "../clases/artistas";
-import { Cancion } from "../clases/cancion";
-import { GenerosMusicales } from "../clases/generosMusicales";
 import { Grupos } from "../clases/grupos";
-import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as inGrupos from "../clases/inquirer-Grupos";
 import * as inPlay from "../clases/inquirer-Playlist";
 import * as inGenero from "../clases/inquirer-Generos";
 import { addAlbum, menuModAlbum, menuDelAlbum } from '../clases/inquirer-Album';
-import { addCancion,addCancionGenero, menuModCancion, menuDelCancion } from './inquirer-Cancion';
+import { addCancion, menuModCancion, menuDelCancion } from './inquirer-Cancion';
 import { addArtista, menumodArtista, menuDelArtista } from '../clases/inquirer_artista';
 import * as InquirerFiltrado from '../clases/inquirer-filtrado';
 import { BaseDatos } from './basedatos';
 import { menuDelGenero } from "../clases/inquirer-Generos";
 import { menuDelGrupo } from "../clases/inquirer-Grupos";
 
-
 // Crear base de datos
-
 export let db =  new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos, index.playlists);
 //db.guardarBaseDatos();
-
 
 /**
  * @enum Commands con los comandos de añadir, borrar, modificar y salir
@@ -147,10 +140,12 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         //addGrupo();
-
         inGrupos.addGrupo();
         //console.log(`añadiendo una grupo`);
         break;
+      case CommandsClases.Salir:
+        await menuPrincipal();
+        return 0;
     }
 }
 
@@ -182,9 +177,9 @@ export async function menuAdd(){
         menuDelGrupo();
         
         break;
-        case CommandsClases.Salir:
-          await menuPrincipal();
-          return 0;
+      case CommandsClases.Salir:
+        await menuPrincipal();
+        return 0;
     } 
 }
 
@@ -217,10 +212,9 @@ export async function menuAdd(){
         //console.log(`modificando una grupo`);
         inGrupos.menuModificarGrupo();
         break;
-      case CommandsClases.Salir:
-           menuPrincipal();
-      
-      break;
+        case CommandsClases.Salir:
+          await menuPrincipal();
+          return 0;
     }
 }
 export async function menuOpcionPlaylist(){

@@ -14,6 +14,9 @@ import { GenerosMusicales } from "./generosMusicales";
  * @param canciones array de Cancion
  * @param oyentes número de oyentes 
  */
+/**
+ * Interfaz ArtistasInterface
+ */
  export interface ArtistasInterface {
 	nombreArtista: string,
 	grupos: Grupos[],
@@ -23,6 +26,9 @@ import { GenerosMusicales } from "./generosMusicales";
 	oyentes: number,
 	oyentegrupo: number[];
 }
+/**
+ * Clase Artistas
+ */
 export class Artistas {
 	private nombreArtista: string;
 	private grupos: string[] = [];

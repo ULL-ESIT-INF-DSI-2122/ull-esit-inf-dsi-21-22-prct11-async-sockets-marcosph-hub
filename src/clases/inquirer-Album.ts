@@ -3,15 +3,10 @@ import { Album } from "./album";
 import { Artistas } from "./artistas";
 import { Cancion } from "./cancion";
 import { GenerosMusicales } from "./generosMusicales";
-import { Grupos } from "./grupos";
-import { Playlist } from "./playlist";
 import * as index from "../index";
 import * as InquirerFile from "./inquirer";
-import { CommandsGenerosCanciones } from './inquirer';
-import { addCancion, addCancionGenero } from './inquirer-Cancion';
-import { addGrupo } from './inquirer-Grupos';
+import { addCancionGenero } from './inquirer-Cancion';
 import { menuPrincipal } from './inquirer';
-
 
 /**
  * @enum CommandsGrupoArtista si es un grupo o un artista
@@ -302,7 +297,9 @@ export async function menuModAlbum() {
     await modAlbum(numeroAlbum);
   }
 }
-
+/**
+ * Funcion menuDelAlbum
+ */
 export async function menuDelAlbum() {
   const albumBorrada = await inquirer.prompt({
     type: 'input',

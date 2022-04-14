@@ -287,7 +287,9 @@ export async function menumodArtista(){
     modArtista(numeroArtista);
   }
 }
-
+/**
+ * Funcion menuDelArtista
+ */
 export async function menuDelArtista() {
   const artistaBorrado = await inquirer.prompt({
     type: 'input',

@@ -1,7 +1,6 @@
-import { Cancion, CancionInterface } from "./cancion";
-import { Grupos, GruposInterface } from "./grupos";
-import { Artistas, ArtistasInterface } from "./artistas";
-import { Album, AlbumInterface } from "./album";
+import { GruposInterface } from "./grupos";
+import { ArtistasInterface } from "./artistas";
+import { AlbumInterface } from "./album";
 
 /**
  * TRABAJO GRUPO L
@@ -13,7 +12,7 @@ import { Album, AlbumInterface } from "./album";
  * @param albumes array de Album
  * @param canciones array de Cancion
  */
- export interface GenerosMusicalesInterface{
+export interface GenerosMusicalesInterface{
 	nombreGenero: string,
 	grupos: GruposInterface[],
 	artistas: ArtistasInterface[],

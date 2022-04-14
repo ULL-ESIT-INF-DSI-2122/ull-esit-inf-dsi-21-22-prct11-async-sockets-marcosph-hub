@@ -1,19 +1,21 @@
 import inquirer from 'inquirer';
 import { Album } from "../clases/album";
 import { Artistas } from "../clases/artistas";
-import { Cancion } from "../clases/cancion";
 import { GenerosMusicales } from "../clases/generosMusicales";
 import { Grupos } from "../clases/grupos";
-import { Playlist } from "../clases/playlist";
 import * as index from "../index";
 import * as InquirerFile from "./inquirer";
 import * as inCancion from "./inquirer-Cancion";
-
+/**
+ * enum CommandsSingle
+ */
 export enum CommandsSingle {
   Si = `Si`,
   No = `No`
 }
-
+/**
+ * Enum CommandsGrupoProperty
+ */
 export enum CommandsGrupoProperty {
   Nombre = `Nombre`,
   Artistas = `Artista`,
@@ -23,7 +25,10 @@ export enum CommandsGrupoProperty {
   Oyentes = `Oyentes`,
   Salir = `Salir`
 }
-
+/**
+ * Funcion getAlbumesGrupo
+ * @param albumArray array de albumes
+ */
 async function getAlbumesGrupo(albumArray: Album[]) {
   const albumesGrupo = await inquirer.prompt({
     type: "input",
@@ -60,7 +65,9 @@ async function getAlbumesGrupo(albumArray: Album[]) {
     }
   }
 }
-
+/**
+ * Function addGrupo
+ */
 export async function addGrupo() {
   const nombreGrupo = await inquirer.prompt({
     type: "input",
@@ -99,7 +106,10 @@ export async function addGrupo() {
   console.clear();
   InquirerFile.menuPrincipal();
 }
-
+/**
+ * Function addGrupoArtista
+ * @param artistas array de artistas
+ */
 export async function addGrupoArtista(artistas: Artistas[]) {
   const artistasArray = await inquirer.prompt({
     type: "input",
@@ -132,13 +142,15 @@ export async function addGrupoArtista(artistas: Artistas[]) {
       case CommandsSingle.Si:
         await addGrupoArtista(artistas);
         return 0;
-        break;
       case CommandsSingle.No:
         break;
     }
   }
 }
-
+/**
+ * Funcion modificarGrupo
+ * @param SpecificGrupoIndex indice del grupo 
+ */
 async function modificarGrupo(SpecificGrupoIndex:number) {
   const GrupoModificar = await inquirer.prompt ({
     type: "list",
@@ -215,7 +227,9 @@ async function modificarGrupo(SpecificGrupoIndex:number) {
       break;
   }
 }
-
+/**
+ * Funcion menuModificarGrupo
+ */
 export async function menuModificarGrupo() {
   const modificacionGrupo = await inquirer.prompt({
     type: "input",
@@ -240,7 +254,9 @@ export async function menuModificarGrupo() {
     modificarGrupo(GrupoIndex);
   }
 }
-
+/**
+ * Funcion menuDelGrupo
+ */
 export async function menuDelGrupo() {
   const grupoBorrar = await inquirer.prompt({
     type: 'input',

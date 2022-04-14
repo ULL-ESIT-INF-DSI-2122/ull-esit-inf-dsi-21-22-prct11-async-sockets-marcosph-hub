@@ -1,16 +1,9 @@
-import inquirer from 'inquirer';
 import { Album } from "../clases/album";
 import { Artistas } from "../clases/artistas";
 import { Cancion } from "../clases/cancion";
-import { GenerosMusicales } from "../clases/generosMusicales";
 import { Grupos } from "../clases/grupos";
 import { Playlist } from "../clases/playlist";
 import * as index from "../index";
-import * as inGrupos from "../clases/inquirer-Grupos";
-import * as inGenero from "../clases/inquirer-Generos";
-import { addCancion,addCancionGenero, menuModCancion } from './inquirer-Cancion';
-import { addArtista, menumodArtista } from '../clases/inquirer_artista';
-import { BaseDatos } from './basedatos';
 import { menuOpcionesAvanzadas } from './inquirer';
 
 /**
