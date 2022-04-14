@@ -10,6 +10,9 @@ import { Metal, Rock, RyB, Soul, Pop} from "../src/index";
 
 describe ('Métodos de la clase Artista',() => { 
   expect(artista1 instanceof Artistas).to.eql (true);
+  it ('Clase Artista Operativa',() => { 
+    expect(artista1 instanceof Artistas).to.eql (true);
+    });
   it ('Probando metodo setNombreArtista() y getNombreArtista()',() => { 
   artista1.setNombreArtista(`Pepe Benavente`);
   expect(artista1.getNombreArtista()).to.eql ('Pepe Benavente');
@@ -42,5 +45,3 @@ describe ('Métodos de la clase Artista',() => {
     expect(artista1.getAlbumes()).to.eql ([`Thriller`]);
   });
 });
-
-//it ('Métodos de la clase Artista',() => {});

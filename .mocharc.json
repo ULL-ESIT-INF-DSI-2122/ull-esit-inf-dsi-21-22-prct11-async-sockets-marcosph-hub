@@ -1,5 +1,7 @@
 {
     "extension": ["ts"],
-    "spec": "tests/**/artistas.spec.ts",
+    "spec": ["tests/**/artistas.spec.ts",
+        "tests/**/cancion.spec.ts"
+    ],
     "require": "ts-node/register"
 }
