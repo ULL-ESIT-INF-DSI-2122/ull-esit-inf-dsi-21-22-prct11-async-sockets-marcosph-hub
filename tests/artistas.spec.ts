@@ -27,7 +27,7 @@ describe ('Métodos de la clase Artista',() => {
   });
   it ('Probando metodo setCanciones() y getCanciones()',() => {
     artista1.setCanciones([cancion1,cancion2]);
-    expect(artista1.getCanciones()).to.eql ([ 'Pulling Teeth', 'Thriller' ]);
+    expect(artista1.getCanciones()).to.eql ([ 'El polvorete', 'Thriller' ]);
   });
   it ('Probando metodo setCanciones() y getCanciones()',() => {
     artista1.setGeneros([Pop, Metal]);
