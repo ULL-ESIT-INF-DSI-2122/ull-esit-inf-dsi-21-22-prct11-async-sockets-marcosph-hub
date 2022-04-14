@@ -17,15 +17,15 @@ export enum CommandsPartesArtista {
   Albumes = `Albumes`,
   Canciones = `Canciones`,
   Oyentes = `Número de oyentes mensuales`,
-  Salir = `Salir al menú principal`
+  Salir = `Guardar y Salir al menú principal`
 }
+
 
 
 /**
  * Funcion addArtista
  */
 export async function addArtista() {
-  
 let grupo: Grupos[] = [];
 let album: Album[] = [];
 let cancion: Cancion[] = [];

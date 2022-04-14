@@ -18,7 +18,7 @@ export class Playlist {
 	constructor(nombrePlaylist: string, canciones: Cancion[]){
 		this.nombrePlaylist = nombrePlaylist;
 		this.canciones = canciones;
-		this.duracion = ``;
+		//this.duracion = ``;
 		let auxGeneroCanciones: GenerosMusicales[];
 		this.canciones.forEach(element => {
 			
@@ -37,6 +37,16 @@ export class Playlist {
 				contador = 0;
 			});
 		});
+		let aux: number = 0;
+		this.canciones.forEach(element => {
+			aux = aux + element.getDuracionCancionSecs()
+		});
+		let hour = Math.floor(aux / 3600);
+		let min = Math.floor(aux / 60);
+		let secs = aux - min * 60;
+		aux = aux - hour * 3600;
+		let result: string = `${hour}h ${min}min ${secs}secs`;
+		this.duracion = result;
 	}
 	/**
 	 * Getter para el nombre de la Playlist
