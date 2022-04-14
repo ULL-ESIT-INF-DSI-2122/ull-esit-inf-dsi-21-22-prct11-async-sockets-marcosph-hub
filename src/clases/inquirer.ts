@@ -160,7 +160,6 @@ export async function menuAdd(){
         break;
       case CommandsClases.GeneroMusical:
         await menuDelGenero();
-        console.log(`eliminndo una genero musical`);
         break;
       case CommandsClases.Album:
         await menuDelAlbum();
@@ -170,7 +169,6 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         menuDelGrupo();
-        console.log(`eliminnndo una grupo`);
         break;
         case CommandsClases.Salir:
           await menuPrincipal();

@@ -371,7 +371,7 @@ export async function menuDelGenero() {
       return 0;
   } 
   else {
-    InquirerFile.db.delAlbum(indexGenero);
+    InquirerFile.db.delGenero(indexGenero);
   }
   console.clear();
   InquirerFile.menuPrincipal();

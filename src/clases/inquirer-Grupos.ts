@@ -260,7 +260,7 @@ export async function menuDelGrupo() {
       return 0;
   } 
   else {
-    InquirerFile.db.delAlbum(indexGenero);
+    InquirerFile.db.delGrupos(indexGenero);
   }
   console.clear();
   InquirerFile.menuPrincipal();
