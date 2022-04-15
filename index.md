@@ -1,7 +1,7 @@
 # Informe Práctica 7: Modelo de datos de un sistema de información que permite almacenar una biblioteca musical
 
 ## Desarrollo de Sistemas Informáticos
-Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts**, que será nuestro fichero principal. Además se ha dividido nuestro código fuente en varios fichceros, en nuestro caso se ha usado el **módulos ES**.
+Para el desarrollo de esta práctica se ha contado con 7 clases, 8 inquirer y un **index.ts**, que será nuestro fichero principal que almacenará los objetos creados. El fichero principal de la aplicación será el **inquirer.ts**. Además se ha dividido nuestro código fuente en varios fichceros, en nuestro caso se ha usado el **módulos ES**.
 
 ## Componentes del grupo L
 
@@ -9,40 +9,6 @@ Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts*
 - Héctor Abreu Acosta ([alu0101068855@ull.edu.es](alu0101068855@ull.edu.es))
 - Marcos Padilla Herrera ([alu0101045177@ull.edu.es](alu0101045177@ull.edu.es))
 - Andrea Calero Caro ([alu0101202952@ull.edu.es](alu0101202952@ull.edu.es))
-- Grupo L
-
-
-## ÍNDICE
-
-1. Herramientas para el Desarrollo de la Práctica.
-2. Explicación y funcionamiento.
-3. Clases
-
-    3.1. Clase Géneros Musicales
-
-    3.2. Clase Canción
-
-    3.3. Clase Artistas
-
-    3.4. Clase Grupos
-
-    3.5. Clase Álbum
-
-    3.6. Clase Playlist
-
-    3.7. Fichero index.ts
-
-    3.8. Fichero Inquirer
-
-    3.9. Fichero Inquirer-filtrado
-
-    3.10. Fichero Inquirer-Playlist
-
-    3.11. Fichero basedatos.ts
-
-4. Test
-5. Referencias
-
 
 ## Herramientas para el Desarrollo de la Práctica.
 Se ha hecho uso de una series de herramientas para complementar el desarrollo de la práctica para llevar a cabo una práctica más sólida y profesional.  
@@ -72,11 +38,11 @@ En **index.ts** se crean los objetos de las clases, es decir, es el que contiene
 
 Para la creación de las clases se van a ir actualizando en función se vayan creando objetos. Por ejemplo: una vez añadida una canción, se añade la canción al genero musical que la incluye.
 
-Se ha utilizado el módulo [Inquirer.js](https://www.npmjs.com/package/inquirer) para realizar una gestión de manera interactiva de nuestra aplicación. De este modo, añadiremos, eliminaremos y modificaremos géneros, **canciones**, **álbumes**, **grupos** y **artistas**. 
+Se ha utilizado el módulo [Inquirer.js](https://www.npmjs.com/package/inquirer) para realizar una gestión de manera interactiva de nuestra aplicación. De este modo, añadiremos, eliminaremos y modificaremos **géneros**, **canciones**, **álbumes**, **grupos**, **artistas** y **playlist**. 
 
 Para ejecutar el código principal del programa que tiene los distintos menús se ejecuta el comando:
 
-> `npm run start`
+> `npm start`
 
 ### Jerarquía de Directorios y Ficheros
 ![Jerarquía de Directorios y Ficheros](./assets/images/tree.PNG)  
@@ -98,8 +64,6 @@ Como cabría esperar, el menú **Modificar** consta de los mismos valores a modi
 
 ![Menu Modificar](./assets/images/menuModificar.png)
 
-
-
 ## Clases
 Cada clase está situada en el directorio **src/clases/**:
 
@@ -109,19 +73,20 @@ Cada clase está situada en el directorio **src/clases/**:
 - [x] Grupos 
 - [x] Álbum 
 - [x] Playlist
+- [x] Base de Datos
 
 #### Clase Géneros Musicales
 
-La clase ```GenerosMusicales()``` recibe en primera instancia el nombre del **género musical** para posteriormente autocompletarse mediante la creación de las otros objetos. 
+La clase ```GenerosMusicales()``` recibe en primera instancia el nombre del **género musical** para posteriormente autocompletarse mediante la creación de los objetos de las otras clases. 
 
 Su **constructor** consta de:
 - **nombreGenero** de tipo *string* que recibe el *nombre* del género en cuestión.
 
 En cuanto se vayan creando los objetos de las siguientes clases, se añadirán al objeto **Género Musical** lo siguiente:
-- **grupos** array de objetos de la clase ```Grupos()```.
-- **artistas** array de objetos de la clase ```Artistas()```.
-- **albumes** array de objetos de la clase ```Album()```.
-- **canciones** array de objetos de la clase ```Cancion()```.
+- **grupos** array de string de la clase ```Grupos```.
+- **artistas** array de string de la clase ```Artistas```.
+- **albumes** array de string de la clase ```Album```.
+- **canciones** array de string de la clase ```Cancion```.
 
 Por último, contiene los **getter** y **setter** de cada elemento para acceder y/o modificar a los elementos del objeto cuando se cree de esta clase. 
 
@@ -186,49 +151,45 @@ El método ```construirArtista()``` se ha creado con el fin de diferenciar entre
 
 ```typescript 
 construirArtista( canciones: Cancion[], oyentes: number){
-		this.canciones = canciones;
-		this.setOyentes(oyentes);
-		let auxGeneroCanciones: GenerosMusicales[];
+	this.canciones = canciones;
+	this.setOyentes(oyentes);
+	let auxGeneroCanciones: GenerosMusicales[];
 
-		this.canciones.forEach(element => {
-			auxGeneroCanciones = element.getGenero();
-			auxGeneroCanciones.forEach(elemento => {
-				let contador: number = 0;
-				for(let i = 0; i < this.generos.length; i++){
-					if (elemento === this.generos[i]){
-						contador++;
-					}
+	this.canciones.forEach(element => {
+		auxGeneroCanciones = element.getGenero();
+		auxGeneroCanciones.forEach(elemento => {
+			let contador: number = 0;
+			for(let i = 0; i < this.generos.length; i++){
+				if (elemento === this.generos[i]){
+					contador++;
 				}
-				if (contador === 0){
-					this.generos.push(elemento);					
-					contador = 0;
-				}	
+			}
+			if (contador === 0){
+				this.generos.push(elemento);					
 				contador = 0;
-			});
+			}	
+			contador = 0;
 		});
-		this.generos.forEach(element => {
-			element.setArtistas(this);
-		});
+	});
+	this.generos.forEach(element => {
+		element.setArtistas(this);
+	});
 	}
 ```
  Primeramente se añaden las **canciones** y los **oyentes mensuales** del **artista**. Luego, se puede observar que se le añaden al objeto de **generos musicales** los **artistas** que se vayan creando y evitando también que se repitan los valores del array.
 
 ```typescript 
 getGrupos(){
-  let grupos_: string[] = [];
-  this.grupos.forEach(element => {
-    grupos_.push(element.getNombreGrupo());
-  });
-  return grupos_;
+   return this.grupos;
 }
 ```
 Para los primeros casos, se crea un *array* de *strings* vacío, que devuelve el nombre de los **grupos** o **generos** o **albumes**.
 
 ```typescript 
 setGrupos(grupo: Grupos[]){
-		this.grupos = []
-		this.grupos = grupo;
-	}
+	this.grupos = []
+	this.grupos = grupo;
+}
 ```
 Como en casos anteriores, primero se borra el contenido del *array* de la **clase** y luego se le añaden los nuevos objetos.
 
@@ -307,7 +268,7 @@ El resto de **setters** y **getters** son relativamente sencillos, por lo que no
 
 La ```clase Album()``` contiene:
 - **nombreAlbum** string con el nombre del álbum.
-- **autores** que pueden ser o de la clase **Grupos** o de la clase **Artistas**.
+- **autores** que pueden ser del tipo string (nombre del **Grupo**) o de la clase **Artistas**.
 - **genero** arrray de **GenerosMusicales**
 - **yearPublicacion** number que contiene el año en el que se publicó el álbum.
 - **canciones** array de la clase **Cancion**.
@@ -315,30 +276,30 @@ La ```clase Album()``` contiene:
 Al igual que la clase anterior, el **constructor** añade a los objetos de **Género Musical**, el album, al igual que añade los artistas en caso de que sea un **artista** lo que que reciba el parámetro de **autor**.
 
 ```typescript
-constructor(nombreAlbum: string, autores: Grupos | Artistas, genero: GenerosMusicales[],
-		yearPublicacion: number, canciones: Cancion[]){
-			this.nombreAlbum = nombreAlbum;
-			this.autores = autores;
-			this.genero = genero;
-			this.yearPublicacion = yearPublicacion;
-			this.canciones = canciones;
-			if(autores instanceof Artistas){
-				autores.autoSetAlbumes(this);
-			}
-			genero.forEach(element => {
-				element.autoSetAlbumes(this);
-			});
+constructor(nombreAlbum: string, autores: string | Artistas, genero: GenerosMusicales[],
+	yearPublicacion: number, canciones: Cancion[]){
+		this.nombreAlbum = nombreAlbum;
+		this.autores = autores;
+		this.genero = genero;
+		this.yearPublicacion = yearPublicacion;
+		this.canciones = canciones;
+		if(autores instanceof Artistas){
+			autores.autoSetAlbumes(this.nombreAlbum);
 		}
+		genero.forEach(element => {
+			element.autoSetAlbumes(nombreAlbum);
+	});
+}
 ```
 
 Para leer los autores que tiene el álbum, se usa el getter:
 
 ```typescript
 getAutores(){
-	if (this.autores instanceof Grupos){
-		return this.autores.getNombreGrupo();
-	} else {
+	if (this.autores instanceof Artistas){
 		return this.autores.getNombreArtista();
+	} else {
+		return this.autores;
 	}
 }
 ```
@@ -346,12 +307,8 @@ getAutores(){
 Devuelve los **grupos** en caso de que el **álbum** esté hecho por un grupo, o un **artista** en caso contrario. En el caso del setter, se realiza la misma comprobación antes de añadirlo.
 
 ```typescript
-setAutores(autor: Grupos | Artistas){
-	if (autor instanceof Grupos){
-		this.autores = autor;
-	} else {
-		this.autores = autor;
-	}
+setAutores(autor: string | Artistas){
+	this.autores = autor;
 }
 ```
 
@@ -369,44 +326,42 @@ Su constructor recibe 2 párametros únicamente, sin embargo a su vez se encarga
 
 ```typescript
 constructor(nombrePlaylist: string, canciones: Cancion[]){
-		this.nombrePlaylist = nombrePlaylist;
-		this.canciones = canciones;
-		//this.duracion = ``;
-		let auxGeneroCanciones: GenerosMusicales[];
-		this.canciones.forEach(element => {
-			
-			auxGeneroCanciones = element.getGenero();
-			auxGeneroCanciones.forEach(elemento => {
-				let contador: number = 0;
-				for(let i = 0; i < this.generos.length; i++){
-					if (elemento === this.generos[i]){
-						contador++;
-					}
+	this.nombrePlaylist = nombrePlaylist;
+	this.canciones = canciones;
+	let auxGeneroCanciones: GenerosMusicales[];
+	this.canciones.forEach(element => {
+
+		auxGeneroCanciones = element.getGenero();
+		auxGeneroCanciones.forEach(elemento => {
+			let contador: number = 0;
+			for(let i = 0; i < this.generos.length; i++){
+				if (elemento === this.generos[i]){
+					contador++;
 				}
-				if (contador === 0){
-					this.generos.push(elemento);					
-					contador = 0;
-				}	
+			}
+			if (contador === 0){
+				this.generos.push(elemento);					
 				contador = 0;
-			});
+			}	
+			contador = 0;
 		});
-		let aux: number = 0;
-		this.canciones.forEach(element => {
-			aux = aux + element.getDuracionCancionSecs()
-		});
-		let hour = Math.floor(aux / 3600);
-		let min = Math.floor(aux / 60);
-		let secs = aux - min * 60;
-		aux = aux - hour * 3600;
-		let result: string = `${hour}h ${min}min ${secs}secs`;
-		this.duracion = result;
-	}
+	});
+	let aux: number = 0;
+	this.canciones.forEach(element => {
+		aux = aux + element.getDuracionCancionSecs()
+	});
+	let hour = Math.floor(aux / 3600);
+	let min = Math.floor(aux / 60);
+	let secs = aux - min * 60;
+	aux = aux - hour * 3600;
+	let result: string = `${hour}h ${min}min ${secs}secs`;
+	this.duracion = result;
+}
 ```
 
 
 **NOTA:**
 En caso de que solo queramos obtener las *horas y minutos*, se modificaría el string devuelto, eliminando los **segundos**. El resto de **setters** y **getters**, son idénticos a los nombrados en el resto de clases, por lo que no se nombran en esta clase, pero están implementados.
-
 
 ### Fichero index.ts
 
@@ -577,9 +532,7 @@ export async function menuAdd(){
         addArtista();
         break;
       case CommandsClases.Grupo:
-        //addGrupo();
         inGrupos.addGrupo();
-        //console.log(`añadiendo una grupo`);
         break;
       case CommandsClases.Salir:
         await menuPrincipal();
@@ -603,7 +556,6 @@ export async function menuAdd(){
         break;
       case CommandsClases.GeneroMusical:
         await menuDelGenero();
-        
         break;
       case CommandsClases.Album:
         await menuDelAlbum();
@@ -613,7 +565,6 @@ export async function menuAdd(){
         break;
       case CommandsClases.Grupo:
         menuDelGrupo();
-        
         break;
       case CommandsClases.Salir:
         await menuPrincipal();
@@ -637,7 +588,6 @@ export async function menuAdd(){
          menuModCancion();
         break;
       case CommandsClases.GeneroMusical:
-        //modGeneroMusical();
         inGenero.menuModGenero();
         break;
       case CommandsClases.Album:
@@ -647,10 +597,9 @@ export async function menuAdd(){
          menumodArtista();
         break;
       case CommandsClases.Grupo:
-        //console.log(`modificando una grupo`);
         inGrupos.menuModificarGrupo();
         break;
-        case CommandsClases.Salir:
+      case CommandsClases.Salir:
           await menuPrincipal();
           return 0;
     }
@@ -863,7 +812,6 @@ Finalmente, se encuentra el menú encargado de la gestión de las playlists que 
 
 ```typescript
 export async function menuOpcionPlaylist(){
-  //console.clear();
    const respuestaPlay = await inquirer.prompt({
      type: 'list',
      name: `command`, 
@@ -875,16 +823,13 @@ export async function menuOpcionPlaylist(){
         inPlay.PrePlaylist();
        break;
      case CommandsPlay.Navegar:
-     inPlay.NombrePlay();
-       //inGenero.menuModGenero();
-       break;
+     	inPlay.NombrePlay();
+        break;
     case CommandsPlay.Crear:
     inPlay.crearPlay();
-      //inGenero.menuModGenero();
       break;
       case CommandsPlay.Borrar:
     inPlay.borrarPlay();
-      //inGenero.menuModGenero();
       break;
      case CommandsPlay.Salir:
        console.clear();
@@ -978,7 +923,6 @@ Siendo el código una muestra de las playlist tal que:
  * Funcion PrePlaylist
  */
 export async function PrePlaylist() {
-  //console.table(index.playlists);
   index.playlists.forEach(element =>{
     console.log(`Nombre de la Playlist: ${element.getNombrePlaylist()}
     Generos musicales: ${element.getGeneros()}
@@ -1394,7 +1338,7 @@ En el caso de playlist y como se ha indicado sus métodos serán relativos al at
 
 
 ## Tests
-A la hora de realizar test para comprobar el correcto funcionamiento de todo el proyecto, se ha decidido realizar sobre un único archivo **tester.spec.ts** localizado en **./test/**. Se ha decidido hacerlo de esta manera, porque todas las clases dependen las unas de las otras, por lo que habría que realizar **imports**, en nuestro caso, en cada uno de los archivos de testeo de cada clase.
+A la hora de realizar test para comprobar el correcto funcionamiento de todo el proyecto, se ha decidido realizar sobre un único archivo por cada clase **.spec.ts** localizados en **./test/**. 
 
 Los tests en cuestión compueban cada clase una por una modificándolas y comprobando que sus resultados son correctos.
 
@@ -1647,4 +1591,17 @@ Herramienta de análisis de encubrimiento del código.
 * **[GitHub Actions](https://github.com/ULL-ESIT-INF-DSI-2122/ull-esit-inf-dsi-21-22-prct07-music-datamodel-grupo_l/actions)**
 Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediante los commits que se hagan. Se hace uso de ``SonarCloud Workflow``, ``CoverAlls Workflow`` entre otros.  
 
+## Conclusiones
+Al principio del desarrollo del proyecto, se ha utilizado la herramienta o extensión [Liveshare](https://docs.microsoft.com/es-es/visualstudio/liveshare/). Puesto a que nos surgieron varios errores a la hora de realizar nuevo código, ya que la versión de browser funcionaba mejor que la propia del Visual Studio Code. Por ello, descartamos el seguir usándola.
 ![Imagen liveshare](./assets/images/liveshare.png)
+*Imagen de LiveShare*
+
+El mayor problema surgió a la hora de realizar los writes de la base de datos, ya que nuestro código estaba estructurado de manera que las clases accedían entre ellas de tal manera que nos notificaba de un error de tipo cíclico.
+```“TypeError: Converting circular structure to JSON” ```
+
+Para solucionar el problema, se tuvo que modificar todo el código sobre las clases ya avanzadas para solventarlo. 
+![Imagen guión práctica](./assets/images/guion.png)
+
+Como podemos observar en la imagen anterior, en los apartados remarcados se pide información de la otra clase. En primera instancia, el atributo **autores** de nuestra clase álbum era del tipo Grupo o Artista, por lo que se tuvo que cambiar a tipo string o Artista, para así arreglar el error circular.
+
+La práctica en si ha sido muy laboriosa, pero como parte positiva nombrar que el grupo aprendió nuevas características para este lenguaje de programación como fueron las herramientas **Inquirer** y **lowdb** para la creación de menús y bases de datos.
