@@ -41,8 +41,7 @@ Para el desarrollo de esta práctica se ha contado con 6 clases y un **index.ts*
     3.11. Fichero basedatos.ts
 
 4. Test
-5. Dificultades
-6. Referencias
+5. Referencias
 
 
 ## Herramientas para el Desarrollo de la Práctica.
@@ -109,7 +108,7 @@ Cada clase está situada en el directorio **src/clases/**:
 - [x] Playlist
 
 #### Clase Géneros Musicales
-Este fichero contiene una interfaz ```GenerosMusicalesInterface``` con los atributos de la clase y sus tipos determinados.
+
 La clase ```GenerosMusicales()``` recibe en primera instancia el nombre del **género musical** para posteriormente autocompletarse mediante la creación de las otros objetos. 
 
 Su **constructor** consta de:
@@ -124,7 +123,7 @@ En cuanto se vayan creando los objetos de las siguientes clases, se añadirán a
 Por último, contiene los **getter** y **setter** de cada elemento para acceder y/o modificar a los elementos del objeto cuando se cree de esta clase. 
 
 ### Clase Canción
-Este fichero contiene una interfaz ```CancionInterface``` con los atributos de la clase y sus tipos determinados.
+
 La clase ```Cancion()``` será nuestra **clase principal**, ya que es la que menos dependencia con respecto a las otras clases tiene. Su **constructor** consta de:
 - **nombre** de tipo *string* cuyo contenido será el nombre de la canción.
 - **autor** de tipo *string* que contiene el nombre del autor de la canción.
@@ -170,7 +169,7 @@ setGeneroMusical(genero: GenerosMusicales[]){
 Primero se vacía el **array** y se le añade nuevamente los objetos del tipo **GeneroMusical**.
 
 ### Clase Artistas
-Este fichero contiene una interfaz ```ArtistasInterface``` con los atributos de la clase y sus tipos determinados.
+
 Al igual que la clase ```GenerosMusicales()```, la clase ```Artistas()``` tiene un **constructor** y un método **construirArtista()**.
 
 El **constructor** consta de:
@@ -242,7 +241,7 @@ setOyentes(oyentes: number){
 En este caso hace la suma de los **oyentes** mencionada anteriormente.
 
 ### Clase Grupos
-Este fichero contiene una interfaz ```GruposInterface``` con los atributos de la clase y sus tipos determinados.
+
 La clase ```Grupos()``` recibe en primera instancia el nombre del **grupo** y luego se autocompleta mediante la creación de los otros objetos. Está compuesto de:
 
 - **nombreGrupo** string con el nombre del grupo.
@@ -302,7 +301,7 @@ setAlbumes(album: Album[]){
 El resto de **setters** y **getters** son relativamente sencillos, por lo que no se han tenido en cuenta a la hora de nombrarlos, pero se han realizado y analizado.
 
 ### Clase Álbum
-Este fichero contiene una interfaz ```AlbumInterface``` con los atributos de la clase y sus tipos determinados.
+
 La ```clase Album()``` contiene:
 - **nombreAlbum** string con el nombre del álbum.
 - **autores** que pueden ser o de la clase **Grupos** o de la clase **Artistas**.
@@ -715,11 +714,11 @@ export async function menuPrincipal(){
 menuPrincipal();
 ```
 
-Y estos menús llaman a su vez a métodos de añadir, borrar y modificar específicos de las clases **Cancion**, **GenerosMusicales** **Album**, **Grupos** y **Artistas**. Estos métodos de añadir, borrar y modificar, siguiendo los principios SOLID se alojaron en un fichero aparte denotado por **inquirer-Cancion|Generos|Album|Grupos|artista** respectivamente.
+Y estos menús llaman a su vez a métodos de añadir, borrar y modificar específicos de las clases **Cancion**, **GenerosMusicales** **Album**, **Grupos** y **Artistas**. Estos métodos de añadir, borrar y modificar, siguiendo los principios SOLID se alojaron en un fichero aparte denotado por **inquirer-Cancion o Genero o Album o Grupo o artista** respectivamente.
 
 Cada fichero tendrá estos métodos de añadir, modificar y borrar.
 
-El método añadir se denotará tal que __addCancion|Genero|Album|Grupo|Artista()__, el modificar tal que __modCancion|Genero|Album|Grupo|Artista()__ y el método borrar tal que __delCancion|Genero|Album|Grupo|Artista()__.
+El método añadir se denotará tal que __addCancion o Genero o Album o Grupo o Artista()__, el modificar tal que __modCancion o Genero o Album o Grupo o Artista()__ y el método borrar tal que __delCancion o Genero o Album o Grupo o Artista()__.
 
 
 Por otro lado está el menú que maneja el apartado de __Opciones Avanzadas__ de la terminal. 
@@ -1386,7 +1385,7 @@ La base de datos guardará los datos respectivos que se le pasen mediante la fun
     }
 ```
 
-Los demás métodos que tiene son para añadir, y borrar canciones, géneros musicales, álbumes, artistas y grupos. Estos métodos serán llamados por los ficheros **inquirer-Cancion|Generos|Album|Grupos|artista** respectivamente que se nombraron anteriormente y así esos objetos son añadidos o borrados.
+Los demás métodos que tiene son para añadir, y borrar canciones, géneros musicales, álbumes, artistas y grupos. Estos métodos serán llamados por los ficheros **inquirer-Cancion o Genero o Album o Grupo o artista** respectivamente que se nombraron anteriormente y así esos objetos son añadidos o borrados.
 
 En el caso de playlist y como se ha indicado sus métodos serán relativos al atributo __playUsuarioArrayLista__. Con el fin de conseguir que el usuario no borre playlist del sistema.
 
@@ -1534,10 +1533,6 @@ describe('Métodos de la Clase Cancion',() => {
     expect(Pop.getCanciones()).to.eql ([cancion1]);
   });
 ```
-
-## Dificultades
-
-Explicar el error
 
 
 ## Referencias 
