@@ -1,11 +1,11 @@
 import inquirer from 'inquirer';
-import { Album } from "../clases/album";
-import { Artistas } from "../clases/artistas";
-import { Cancion } from "../clases/cancion";
-import { GenerosMusicales } from "../clases/generosMusicales";
-import { Grupos } from "../clases/grupos";
+import { Album } from "../clases-bases/album";
+import { Artistas } from "../clases-bases/artistas";
+import { Cancion } from "../clases-bases/cancion";
+import { GenerosMusicales } from "../clases-bases/generosMusicales";
+import { Grupos } from "../clases-bases/grupos";
 import { addCancionGenero } from './inquirer-Cancion';
-import * as index from "../index";
+import * as index from "../../index";
 import * as InquirerFile from "./inquirer";
 /**
  * Enum que contiene las partes del artista

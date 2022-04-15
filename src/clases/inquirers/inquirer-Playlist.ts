@@ -1,9 +1,9 @@
 import inquirer from 'inquirer';
-import { Playlist } from "../clases/playlist";
-import { Cancion } from "./cancion";
+import { Playlist } from "../clases-bases/playlist";
+import { Cancion } from "../clases-bases/cancion";
 import { menuPrincipal, db } from './inquirer';
 import * as InquirerFile from "./inquirer";
-import * as index from "../index";
+import * as index from "../../index";
 
 /**
  * Enum ComandsGestionPlay

@@ -1,17 +1,17 @@
 import inquirer from "inquirer";
-import { Artistas } from "../clases/artistas";
-import { Grupos } from "../clases/grupos";
-import * as index from "../index";
-import * as inGrupos from "../clases/inquirer-Grupos";
-import * as inPlay from "../clases/inquirer-Playlist";
-import * as inGenero from "../clases/inquirer-Generos";
-import { addAlbum, menuModAlbum, menuDelAlbum } from '../clases/inquirer-Album';
+import { Artistas } from "../clases-bases/artistas";
+import { Grupos } from "../clases-bases/grupos";
+import * as index from "../../index";
+import * as inGrupos from "./inquirer-Grupos";
+import * as inPlay from "./inquirer-Playlist";
+import * as inGenero from "./inquirer-Generos";
+import { addAlbum, menuModAlbum, menuDelAlbum } from './inquirer-Album';
 import { addCancion, menuModCancion, menuDelCancion } from './inquirer-Cancion';
-import { addArtista, menumodArtista, menuDelArtista } from '../clases/inquirer_artista';
-import * as InquirerFiltrado from '../clases/inquirer-filtrado';
-import { BaseDatos } from './basedatos';
-import { menuDelGenero } from "../clases/inquirer-Generos";
-import { menuDelGrupo } from "../clases/inquirer-Grupos";
+import { addArtista, menumodArtista, menuDelArtista } from './inquirer_artista';
+import * as InquirerFiltrado from './inquirer-filtrado';
+import { BaseDatos } from '../clases-bases/basedatos';
+import { menuDelGenero } from "./inquirer-Generos";
+import { menuDelGrupo } from "./inquirer-Grupos";
 
 // Crear base de datos
 export let db =  new BaseDatos(index.generos, index.canciones, index.albumes, index.artistas, index.grupos, index.playlists);

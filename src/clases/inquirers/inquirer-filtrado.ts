@@ -1,9 +1,9 @@
-import { Album } from "../clases/album";
-import { Artistas } from "../clases/artistas";
-import { Cancion } from "../clases/cancion";
-import { Grupos } from "../clases/grupos";
-import { Playlist } from "../clases/playlist";
-import * as index from "../index";
+import { Album } from "../clases-bases/album";
+import { Artistas } from "../clases-bases/artistas";
+import { Cancion } from "../clases-bases/cancion";
+import { Grupos } from "../clases-bases/grupos";
+import { Playlist } from "../clases-bases/playlist";
+import * as index from "../../index";
 import { menuOpcionesAvanzadas } from './inquirer';
 
 /**

@@ -51,7 +51,8 @@
           "Preso",
           "Living on my own",
           "Ojalá",
-          "Esencial"
+          "Esencial",
+          "borrame"
         ],
         "nombreGenero": "Pop"
       },
@@ -335,7 +336,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -769,7 +771,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -803,7 +806,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -1084,7 +1088,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -1139,7 +1144,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -1642,7 +1648,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -2383,6 +2390,41 @@
         ],
         "single": true,
         "numReproducciones": 401000000
+      },
+      {
+        "nombre": "boorrame",
+        "autor": "borrame",
+        "duracion": "2:12",
+        "genero": [
+          {
+            "grupos": [
+              "Queen"
+            ],
+            "artistas": [
+              "Michael Jackson",
+              "Freddie Mercury",
+              "Rosalía",
+              "Beret"
+            ],
+            "albumes": [
+              "Thriller",
+              "El Mal Querer",
+              "Prisma"
+            ],
+            "canciones": [
+              "Thriller",
+              "Malamente",
+              "Preso",
+              "Living on my own",
+              "Ojalá",
+              "Esencial",
+              "borrame"
+            ],
+            "nombreGenero": "Pop"
+          }
+        ],
+        "single": false,
+        "numReproducciones": 122
       }
     ]
   ],
@@ -2414,7 +2456,8 @@
                 "Preso",
                 "Living on my own",
                 "Ojalá",
-                "Esencial"
+                "Esencial",
+                "borrame"
               ],
               "nombreGenero": "Pop"
             },
@@ -2517,7 +2560,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -2994,7 +3038,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -3027,7 +3072,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -3603,7 +3649,8 @@
                 "Preso",
                 "Living on my own",
                 "Ojalá",
-                "Esencial"
+                "Esencial",
+                "borrame"
               ],
               "nombreGenero": "Pop"
             },
@@ -3685,7 +3732,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -3719,7 +3767,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -3810,7 +3859,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           },
@@ -3890,7 +3940,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -3924,7 +3975,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -4274,7 +4326,8 @@
                 "Preso",
                 "Living on my own",
                 "Ojalá",
-                "Esencial"
+                "Esencial",
+                "borrame"
               ],
               "nombreGenero": "Pop"
             }
@@ -4333,7 +4386,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -4418,7 +4472,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -4504,7 +4559,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -4558,7 +4614,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -4643,7 +4700,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -5818,7 +5876,8 @@
                 "Preso",
                 "Living on my own",
                 "Ojalá",
-                "Esencial"
+                "Esencial",
+                "borrame"
               ],
               "nombreGenero": "Pop"
             }
@@ -5877,7 +5936,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -5962,7 +6022,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -6213,7 +6274,8 @@
                 "Preso",
                 "Living on my own",
                 "Ojalá",
-                "Esencial"
+                "Esencial",
+                "borrame"
               ],
               "nombreGenero": "Pop"
             }
@@ -6272,7 +6334,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -6357,7 +6420,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -6643,7 +6707,8 @@
                 "Preso",
                 "Living on my own",
                 "Ojalá",
-                "Esencial"
+                "Esencial",
+                "borrame"
               ],
               "nombreGenero": "Pop"
             }
@@ -6702,7 +6767,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -6787,7 +6853,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -7183,7 +7250,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           },
@@ -7286,7 +7354,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -7765,7 +7834,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -8015,7 +8085,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -8174,7 +8245,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           },
@@ -8256,7 +8328,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -8290,7 +8363,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -8378,7 +8452,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -8437,7 +8512,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -8522,7 +8598,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -16210,7 +16287,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 },
@@ -16292,7 +16370,8 @@
                         "Preso",
                         "Living on my own",
                         "Ojalá",
-                        "Esencial"
+                        "Esencial",
+                        "borrame"
                       ],
                       "nombreGenero": "Pop"
                     }
@@ -16326,7 +16405,8 @@
                         "Preso",
                         "Living on my own",
                         "Ojalá",
-                        "Esencial"
+                        "Esencial",
+                        "borrame"
                       ],
                       "nombreGenero": "Pop"
                     }
@@ -16417,7 +16497,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               },
@@ -16497,7 +16578,8 @@
                       "Preso",
                       "Living on my own",
                       "Ojalá",
-                      "Esencial"
+                      "Esencial",
+                      "borrame"
                     ],
                     "nombreGenero": "Pop"
                   }
@@ -16531,7 +16613,8 @@
                       "Preso",
                       "Living on my own",
                       "Ojalá",
-                      "Esencial"
+                      "Esencial",
+                      "borrame"
                     ],
                     "nombreGenero": "Pop"
                   }
@@ -16860,7 +16943,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 },
@@ -16963,7 +17047,8 @@
                         "Preso",
                         "Living on my own",
                         "Ojalá",
-                        "Esencial"
+                        "Esencial",
+                        "borrame"
                       ],
                       "nombreGenero": "Pop"
                     }
@@ -17440,7 +17525,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -17473,7 +17559,8 @@
                       "Preso",
                       "Living on my own",
                       "Ojalá",
-                      "Esencial"
+                      "Esencial",
+                      "borrame"
                     ],
                     "nombreGenero": "Pop"
                   }
@@ -17955,7 +18042,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -18205,7 +18293,8 @@
                       "Preso",
                       "Living on my own",
                       "Ojalá",
-                      "Esencial"
+                      "Esencial",
+                      "borrame"
                     ],
                     "nombreGenero": "Pop"
                   }
@@ -19887,7 +19976,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           },
@@ -22599,7 +22689,8 @@
                     "Preso",
                     "Living on my own",
                     "Ojalá",
-                    "Esencial"
+                    "Esencial",
+                    "borrame"
                   ],
                   "nombreGenero": "Pop"
                 }
@@ -22658,7 +22749,8 @@
                         "Preso",
                         "Living on my own",
                         "Ojalá",
-                        "Esencial"
+                        "Esencial",
+                        "borrame"
                       ],
                       "nombreGenero": "Pop"
                     }
@@ -22743,7 +22835,8 @@
                         "Preso",
                         "Living on my own",
                         "Ojalá",
-                        "Esencial"
+                        "Esencial",
+                        "borrame"
                       ],
                       "nombreGenero": "Pop"
                     }
@@ -23377,7 +23470,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           }
@@ -23436,7 +23530,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }
@@ -24019,7 +24114,8 @@
               "Preso",
               "Living on my own",
               "Ojalá",
-              "Esencial"
+              "Esencial",
+              "borrame"
             ],
             "nombreGenero": "Pop"
           },
@@ -24125,7 +24221,8 @@
                   "Preso",
                   "Living on my own",
                   "Ojalá",
-                  "Esencial"
+                  "Esencial",
+                  "borrame"
                 ],
                 "nombreGenero": "Pop"
               }

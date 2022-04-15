@@ -1,9 +1,9 @@
-import { Album } from "../clases/album";
-import { Artistas } from "../clases/artistas";
-import { Cancion } from "../clases/cancion";
-import { GenerosMusicales } from "../clases/generosMusicales";
-import { Grupos } from "../clases/grupos";
-import { Playlist } from "../clases/playlist";
+import { Album } from "../clases-bases/album";
+import { Artistas } from "../clases-bases/artistas";
+import { Cancion } from "../clases-bases/cancion";
+import { GenerosMusicales } from "../clases-bases/generosMusicales";
+import { Grupos } from "../clases-bases/grupos";
+import { Playlist } from "../clases-bases/playlist";
 //import {parse, stringify} from 'flatted';
 
 // CJS
