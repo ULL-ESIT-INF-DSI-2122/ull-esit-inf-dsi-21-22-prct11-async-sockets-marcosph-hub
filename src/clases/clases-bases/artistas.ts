@@ -91,17 +91,6 @@ export class Artistas {
 		return this.grupos;
 	}
 
-		/**
-	 * Getter de los grupos del artista
-	 * @returns grupos del artista
-	 */
-		/* getGruposObject(){
-			let grupos_: Grupos[] = [];
-					this.grupos.forEach(element => {
-							grupos_.push(element);
-					});
-			return grupos_;
-		}*/
 
 	/**
 	 * Getter de los géneros musicales 
@@ -247,19 +236,4 @@ export class Artistas {
 		}
 		this.oyentes = oyentes;
 	}
-/*	public static deserialize(cancion: Artistas[]){
-		const myCanciones: Artistas[] = [];
-
-		cancion.forEach((element) => {
-				const myCancion = new Artistas(element.getNombreArtista());
-				myCancion.setAlbumes_(element.getAlbumes());
-				myCancion.setGrupos(element.getGrupos());
-				myCancion.setGeneros(element.generos);
-				myCancion.setOyentes(element.oyentes);
-				myCancion.setCanciones(element.canciones);
-				myCanciones.push(myCancion);
-		});
-
-		return myCanciones;
-}*/
 }
