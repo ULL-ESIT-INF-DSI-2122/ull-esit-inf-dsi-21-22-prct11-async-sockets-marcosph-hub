@@ -109,12 +109,7 @@ export class Album {
 	 * @param autor del album que puede ser un grupo o un artista
 	 */
 	setAutores(autor: string | Artistas){
-		if (autor instanceof Artistas){
 			this.autores = autor;
-		} else {
-			this.autores = autor;
-		}
-		
 	}
 
 	/**
