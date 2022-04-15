@@ -302,7 +302,7 @@ export async function menuNombreArtista() {
 }
 
 /**
- * @function menuOpcionesAvanzadas2 menu para visualizar de los grupos y artistas de distintas maneras 
+ * @function menuOpcionesAvanzadas menu para visualizar de los grupos y artistas de distintas maneras 
  * (alfabeticamente por titulo de canción, años de lanzamiento, número de reproducciones, etc)
  */
  export async function menuOpcionesAvanzadas(autor_: Artistas | Grupos) {
