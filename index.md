@@ -84,7 +84,7 @@ Para ejecutar el código principal del programa que tiene los distintos menús s
 
 El primer menú o **Menu Principal** contiene las funcionalidades siguientes:
 
-![Menu Principal](./assets/images/menuPrincipal.jpg)
+![Menu Principal](./assets/images/menuPrincipal.png)
 
 Una vez accedemos al menú **Añadir**, podemos observar las opciones:  
 
