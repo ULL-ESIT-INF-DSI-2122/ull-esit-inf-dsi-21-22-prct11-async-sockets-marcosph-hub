@@ -1593,13 +1593,16 @@ Servicio de GitHub para automatizar la ejecución de un flujo de trabajo mediant
 
 ## Conclusiones
 Al principio del desarrollo del proyecto, se ha utilizado la herramienta o extensión [Liveshare](https://docs.microsoft.com/es-es/visualstudio/liveshare/). Puesto a que nos surgieron varios errores a la hora de realizar nuevo código, ya que la versión de browser funcionaba mejor que la propia del Visual Studio Code. Por ello, descartamos el seguir usándola.
+
 ![Imagen liveshare](./assets/images/liveshare.png)
+
 *Imagen de LiveShare*
 
 El mayor problema surgió a la hora de realizar los writes de la base de datos, ya que nuestro código estaba estructurado de manera que las clases accedían entre ellas de tal manera que nos notificaba de un error de tipo cíclico.
 ```“TypeError: Converting circular structure to JSON” ```
 
 Para solucionar el problema, se tuvo que modificar todo el código sobre las clases ya avanzadas para solventarlo. 
+
 ![Imagen guión práctica](./assets/images/guion.png)
 
 Como podemos observar en la imagen anterior, en los apartados remarcados se pide información de la otra clase. En primera instancia, el atributo **autores** de nuestra clase álbum era del tipo Grupo o Artista, por lo que se tuvo que cambiar a tipo string o Artista, para así arreglar el error circular.
