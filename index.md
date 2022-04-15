@@ -524,7 +524,7 @@ Se ejecuta el comando para mostrar el menú principal del programa:
 
 > `npm run start`
 
-![Menu Principal](./assets/images/menuPrincipal.jpg)
+![Menu Principal](./assets/images/menuPrincipal.png)
 
 Como se comprueba hay distintas opciones:
 
