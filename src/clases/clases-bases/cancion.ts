@@ -21,12 +21,6 @@ export interface CancionInterface{
     numReproducciones: number
 }
 export class Cancion{
-    /*private nombre: string;
-    private autor: string;
-    private duracion: number;
-    private genero: GenerosMusicales;
-    private single: boolean;
-    private numReproducciones: number;*/
     constructor(private nombre: string, private autor: string, private duracion: string, 
     private genero: GenerosMusicales[], private single: boolean, private numReproducciones: number){
         genero.forEach(element => {
@@ -158,16 +152,5 @@ export class Cancion{
     
         return myCanciones;
     }
-    /*public static deserialize(canciones: Cancion[]): Cancion[]{
-        const mySongs: Cancion[] = [];
-
-    canciones.forEach((song) => {
-      const mySong = new Cancion(song.getNombreCancion(), song.getAutorCancion(), song.getDuracionCancion(), song.genero, song.single, song.numReproducciones );
-      mySong.setGeneroMusical([]);
-      mySongs.push(mySong);
-    });
-
-    return mySongs;
-  }*/
     }
 

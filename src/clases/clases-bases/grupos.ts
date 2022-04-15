@@ -165,19 +165,4 @@ export class Grupos {
 	setOyentes(oyente: number){
 		this.oyentes = oyente;
 	}
-	/*public static deserialize(cancion: Grupos[]){
-		const myCanciones: Grupos[] = [];
-
-		cancion.forEach((element) => {
-				const myCancion = new Grupos(element.getNombreGrupo());
-				myCancion.setAlbumes(element.getAlbumes());
-				myCancion.setArtistas(element.getArtistas_());
-				myCancion.setGenero(element.genero);
-				myCancion.setOyentes(element.oyentes);
-				myCancion.setYearGrupo(element.yearGrupo)
-				myCanciones.push(myCancion);
-		});
-
-		return myCanciones;
-}*/
 }

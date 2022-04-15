@@ -133,30 +133,11 @@ export class GenerosMusicales {
 		this.canciones = [];
 		this.canciones = cancion;
 	}
-		/**
-	 * Setter de las canciones
-	 * @param cancion de los géneros
-	 */
-		 autoSetCanciones(cancion: string){
-			this.canciones.push(cancion);
-		}
-		
-		/*public static deserialize(generos: GenerosMusicales[]): GenerosMusicales[]{
-			const mySongs: GenerosMusicales[] = [];
-
-	generos.forEach((genero_) => {
-		const mySong = new GenerosMusicales(genero_.nombreGenero);
-		mySong.setAlbumes(genero_.getAlbumes());
-		mySong.setArtistas(genero_.getArtistas());
-	const canciones = genero_.canciones;
-	canciones.forEach((cancion) =>{
-		mySong.autoSetCanciones(cancion);
-	})
-		mySong.setCanciones(genero_.getCanciones());
-		mySong.setGrupos(genero_.getGrupos());
-		mySongs.push(mySong);
-	});
-
-	return mySongs;
-}*/
+	/**
+ * Setter de las canciones
+ * @param cancion de los géneros
+ */
+		autoSetCanciones(cancion: string){
+		this.canciones.push(cancion);
+	}
 }

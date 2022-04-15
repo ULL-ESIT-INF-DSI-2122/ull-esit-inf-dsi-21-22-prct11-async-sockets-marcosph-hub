@@ -4,19 +4,11 @@ import { Cancion } from "../clases-bases/cancion";
 import { GenerosMusicales } from "../clases-bases/generosMusicales";
 import { Grupos } from "../clases-bases/grupos";
 import { Playlist } from "../clases-bases/playlist";
-//import {parse, stringify} from 'flatted';
-
-// CJS
-import parse = require ('flatted');
-import stringify = require ('flatted');
-//import * as lowd from "lowdb";
-//import {lowdb} from "lowdb";
 import  lowdb  =  require ( "lowdb" ) ; 
 import  FileSync  =  require ( "lowdb/adapters/FileSync" ) ;
-//import * as FileSync from "lowdb/adapters/FileSync";
+
 import LocalStorage from 'lowdb/adapters/LocalStorage';
 
-//console.log("Request data " + JSON.stringify(req));
 /**
  * @type dbtype con los datos y sus tipos que se introducen en
  * la base de datos
@@ -93,66 +85,7 @@ export class BaseDatos{
     public playUsuarioArrayLista: Playlist[];
 
     constructor(generosArray: GenerosMusicales[] = [], cancionesArray: Cancion[] = [], albumesArray: Album[] = [], artistasArray: Artistas[] = [], gruposArray: Grupos[] = [], playlistArray: Playlist[] = []) {
-        // Primera construccion
         this.basedatos = lowdb(new FileSync("data.json"));
-        //this.database = lowdb(new FileSync("data.json"));
-        /*if(this.basedatos.has("generosmusicales").value()) {
-            let idb = this.basedatos.get("generosmusicales").value();
-            idb.forEach( (item: any)  => {
-                let tmpi: GenerosMusicales = item;
-                this.generosArrayLista.push(tmpi);
-            })
-        }*/
-        /*if(this.basedatos.has("canciones").value()) {
-            let idb = this.basedatos.get("canciones").value();
-             idb.forEach( (item: any) => {
-                let tmpc: Cancion = item;
-                this.cancionesArrayLista.push(tmpc);
-            })
-        }/*
-        if(this.basedatos.has("albumes").value()) {
-            let idb = this.basedatos.get("albumes").value();
-            idb.forEach( (item: any) => {
-                let tmpo: Album = item;
-                this.albumesArrayLista.push(tmpo);
-            })
-        }
-        if(this.basedatos.has("artistas").value()) {
-            let idb = this.basedatos.get("artistas").value();
-            idb.forEach( (item: any) => {
-                let tmpa: Artistas = item;
-               this.artistasArrayLista.push(tmpa);
-            })
-        }
-        if(this.basedatos.has("grupos").value()) {
-            let idb = this.basedatos.get("grupos").value();
-            idb.forEach( (item: any) => {
-                let tmpp: Grupos = item;
-               this.gruposArrayLista.push(tmpp);
-            })
-        }*/
-       
-        //lowdb(new FileSync("db.json"));
-       /* let contar: number = -1;
-        for(let i: number = 0; i < generosArray.length; i++){
-            for (let j: number = 0; j < this.generosArrayLista.length; j++){
-                if (generosArray[i] === this.generosArrayLista[j]){
-                    contar = i;
-                }
-            }
-            if (contar === -1){
-                this.generosArrayLista.push(generosArray[i]);
-            
-            }
-            contar = -1;
-        }*7
-       // generosArray.forEach((item: GenerosMusicales) => {
-           // console.log(item);
-           /* if(this.generosArrayLista.includes(item) === false){
-                this.generosArrayLista.push(item);
-            } */
-       // })
-        //console.log(this.generosArrayLista);
         this.generosArrayLista = generosArray;
         this.cancionesArrayLista = cancionesArray;
         this.albumesArrayLista = albumesArray;
@@ -160,21 +93,6 @@ export class BaseDatos{
         this.gruposArrayLista = gruposArray;
         this.playArrayLista = playlistArray;
         this.playUsuarioArrayLista = [];
-       // console.log(this.cancionesArrayLista);
-        //this.basedatos.set("canciones", [this.cancionesArrayLista]).write();
-        //console.log(generosArray);
-        //this.guardarBaseDatos();
-       // console.log(this.gruposArrayLista);
-     /*  const canciones = Cancion.deserialize(this.cancionesArrayLista);
-      const generos = GenerosMusicales.deserialize(this.generosArrayLista);
-      const grupo = Grupos.deserialize(this.gruposArrayLista);
-      const artistas = Artistas.deserialize(this.artistasArrayLista);
-      this.basedatos.set("generosmusicales", [generos]).write();
-       this.basedatos.set("canciones", [canciones]).write();
-       this.basedatos.set("grupos", [grupo]).write();
-       this.basedatos.set("artistas", [artistas]).write();
-       this.basedatos.set("albumes", [this.albumesArrayLista]).write();
-       //this.basedatos.set("albumes", [...this.albumesArrayLista]).write();*/
         this.guardarBaseDatos();
     }
 
