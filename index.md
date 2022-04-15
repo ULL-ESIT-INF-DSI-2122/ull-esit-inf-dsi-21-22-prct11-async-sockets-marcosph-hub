@@ -78,10 +78,13 @@ Para ejecutar el código principal del programa que tiene los distintos menús s
 
 > `npm run start`
 
+### Jerarquía de Directorios y Ficheros
+![Jerarquía de Directorios y Ficheros](./assets/images/tree.PNG)  
+**_NOTA:_** el contenido de `src/` es un directorio `clases/` que contiene los directorios de código fuente `clases-bases/` la cual incluye las implimentaciones de cada clase base para el desarrollo de la práctica (Canción, Artista, Album ...) y `inquirers/` con todas las implementaciones de los ficheros fuente con el uso de _inquirer.js_.
 
 El primer menú o **Menu Principal** contiene las funcionalidades siguientes:
 
-![Menu Principal](./assets/images/menuPrincipal.png)
+![Menu Principal](./assets/images/menuPrincipal.jpg)
 
 Una vez accedemos al menú **Añadir**, podemos observar las opciones:  
 
@@ -1441,6 +1444,40 @@ describe('Métodos de la Clase Cancion',() => {
     expect(cancion1.getSingle()).to.eql (true);
   });
 });
+ 
+describe('Métodos de la Clase Cancion',() => {
+  it ('Clase Cancion Operativa',() => { 
+    expect(cancion1 instanceof Cancion).to.eql (true);
+  });
+  it ('Probando metodo setNombreCancion() y getNombreCancion()',() => { 
+    cancion1.setNombreCancion(`El polvorete`);
+    expect(cancion1.getNombreCancion()).to.eql ('El polvorete');
+  });
+  it ('Probando metodo setAutorCancion() y getAutorCancion()',() => { 
+    cancion1.setAutorCancion(`Pepe Benavente`);
+    expect(cancion1.getAutorCancion()).to.eql ('Pepe Benavente');
+  });
+  it ('Probando metodo setDuracionCancion() y getDuracionCancionSecs()',() => { 
+    cancion1.setDuracionCancion(`2:30`);
+    expect(cancion1.getDuracionCancion()).to.eql ('2:30');
+    expect(cancion1.getDuracionCancionSecs()).to.eql (150);
+  });
+  it ('Probando metodo setGeneroMusical() y getGeneroMusical()',() => { 
+    cancion1.setGeneroMusical([Pop, Metal]);
+    expect(cancion1.getGenero()).to.eql ([Pop, Metal]);
+    expect(cancion1.getGeneroMusical()).to.eql ([`Pop`, `Metal`]);
+  });
+  it ('Probando metodo setNumReproducciones() y getNumReproducciones()',() => { 
+    cancion1.setNumReproducciones(10000000);
+    expect(cancion1.getNumReproducciones()).to.eql (10000000);
+  });
+  it ('Probando metodo setSingle() y getSingle()',() => { 
+    cancion1.setSingle(true);
+    expect(cancion1.getSingle()).to.eql (true);
+  });
+});
+
+
   describe ('Métodos de la clase Artista',() => { 
     expect(artista1 instanceof Artistas).to.eql (true);
     it ('Clase Artista Operativa',() => { 
@@ -1460,7 +1497,7 @@ describe('Métodos de la Clase Cancion',() => {
     });
     it ('Probando metodo setCanciones() y getCanciones()',() => {
       artista1.setCanciones([cancion1,cancion2]);
-      expect(artista1.getCanciones()).to.eql ([ 'Pulling Teeth', 'Thriller' ]);
+      expect(artista1.getCanciones()).to.eql ([ 'El polvorete', 'Thriller' ]);
     });
     it ('Probando metodo setCanciones() y getCanciones()',() => {
       artista1.setGeneros([Pop, Metal]);
@@ -1478,59 +1515,114 @@ describe('Métodos de la Clase Cancion',() => {
       expect(artista1.getAlbumes()).to.eql ([`Thriller`]);
     });
   });
-  it ('Métodos de la clase Grupo',() => {
-    expect(grupo1 instanceof Grupos).to.eql (true);
-    grupo1.setNombreGrupo(`los 4`);
-    expect(grupo1.getNombreGrupo()).to.eql ('los 4');
-    grupo1.setArtistas([artista1]);
-    expect(grupo1.getArtistas_()).to.eql ([artista1]);
-   grupo1.setYearGrupo(1999);
-    expect(grupo1.getYearGrupo()).to.eql (1999);
-    grupo1.setGenero([Pop, Metal]);
-    expect(grupo1.getGenero()).to.eql ([`Pop`, `Metal`]);
-    grupo1.setAlbumes([album1]);
-    expect(grupo1.getAlbumes()).to.eql ([album1]);
-    grupo1.setOyentes(1000);
-   expect(grupo1.getOyentes()).to.eql (1000);
+
+
+  describe('Métodos de la Clase Grupo',() => {
+    it ('Clase Grupo Operativa',() => { 
+      expect(grupo1 instanceof Grupos).to.eql (true);
+    });
+    it ('Probando metodo setNombreGrupo() y getNombreGrupo()',() => { 
+      grupo1.setNombreGrupo(`los 4`);
+      expect(grupo1.getNombreGrupo()).to.eql ('los 4');
+    });
+    it ('Probando metodo setArtistas() y getArtistas_()',() => { 
+      grupo1.setArtistas([artista1]);
+      expect(grupo1.getArtistas_()).to.eql ([artista1]);
+    });
+    it ('Probando metodo setYearGrupo() y getYearGrupo()',() => { 
+      grupo1.setYearGrupo(1999);
+      expect(grupo1.getYearGrupo()).to.eql (1999);
+    });
+    it ('Probando metodo setGenero() y getGenero()',() => { 
+      grupo1.setGenero([Pop, Metal]);
+      expect(grupo1.getGenero()).to.eql ([`Pop`, `Metal`]);
+    });
+    it ('Probando metodo setAlbumes() y getAlbumes()',() => { 
+      grupo1.setAlbumes([album1]);
+      expect(grupo1.getAlbumes()).to.eql ([album1]);
+    });
+    it ('Probando metodo setOyentes() y getOyentes()',() => { 
+      grupo1.setOyentes(1000);
+    expect(grupo1.getOyentes()).to.eql (1000);
+    });
   });
-  it ('Métodos de la clase Album',() => {
-    expect(album1 instanceof Album).to.eql (true);
-    album1.setNombreAlbum(`MotoMami`);
-    expect(album1.getNombreAlbum()).to.eql (`MotoMami`);
-    album1.setAutores(grupo1.getNombreGrupo());
-   expect(album1.getAutores()).to.eql (`los 4`);
-   album1.setAutores(artista1);
-   expect(album1.getAutores()).to.eql ('Pepe Benavente');
-   album1.setGenero([Pop, Metal]);
-   expect(album1.getGenero()).to.eql ([`Pop`, `Metal`]);
-   album1.setYear(2020);
-   expect(album1.getYear()).to.eql (2020);
-   album1.setCanciones([cancion1,cancion2]);
-   expect(album1.getCanciones()).to.eql ([cancion1,cancion2]); 
+
+  describe('Métodos de la Clase Album',() => {
+    it ('Clase Album Operativa',() => { 
+      expect(album1 instanceof Album).to.eql (true);
+    });
+    it ('Probando metodo setNombreAlbum() y getNombreAlbum()',() => { 
+      album1.setNombreAlbum(`MotoMami`);
+      expect(album1.getNombreAlbum()).to.eql (`MotoMami`);
+    });
+    it ('Probando metodo setAutores() y getAutores()',() => { 
+      album1.setAutores(grupo1.getNombreGrupo());
+     expect(album1.getAutores()).to.eql (`los 4`);
+     album1.setAutores(artista1);
+     expect(album1.getAutores()).to.eql ('Pepe Benavente');
+    });
+    it ('Probando metodo setGenero() y getGenero()',() => { 
+      album1.setGenero([Pop, Metal]);
+     expect(album1.getGenero()).to.eql ([`Pop`, `Metal`]);
+    });
+    it ('Probando metodo setYear() y getYear()',() => { 
+      album1.setYear(2020);
+     expect(album1.getYear()).to.eql (2020);
+    });
+    it ('Probando metodo setCanciones() y getCanciones()',() => { 
+      album1.setCanciones([cancion1,cancion2]);
+      expect(album1.getCanciones()).to.eql ([cancion1,cancion2]); 
+    });
   });
-  it ('Métodos de la clase Playlist',() => {
-    expect(playlist1 instanceof Playlist).to.eql (true);
-    playlist1.setNombrePlaylist(`Musiquita a full`);
-    expect(playlist1.getNombrePlaylist()).to.eql (`Musiquita a full`);
-    playlist1.setDuracion(`10:20`);
-    expect(playlist1.getDuracion()).to.eql ('0h 24min 40secs');
-    playlist1.setCanciones([cancion1,cancion2]);
-    expect(playlist1.getCanciones()).to.eql ([cancion1,cancion2]);
-    playlist1.setGeneros([Pop, Metal]);
-    expect(playlist1.getGeneros()).to.eql ([`Pop`, `Metal`]);
+
+
+  describe('Métodos de la Clase Playlist',() => {
+    it ('Clase Playlist Operativa',() => { 
+      expect(playlist1 instanceof Playlist).to.eql (true);
+    });
+    it ('Probando metodo setNombrePlaylist() y getNombrePlaylist()',() => { 
+      playlist1.setNombrePlaylist(`Musiquita a full`);
+      expect(playlist1.getNombrePlaylist()).to.eql (`Musiquita a full`);
+    });
+    it ('Probando metodo setDuracion() y getDuracion()',() => { 
+      playlist1.setDuracion(`10:20`);
+      expect(playlist1.getDuracion()).to.eql ('0h 24min 40secs');
+    });
+    it ('Probando metodo setCanciones() y getCanciones()',() => { 
+      playlist1.setCanciones([cancion1,cancion2]);
+      expect(playlist1.getCanciones()).to.eql ([cancion1,cancion2]);
+    });
+    it ('Probando metodo setGeneros() y getGeneros()',() => { 
+      playlist1.setGeneros([Pop, Metal]);
+      expect(playlist1.getGeneros()).to.eql ([`Pop`, `Metal`]);
+    });
   });
-  it ('Métodos de la clase GenerosMusciales',() => {
-    expect(Pop instanceof GenerosMusicales).to.eql (true);
-    Pop.setNombreGenero(`Trap`);
-    expect(Pop.getNombreGenero()).to.eql (`Trap`);
-    Pop.setGrupos([grupo1.getNombreGrupo()]);
-    expect(Pop.getGrupos()).to.eql ([grupo1]);
-    Pop.setArtistas([artista1.getNombreArtista()]);
-    expect(Pop.getArtistas()).to.eql ([artista1]);
-    Pop.setAlbumes([album1.getNombreAlbum()]);
-    expect(Pop.getAlbumes()).to.eql ([album1]);
-    Pop.setCanciones([cancion1.getNombreCancion()]);
-    expect(Pop.getCanciones()).to.eql ([cancion1]);
+
+
+  describe('Métodos de la Clase Generos Musicales',() => {
+    it ('Clase Generos Operativa',() => { 
+      expect(Pop instanceof GenerosMusicales).to.eql (true);
+    });
+    it ('Probando metodo setNombreGenero() y getNombreGenero()',() => { 
+      Pop.setNombreGenero(`Trap`);
+      expect(Pop.getNombreGenero()).to.eql (`Trap`);
+    });
+    it ('Probando metodo setGrupos() y getGrupos()',() => { 
+      Pop.setGrupos([grupo1.getNombreGrupo()]);
+      expect(Pop.getGrupos()).to.eql (['los 4']);
+    });
+    it ('Probando metodo setArtistas() y getArtistas()',() => { 
+      Pop.setArtistas([artista1.getNombreArtista()]);
+      expect(Pop.getArtistas()).to.eql (['Pepe Benavente']);
+    });
+    it ('Probando metodo setAlbumes() y getAlbumes()',() => { 
+      Pop.setAlbumes([album1.getNombreAlbum()]);
+      expect(Pop.getAlbumes()).to.eql (['MotoMami']);
+    });
+    it ('Probando metodo setCanciones() y getCanciones()',() => { 
+      Pop.setCanciones([cancion1.getNombreCancion()]);
+      expect(Pop.getCanciones()).to.eql (['El polvorete']);
+    });
   });
 ```
 
