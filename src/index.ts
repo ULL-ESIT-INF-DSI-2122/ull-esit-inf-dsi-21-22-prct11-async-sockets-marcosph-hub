@@ -1,9 +1,9 @@
-import { Album } from "./clases/album";
-import { Artistas } from "./clases/artistas";
-import { Cancion } from "./clases/cancion";
-import { GenerosMusicales } from "./clases/generosMusicales";
-import { Grupos } from "./clases/grupos";
-import { Playlist } from "./clases/playlist";
+import { Album } from "./clases/clases-bases/album";
+import { Artistas } from "./clases/clases-bases/artistas";
+import { Cancion } from "./clases/clases-bases/cancion";
+import { GenerosMusicales } from "./clases/clases-bases/generosMusicales";
+import { Grupos } from "./clases/clases-bases/grupos";
+import { Playlist } from "./clases/clases-bases/playlist";
 
 //10 generos musicales
 export let Rock = new GenerosMusicales(`Rock`); //6

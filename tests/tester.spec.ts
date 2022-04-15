@@ -1,11 +1,11 @@
 import 'mocha';
 import { expect } from 'chai';
-import { Album } from '../src/clases/album'
-import { Artistas } from "../src/clases/artistas";
-import { Cancion } from "../src/clases/cancion";
-import { GenerosMusicales } from "../src/clases/generosMusicales";
-import { Grupos } from "../src/clases/grupos";
-import { Playlist } from "../src/clases/playlist";
+import { Album } from '../src/clases/clases-bases/album'
+import { Artistas } from "../src/clases/clases-bases/artistas";
+import { Cancion } from "../src/clases/clases-bases/cancion";
+import { GenerosMusicales } from "../src/clases/clases-bases/generosMusicales";
+import { Grupos } from "../src/clases/clases-bases/grupos";
+import { Playlist } from "../src/clases/clases-bases/playlist";
 import {  cancion1, cancion2} from "../src/index";
 import { Metal, Rock, RyB, Soul, Pop} from "../src/index";
 import { artista1, grupo1} from "../src/index";

@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { GenerosMusicales } from "../src/clases/generosMusicales";
+import { GenerosMusicales } from "../src/clases/clases-bases/generosMusicales";
 import { artista1, grupo1} from "../src/index";
 import { album1 } from "../src/index";
 import { playlist1 } from "../src/index";

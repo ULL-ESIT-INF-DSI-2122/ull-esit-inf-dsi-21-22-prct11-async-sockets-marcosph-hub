@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { Artistas } from "../src/clases/artistas";
+import { Artistas } from "../src/clases/clases-bases/artistas";
 import { artista1, grupo1} from "../src/index";
 import { album1 } from "../src/index";
 import { playlist1 } from "../src/index";
