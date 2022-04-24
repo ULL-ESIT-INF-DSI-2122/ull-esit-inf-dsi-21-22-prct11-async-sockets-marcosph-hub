@@ -153,7 +153,8 @@ class NoteOperations {
                     if (fs_1.default.existsSync(`./Notes/${argv.user}/${argv.title}.json`)) {
                         const JSONcontent = {
                             title: argv.title.toString(),
-                            content: argv.content.toString()
+                            content: argv.content.toString(),
+                            color: argv.color.toString()
                         };
                         const JSONdata = JSON.stringify(JSONcontent, null, 1);
                         fs_1.default.writeFile(`./Notes/${argv.user}/${argv.title}.json`, JSONdata, (err) => {
@@ -192,16 +193,6 @@ class NoteOperations {
                     demandOption: true,
                     type: 'string',
                 },
-                content: {
-                    describe: 'Note content',
-                    demandOption: false,
-                    type: 'string',
-                },
-                color: {
-                    describe: 'Note color',
-                    demandOption: false,
-                    type: 'string'
-                }
             },
             handler(argv) {
                 if (typeof argv.user === 'string' && typeof argv.title === 'string') {
@@ -245,8 +236,8 @@ class NoteOperations {
                             const NoteContent = fs_1.default.readFileSync(`./Notes/${argv.user}/${userNote}`);
                             const JSONdata = JSON.parse(String(NoteContent));
                             const ListedNote = new NoteClass_1.BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color);
-                            //console.log(chalk.keyword(`${JSONdata.color}`)("prueba"))
-                            console.log(chalk_1.default.keyword(`orange`)(`${JSONdata.title}`));
+                            console.log(chalk_1.default.keyword(`${JSONdata.color}`)("prueba"));
+                            //console.log(chalk.keyword(`orange`)(`${JSONdata.title}`));
                             return 1;
                         });
                     }
