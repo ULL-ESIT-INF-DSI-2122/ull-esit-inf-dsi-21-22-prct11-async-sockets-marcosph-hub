@@ -7,6 +7,9 @@
 ## Introducción.
 El objetivo de esta práctica será crear una aplicacion haciendo uso de la **API síncrona proporcionada por Node.js para trabajar con el sistema de ficheros.** y el uso de módulos de _Yargs_ y _Chalk_.
 
+### GitHub Actions
+![Github actions](../img/ghactions.PNG)
+
 ## Funcionamiento de la aplicación
 Para ejecutar el programa se hace uso del comando de ejecucion `node` de manera que para poder usar la aplicación se ejecutará de la siguiente forma:
 > node dist/index.js [command] [...options]
