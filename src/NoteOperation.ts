@@ -51,7 +51,7 @@ export class NoteOperations {
          * using the handler the function will check if all data are strings and check if the directory of the User exist
          */
         if (typeof argv.user === 'string' && typeof argv.title === 'string' && typeof argv.content === 'string' && typeof argv.color === 'string') {
-          let userNote = new BasicNote(argv.user, argv.title, argv.content, argv.color);
+          
           /**
            * If the User directory does not exist with fs it will be created
            */
@@ -125,6 +125,7 @@ export class NoteOperations {
       },
       handler(argv) {
         if(typeof argv.user === 'string' && typeof argv.title === 'string' && typeof argv.content === 'string' && typeof argv.color === 'string') {
+          let userNote = new BasicNote(argv.user, argv.title, argv.content, argv.color);
           if(fs.existsSync(`./Notes/${argv.user}/${argv.title}.json`)) {
             const JSONcontent = {
               title: argv.title.toString(),
@@ -169,6 +170,8 @@ export class NoteOperations {
       },
       handler(argv) {
         if(typeof argv.user === 'string' && typeof argv.title === 'string') {
+          let userNote = new BasicNote(argv.user, argv.title);
+
           if(fs.existsSync(`./Notes/${argv.user}/${argv.title}.json`)) {  
             fs.rm(`./Notes/${argv.user}/${argv.title}.json`, { recursive: true },(err) => {
               if(err) {
@@ -207,9 +210,14 @@ export class NoteOperations {
             fs.readdirSync(`./Notes/${argv.user}`).forEach((userNote) => {
               const NoteContent = fs.readFileSync(`./Notes/${argv.user}/${userNote}`);
               const JSONdata = JSON.parse(String(NoteContent));
-              const ListedNote = new BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color);
-              console.log(chalk.keyword(`${JSONdata.color}`)("prueba"))
-              //console.log(chalk.keyword(`orange`)(`${JSONdata.title}`));
+              //const ListedNote = new BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color);
+              //console.log(chalk.keyword(`${JSONdata.color}`)("prueba"))
+              printColor(JSONdata.color,JSONdata.title);
+              //const chalkcolor = `orange`;
+              //const JSONcolor =  String(JSONdata.color)
+              //console.log(chalk.keyword(JSONcolor)(`${JSONcolor} ${typeof JSONcolor}`))
+              //console.log(chalk.keyword(`${chalkcolor}`)(`${JSONdata.title}`))
+              
               return 1;
             });
           } else {
@@ -246,11 +254,8 @@ export class NoteOperations {
             const NoteContent = fs.readFileSync(`./Notes/${argv.user}/${argv.title}.json`);
             const JSONdata = JSON.parse(NoteContent.toString());
             const usernote = new BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color)
-            
-            //console.log(chalk[`${JSONdata.color}`](JSONdata.title));
-            //console.log(chalk.keyword(usernote.getColor())(usernote.getContent()))
-            console.log(chalk.bold.yellow(`${usernote.getTitle()}`))
-            console.log(chalk.grey(`${usernote.getContent()}`))
+            printColor(JSONdata.color,JSONdata.title)
+            printColor(JSONdata.color,JSONdata.content)
             return console.log(chalk.greenBright("Note has been readed"));
           }
           else { 
@@ -261,3 +266,16 @@ export class NoteOperations {
     });
   }
 }
+
+function printColor(color:string, cadena:string) {
+  if (color === 'red' || color === 'Red') {
+    console.log(chalk.redBright(cadena));
+  } else if (color === 'green' || color === 'Green') {
+    console.log(chalk.greenBright(cadena));
+  } else if (color === 'blue' || color === 'Blue') {
+    console.log(chalk.blueBright(cadena));
+  } else if (color === 'yellow' || color === 'Yellow') {
+    console.log(chalk.yellowBright(cadena));
+  }
+}
+

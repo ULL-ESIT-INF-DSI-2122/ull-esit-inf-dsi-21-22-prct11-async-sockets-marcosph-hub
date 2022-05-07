@@ -76,7 +76,6 @@ class NoteOperations {
                  * using the handler the function will check if all data are strings and check if the directory of the User exist
                  */
                 if (typeof argv.user === 'string' && typeof argv.title === 'string' && typeof argv.content === 'string' && typeof argv.color === 'string') {
-                    let userNote = new NoteClass_1.BasicNote(argv.user, argv.title, argv.content, argv.color);
                     /**
                      * If the User directory does not exist with fs it will be created
                      */
@@ -150,6 +149,7 @@ class NoteOperations {
             },
             handler(argv) {
                 if (typeof argv.user === 'string' && typeof argv.title === 'string' && typeof argv.content === 'string' && typeof argv.color === 'string') {
+                    let userNote = new NoteClass_1.BasicNote(argv.user, argv.title, argv.content, argv.color);
                     if (fs_1.default.existsSync(`./Notes/${argv.user}/${argv.title}.json`)) {
                         const JSONcontent = {
                             title: argv.title.toString(),
@@ -196,6 +196,7 @@ class NoteOperations {
             },
             handler(argv) {
                 if (typeof argv.user === 'string' && typeof argv.title === 'string') {
+                    let userNote = new NoteClass_1.BasicNote(argv.user, argv.title);
                     if (fs_1.default.existsSync(`./Notes/${argv.user}/${argv.title}.json`)) {
                         fs_1.default.rm(`./Notes/${argv.user}/${argv.title}.json`, { recursive: true }, (err) => {
                             if (err) {
@@ -235,9 +236,13 @@ class NoteOperations {
                         fs_1.default.readdirSync(`./Notes/${argv.user}`).forEach((userNote) => {
                             const NoteContent = fs_1.default.readFileSync(`./Notes/${argv.user}/${userNote}`);
                             const JSONdata = JSON.parse(String(NoteContent));
-                            const ListedNote = new NoteClass_1.BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color);
-                            console.log(chalk_1.default.keyword(`${JSONdata.color}`)("prueba"));
-                            //console.log(chalk.keyword(`orange`)(`${JSONdata.title}`));
+                            //const ListedNote = new BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color);
+                            //console.log(chalk.keyword(`${JSONdata.color}`)("prueba"))
+                            printColor(JSONdata.color, JSONdata.title);
+                            //const chalkcolor = `orange`;
+                            //const JSONcolor =  String(JSONdata.color)
+                            //console.log(chalk.keyword(JSONcolor)(`${JSONcolor} ${typeof JSONcolor}`))
+                            //console.log(chalk.keyword(`${chalkcolor}`)(`${JSONdata.title}`))
                             return 1;
                         });
                     }
@@ -273,10 +278,8 @@ class NoteOperations {
                         const NoteContent = fs_1.default.readFileSync(`./Notes/${argv.user}/${argv.title}.json`);
                         const JSONdata = JSON.parse(NoteContent.toString());
                         const usernote = new NoteClass_1.BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color);
-                        //console.log(chalk[`${JSONdata.color}`](JSONdata.title));
-                        //console.log(chalk.keyword(usernote.getColor())(usernote.getContent()))
-                        console.log(chalk_1.default.bold.yellow(`${usernote.getTitle()}`));
-                        console.log(chalk_1.default.grey(`${usernote.getContent()}`));
+                        printColor(JSONdata.color, JSONdata.title);
+                        printColor(JSONdata.color, JSONdata.content);
                         return console.log(chalk_1.default.greenBright("Note has been readed"));
                     }
                     else {
@@ -288,3 +291,17 @@ class NoteOperations {
     }
 }
 exports.NoteOperations = NoteOperations;
+function printColor(color, cadena) {
+    if (color === 'red' || color === 'Red') {
+        console.log(chalk_1.default.redBright(cadena));
+    }
+    else if (color === 'green' || color === 'Green') {
+        console.log(chalk_1.default.greenBright(cadena));
+    }
+    else if (color === 'blue' || color === 'Blue') {
+        console.log(chalk_1.default.blueBright(cadena));
+    }
+    else if (color === 'yellow' || color === 'Yellow') {
+        console.log(chalk_1.default.yellowBright(cadena));
+    }
+}
