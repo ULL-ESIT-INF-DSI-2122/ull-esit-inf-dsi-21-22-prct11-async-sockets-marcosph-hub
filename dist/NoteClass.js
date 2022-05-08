@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BasicNote = void 0;
+//export type ChalkColor = "red" | "green" | "blue" | "yellow";
 /**
  * @class BasicNote Represent the data structure of a note.
  */

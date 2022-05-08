@@ -1,8 +1,8 @@
 {
     "entryPoints": [
-        "./src/index.ts",
-        "./src/NoteClass.ts",
-        "./src/NoteOperation.ts"
+        "./src/Client/clientNote.ts",
+        "./src/Server/NoteOperations.ts",
+        "./src/Server/server.ts"
     ],
     "out": "./typedoc"
 }

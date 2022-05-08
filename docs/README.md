@@ -1,314 +1,176 @@
-# Práctica 9 - Aplicación de procesamiento de notas de texto
+# Práctica 11. Cliente y servidor para una aplicación de procesamiento de notas de texto.
 
-## Introducción.
-El objetivo de esta práctica será crear una aplicacion haciendo uso de la **API síncrona proporcionada por Node.js para trabajar con el sistema de ficheros.** y el uso de módulos de _Yargs_ y _Chalk_.
 
-### GitHub Actions
-![Github actions](../img/ghactions.PNG)
 
-## Funcionamiento de la aplicación
-Para ejecutar el programa se hace uso del comando de ejecucion `node` de manera que para poder usar la aplicación se ejecutará de la siguiente forma:
-> node dist/index.js [command] [...options]
-
-El resultado de la órden será la ejecución de uno de los comandos soportados por la aplicación:
-
-``` bash
-[~/DSI/p9(main)]$node dist/index.js add --user="Marcos" --title="Note2" --content="This is the note 2" --color="Yellow"
-````
-El cual creará un directorio para cada usuario y la nota con el titulo, el contenido y el color especificado:
-![Listado de notas para un usuario](../img/note-dir.PNG)
-![Ejemplo de nota](../img/note2json.PNG)
-
-## Índex.ts
-Éste fichero contiene la creación de un objeto de tipo `NoteOperations` el cual se explicará más adelante.
+## **Cliente**
+Primero se ha creado un tipo de dato personalizado para anotar los _Requests_ del cliente
 ```ts
-const Note = new NoteOperations;
-```  
-Se trata de un objeto que hará de manejador de las principales operaciones de manipulación y gestión de notas.
-```ts
-Note.AddNote();
-Note.ModifyNote();
-Note.DeleteNote();
-Note.ListUserNotes()
-Note.ReadNote();
+export type RequestType = {
+  command: 'add' | 'modify' | 'delete' | 'list' | 'read' | undefined,
+  user: string,
+  title?: string,
+  content?: string,
+  color?: string
+}
 ```
-## NoteClass.ts
-Éste fichero se encarga de reperesentar en un objeto una nota creada por el usuario.
 
+### **Conexión con el servidor**
+Gracias al uso del módulo `net` se hace una conexión con el servidor mediante un objeto `Socket` al que se le ha especificado el puerto de conexión.
 ```ts
-  constructor(private user: string, private title: string, private content: string, private color: string,  ){}
+const CLIENT = net.connect({port: 60300});
 ```
-Construido a base de los datos basicos para la creación de una nota: _Usuario_, _Título_, _Contenido_ y _Color_.
-
-Tambíen tiene una serie de _Getters_ para la manipulación de los datos del objeto
-```ts  
-getUser(){
-  return this.user;
+A continuación se recoge la información de los posibles comandos soportados mediante el método `command` de `yargs`. Éstos comandos soportados por la aplicación son:
+* **Add**. Para crear una nota.
+* **Modify**. Para modificar una nota.
+* **Delete**. Para borrar una nota.
+* **List**. Para listar todas las notas de un usuario.
+* **Read**. Para leer el contenido de una nota de un usuario.
+A continuación se hace uso de la propiedad `handler` para poder procesar los datos pasados como opciones del comando por consola. A partir de estos se crea el cuerpo de la _request_ hacia el servidor 
+```ts
+clientRequest = {
+  command: 'add',
+  user: argv.user,
+  title: argv.title,
+  content: argv.content,
+  color: argv.color
 }
-getTitle(){
-  return this.title;
-}
-getContent() {
-  return this.content;
-}
-  ...
-  ```
-## NoteOperations.ts
-Dicho fichero contiene todas las implementaciones de las posibles operaciones para la gestión y manipulación de notas. A través de estas funciones que hacen dichas operaciones se hace uso del módulo `Yargs` para el manejo de comandos.
+```
+Lo siguiente será mandar dicha request hacia el servidor recogiendo la request del cliente y serializando la información en un `JSON` mediante su método `stringfy` y manejando posibles errores.
 
-### AddNote().
-Éste método se encargará de la creación de Notas para un usuario en específico.
-````ts
-yargs.command({
-      command: 'add',
-      describe: 'Allows to create a new note',
-      builder: {
-        user: {
-          describe: 'User Name',
-          demandOption: true,
-          type: 'string'
-        },
-        title: {
-          describe: 'Note title',
-          demandOption: true,
-          type: 'string',
-        },
-        content: {
-          describe: 'Note content',
-          demandOption: true,
-          type: 'string',
-        },
-        color: {
-          describe: 'Note color',
-          demandOption: true,
-          type: 'string'
-        }
-      },
-````
-
-Lo primero es recoger los datos dado a través de la terminal para crear la estructura de una nota, en este caso se ve como se pide datos para _Usuario_, _Título_, _Contenido_ y _Color_ que trandrán que ser de tipo `string`.  
-Éstos datos se quedarán almacenado en un dato _argv_
-````ts
-handler(argv) {
-  if (typeof argv.user === 'string' && typeof argv.title === 'string' && typeof argv.content === 'string' && typeof argv.color === 'string') {
-    let userNote = new BasicNote(argv.user, argv.title, argv.content, argv.color);
-
-    ...
+```ts 
+CLIENT.write(JSON.stringify(clientRequest),(err) => {
+  if (err) {
+    console.error(chalk.red(`Cannot send the Note Request to Server. Try it again...`));
   }
+});
+```
+Cuando el servidor recoge la petición del cliente y procesa toda la información devuelve un `Response` que es captado por `listener` anotado como `data` este recoge la respuesta del servidor y procesa la información de la manera adecuada.
+```ts
+CLIENT.on('data', (serverResponse) => {
+  const JSON_SERVER_RESPONSE = JSON.parse(String(serverResponse));
+  
+  if(JSON_SERVER_RESPONSE.flag === true) {
+    console.log(chalk.bold.greenBright(`SERVER Message: ${JSON_SERVER_RESPONSE.serverMessage}`))
+  } else {
+  console.log(chalk.bold.red(`SERVER ERROR: ${JSON_SERVER_RESPONSE.serverMessage}`))
+  }
+  {...}
+```
+
+## **Servidor**
+El servidor se enccargará de recoger la petición del cliente y de hacer persitente las notas de cada usuario y su contenido.
+
+Se crea un tipo de dato propio para las `Responses` del servidor .
+```ts
+type ResponseType = {
+  command: string
+  flag: boolean
+  serverMessage?: string
+  noteArray?: string[]
 }
-````
-Lo primero es comprobar si los datos introducidos cumplen con los tipo de valores necesarios en caso afirmativo se creará un objeto de tipo `BasicNote`.
-````ts
-if(!fs.existsSync(`./Notes/${argv.user}`)) {
-  fs.mkdir(`./Notes/${argv.user}`,(err) => {
+```
+
+Y se creará la conexión mediante un objeto `Server` que devuelve un `Socket` ambos objetos de clases Heredadas de `EventEmitter`.
+```ts
+net.createServer((connection) => {...}
+```
+
+Se crea un evento que tiene un escucha hacia el cliente que va a estar esperando por cualquier petición desde el cliente y creará el esqueleto de la response.
+```ts
+connection.on('data', (clientRequest) => {
+const JSON_CLIENT_REQUEST = JSON.parse(String(clientRequest));
+let response: ResponseType = {
+  command: "",
+  flag: false,
+  serverMessage: ""
+}
+```
+
+Aunque el código soporta todos los comandos requeridos se hará un ejemplo con el comando `add`.  
+Lo siguiente será comprobar el comando que el cliente ha instroducido mediante un `swtich` que llamará a un método encargado de, a partir de la información proporcionada por la request del cliente procesar todos los datos y gestionar la nota, una vez se haya gestionado toda la información en las notas de interés se crea la response del servidor que será enviado al cliente.
+```ts
+switch (JSON_CLIENT_REQUEST.command) {
+  case 'add': {
+    if (AddNote(JSON_CLIENT_REQUEST)) {
+      response.command = 'add'
+      response.flag = true;
+      response.serverMessage = `New note from ${JSON_CLIENT_REQUEST.user} added!!`;
+    } else {
+      response.command = 'add'
+      response.flag = false;
+      response.serverMessage = `Cannot create Note. Try again...`;
+    }
+  } 
+    break;
+```
+
+Aunque eñ código soporta todos los comandos requeridos se hará un ejemplo con el comando `add`.
+
+Cuando se consigue crear la response completa se envía hacia el cliente dicha respuesta que como se ha explicado anteriormente ésta procesará la respuesta y la comunicará por consola al usuario.
+
+```ts
+connection.write(JSON.stringify(response),(err) => {
+  if(err) {
+    console.error(chalk.redBright.bold("SERVER: Cannot send response"))
+  } else {
+    console.log(chalk.bold.greenBright("SERVER: Response sent to client."))
+  }
+});
+```
+
+Se maneja posibles errores y tiene un escucha para cuando un cliente cierra la comunicación.
+
+```ts
+  connection.on('error', (err) => {
+    if (err) {
+      console.error(chalk.redBright.bold('Connection failed. Try again...'));
+    }
+  });
+/**
+ * @event close Report the end of the connection between server and a client
+ */
+  connection.on('close', () => {
+    console.log(chalk.green.bold(`Client disconnected.`));
+  });
+```
+
+## **Funciones gestoras de Notas**
+Se hace uso de una serie de funciones de apoyos para el servidor que se encargan de gestionar y hacer persitentes los datos propiciados por el cliente.
+
+```ts
+export function AddNote(JSONFile: any): boolean {
+if(!fs.existsSync(`./Notes/${JSONFile.user}`)) {
+  fs.mkdir(`./Notes/${JSONFile.user}`,(err) => {
     if(err){
       console.error(chalk.redBright("An error have been ocurred. Try again..."));
-      return 0;
+      return false;
     }
   });
 }
-````
-
-Lo siguiente será comprobar la existencia del directorio personal del usuario, en caso de que no exista mediante la API de manejo de ficheros `fs.mkdir` se creará el directorio personal.
-
-````ts
-if(!fs.existsSync(`./Notes/${argv.user}/${argv.title}`)) {
+if(!fs.existsSync(`./Notes/${JSONFile.user}/${JSONFile.title}`)) {
   const JSONcontent = {
-    title: argv.title.toString(),
-    content: argv.content.toString(),
-    color: argv.color.toString()
+    title: JSONFile.title.toString(),
+    content: JSONFile.content.toString(),
+    color: JSONFile.color.toString()
   }
-````
-
-Luego se comprueba la existencia de la nota que ha introducido el usuario mediante su título. En caso de no existir se procede a la creación de ésta creando un `JSON` con la infromación introducida por el usuario.
-````ts
-fs.writeFile(`./Notes/${argv.user}/${argv.title}.json`, JSONdata, (err) => {
-  if(err) {
-    console.error(chalk.redBright("An error have been ocurred. Try again..."));
-    return 0;
-  } else {
-    console.log(chalk.greenBright(`New note from ${argv.user} added!!`));
-    return 1;
-  }
-});
-````
-Se procede a crear dicha Nota que se trata de un archivo `JSON` con todos los datos introducidos por el usuario.
-
-
-### ModifyNote()
-Éste método tiene la funcionalidad de modificar una nota creada.
-````ts
-yargs.command({
-  command: 'modify',
-  describe: 'Modify a created note',
-  builder: {
-    user: {
-      describe: 'Note owner',
-      demandOption: true,
-      type: 'string',
-    },
-    title: {
-      describe: 'Note title',
-      demandOption: true,
-      type: 'string',
-    },
-    content: {
-      describe: 'Note content',
-      demandOption: true,
-      type: 'string',
-    },
-    color: {
-      describe: 'Note color',
-      demandOption: true,
-      type: 'string'
+  const JSONdata = JSON.stringify(JSONcontent,null,1)
+  fs.writeFile(`./Notes/${JSONFile.user}/${JSONFile.title}.json`, JSONdata, (err) => {
+    if(err) {
+      console.error(chalk.redBright("An error have been ocurred. Try again..."));
+      return false;
+    } else {
+      console.log(chalk.greenBright(`New note from ${JSONFile.user} added!!`));
+      return true;
     }
-  },
-````
-Primero se solicita los datos necesarios para la modificación de una notra especifica.
-````ts
-if(fs.existsSync(`./Notes/${argv.user}/${argv.title}.json`)) {
-  const JSONcontent = {
-    title: argv.title.toString(),
-    content: argv.content.toString(),
-    color: argv.color.toString()
-  }
-````
-Luego se comprueba si existe la nota con el título especificado, en cuyo caso se crea una variable `JSON` que almacena la nueva información.
-
-````ts
-const JSONdata = JSON.stringify(JSONcontent,null,1);
-fs.writeFile(`./Notes/${argv.user}/${argv.title}.json`, JSONdata, (err) => {
-  if(err) {
-    console.error(chalk.redBright("Something went wrong, try again"));
-    return 0;
-  } else {
-    console.log(chalk.greenBright(`Note ${argv.title} was modified`));
-    return 1;
-  }
-});
-````
-La cual se escribirá en el fichero reemplazando la antigua.
-
-### DeleteNote()
-
-Éste método se encargará de buscar una nota mediante su título de un usuario y eliminarla del directorio personal
-
-````ts 
-yargs.command({
-  command: 'delete',
-  describe: 'Delete a specific Note',
-  builder: {
-    user: {
-      describe: 'User Name',
-      demandOption: true,
-      type: 'string'
-    },
-    title: {
-      describe: 'Note title',
-      demandOption: true,
-      type: 'string',
-    },
-  },
-`````
-Para ello se solicita los datos necesarios.
-````ts 
-if(typeof argv.user === 'string' && typeof argv.title === 'string') {...}
-````
-Se comprueba los tipos de datos de los parametros pasados por consola.
-
-````ts 
-fs.rm(`./Notes/${argv.user}/${argv.title}.json`, { recursive: true },(err) => {
-  if(err) {
-    console.error(chalk.redBright("Something went wrong, try again"));
-    return 0;
-  } else {
-    console.log(chalk.greenBright(`Note ${argv.title} was delete`))
-    return 1;
-  }
-});
-````
-Mediante la función de `fs` para borrar `fs.rm` se puede borrar un archivo en concreto.
-
-### ListUserNotes()
-La funcionalidad de éste método será listar todas las notas de un determinado usuario.
-````ts 
-yargs.command({
-  command: 'list',
-  describe: 'List every notes of a specific user',
-  builder: {
-    user: {
-      describe: 'User Name',
-      demandOption: true,
-      type: 'string'
-    }
-  },
-````
-Se obtienen todos los datos necesarios, en este caso solo hará falta el nombre del usuario creador de la nota.
-````ts 
-  if(fs.readdirSync(`./Notes/${argv.user}`)) { ... }
-````
-Se comprueba la existencia de un directorio personal no vacío.
-````ts 
-fs.readdirSync(`./Notes/${argv.user}`).forEach((userNote) => {
-  const NoteContent = fs.readFileSync(`./Notes/${argv.user}/${userNote}`);
-  const JSONdata = JSON.parse(String(NoteContent));
-  const ListedNote = new BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color);
-  //console.log(chalk.keyword(`${JSONdata.color}`)("prueba")) <-- TODO:
-  console.log(chalk.keyword(`orange`)(`${JSONdata.title}`));
-  return 1;
-});
-````
-Se obtienen todas las posibles notas creadas por un usuario mediante la función `fs.readdirSync` que devuelve un `Array de string`, debido a esto se recorre cada posición del Array que contiene un fichero JSON y se procesa los datos para tenerlos guardados en una variable local de tipo `string` para poder manejarlos.
-Una vez hecho esto solo se tendra que mostrar el título de cada Nota.  
-**Problema:** la práctica solicita que se listen con los colores del usuario, esto ha sido un problema y se ha dejado un color fijo para poder sacar la aplicacion:
-**ERROR:** 
-````bash
-/home/usuario/DSI/p9/node_modules/yargs/build/index.cjs:1
-"use strict";var t=require("assert");class e extends Error{constructor(t){super(t||"yargs error"),this.name="YError",Error.captureStackTrace(this,e)}}let s,i=[];function n(t,o,a,h){s=h;let l={};if(Object.prototype.hasOwnProperty.call(t,"extends")){if("string"!=typeof t.extends)return l;const r=/\.json|\..*rc$/.test(t.extends);let h=null;if(r)h=function(t,e){return s.path.resolve(t,e)}(o,t.extends);else try{h=require.resolve(t.extends)}catch(e){return t}!function(t){if(i.indexOf(t)>-1)throw
-````
-
-### ReadNote()
-
-La funcionalidad de éste método será leer el contenido de una nota especifica.
-````ts
-yargs.command({
-  command: 'read',
-  describe: 'Read a note of a specific user',
-  builder: {
-    user: {
-      describe: 'User Name',
-      demandOption: true,
-      type: 'string'
-    },
-    title: {
-      describe: 'Note title',
-      demandOption: true,
-      type: 'string'
-    }
-  },
-````
-Obtenemos los datos necesarios.
-````ts
-if(fs.existsSync(`./Notes/${argv.user}/${argv.title}.json`)) {
-  const NoteContent = fs.readFileSync(`./Notes/${argv.user}/${argv.title}.json`);
-  const JSONdata = JSON.parse(NoteContent.toString());
-  const usernote = new BasicNote(JSONdata.user, JSONdata.title, JSONdata.content, JSONdata.color)
-  ...
+  });
 }
-````
-En caso de que la nota exista y sea la de interés se volcará la información en una variable con todos los datos en un tipo `string`.
+```
+## **Probando los comandos**
 
-````ts
-  //console.log(chalk[`${JSONdata.color}`](JSONdata.title)); <-- TODO:>
-  //console.log(chalk.keyword(usernote.getColor())(usernote.getContent())) <-- TODO:>
-  console.log(chalk.bold.yellow(`${usernote.getTitle()}`))
-  console.log(chalk.grey(`${usernote.getContent()}`))
-  return console.log(chalk.greenBright("Note has been readed"));
-````
+![Ejemplo de salida de comandos](../img/salidacomandos.png)
 
-Se mostrará por pantalla el contenido de dicha nota.
-**Problema:** la práctica solicita que se muestre el contenido de las notas con los colores del usuario, esto ha sido un problema y se ha DEJADO un color fijo para poder sacar la aplicacion:
-**ERROR:** 
-````bash
-/home/usuario/DSI/p9/node_modules/yargs/build/index.cjs:1
-"use strict";var t=require("assert");class e extends Error{constructor(t){super(t||"yargs error"),this.name="YError",Error.captureStackTrace(this,e)}}let s,i=[];function n(t,o,a,h){s=h;let l={};if(Object.prototype.hasOwnProperty.call(t,"extends")){if("string"!=typeof t.extends)return l;const r=/\.json|\..*rc$/.test(t.extends);let h=null;if(r)h=function(t,e){return s.path.resolve(t,e)}(o,t.extends);else try{h=require.resolve(t.extends)}catch(e){return t}!function(t){if(i.indexOf(t)>-1)throw
+
+
+## INCOMPLETO NO TIENE TESTS!!!!
+Debido a la hora de entrega de la práctica y la "complejidad" que ha supuesto a nivel personal el desarollo de tests asíncronos se han eliminado los pocos tests que daban todos error, PERO LA PRÁCTICA ES FUNCIONAL.   
+Disculpe las molestias.
